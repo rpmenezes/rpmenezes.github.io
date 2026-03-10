@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Videos - Ronaldo Menezes</title>
+    <link rel="stylesheet" href="styles.css?v=4">
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="site-header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <h1>Ronaldo Menezes</h1>
+                    <p class="nav-subtitle">Professor of Data and Network Science</p>
+                </div>
+                <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item-dropdown">
+                        <a href="research.html" class="nav-link">Research</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="research.html#research-interests">Interests</a></li>
+                            <li><a href="research.html#publications">Publications</a></li>
+                            <li><a href="research.html#network">Collaboration Network</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item-dropdown">
+                        <a href="scholarly-engagement.html" class="nav-link">Scholarly Engagement</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="scholarly-engagement.html#editorial">Editorial Activity</a></li>
+                            <li><a href="scholarly-engagement.html#research">Projects</a></li>
+                            <li><a href="scholarly-engagement.html#students">Supervision</a></li>
+                            <li><a href="scholarly-engagement.html#collaborators">Selected Collaborators</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item-dropdown">
+                        <a href="about.html" class="nav-link">About Me</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="about.html#biography">Biography</a></li>
+                            <li><a href="about.html#about-me">About Me</a></li>
+                            <li><a href="about.html#passions">Passions</a></li>
+                            <li><a href="about.html#favourites">Favourites</a></li>
+                            <li><a href="about.html#motto">Personal Motto</a></li>
+                            <li><a href="about.html#contact">Contact</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="videos.html" class="nav-link active">Videos</a></li>
+                    <li><a href="cv.html" class="nav-link">CV</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Videos</h1>
+                <div class="title-divider"></div>
+            </div>
+        </section>
+
+        <section id="notebooklm-presentations" class="content-section">
+            <h2>Presentations about Recent Works</h2>
+            <p class="section-sub-italic">(using NotebookLM)</p>
+            <p class="section-sub-italic">(full playlist available <a href="https://www.youtube.com/playlist?list=PLL_czV5M6TkH6dYjYANrN2pi8lnbiD5-H" target="_blank">here</a>)</p>
+            <p class="section-sub-italic"><span id="notebooklm-updated"></span></p>
+            <ul class="video-list" id="notebooklm-list">
+                <li class="video-list-loading">Loading...</li>
+            </ul>
+        </section>
+
+        <section id="professional-presentations" class="content-section">
+            <h2>Professional Presentations</h2>
+            <p class="section-sub-italic"><span id="professional-updated"></span></p>
+            <ul class="video-list" id="professional-list">
+                <li class="video-list-loading">Loading...</li>
+            </ul>
+        </section>
+
+        <section id="off-the-clock" class="content-section">
+            <h2>Learning to Play the Guitar</h2>
+            <p class="section-sub-italic">(8 most viewed on YouTube)</p>
+            <p class="section-sub-italic">(full playlist available <a href="https://www.youtube.com/playlist?list=PLL_czV5M6TkEhcd81hnsFBQ8qBLyyCpdH" target="_blank">here</a>)</p>
+            <p class="section-sub-italic"><span id="guitar-updated"></span></p>
+            <ul class="video-list" id="guitar-list">
+                <li class="video-list-loading">Loading...</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Ronaldo Menezes | University of Exeter | Department of Computer Science</p>
+    </footer>
+
+    <canvas id="network-bg"></canvas>
+    <script src="network-animation.js"></script>
+    <script>
+        const toggle = document.querySelector('.nav-toggle');
+        const menu = document.querySelector('.nav-menu');
+        toggle.addEventListener('click', () => {
+            const open = menu.classList.toggle('nav-open');
+            toggle.setAttribute('aria-expanded', open);
+        });
+        menu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.remove('nav-open');
+                toggle.setAttribute('aria-expanded', false);
+            });
+        });
+    </script>
+    <script>
+        function parseNotebookLMDescription(description) {
+            const titleMatch = description.match(/Title:\s*(.+?)(?=\s*Authors:|$)/s);
+            const authorsMatch = description.match(/Authors:\s*(.+?)(?=\s*DOI:|$)/s);
+            const doiMatch = description.match(/DOI:\s*(https?:\/\/\S+)/);
+
+            const title = titleMatch ? titleMatch[1].trim() : '';
+            const authors = authorsMatch ? authorsMatch[1].trim() : '';
+            const doi = doiMatch ? doiMatch[1].trim() : '';
+
+            return { title, authors, doi };
+        }
+
+        async function loadNotebookLMPlaylist() {
+            const list = document.getElementById('notebooklm-list');
+            try {
+                const res = await fetch('data/auto/notebooklm-playlist.json?v=' + Date.now());
+                if (!res.ok) throw new Error();
+                const data = await res.json();
+                const videos = data.videos || [];
+                if (videos.length === 0) throw new Error();
+
+                                if (data.updated) {
+                    const d = new Date(data.updated);
+                    const dateStr = '(last updated: ' + d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }) + ')';
+                    document.getElementById('notebooklm-updated').textContent = dateStr;
+                }
+                list.innerHTML = videos.map(v => {
+                    const { title, authors, doi } = parseNotebookLMDescription(v.description);
+                    const authorsHtml = authors
+                        ? authors.replace(/Ronaldo Menezes/g, '<span class="pub-author-self">Ronaldo Menezes</span>')
+                        : '';
+                    const doiHtml = doi
+                        ? `<span class="video-list-artist" style="display:block">DOI: <a href="${doi}" target="_blank" class="doi-link">${doi}</a></span>`
+                        : '';
+                    return `<li class="video-list-item">
+                        <div class="video-title-row">
+                            <a href="${v.url}" target="_blank" class="video-title-link">
+                                ${title || v.rawTitle}
+                            </a>
+                            <span class="video-list-right">
+                                ${v.viewCount ? `<span class="video-view-count">${v.viewCount.toLocaleString('en-GB')} views</span>` : ''}
+                                <span class="video-list-arrow">↗&#xFE0E;</span>
+                            </span>
+                        </div>
+                        <span class="video-list-artist">${authorsHtml}</span>
+                        ${doiHtml}
+                    </li>`;
+                }).join('');
+            } catch(e) {
+                list.innerHTML = '<li class="video-list-loading">Unable to load videos. <a href="https://www.youtube.com/playlist?list=PLL_czV5M6TkH6dYjYANrN2pi8lnbiD5-H" target="_blank">View playlist on YouTube</a>.</li>';
+            }
+        }
+        loadNotebookLMPlaylist();
+    </script>
+    <script>
+        async function loadProfessionalPlaylist() {
+            const list = document.getElementById('professional-list');
+            try {
+                const res = await fetch('data/auto/professional-playlist.json?v=' + Date.now());
+                if (!res.ok) throw new Error();
+                const data = await res.json();
+                const videos = data.videos || [];
+                if (videos.length === 0) throw new Error();
+
+                                if (data.updated) {
+                    const d = new Date(data.updated);
+                    const dateStr = '(last updated: ' + d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }) + ')';
+                    document.getElementById('professional-updated').textContent = dateStr;
+                }
+                list.innerHTML = videos.map(v => {
+                    const views = v.viewCount ? v.viewCount.toLocaleString('en-GB') + ' views' : '';
+                    return `
+                    <li class="video-list-item">
+                        <div class="video-title-row">
+                            <a href="${v.url}" target="_blank" class="video-title-link">${v.rawTitle}</a>
+                            <span class="video-list-right">
+                                ${views ? `<span class="video-view-count">${views}</span>` : ''}
+                                <span class="video-list-arrow">↗&#xFE0E;</span>
+                            </span>
+                        </div>
+                    </li>`}).join('');
+            } catch(e) {
+                list.innerHTML = '<li class="video-list-loading">Unable to load videos.</li>';
+            }
+        }
+        loadProfessionalPlaylist();
+
+        function parseVideoTitle(rawTitle) {
+            let title = rawTitle.trim();
+            title = title.replace(/^\d+\.\s*/, '');
+            const parts = title.split(/\.\s+/);
+            const artist = (parts[0] || '').trim();
+            let song = parts.slice(1).join('. ').trim();
+            song = song.replace(/\s*\d{1,2}\/\d{1,2}\/\d{2,4}.*$/, '').trim();
+            song = song.replace(/\s*\(.*$/, '').trim();
+            song = song.replace(/#\S+/g, '').trim();
+            const noise = [/não comercial/gi, /nao comercial/gi, /aprendendo violão/gi, /aprendendo violao/gi, /sem fins comerciais/gi];
+            noise.forEach(n => { song = song.replace(n, '').trim(); });
+            song = song.replace(/[\.\s]+$/, '').trim();
+            return { artist, song };
+        }
+
+        async function loadGuitarPlaylist() {
+            const list = document.getElementById('guitar-list');
+            try {
+                const res = await fetch('data/auto/guitar-playlist.json?v=' + Date.now());
+                if (!res.ok) throw new Error();
+                const data = await res.json();
+                const videos = data.videos || [];
+                if (videos.length === 0) throw new Error();
+
+                                if (data.updated) {
+                    const d = new Date(data.updated);
+                    const dateStr = '(last updated: ' + d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }) + ')';
+                    document.getElementById('guitar-updated').textContent = dateStr;
+                }
+                list.innerHTML = videos.map(v => {
+                    const { artist, song } = parseVideoTitle(v.rawTitle);
+                    const views = v.viewCount ? v.viewCount.toLocaleString('en-GB') + ' views' : '';
+                    return `<li class="video-list-item">
+                        <div class="video-title-row">
+                            <a href="${v.url}" target="_blank" class="video-title-link">${song}</a>
+                            <span class="video-list-right">
+                                ${views ? `<span class="video-view-count">${views}</span>` : ''}
+                                <span class="video-list-arrow">↗&#xFE0E;</span>
+                            </span>
+                        </div>
+                        <span class="video-list-artist">${artist}</span>
+                    </li>`;
+                }).join('');
+            } catch(e) {
+                list.innerHTML = '<li class="video-list-loading">Unable to load videos. <a href="https://www.youtube.com/playlist?list=PLL_czV5M6TkEhcd81hnsFBQ8qBLyyCpdH" target="_blank">View playlist on YouTube</a>.</li>';
+            }
+        }
+        loadGuitarPlaylist();
+    </script>
+
+    <script>
+        // Scroll fade-in
+        const fadeEls = document.querySelectorAll(".content-section, .hero, .highlights, .intro");
+        fadeEls.forEach(el => el.classList.add("fade-in"));
+        setTimeout(() => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(e => {
+                    if (e.isIntersecting) {
+                        e.target.classList.add("visible");
+                        observer.unobserve(e.target);
+                    }
+                });
+            }, { threshold: 0, rootMargin: "200px 0px 0px 0px" });
+            fadeEls.forEach(el => observer.observe(el));
+        }, 50);
+    </script>
+</body>
+</html>

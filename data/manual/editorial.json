@@ -1,0 +1,44 @@
+[
+  {
+    "journal": "Applied Network Science",
+    "url": "https://link.springer.com/journal/41109",
+    "role": "Editor-in-Chief",
+    "publisher": "Springer Nature"
+  },
+  {
+    "journal": "EPJ Data Science",
+    "url": "https://epjdatascience.springeropen.com/",
+    "role": "Associate Editor",
+    "publisher": "Springer Nature"
+  },
+  {
+    "journal": "PLOS One",
+    "url": "https://journals.plos.org/plosone/",
+    "role": "Academic Editor",
+    "publisher": "PLOS"
+  },
+  {
+    "journal": "Entropy",
+    "url": "https://www.mdpi.com/journal/entropy",
+    "role": "Section Board Member",
+    "publisher": "MDPI"
+  },
+  {
+    "journal": "Complexities",
+    "url": "https://www.mdpi.com/journal/complexities",
+    "role": "Editorial Board Member",
+    "publisher": "MDPI"
+  },
+  {
+    "journal": "CompleNet",
+    "url": "https://complenet.weeblysite.com/",
+    "role": "Steering Committee Member",
+    "publisher": "—"
+  },
+  {
+    "journal": "LANET",
+    "url": "http://lanetconference.org/",
+    "role": "Board Member",
+    "publisher": "—"
+  }
+]

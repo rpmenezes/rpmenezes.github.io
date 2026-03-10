@@ -1,0 +1,124 @@
+name: Fetch Video Playlists
+
+on:
+  schedule:
+    - cron: '0 6 * * *'  # Daily at 6am UTC
+  workflow_dispatch:       # Allow manual trigger
+
+jobs:
+  fetch-playlists:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Fetch playlists from YouTube API
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+        run: |
+          python3 - << EOF
+          import urllib.request, json, os, datetime
+
+          api_key = os.environ['YOUTUBE_API_KEY']
+
+          def fetch_playlist(playlist_id, max_results=50):
+              url = ('https://www.googleapis.com/youtube/v3/playlistItems'
+                     '?part=snippet&maxResults=' + str(max_results) +
+                     '&playlistId=' + playlist_id +
+                     '&key=' + api_key)
+              with urllib.request.urlopen(url) as r:
+                  return json.loads(r.read()).get('items', [])
+
+          def fetch_view_counts(video_ids):
+              url = ('https://www.googleapis.com/youtube/v3/videos'
+                     '?part=statistics&id=' + ','.join(video_ids) +
+                     '&key=' + api_key)
+              with urllib.request.urlopen(url) as r:
+                  data = json.loads(r.read())
+              return {v['id']: int(v['statistics'].get('viewCount', 0))
+                      for v in data.get('items', [])}
+
+          os.makedirs('data', exist_ok=True)
+          updated = datetime.datetime.utcnow().isoformat()
+
+          # ── Guitar playlist (sort by most viewed, top 8) ──
+          guitar_items = fetch_playlist('PLL_czV5M6TkEhcd81hnsFBQ8qBLyyCpdH')
+          guitar_ids = [i['snippet']['resourceId']['videoId'] for i in guitar_items]
+          guitar_stats = fetch_view_counts(guitar_ids)
+
+          guitar_videos = []
+          for item in guitar_items:
+              s = item['snippet']
+              vid = s['resourceId']['videoId']
+              guitar_videos.append({
+                  'rawTitle': s['title'],
+                  'videoId': vid,
+                  'url': 'https://www.youtube.com/watch?v=' + vid,
+                  'viewCount': guitar_stats.get(vid, 0),
+              })
+          guitar_videos.sort(key=lambda x: x['viewCount'], reverse=True)
+          guitar_videos = guitar_videos[:8]
+
+          with open('data/auto/guitar-playlist.json', 'w') as f:
+              json.dump({'videos': guitar_videos, 'updated': updated}, f, indent=2)
+          print('Guitar: saved', len(guitar_videos), 'videos')
+
+          # ── Professional playlist (sort by newest, top 5) ──
+          prof_items = fetch_playlist('PLL_czV5M6TkFiY6nctp8mBdF2Q3AmzXmd')
+          prof_ids = [i['snippet']['resourceId']['videoId'] for i in prof_items]
+          prof_stats = fetch_view_counts(prof_ids)
+
+          prof_videos = []
+          for item in prof_items:
+              s = item['snippet']
+              vid = s['resourceId']['videoId']
+              prof_videos.append({
+                  'rawTitle': s['title'],
+                  'videoId': vid,
+                  'url': 'https://www.youtube.com/watch?v=' + vid,
+                  'publishedAt': s['publishedAt'],
+                  'viewCount': prof_stats.get(vid, 0),
+              })
+          prof_videos.sort(key=lambda x: x['publishedAt'], reverse=True)
+          prof_videos = prof_videos[:5]
+
+          with open('data/auto/professional-playlist.json', 'w') as f:
+              json.dump({'videos': prof_videos, 'updated': updated}, f, indent=2)
+          print('Professional: saved', len(prof_videos), 'videos')
+          for v in prof_videos:
+              print(' ', v['publishedAt'][:10], v['rawTitle'])
+
+          # ── NotebookLM playlist (sort by newest, top 5) ──
+          notebooklm_items = fetch_playlist('PLL_czV5M6TkH6dYjYANrN2pi8lnbiD5-H')
+          notebooklm_ids = [i['snippet']['resourceId']['videoId'] for i in notebooklm_items]
+          notebooklm_stats = fetch_view_counts(notebooklm_ids)
+
+          notebooklm_videos = []
+          for item in notebooklm_items:
+              s = item['snippet']
+              vid = s['resourceId']['videoId']
+              notebooklm_videos.append({
+                  'rawTitle': s['title'],
+                  'description': s.get('description', ''),
+                  'videoId': vid,
+                  'url': 'https://www.youtube.com/watch?v=' + vid,
+                  'publishedAt': s['publishedAt'],
+                  'viewCount': notebooklm_stats.get(vid, 0),
+              })
+          notebooklm_videos.sort(key=lambda x: x['publishedAt'], reverse=True)
+          notebooklm_videos = notebooklm_videos[:5]
+
+          with open('data/auto/notebooklm-playlist.json', 'w') as f:
+              json.dump({'videos': notebooklm_videos, 'updated': updated}, f, indent=2)
+          print('NotebookLM: saved', len(notebooklm_videos), 'videos')
+          for v in notebooklm_videos:
+              print(' ', v['publishedAt'][:10], v['rawTitle'])
+          EOF
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/auto/guitar-playlist.json data/auto/professional-playlist.json data/auto/notebooklm-playlist.json
+          git diff --staged --quiet || git commit -m "Update video playlist data"
+          git push

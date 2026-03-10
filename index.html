@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professor - University of Exeter</title>
+    <link rel="stylesheet" href="styles.css?v=4">
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="site-header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <h1>Ronaldo Menezes</h1>
+                    <p class="nav-subtitle">Professor of Data and Network Science</p>
+                </div>
+                <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link active">Home</a></li>
+                    <li class="nav-item-dropdown">
+                        <a href="research.html" class="nav-link">Research</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="research.html#research-interests">Interests</a></li>
+                            <li><a href="research.html#publications">Publications</a></li>
+                            <li><a href="research.html#network">Collaboration Network</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item-dropdown">
+                        <a href="scholarly-engagement.html" class="nav-link">Scholarly Engagement</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="scholarly-engagement.html#editorial">Editorial Activity</a></li>
+                            <li><a href="scholarly-engagement.html#research">Projects</a></li>
+                            <li><a href="scholarly-engagement.html#students">Supervision</a></li>
+                            <li><a href="scholarly-engagement.html#collaborators">Selected Collaborators</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item-dropdown">
+                        <a href="about.html" class="nav-link">About Me</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="about.html#biography">Biography</a></li>
+                            <li><a href="about.html#about-me">About Me</a></li>
+                            <li><a href="about.html#passions">Passions</a></li>
+                            <li><a href="about.html#favourites">Favourites</a></li>
+                            <li><a href="about.html#motto">Personal Motto</a></li>
+                            <li><a href="about.html#contact">Contact</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="videos.html" class="nav-link">Videos</a></li>
+                    <li><a href="cv.html" class="nav-link">CV</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Home Page Content -->
+    <main class="container">
+        <section class="hero">
+            <div class="hero-content">
+                <h1>The greatest equaliser humanity has ever known is the relentless advance of science, shared openly with the world</h1>
+                <div class="title-divider"></div>
+            </div>
+        </section>
+
+        <section class="intro">
+            <div class="intro-inner">
+                <p>
+                    Professor of Data and Network Science at the <a href="https://computerscience.exeter.ac.uk" target="_blank">Department of Computer Science</a>, <a href="https://www.exeter.ac.uk" target="_blank">University of Exeter</a>, working at the intersection of complex systems, network science and computational modelling to tackle some of society's most pressing challenges. My research is driven by a simple conviction: that science, when applied thoughtfully, can reduce inequalities, improve accessibility and build a fairer world for everyone. Beyond research, I am deeply committed to mentoring the next generation of scientists. Every person we bring into science multiplies the impact we can have on the world, and that is a contribution that compounds far beyond what any one of us can achieve alone.
+                </p>
+                <div class="profile-image-wrap">
+                    <img src="MainPicture.jpg" alt="Ronaldo Menezes" class="profile-image">
+                    <div class="profile-social-icons">
+                        <a href="https://www.linkedin.com/in/ronaldomenezes/" target="_blank" aria-label="LinkedIn">
+                            <img src="icons/linkedin-brands-solid.png" alt="LinkedIn" class="contact-icon">
+                        </a>
+                        <a href="https://scholar.google.com/citations?user=eHej2g8AAAAJ&hl=en" target="_blank" aria-label="Google Scholar">
+                            <img src="icons/google-scholar-brands-solid.png" alt="Google Scholar" class="contact-icon">
+                        </a>
+                        <a href="https://bsky.app/profile/ronaldomenezes.bsky.social" target="_blank" aria-label="BlueSky">
+                            <img src="icons/bluesky-brands-solid.png" alt="BlueSky" class="contact-icon">
+                        </a>
+                        <a aria-label="Email" data-eu="r.menezes" data-ed="exeter.ac.uk"
+                           href="#" onclick="this.href='mailto:'+this.dataset.eu+'@'+this.dataset.ed">
+                            <img src="icons/envelope-regular.png" alt="Email" class="contact-icon">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Placeholder for recent updates or highlights -->
+        <section class="highlights">
+            <h2>Recent Updates</h2>
+            <div class="update-grid">
+                <div class="update-card">
+                    <h3>3 Most Recent Publications</h3>
+                    <ul class="publications-list" id="recent-pubs">
+                        <li style="color:#999;font-weight:300;font-size:0.9rem;">Loading...</li>
+                    </ul>
+                </div>
+                <div class="update-card">
+                    <h3>Events / Trips</h3>
+                    <ul class="events-list">
+                        <li><span class="event-name">India, Various Cities</span><span class="event-date">April 2026</span></li>
+                        <li><span class="event-name"><a href="https://complenet.weeblysite.com/" target="_blank">ComplexNet 2026</a>, Zaragoza, Spain</span><span class="event-date">May 2026</span></li>
+                        <li><span class="event-name"><a href="https://www.netsci2026.com/" target="_blank">NetSci 2026</a>, Boston, USA</span><span class="event-date">June 2026</span></li>
+                        <li><span class="event-name"><a href="https://enredando.giscbr.org/" target="_blank">Enredando 2026</a>, Viçosa, Brazil</span><span class="event-date">July 2026</span></li>
+                        <li><span class="event-name">Misinformation Workshop, Porto Alegre, Brazil</span><span class="event-date">August 2026</span></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Ronaldo Menezes | University of Exeter | Department of Computer Science</p>
+    </footer>
+
+    <!-- Network background animation -->
+    <canvas id="network-bg"></canvas>
+    <script src="network-animation.js"></script>
+    <script>
+        const toggle = document.querySelector('.nav-toggle');
+        const menu = document.querySelector('.nav-menu');
+        toggle.addEventListener('click', () => {
+            const open = menu.classList.toggle('nav-open');
+            toggle.setAttribute('aria-expanded', open);
+        });
+        // Close menu when a link is clicked
+        menu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.remove('nav-open');
+                toggle.setAttribute('aria-expanded', false);
+            });
+        });
+    </script>
+    <script>
+        // Load 3 most recent publications from stats.json
+        async function loadRecentPubs() {
+            const list = document.getElementById('recent-pubs');
+            try {
+                const res = await fetch('data/auto/stats.json?v=' + Date.now());
+                if (!res.ok) throw new Error();
+                const data = await res.json();
+                const pubs = data.publications || [];
+
+                // Sort by year descending, take first 3
+                const recent = pubs
+                    .sort((a, b) => parseInt(b.year) - parseInt(a.year))
+                    .slice(0, 3);
+
+                if (recent.length === 0) throw new Error();
+
+                list.innerHTML = recent.map(pub => {
+                    const titleHtml = pub.doiUrl
+                        ? `<a href="${pub.doiUrl}" target="_blank" class="pub-title-link">${pub.title}</a><span class="pub-title-arrow">↗&#xFE0E;</span>`
+                        : `<span class="pub-title-link">${pub.title}</span>`;
+                    const venueHtml = pub.venue
+                        ? `<span class="pub-venue">${pub.venue}</span>` : '';
+                    const doiHtml = pub.doiValue
+                        ? `<span class="pub-doi">DOI: ${pub.doiValue}</span>` : '';
+                    return `<li><div class="pub-title-row">${titleHtml}</div>${venueHtml}${doiHtml}</li>`;
+                }).join('');
+
+            } catch(e) {
+                list.innerHTML = '<li style="color:#999;font-weight:300;font-size:0.9rem;">Unable to load publications.</li>';
+            }
+        }
+        loadRecentPubs();
+    </script>
+
+    <script>
+        // Scroll fade-in
+        const fadeEls = document.querySelectorAll(".content-section, .hero, .highlights, .intro");
+        fadeEls.forEach(el => el.classList.add("fade-in"));
+        setTimeout(() => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(e => {
+                    if (e.isIntersecting) {
+                        e.target.classList.add("visible");
+                        observer.unobserve(e.target);
+                    }
+                });
+            }, { threshold: 0, rootMargin: "200px 0px 0px 0px" });
+            fadeEls.forEach(el => observer.observe(el));
+        }, 50);
+    </script>
+</body>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scholarly Engagement - Ronaldo Menezes</title>
+    <link rel="stylesheet" href="styles.css?v=4">
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="site-header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <h1>Ronaldo Menezes</h1>
+                    <p class="nav-subtitle">Professor of Data and Network Science</p>
+                </div>
+                <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item-dropdown">
+                        <a href="research.html" class="nav-link">Research</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="research.html#research-interests">Interests</a></li>
+                            <li><a href="research.html#publications">Publications</a></li>
+                            <li><a href="research.html#network">Collaboration Network</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item-dropdown">
+                        <a href="scholarly-engagement.html" class="nav-link active">Scholarly Engagement</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#editorial">Editorial and Advisory Roles</a></li>
+                            <li><a href="#research">Projects</a></li>
+                            <li><a href="#students">Supervision</a></li>
+                            <li><a href="#collaborators">Selected Collaborators</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item-dropdown">
+                        <a href="about.html" class="nav-link">About Me</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="about.html#biography">Biography</a></li>
+                            <li><a href="about.html#about-me">About Me</a></li>
+                            <li><a href="about.html#passions">Passions</a></li>
+                            <li><a href="about.html#favourites">Favourites</a></li>
+                            <li><a href="about.html#motto">Personal Motto</a></li>
+                            <li><a href="about.html#contact">Contact</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="videos.html" class="nav-link">Videos</a></li>
+                    <li><a href="cv.html" class="nav-link">CV</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Scholarly Engagement</h1>
+                <div class="title-divider"></div>
+            </div>
+        </section>
+
+        <section id="editorial" class="content-section">
+            <h2>Editorial and Advisory Roles</h2>
+            <ul class="editorial-list" id="editorial-list">
+                <li style="color:#999;font-weight:300;font-size:0.9rem;">Loading…</li>
+            </ul>
+        </section>
+
+        <section id="research" class="content-section">
+            <h2>Projects</h2>
+            <div class="project-list">
+                <div class="project-entry">
+                    <h3 class="project-title">The Triad of Truth: Media, Perception, and Politics in the Age of Misinformation</h3>
+                    <p class="project-description">This project investigates the alignment between three pillars of the information ecosystem: media coverage, public perception, and political narratives, to better understand how misinformation and misperception shape societal decision-making. Using data mining, natural language processing, sentiment analysis, and information theory, the project examines case studies including climate change, the 2024 Rio Grande do Sul floods, Brazilian wildfires, and vaccination campaigns.</p>
+                    <p class="project-team"><span class="project-team-label">Team:</span> Sebastian Gonçalves (Instituto de Física, UFRGS), Marco Aurelio Idiart (Instituto de Física, UFRGS), Mendeli Henning Vainstein (Instituto de Física, UFRGS), Marcia Barbosa (Instituto de Física, UFRGS), Roberto da Silva (Instituto de Física, UFRGS), <span class="pub-author-self">Ronaldo Menezes</span> (University of Exeter and Universidade Federal do Ceará), Aline Villavicencio (University of Exeter)</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="students" class="content-section">
+            <h2>Supervision</h2>
+            <div class="collaborators-grid" id="supervision-grid">
+                <p style="color:#999;font-weight:300;font-size:0.9rem;">Loading…</p>
+            </div>
+        </section>
+
+        <section id="collaborators" class="content-section">
+            <h2>Selected Collaborators</h2>
+            <div class="collaborators-grid" id="selected-grid">
+                <p style="color:#999;font-weight:300;font-size:0.9rem;">Loading…</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Ronaldo Menezes | University of Exeter | Department of Computer Science</p>
+    </footer>
+
+    <canvas id="network-bg"></canvas>
+    <script src="network-animation.js"></script>
+    <script>
+        const toggle = document.querySelector('.nav-toggle');
+        const menu = document.querySelector('.nav-menu');
+        toggle.addEventListener('click', () => {
+            const open = menu.classList.toggle('nav-open');
+            toggle.setAttribute('aria-expanded', open);
+        });
+        menu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.remove('nav-open');
+                toggle.setAttribute('aria-expanded', false);
+            });
+        });
+    </script>
+
+    <script>
+        // Scroll fade-in
+        const fadeEls = document.querySelectorAll(".content-section, .hero, .highlights, .intro");
+        fadeEls.forEach(el => el.classList.add("fade-in"));
+        setTimeout(() => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(e => {
+                    if (e.isIntersecting) {
+                        e.target.classList.add("visible");
+                        observer.unobserve(e.target);
+                    }
+                });
+            }, { threshold: 0, rootMargin: "200px 0px 0px 0px" });
+            fadeEls.forEach(el => observer.observe(el));
+        }, 50);
+    </script>
+    <script>
+        fetch('data/manual/editorial.json?v=' + Date.now())
+            .then(r => r.json())
+            .then(items => {
+                const list = document.getElementById('editorial-list');
+                list.innerHTML = items.map(item => `
+                    <li class="editorial-item">
+                        <span class="editorial-journal"><a href="${item.url}" target="_blank">${item.journal}</a></span>
+                        <span class="editorial-role">${item.role}</span>
+                        <span class="editorial-publisher">${item.publisher}</span>
+                    </li>`).join('');
+            })
+            .catch(() => {
+                document.getElementById('editorial-list').innerHTML =
+                    '<li style="color:#999;font-weight:300;font-size:0.9rem;">Unable to load editorial activity.</li>';
+            });
+    </script>
+    <script>
+        fetch('data/manual/supervision.json?v=' + Date.now())
+            .then(r => r.json())
+            .then(items => {
+                const lastName = name => name.trim().split(/\s+/).pop().toLowerCase();
+                items.sort((a, b) => lastName(a.name).localeCompare(lastName(b.name)));
+                const grid = document.getElementById('supervision-grid');
+                grid.innerHTML = items.map(item => {
+                    const nameHtml = item.url
+                        ? `<a href="${item.url}" target="_blank">${item.name}</a>`
+                        : item.name;
+                    const location = [item.affiliation, item.country].filter(Boolean).join(', ');
+                    return `<div class="collaborator-item">
+                        <span class="collaborator-name">${nameHtml}</span>
+                        ${location ? `<span class="collaborator-affiliation">${location}</span>` : ''}
+                    </div>`;
+                }).join('');
+            })
+            .catch(() => {
+                document.getElementById('supervision-grid').innerHTML =
+                    '<p style="color:#999;font-weight:300;font-size:0.9rem;">Unable to load supervision data.</p>';
+            });
+    </script>
+    <script>
+        fetch('data/manual/selected.json?v=' + Date.now())
+            .then(r => r.json())
+            .then(items => {
+                const lastName = name => name.trim().split(/\s+/).pop().toLowerCase();
+                items.sort((a, b) => lastName(a.name).localeCompare(lastName(b.name)));
+                const grid = document.getElementById('selected-grid');
+                grid.innerHTML = items.map(item => {
+                    const nameHtml = item.url
+                        ? `<a href="${item.url}" target="_blank">${item.name}</a>`
+                        : item.name;
+                    const location = [item.affiliation, item.country].filter(Boolean).join(', ');
+                    return `<div class="collaborator-item">
+                        <span class="collaborator-name">${nameHtml}</span>
+                        ${location ? `<span class="collaborator-affiliation">${location}</span>` : ''}
+                    </div>`;
+                }).join('');
+            })
+            .catch(() => {
+                document.getElementById('selected-grid').innerHTML =
+                    '<p style="color:#999;font-weight:300;font-size:0.9rem;">Unable to load collaborators data.</p>';
+            });
+    </script>
+</body>
+</html>

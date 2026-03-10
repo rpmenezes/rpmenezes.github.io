@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research - Ronaldo Menezes</title>
+    <link rel="stylesheet" href="styles.css?v=4">
+    <script type="text/javascript" src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script>
+    <script async src="https://badge.dimensions.ai/badge.js" charset="utf-8"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <style>
+        /* Network page — page-specific styles only */
+
+        .network-intro {
+            font-size: 0.92rem;
+            color: #555;
+            margin-bottom: 1.5rem;
+            max-width: 680px;
+            line-height: 1.7;
+        }
+        .network-intro a { color: #007D69; text-decoration: none; }
+        .network-intro a:hover { opacity: 0.7; }
+
+        /* Controls bar */
+        .network-controls-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        .network-stats-inline {
+            display: flex;
+            gap: 2.5rem;
+            align-items: flex-end;
+        }
+        .net-stat-value {
+            display: block;
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: #007D69;
+            line-height: 1;
+        }
+        .net-stat-label {
+            display: block;
+            font-size: 0.72rem;
+            color: #aaa;
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+            margin-top: 0.3rem;
+        }
+        .network-select-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            font-weight: 300;
+            color: #666;
+        }
+        .network-select-wrapper select {
+            border: 1px solid #ccc;
+            border-radius: 2px;
+            padding: 0.3rem 0.5rem;
+            font-size: 0.85rem;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            font-weight: 300;
+            color: #111;
+            background: #fff;
+            cursor: pointer;
+        }
+        .network-select-wrapper select:focus {
+            outline: none;
+            border-color: #007D69;
+        }
+
+        /* Graph canvas */
+        .network-graph-area {
+            position: relative;
+            width: 100%;
+            height: 600px;
+            background: #ffffff;
+            border: 1px solid #ddd;
+            overflow: hidden;
+            user-select: none;
+        }
+        #network-svg {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        /* Overlay states */
+        .graph-overlay {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+        }
+        .graph-overlay-icon {
+            font-size: 2rem;
+            color: #ccc;
+            line-height: 1;
+        }
+        .graph-overlay-msg {
+            font-size: 0.88rem;
+            color: #aaa;
+            text-align: center;
+            max-width: 320px;
+            line-height: 1.7;
+        }
+        .graph-overlay-code {
+            font-family: 'Courier New', monospace;
+            font-size: 0.78rem;
+            color: #888;
+            background: #f5f5f5;
+            border: 1px solid #ddd;
+            padding: 0.5rem 1rem;
+            border-radius: 3px;
+        }
+
+        /* Tooltip */
+        .network-tooltip {
+            position: fixed;
+            background: #ffffff;
+            border: 1px solid #111;
+            padding: 0.7rem 0.9rem;
+            font-size: 0.82rem;
+            font-weight: 300;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            pointer-events: none;
+            z-index: 2000;
+            min-width: 160px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.12);
+        }
+        .tt-name {
+            font-weight: 400;
+            font-size: 0.88rem;
+            color: #111;
+            margin-bottom: 0.35rem;
+        }
+        .tt-row { color: #666; line-height: 1.9; }
+        .tt-accent { color: #007D69; font-weight: 400; }
+
+        /* Legend */
+        .network-legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            align-items: center;
+            padding: 0.75rem 0 0;
+            margin-top: 0.5rem;
+            border-top: 1px solid #eee;
+            font-size: 0.78rem;
+            font-weight: 300;
+            color: #999;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.45rem;
+        }
+        .lg-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+        .lg-dot-center { background: #F0884A; border: 2px solid #C86820; }
+        .lg-dot-collab-dark  { background: #004a3f; }
+        .lg-dot-collab-light { background: #7dd4c4; border: 1px solid #bbb; }
+        .lg-line {
+            width: 22px;
+            height: 1.5px;
+            flex-shrink: 0;
+        }
+        .lg-line-ego  { background: rgba(0,125,105,0.55); }
+        .lg-line-c2c  { background: rgba(0,0,0,0.20); }
+        .lg-updated   { margin-left: auto; font-size: 0.72rem; color: #bbb; }
+
+        @media (max-width: 700px) {
+            .network-graph-area    { height: 440px; }
+            .network-stats-inline  { gap: 1.5rem; }
+            .network-controls-bar  { flex-direction: column; align-items: flex-start; }
+            .lg-updated            { margin-left: 0; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="site-header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <h1>Ronaldo Menezes</h1>
+                    <p class="nav-subtitle">Professor of Data and Network Science</p>
+                </div>
+                <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item-dropdown">
+                        <a href="research.html" class="nav-link active">Research</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#research-interests">Interests</a></li>
+                            <li><a href="#publications">Publications</a></li>
+                            <li><a href="#network">Collaboration Network</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item-dropdown">
+                        <a href="scholarly-engagement.html" class="nav-link">Scholarly Engagement</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="scholarly-engagement.html#editorial">Editorial Activity</a></li>
+                            <li><a href="scholarly-engagement.html#research">Projects</a></li>
+                            <li><a href="scholarly-engagement.html#students">Supervision</a></li>
+                            <li><a href="scholarly-engagement.html#collaborators">Selected Collaborators</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item-dropdown">
+                        <a href="about.html" class="nav-link">About Me</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="about.html#biography">Biography</a></li>
+                            <li><a href="about.html#about-me">About Me</a></li>
+                            <li><a href="about.html#passions">Passions</a></li>
+                            <li><a href="about.html#favourites">Favourites</a></li>
+                            <li><a href="about.html#motto">Personal Motto</a></li>
+                            <li><a href="about.html#contact">Contact</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="videos.html" class="nav-link">Videos</a></li>
+                    <li><a href="cv.html" class="nav-link">CV</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Research</h1>
+                <div class="title-divider"></div>
+            </div>
+        </section>
+
+        <section id="stats" class="content-section">
+            <h2>Summary of Statistics</h2>
+            <p class="publications-note">Live data from <a href="https://www.semanticscholar.org/author/R.-Menezes/145351935" target="_blank">Semantic Scholar</a>, updated automatically.<br><span id="stats-updated"></span></p>
+            <div id="stats-container" class="stats-grid">
+                <div class="stat-item"><span class="stat-value">—</span><span class="stat-label">Publications</span></div>
+                <div class="stat-item"><span class="stat-value">—</span><span class="stat-label">h-index</span></div>
+                <div class="stat-item"><span class="stat-value">—</span><span class="stat-label">Citations</span></div>
+                <div class="stat-item"><span class="stat-value">—</span><span class="stat-label">Highly Influential Citations</span></div>
+            </div>
+        </section>
+
+        <section id="research-interests" class="content-section">
+            <h2>Interests</h2>
+            <div class="research-keywords">
+                <span class="keyword">Network Science</span>
+                <span class="keyword">Complex Systems</span>
+                <span class="keyword">Human Mobility</span>
+                <span class="keyword">Urban Systems</span>
+                <span class="keyword">Data Science</span>
+                <span class="keyword">Social Network Analysis</span>
+                <span class="keyword">Swarm Intelligence</span>
+                <span class="keyword">Self-Organisation</span>
+                <span class="keyword">Biologically-Inspired Computing</span>
+                <span class="keyword">Optimisation</span>
+            </div>
+        </section>
+
+        <section id="publications" class="content-section">
+            <h2>Selected Publications of Last 5 Years</h2>
+            <p class="publications-note">For a full list of publications visit my <a href="https://scholar.google.com/citations?user=eHej2g8AAAAJ&hl=en" target="_blank">Google Scholar</a> or <a href="https://orcid.org/0000-0002-6479-6429" target="_blank">ORCID</a> page.<br><span id="pubs-updated"></span></p>
+            <div id="publications-container">
+                <p class="publications-loading">Loading publications...</p>
+            </div>
+        </section>
+
+        <section id="network" class="content-section">
+            <h2>Collaboration Network</h2>
+            <!-- Controls bar -->
+            <div class="network-controls-bar">
+                <div class="network-stats-inline" id="network-stats"></div>
+                <div class="network-select-wrapper">
+                    <label for="top-n-select">Show top</label>
+                    <select id="top-n-select">
+                        <option value="30">30</option>
+                        <option value="50" selected>50</option>
+                        <option value="75">75</option>
+                        <option value="100">100</option>
+                        <option value="0">All</option>
+                    </select>
+                    <span>collaborators</span>
+                </div>
+            </div>
+
+            <!-- Graph canvas -->
+            <div class="network-graph-area" id="network-container">
+                <div class="graph-overlay" id="graph-loading">
+                    <div class="graph-overlay-icon">◌</div>
+                    <div class="graph-overlay-msg">Loading collaboration data…</div>
+                </div>
+                <div class="graph-overlay" id="graph-no-data" style="display:none">
+                    <div class="graph-overlay-icon">⬡</div>
+                    <div class="graph-overlay-msg">
+                        Network data not yet available.<br>
+                        Run the GitHub Actions workflow to generate
+                        <code>data/auto/collaborators.json</code>.
+                    </div>
+                    <div class="graph-overlay-code">github/workflows/fetch-stats.yml</div>
+                </div>
+                <svg id="network-svg" style="display:none"></svg>
+            </div>
+
+            <!-- Tooltip -->
+            <div class="network-tooltip" id="network-tooltip" style="display:none"></div>
+
+            <!-- Legend -->
+            <div class="network-legend" id="network-legend" style="display:none">
+                <div class="legend-item">
+                    <div class="lg-dot lg-dot-center"></div>
+                    <span>Ronaldo Menezes</span>
+                </div>
+                <div class="legend-item">
+                    <div class="lg-dot lg-dot-collab-dark"></div>
+                    <div class="lg-dot lg-dot-collab-light"></div>
+                    <span>Collaborator — size = shared papers · colour = recency (lighter = more recent)</span>
+                </div>
+                <div class="legend-item">
+                    <div class="lg-line lg-line-ego"></div>
+                    <span>Co-authorship with Ronaldo</span>
+                </div>
+                <div class="legend-item">
+                    <div class="lg-line lg-line-c2c"></div>
+                    <span>Collaborator–collaborator link (2+ shared papers)</span>
+                </div>
+                <span>🖱 Drag · Scroll to zoom · Hover for details</span>
+                <span class="lg-updated" id="lg-updated"></span>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Ronaldo Menezes | University of Exeter | Department of Computer Science</p>
+    </footer>
+
+    <canvas id="network-bg"></canvas>
+    <script src="network-animation.js"></script>
+    <script>
+        const toggle = document.querySelector('.nav-toggle');
+        const menu = document.querySelector('.nav-menu');
+        toggle.addEventListener('click', () => {
+            const open = menu.classList.toggle('nav-open');
+            toggle.setAttribute('aria-expanded', open);
+        });
+        menu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.remove('nav-open');
+                toggle.setAttribute('aria-expanded', false);
+            });
+        });
+    </script>
+    <script>
+        // Load all data from locally cached stats.json (updated daily by GitHub Actions)
+        async function loadAcademicData() {
+            try {
+                const res = await fetch('data/auto/stats.json?v=' + Date.now());
+                if (!res.ok) throw new Error('No data file yet');
+                const data = await res.json();
+
+                // --- Stats ---
+                const s = data.stats || {};
+                document.getElementById('stats-container').innerHTML = `
+                    <div class="stat-item">
+                        <span class="stat-value">${s.paperCount?.toLocaleString() ?? '—'}</span>
+                        <span class="stat-label">Publications</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">${s.hIndex ?? '—'}</span>
+                        <span class="stat-label">h-index</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">${s.citationCount?.toLocaleString() ?? '—'}</span>
+                        <span class="stat-label">Citations</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">${s.influentialCitationCount?.toLocaleString() ?? '—'}</span>
+                        <span class="stat-label">Highly Influential Citations</span>
+                    </div>`;
+
+                // --- Publications ---
+                const pubs = data.publications || [];
+                const CURRENT_YEAR = new Date().getFullYear();
+                const MAX_PER_YEAR = 6;
+
+                const byYear = {};
+                pubs.forEach(pub => {
+                    if (!byYear[pub.year]) byYear[pub.year] = [];
+                    byYear[pub.year].push(pub);
+                });
+
+                const sortedYears = Object.keys(byYear).sort((a, b) => b - a);
+                let html = '';
+
+                sortedYears.forEach(year => {
+                    const top = byYear[year]
+                        .sort((a, b) => (b.citationCount ?? -1) - (a.citationCount ?? -1))
+                        .slice(0, MAX_PER_YEAR);
+
+                    html += `<div class="pub-year-group">
+                        <h3 class="pub-year">${year}</h3>
+                        <div class="pub-year-list">`;
+
+                    top.forEach(pub => {
+                        const titleHtml = pub.doiUrl
+                            ? `<a href="${pub.doiUrl}" target="_blank" class="pub-title-link">${pub.title}</a><span class="pub-title-arrow">↗&#xFE0E;</span>`
+                            : `<span class="pub-title-link">${pub.title}</span>`;
+
+                        const authorsHtml = pub.authors.length > 0
+                            ? `<span class="pub-authors">${pub.authors.map(n =>
+                                n.toLowerCase().includes('menezes')
+                                    ? `<span class="pub-author-self">${n}</span>`
+                                    : n
+                              ).join(', ')}</span>`
+                            : '';
+
+                        const venueHtml = pub.venue
+                            ? `<span class="pub-venue-orcid">${pub.venue}</span>` : '';
+                        const doiHtml = pub.doiValue
+                            ? `<span class="pub-doi-text">DOI: <a href="https://doi.org/${pub.doiValue}" target="_blank">${pub.doiValue}</a></span>` : '';
+                        const citationHtml = pub.citationCount > 0
+                            ? `<span class="pub-citations">Cited by ${pub.citationCount}</span>` : '';
+                        const dimensionsHtml = pub.doiValue
+                            ? `<span class="__dimensions_badge_embed__" data-doi="${pub.doiValue}" data-style="small_rectangle" data-hide-zero-citations="true" data-legend="hover-right"></span>` : '';
+                        const altmetricHtml = pub.doiValue
+                            ? `<span class="altmetric-embed" data-badge-type="1" data-badge-popover="right" data-hide-no-mentions="true" data-doi="${pub.doiValue}"></span>` : '';
+
+                        html += `<div class="pub-entry">
+                            <div class="pub-title-row">${titleHtml}</div>
+                            ${authorsHtml}${venueHtml}${doiHtml}
+                            <div class="pub-metrics-row">${altmetricHtml}${dimensionsHtml}</div>
+                        </div>`;
+                    });
+
+                    html += `</div></div>`;
+                });
+
+                const pubContainer = document.getElementById('publications-container');
+                pubContainer.innerHTML = html || '<p class="publications-note">No publications found.</p>';
+
+                // Reinitialise badges after dynamic DOM injection
+                if (typeof __dimensions_embed !== 'undefined') __dimensions_embed.addBadges();
+                if (typeof _altmetric_embed_init === 'function') _altmetric_embed_init();
+
+                // Show last updated date
+                if (data.updated) {
+                    const d = new Date(data.updated);
+                    const dateStr = '(last updated: ' + d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }) + ')';
+                    const statsLabel = document.getElementById('stats-updated');
+                    const pubsLabel = document.getElementById('pubs-updated');
+                    if (statsLabel) statsLabel.textContent = dateStr;
+                    if (pubsLabel) pubsLabel.textContent = dateStr;
+                }
+
+            } catch(e) {
+                // Stats fallback
+                document.getElementById('stats-container').innerHTML = `
+                    <div class="stat-item"><span class="stat-value">—</span><span class="stat-label">Publications</span></div>
+                    <div class="stat-item"><span class="stat-value">—</span><span class="stat-label">h-index</span></div>
+                    <div class="stat-item"><span class="stat-value">—</span><span class="stat-label">Citations</span></div>
+                    <div class="stat-item"><span class="stat-value">—</span><span class="stat-label">Highly Influential Citations</span></div>`;
+                document.getElementById('publications-container').innerHTML =
+                    '<p class="publications-note">Publications unavailable. Visit <a href="https://scholar.google.com/citations?user=eHej2g8AAAAJ&hl=en" target="_blank">Google Scholar</a> or <a href="https://orcid.org/0000-0002-6479-6429" target="_blank">ORCID</a>.</p>';
+            }
+        }
+
+        loadAcademicData();
+    </script>
+    <script>
+        // Scroll fade-in
+        const fadeEls = document.querySelectorAll(".content-section, .hero, .highlights, .intro");
+        fadeEls.forEach(el => el.classList.add("fade-in"));
+        setTimeout(() => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(e => {
+                    if (e.isIntersecting) {
+                        e.target.classList.add("visible");
+                        observer.unobserve(e.target);
+                    }
+                });
+            }, { threshold: 0, rootMargin: "200px 0px 0px 0px" });
+            fadeEls.forEach(el => observer.observe(el));
+        }, 50);
+    </script>
+    <!-- D3 Collaboration Network -->
+    <script>
+        /* ═══════════════════════════════════════════════
+           Collaboration Network  —  D3 v7 force-directed
+           Data source: data/auto/collaborators.json (GitHub Actions)
+           Node size  : collaborationCount (shared papers with Ronaldo)
+           Edges      : ego (Ronaldo ↔ collab) + c2c (collab ↔ collab, ≥2 shared)
+        ═══════════════════════════════════════════════ */
+
+        const RONALDO_ID = '145351935';
+        let   simulation = null;
+        let   allCollabs = [];
+
+        /* ── Utilities ──────────────────────────────── */
+
+        function clamp(v, lo, hi) { return Math.max(lo, Math.min(hi, v)); }
+
+        function truncate(name, max) {
+            if (!name) return '';
+            const first = name.trim().split(/\s+/)[0] || '';
+            return first.length > max ? first.slice(0, max - 1) + '…' : first;
+        }
+
+        function initials(name) {
+            if (!name) return '?';
+            const parts = name.trim().split(/\s+/);
+            const first = parts[0]?.[0] || '';
+            const last  = parts.length > 1 ? (parts[parts.length - 1]?.[0] || '') : '';
+            return (first + last).toUpperCase();
+        }
+
+        /* ── Build nodes + links from collaborator list ─ */
+
+        function buildGraphData(collaborators) {
+            const nodes = [
+                {
+                    id: RONALDO_ID,
+                    name: 'Ronaldo Menezes',
+                    isCenter: true,
+                    collaborationCount: collaborators.length
+                },
+                ...collaborators.map(c => ({
+                    id: c.authorId,
+                    name: c.name,
+                    isCenter: false,
+                    collaborationCount: c.collaborationCount,
+                    firstCollabYear: c.firstCollabYear,
+                    lastCollabYear:  c.lastCollabYear
+                }))
+            ];
+
+            /* Ego edges: Ronaldo ↔ every collaborator */
+            const links = collaborators.map(c => ({
+                source: RONALDO_ID,
+                target: c.authorId,
+                weight: c.collaborationCount,
+                isEgo:  true
+            }));
+
+            /* Pre-build paper-id Sets for each collaborator */
+            const paperSets = collaborators.map(c =>
+                new Set((c.sharedPapers || []).map(p => p.paperId))
+            );
+
+            /* Collaborator ↔ collaborator edges (≥ 2 shared papers) */
+            for (let i = 0; i < collaborators.length; i++) {
+                for (let j = i + 1; j < collaborators.length; j++) {
+                    let shared = 0;
+                    paperSets[j].forEach(pid => { if (paperSets[i].has(pid)) shared++; });
+                    if (shared >= 2) {
+                        links.push({
+                            source: collaborators[i].authorId,
+                            target: collaborators[j].authorId,
+                            weight: shared,
+                            isEgo:  false
+                        });
+                    }
+                }
+            }
+
+            return { nodes, links };
+        }
+
+        /* ── Render the D3 graph ────────────────────── */
+
+        function renderNetwork(collaborators) {
+            const container = document.getElementById('network-container');
+            const svgEl     = document.getElementById('network-svg');
+            const tooltip   = document.getElementById('network-tooltip');
+            const W = container.clientWidth;
+            const H = container.clientHeight;
+
+            if (simulation) simulation.stop();
+
+            /* Remove old zoom handlers before re-attaching */
+            const svgSel = d3.select(svgEl);
+            svgSel.on('.zoom', null);
+            svgSel.selectAll('*').remove();
+
+            const { nodes, links } = buildGraphData(collaborators);
+            const maxCount = d3.max(collaborators, d => d.collaborationCount) || 1;
+
+            /* Recency scale for node colour (lastCollabYear → dark=old, light=recent) */
+            const currentYear = new Date().getFullYear();
+            const years       = collaborators.map(c => c.lastCollabYear).filter(y => y != null);
+            const minYear     = years.length ? Math.min(...years) : currentYear - 20;
+            const colorByRecency = d3.scaleSequential()
+                .domain([minYear, currentYear])
+                .interpolator(d3.interpolate('#7dd4c4', '#004a3f'));
+
+            /* Text colour: use perceived luminance of the actual node fill to pick black/white */
+            const textFill = d => {
+                const c = d3.color(colorByRecency(d.lastCollabYear || minYear)).rgb();
+                const L = 0.2126 * (c.r / 255) + 0.7152 * (c.g / 255) + 0.0722 * (c.b / 255);
+                return L < 0.35 ? '#ffffff' : '#003d35';
+            };
+
+            /* Visual scales */
+            const radius = d3.scaleSqrt()
+                .domain([1, maxCount])
+                .range([5, 22]);
+
+            const EDGE_WIDTH = 1.2; /* uniform thickness for all edges */
+
+            /* Main group (zoom target) */
+            const g = svgSel.append('g');
+
+            /* Zoom */
+            svgSel.call(
+                d3.zoom()
+                    .scaleExtent([0.15, 6])
+                    .on('zoom', e => g.attr('transform', e.transform))
+            );
+
+            /* Force simulation */
+            simulation = d3.forceSimulation(nodes)
+                .force('link',
+                    d3.forceLink(links)
+                        .id(d => d.id)
+                        .distance(d => {
+                            if (d.isEgo) {
+                                /* Stronger collaborators pulled closer */
+                                const t = (d.weight - 1) / Math.max(1, maxCount - 1);
+                                return clamp(120 - t * 55, 55, 120);
+                            }
+                            return 55; /* c2c edges stay short */
+                        })
+                        .strength(d => d.isEgo ? 0.6 : 0.25)
+                )
+                .force('charge',    d3.forceManyBody().strength(-250))
+                .force('center',    d3.forceCenter(W / 2, H / 2))
+                .force('collision', d3.forceCollide()
+                    .radius(d => (d.isCenter ? 28 : radius(d.collaborationCount)) + 5)
+                );
+
+            /* Links — ego green, c2c black, same thickness */
+            const link = g.append('g')
+                .selectAll('line')
+                .data(links)
+                .join('line')
+                .attr('stroke',       d => d.isEgo ? 'rgba(0,125,105,0.50)' : 'rgba(0,0,0,0.18)')
+                .attr('stroke-width', EDGE_WIDTH);
+
+            /* Node groups (drag + tooltip) */
+            const node = g.append('g')
+                .selectAll('g')
+                .data(nodes)
+                .join('g')
+                .attr('cursor', 'pointer')
+                .call(
+                    d3.drag()
+                        .on('start', (e, d) => {
+                            if (!e.active) simulation.alphaTarget(0.3).restart();
+                            d.fx = d.x; d.fy = d.y;
+                        })
+                        .on('drag',  (e, d) => { d.fx = e.x; d.fy = e.y; })
+                        .on('end',   (e, d) => {
+                            if (!e.active) simulation.alphaTarget(0);
+                            d.fx = null; d.fy = null;
+                        })
+                );
+
+            /* Circles */
+            node.append('circle')
+                .attr('r',            d => d.isCenter ? 26 : radius(d.collaborationCount))
+                .attr('fill',         d => d.isCenter ? '#F0884A' : colorByRecency(d.lastCollabYear || minYear))
+                .attr('stroke',       d => d.isCenter ? '#C86820' : 'rgba(0,0,0,0.15)')
+                .attr('stroke-width', d => d.isCenter ? 2 : 1);
+
+            /* Dashed ring around centre node */
+            node.filter(d => d.isCenter)
+                .append('circle')
+                .attr('r',                34)
+                .attr('fill',             'none')
+                .attr('stroke',           '#F0884A')
+                .attr('stroke-width',     1)
+                .attr('stroke-opacity',   0.35)
+                .attr('stroke-dasharray', '5 4');
+
+            /* Initials inside collaborator nodes that are large enough — not on centre */
+            node.filter(d => !d.isCenter && radius(d.collaborationCount) >= 9)
+                .append('text')
+                .text(d => initials(d.name))
+                .attr('text-anchor', 'middle')
+                .attr('dy',          '0.35em')
+                .attr('fill',        textFill)
+                .attr('font-size',   d => d.isCenter ? '11px' : '8px')
+                .attr('font-weight', '500')
+                .attr('font-family', "'Helvetica Neue', Helvetica, Arial, sans-serif")
+                .attr('pointer-events', 'none');
+
+            /* Names shown on hover via tooltip only — no persistent labels */
+
+            /* Tooltip */
+            node
+                .on('mouseenter', (e, d) => {
+                    if (d.isCenter) return;
+                    const yrs = (d.firstCollabYear && d.lastCollabYear)
+                        ? (d.firstCollabYear === d.lastCollabYear
+                            ? `${d.firstCollabYear}`
+                            : `${d.firstCollabYear}–${d.lastCollabYear}`)
+                        : '—';
+                    tooltip.innerHTML =
+                        `<div class="tt-name">${d.name}</div>` +
+                        `<div class="tt-row"><span class="tt-accent">${d.collaborationCount}</span> shared paper${d.collaborationCount !== 1 ? 's' : ''}</div>` +
+                        `<div class="tt-row">Active: ${yrs}</div>`;
+                    tooltip.style.display = 'block';
+                    tooltip.style.left    = (e.clientX + 14) + 'px';
+                    tooltip.style.top     = (e.clientY - 10) + 'px';
+                })
+                .on('mousemove', e => {
+                    tooltip.style.left = (e.clientX + 14) + 'px';
+                    tooltip.style.top  = (e.clientY - 10) + 'px';
+                })
+                .on('mouseleave', () => { tooltip.style.display = 'none'; });
+
+            /* Simulation tick */
+            simulation.on('tick', () => {
+                link
+                    .attr('x1', d => d.source.x).attr('y1', d => d.source.y)
+                    .attr('x2', d => d.target.x).attr('y2', d => d.target.y);
+                node.attr('transform', d => `translate(${d.x},${d.y})`);
+            });
+        }
+
+        /* ── Stats bar ──────────────────────────────── */
+
+        function updateStats(subset) {
+            const uniquePapers = new Set(
+                subset.flatMap(c => (c.sharedPapers || []).map(p => p.paperId))
+            ).size;
+
+            const sets = subset.map(c =>
+                new Set((c.sharedPapers || []).map(p => p.paperId))
+            );
+            let c2c = 0;
+            for (let i = 0; i < subset.length; i++) {
+                for (let j = i + 1; j < subset.length; j++) {
+                    let n = 0;
+                    sets[j].forEach(pid => { if (sets[i].has(pid)) n++; });
+                    if (n >= 2) c2c++;
+                }
+            }
+
+            document.getElementById('network-stats').innerHTML =
+                `<div><span class="net-stat-value">${subset.length}</span><span class="net-stat-label">Collaborators</span></div>` +
+                `<div><span class="net-stat-value">${uniquePapers}</span><span class="net-stat-label">Shared Papers</span></div>` +
+                `<div><span class="net-stat-value">${subset.length + c2c}</span><span class="net-stat-label">Connections</span></div>`;
+        }
+
+        /* ── Load data and initialise ───────────────── */
+
+        async function initNetwork() {
+            const loadingEl = document.getElementById('graph-loading');
+            const noDataEl  = document.getElementById('graph-no-data');
+            const svgEl     = document.getElementById('network-svg');
+            const legendEl  = document.getElementById('network-legend');
+            const updatedEl = document.getElementById('lg-updated');
+            const topNSel   = document.getElementById('top-n-select');
+
+            try {
+                const res = await fetch('data/auto/collaborators.json?v=' + Date.now());
+                if (!res.ok) throw new Error('not found');
+                const data = await res.json();
+
+                allCollabs = data.collaborators || [];
+                if (allCollabs.length === 0) throw new Error('empty');
+
+                /* Show graph, hide loading overlay */
+                loadingEl.style.display = 'none';
+                svgEl.style.display     = 'block';
+                legendEl.style.display  = 'flex';
+
+                if (data.updated) {
+                    const d = new Date(data.updated);
+                    updatedEl.textContent = 'Updated ' +
+                        d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }) +
+                        ' · Data from Semantic Scholar';
+                }
+
+                function draw() {
+                    const n      = parseInt(topNSel.value);
+                    const subset = n === 0 ? allCollabs : allCollabs.slice(0, n);
+                    updateStats(subset);
+                    renderNetwork(subset);
+                }
+
+                draw();
+                topNSel.addEventListener('change', draw);
+
+            } catch (_) {
+                loadingEl.style.display = 'none';
+                noDataEl.style.display  = 'flex';
+            }
+        }
+
+        initNetwork();
+    </script>
+</body>
+</html>

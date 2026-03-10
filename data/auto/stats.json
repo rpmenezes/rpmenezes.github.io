@@ -1,0 +1,349 @@
+{
+  "updated": "2026-03-09T06:44:22.645316+00:00",
+  "stats": {
+    "paperCount": 230,
+    "hIndex": 21,
+    "citationCount": 2831,
+    "influentialCitationCount": 99
+  },
+  "publications": [
+    {
+      "year": "2025",
+      "title": "Violence, city size and geographical isolation in African cities",
+      "authors": [
+        "Rafael Prieto-Curiel",
+        "Ronaldo Menezes"
+      ],
+      "venue": "Nature Communications",
+      "doiValue": "10.1038/s41467-025-65728-6",
+      "doiUrl": "https://doi.org/10.1038/s41467-025-65728-6",
+      "citationCount": 0
+    },
+    {
+      "year": "2025",
+      "title": "The impact of the social exposome in cardiovascular health and disease",
+      "authors": [
+        "Khaoula El Mekkaoui",
+        "Chitra Mukherjee",
+        "Clodomir Santana",
+        "Hitalo Silva",
+        "Arnib Quazi",
+        "Meghana Balabhadruni",
+        "Aditya Ballal",
+        "Shamika V. Gavaskar",
+        "Kea T. Turqueza",
+        "Leslie Molina",
+        "Pablo E. Acevedo",
+        "Kay Moua",
+        "Omar Dawar",
+        "Federico Garcia",
+        "Mohammad S. Soroya",
+        "Xiao-Dong Zhang",
+        "Ezra A. Amsterdam",
+        "Chao-Yin Chen",
+        "Padmini Sirish",
+        "Leighton T. Izu",
+        "Ronaldo Menezes",
+        "Nipavan Chiamvimonvat",
+        "Vladimir Filkov",
+        "Martin Cadeiras",
+        "David A. Liem"
+      ],
+      "venue": "The Journal of Precision Medicine: Health and Disease",
+      "doiValue": "10.1016/j.premed.2025.100015",
+      "doiUrl": "https://doi.org/10.1016/j.premed.2025.100015",
+      "citationCount": 1
+    },
+    {
+      "year": "2025",
+      "title": "A data-driven supervised machine learning approach to estimating global ambient air pollution concentrations with associated prediction intervals",
+      "authors": [
+        "Liam Jordan Berrisford",
+        "Hugo Barbosa",
+        "Ronaldo Menezes"
+      ],
+      "venue": "Royal Society Open Science",
+      "doiValue": "10.1098/rsos.241288",
+      "doiUrl": "https://doi.org/10.1098/rsos.241288",
+      "citationCount": 3
+    },
+    {
+      "year": "2025",
+      "title": "Beyond proximity: A review and framework to further understanding of greenspace accessibility in the x\u2010minute city",
+      "authors": [
+        "Andrew Schendl",
+        "James M. Bullock",
+        "Ronaldo Menezes",
+        "Simon Willcock"
+      ],
+      "venue": "People and Nature",
+      "doiValue": "10.1002/pan3.70081",
+      "doiUrl": "https://doi.org/10.1002/pan3.70081",
+      "citationCount": 1
+    },
+    {
+      "year": "2025",
+      "title": "The Rephrased Reality: Analysing Sentiment Shifts in LLM-Rephrased Text",
+      "authors": [
+        "Frederico Leite Richardson",
+        "Aline Villavicencio",
+        "Ronaldo Menezes"
+      ],
+      "venue": "Conference Paper",
+      "doiValue": "10.1145/3672608.3707717",
+      "doiUrl": "https://doi.org/10.1145/3672608.3707717",
+      "citationCount": 0
+    },
+    {
+      "year": "2025",
+      "title": "A framework for scalable ambient air pollution concentration estimation",
+      "authors": [
+        "Liam J. Berrisford",
+        "Lucy S. Neal",
+        "Helen J. Buttery",
+        "Benjamin R. Evans",
+        "Ronaldo Menezes"
+      ],
+      "venue": "Environmental Data Science",
+      "doiValue": "10.1017/eds.2025.9",
+      "doiUrl": "https://doi.org/10.1017/eds.2025.9",
+      "citationCount": 3
+    },
+    {
+      "year": "2025",
+      "title": "Academic Networks and\u00a0Resilience: An Education Perspective",
+      "authors": [
+        "Paulina Velasquez-Ferrufino",
+        "Ronaldo Menezes"
+      ],
+      "venue": "Book Chapter",
+      "doiValue": "10.1007/978-3-031-82427-2_34",
+      "doiUrl": "https://doi.org/10.1007/978-3-031-82427-2_34",
+      "citationCount": null
+    },
+    {
+      "year": "2025",
+      "title": "Branching Out: How Academic Genealogy Networks Shape Academic Groups",
+      "authors": [
+        "Gustavo Moraes",
+        "Angelo Brayner",
+        "Ronaldo Menezes"
+      ],
+      "venue": "Book Chapter",
+      "doiValue": "10.1007/978-3-031-82435-7_12",
+      "doiUrl": "https://doi.org/10.1007/978-3-031-82435-7_12",
+      "citationCount": null
+    },
+    {
+      "year": "2025",
+      "title": "Network-Based Analysis of\u00a0Crossover Operators in\u00a0Genetic Algorithms",
+      "authors": [
+        "Richard Rosenbaum",
+        "Ronaldo Menezes",
+        "Clodomir Santana"
+      ],
+      "venue": "Book Chapter",
+      "doiValue": "10.1007/978-3-031-82427-2_33",
+      "doiUrl": "https://doi.org/10.1007/978-3-031-82427-2_33",
+      "citationCount": null
+    },
+    {
+      "year": "2025",
+      "title": "Network-Centric Analysis of\u00a0Memetic Operators and\u00a0Communication Topologies for\u00a0Swarm Intelligence Algorithms",
+      "authors": [
+        "Carlos Silva",
+        "Clodomir Santana",
+        "Ronaldo Menezes",
+        "Carmelo Bastos-Filho"
+      ],
+      "venue": "Book Chapter",
+      "doiValue": "10.1007/978-3-031-93619-7_3",
+      "doiUrl": "https://doi.org/10.1007/978-3-031-93619-7_3",
+      "citationCount": null
+    },
+    {
+      "year": "2025",
+      "title": "Understanding the\u00a0Structure and\u00a0Resilience of\u00a0the\u00a0Brazilian Federal Road Network Through Network Science",
+      "authors": [
+        "J\u00falio Taveira",
+        "Fernando Buarque",
+        "Ronaldo Menezes"
+      ],
+      "venue": "Book Chapter",
+      "doiValue": "10.1007/978-3-031-93619-7_9",
+      "doiUrl": "https://doi.org/10.1007/978-3-031-93619-7_9",
+      "citationCount": null
+    },
+    {
+      "year": "2024",
+      "title": "Mobility and transit segregation in urban spaces",
+      "authors": [
+        "Nandini Iyer",
+        "Ronaldo Menezes",
+        "Hugo Barbosa"
+      ],
+      "venue": "Environment and Planning B: Urban Analytics and City Science",
+      "doiValue": "10.1177/23998083231219294",
+      "doiUrl": "https://doi.org/10.1177/23998083231219294",
+      "citationCount": 11
+    },
+    {
+      "year": "2024",
+      "title": "Unravelling the dynamics of child sexual exploitation material circulation on the Dark Web",
+      "authors": [
+        "Pramod Divakarmurthy",
+        "Bruno Requi\u00e3o da Cunha",
+        "Jean Fernando Passold",
+        "Marcos Oliveira",
+        "Ronaldo Menezes"
+      ],
+      "venue": "PLOS ONE",
+      "doiValue": "10.1371/journal.pone.0306516",
+      "doiUrl": "https://doi.org/10.1371/journal.pone.0306516",
+      "citationCount": 2
+    },
+    {
+      "year": "2024",
+      "title": "Public Transit Inequality in\u00a0the\u00a0Context of\u00a0the\u00a0Built Environment",
+      "authors": [
+        "Nandini Iyer",
+        "Ronaldo Menezes",
+        "Hugo Barbosa"
+      ],
+      "venue": "Book Chapter",
+      "doiValue": "10.1007/978-3-031-57515-0_16",
+      "doiUrl": "https://doi.org/10.1007/978-3-031-57515-0_16",
+      "citationCount": null
+    },
+    {
+      "year": "2023",
+      "title": "The structure of segregation in co-authorship networks and its impact on scientific production",
+      "authors": [
+        "Ana Maria Jaramillo",
+        "Hywel T. P. Williams",
+        "Nicola Perra",
+        "Ronaldo Menezes"
+      ],
+      "venue": "EPJ Data Science",
+      "doiValue": "10.1140/epjds/s13688-023-00411-8",
+      "doiUrl": "https://doi.org/10.1140/epjds/s13688-023-00411-8",
+      "citationCount": 2
+    },
+    {
+      "year": "2023",
+      "title": "COVID-19 is linked to changes in the time\u2013space dimension of human mobility",
+      "authors": [
+        "Clodomir Santana",
+        "Federico Botta",
+        "Hugo Barbosa",
+        "Filippo Privitera",
+        "Ronaldo Menezes",
+        "Riccardo Di Clemente"
+      ],
+      "venue": "Nature Human Behaviour",
+      "doiValue": "10.1038/s41562-023-01660-3",
+      "doiUrl": "https://doi.org/10.1038/s41562-023-01660-3",
+      "citationCount": 51
+    },
+    {
+      "year": "2023",
+      "title": "Academic Mobility as\u00a0a\u00a0Driver of Productivity: A Gender-centric Approach",
+      "authors": [
+        "Mariana Macedo",
+        "Ana Maria Jaramillo",
+        "Ronaldo Menezes"
+      ],
+      "venue": "Book Chapter",
+      "doiValue": "10.1007/978-3-031-28276-8_11",
+      "doiUrl": "https://doi.org/10.1007/978-3-031-28276-8_11",
+      "citationCount": null
+    },
+    {
+      "year": "2023",
+      "title": "Nature vs. Nurture in\u00a0Science: The Effect of\u00a0Researchers Segregation on\u00a0Papers\u2019 Citation Histories",
+      "authors": [
+        "Ana Maria Jaramillo",
+        "Felipe Montes",
+        "Ronaldo Menezes"
+      ],
+      "venue": "Book Chapter",
+      "doiValue": "10.1007/978-3-031-28276-8_13",
+      "doiUrl": "https://doi.org/10.1007/978-3-031-28276-8_13",
+      "citationCount": null
+    },
+    {
+      "year": "2023",
+      "title": "Network Entropy as\u00a0a\u00a0Measure of\u00a0Socioeconomic Segregation in\u00a0Residential and\u00a0Employment Landscapes",
+      "authors": [
+        "Nandini Iyer",
+        "Ronaldo Menezes",
+        "Hugo Barbosa"
+      ],
+      "venue": "Book Chapter",
+      "doiValue": "10.1007/978-3-031-28276-8_3",
+      "doiUrl": "https://doi.org/10.1007/978-3-031-28276-8_3",
+      "citationCount": null
+    },
+    {
+      "year": "2023",
+      "title": "Using Vector Fields in\u00a0the\u00a0Modelling of\u00a0Movements as\u00a0Flows",
+      "authors": [
+        "Sima Farokhnejad",
+        "Marcos Oliveira",
+        "Eraldo Ribeiro",
+        "Ronaldo Menezes"
+      ],
+      "venue": "Book Chapter",
+      "doiValue": "10.1007/978-3-031-28276-8_14",
+      "doiUrl": "https://doi.org/10.1007/978-3-031-28276-8_14",
+      "citationCount": null
+    },
+    {
+      "year": "2022",
+      "title": "Contrasting social and non-social sources of predictability in human mobility",
+      "authors": [
+        "Zexun Chen",
+        "Sean Kelty",
+        "Alexandre G. Evsukoff",
+        "Brooke Foucault Welles",
+        "James Bagrow",
+        "Ronaldo Menezes",
+        "Gourab Ghoshal"
+      ],
+      "venue": "Nature Communications",
+      "doiValue": "10.1038/s41467-022-29592-y",
+      "doiUrl": "https://doi.org/10.1038/s41467-022-29592-y",
+      "citationCount": 23
+    },
+    {
+      "year": "2022",
+      "title": "Differences in the spatial landscape of urban mobility: Gender and socioeconomic perspectives",
+      "authors": [
+        "Mariana Macedo",
+        "Laura Lotero",
+        "Alessio Cardillo",
+        "Ronaldo Menezes",
+        "Hugo Barbosa"
+      ],
+      "venue": "PLOS ONE",
+      "doiValue": "10.1371/journal.pone.0260874",
+      "doiUrl": "https://doi.org/10.1371/journal.pone.0260874",
+      "citationCount": 30
+    },
+    {
+      "year": "2022",
+      "title": "A Data-Driven Approach to Cattle Epidemic Modelling Under Uncertainty",
+      "authors": [
+        "Sima Farokhnejad",
+        "Denis Cardoso",
+        "Christiane Rocha",
+        "Ang\u00e9lica S. da Mata",
+        "Ronaldo Menezes"
+      ],
+      "venue": "Book Chapter",
+      "doiValue": "10.1007/978-3-031-17658-6_5",
+      "doiUrl": "https://doi.org/10.1007/978-3-031-17658-6_5",
+      "citationCount": null
+    }
+  ]
+}

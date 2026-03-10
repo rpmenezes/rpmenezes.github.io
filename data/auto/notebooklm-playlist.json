@@ -1,0 +1,45 @@
+{
+  "videos": [
+    {
+      "rawTitle": "NLP of biomedical text to map and prioritize protein-disease associations in HFpEF",
+      "description": "Title: Natural language processing of biomedical text to map and prioritize protein\u2013disease associations in HFpEF\nAuthors: Clodomir Santana, Chitra Mukherjee, Arnib Quazi, Ronaldo Menezes, Vladimir Filkov, Dibakar Sigdel, Howard Choi, Imo Ebong, Padmini Sirish, Nicholas R. Anderson, Xuan Wang, Heng Ji, JiaWei Han, Baback Roshanravan, Leighton T. Izu, Thomas W. Smith, Nipavan Chiamvimonvat, Colleen E. Clancy, Martin Cadeiras, David A. Liem\nDOI: https://doi.org/10.1016/j.compbiomed.2026.111599",
+      "videoId": "kZQUJpPN4sA",
+      "url": "https://www.youtube.com/watch?v=kZQUJpPN4sA",
+      "publishedAt": "2026-03-04T16:26:42Z",
+      "viewCount": 4
+    },
+    {
+      "rawTitle": "Brazil's Hidden Road Map",
+      "description": "Title: Not All Roads Are Created Equal: Network Science Shows Some Highways Matter More for Brazil\u2019s Connectivity\nAuthors\nAuthors: J\u00falio Taveira, Ronaldo Menezes, Fernando Buarque\nDOI: https://doi.org/10.1007/978-3-642-30947-2_33",
+      "videoId": "JDd8Ykz4YIE",
+      "url": "https://www.youtube.com/watch?v=JDd8Ykz4YIE",
+      "publishedAt": "2026-02-23T15:24:56Z",
+      "viewCount": 6
+    },
+    {
+      "rawTitle": "The impact of the social exposome in cardiovascular health and disease",
+      "description": "Title: The impact of the social exposome in cardiovascular health and disease\nAuthors: Khaoula El Mekkaoui, Chitra Mukherjee, Clodomir Santana, Hitalo Silva, Arnib Quazi, Meghana Balabhadruni, Aditya Ballal, Shamika Gavaskar, Kea Turqueza, Leslie Molina, Pablo Acevedo, Kay Moua, Omar Dawar, Federico Garcia, Mohammad S Soroya, XiaoDong Zhang, Ezra Amsterdam, Chao-Yin Chen, Padmini Sirish, Leighton Izu, Ronaldo Menezes, Nipavan Chiamvimonvat, Vladimir Filkov, Martin Cadeiras, David A Liem\nDOI: https://doi.org/10.1016/j.premed.2025.100015",
+      "videoId": "YOTzkdZtgu4",
+      "url": "https://www.youtube.com/watch?v=YOTzkdZtgu4",
+      "publishedAt": "2026-02-22T11:26:18Z",
+      "viewCount": 5
+    },
+    {
+      "rawTitle": "The Rephrased Reality: Analysing Sentiment Shifts in LLM-Rephrased Text",
+      "description": "Title: The Rephrased Reality: Analysing Sentiment Shifts in LLM-Rephrased Text\nAuthors: Frederico L. Richardson, Aline Villavicencio, Ronaldo Menezes\nDOI: https://doi.org/10.1145/3672608.370771",
+      "videoId": "Mx2-KUZkTX0",
+      "url": "https://www.youtube.com/watch?v=Mx2-KUZkTX0",
+      "publishedAt": "2026-02-22T11:26:18Z",
+      "viewCount": 2
+    },
+    {
+      "rawTitle": "A data-driven supervised machine learning approach to estimating global ambient air pollution",
+      "description": "Title: A data-driven supervised machine learning approach to estimating global ambient air pollution concentrations with associated prediction intervals\nAuthors: Liam J. Berrisford, Hugo Barbosa, Ronaldo Menezes\nDOI: https://doi.org/10.1098/rsos.241288",
+      "videoId": "zkk9k38I1Hw",
+      "url": "https://www.youtube.com/watch?v=zkk9k38I1Hw",
+      "publishedAt": "2026-02-22T11:26:18Z",
+      "viewCount": 3
+    }
+  ],
+  "updated": "2026-03-09T07:04:28.350846"
+}
