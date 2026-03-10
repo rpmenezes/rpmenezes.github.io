@@ -485,7 +485,7 @@
     </script>
     <script>
         // Scroll fade-in
-        const fadeEls = document.querySelectorAll(".content-section, .hero, .highlights, .intro");
+        const fadeEls = document.querySelectorAll(".content-section, .hero");
         fadeEls.forEach(el => el.classList.add("fade-in"));
         setTimeout(() => {
             const observer = new IntersectionObserver((entries) => {
