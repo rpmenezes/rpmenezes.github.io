@@ -1,5 +1,5 @@
 {
-  "updated": "2026-03-09T06:44:22.645316+00:00",
+  "updated": "2026-03-11T06:35:00.351280+00:00",
   "stats": {
     "paperCount": 230,
     "hIndex": 21,
@@ -7,6 +7,49 @@
     "influentialCitationCount": 99
   },
   "publications": [
+    {
+      "year": "2026",
+      "title": "Natural language processing of biomedical text to map and prioritize protein\u2013disease associations in HFpEF",
+      "authors": [
+        "Clodomir Santana",
+        "Chitra Mukherjee",
+        "Arnib Quazi",
+        "Ronaldo Menezes",
+        "Vladimir Filkov",
+        "Dibakar Sigdel",
+        "Howard Choi",
+        "Imo Ebong",
+        "Padmini Sirish",
+        "Nicholas R. Anderson",
+        "Xuan Wang",
+        "Heng Ji",
+        "JiaWei Han",
+        "Baback Roshanravan",
+        "Leighton T. Izu",
+        "Thomas W. Smith",
+        "Nipavan Chiamvimonvat",
+        "Colleen E. Clancy",
+        "Martin Cadeiras",
+        "David A. Liem"
+      ],
+      "venue": "Computers in Biology and Medicine",
+      "doiValue": "10.1016/j.compbiomed.2026.111599",
+      "doiUrl": "https://doi.org/10.1016/j.compbiomed.2026.111599",
+      "citationCount": 0
+    },
+    {
+      "year": "2026",
+      "title": "Not all roads are created equal: network science shows some highways matter more for Brazil\u2019s connectivity",
+      "authors": [
+        "J\u00falio Taveira",
+        "Ronaldo Menezes",
+        "Fernando Buarque"
+      ],
+      "venue": "Applied Network Science",
+      "doiValue": "10.1007/s41109-026-00777-4",
+      "doiUrl": "https://doi.org/10.1007/s41109-026-00777-4",
+      "citationCount": 0
+    },
     {
       "year": "2025",
       "title": "Violence, city size and geographical isolation in African cities",

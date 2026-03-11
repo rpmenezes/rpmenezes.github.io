@@ -1,150 +1,6 @@
 {
-  "updated": "2026-03-09T06:44:42.819241+00:00",
+  "updated": "2026-03-11T06:35:27.824045+00:00",
   "collaborators": [
-    {
-      "authorId": "2337874088",
-      "name": "Marcos A. C. Oliveira",
-      "collaborationCount": 27,
-      "firstCollabYear": 2012,
-      "lastCollabYear": 2025,
-      "sharedPapers": [
-        {
-          "paperId": "c1fc2157a18010efbd5e8cf3f7ff327da725ca46",
-          "title": "Systematic comparison of gender inequality in scientific rankings across disciplines",
-          "year": 2025
-        },
-        {
-          "paperId": "836b92b46ee26a924bde41dc3fa6f3f408879a24",
-          "title": "Unravelling the dynamics of child sexual exploitation material circulation on the Dark Web",
-          "year": 2024
-        },
-        {
-          "paperId": "55c91b968dc113c82aca8fccffe213342c4bf182",
-          "title": "Dynamic predictability and activity-location contexts in human mobility",
-          "year": 2024
-        },
-        {
-          "paperId": "8117ab262bfb4a17c9a908eae639c381f12a6662",
-          "title": "Dynamic predictability and spatio-temporal contexts in human mobility",
-          "year": 2022
-        },
-        {
-          "paperId": "ec3afe317d6f773dcc5b9393e8e3397ab35a9ff4",
-          "title": "Beyond exploitation: Measuring the impact of local search in swarm-based memetic algorithms through the interactions of individuals in the population",
-          "year": 2022
-        },
-        {
-          "paperId": "46c92ab82eeeea206d64d453f8c0ecac777cd384",
-          "title": "Fishing for interactions: a network science approach to modeling fish school search",
-          "year": 2021
-        },
-        {
-          "paperId": "3e460237cc828b5c7f3142d6d081de6093ca1b05",
-          "title": "Uncovering the social interaction network in swarm intelligence algorithms",
-          "year": 2020
-        },
-        {
-          "paperId": "b484b7ff1f5e33e98fa064429707c728603ac17f",
-          "title": "Characterizing the Social Interactions in the Artificial Bee Colony Algorithm",
-          "year": 2019
-        },
-        {
-          "paperId": "feb436931fcd475a764b03592247c91739c8982e",
-          "title": "Modelling the Social Interactions in Ant Colony Optimization",
-          "year": 2019
-        },
-        {
-          "paperId": "0c30921ede73d0c6612c5e7af78ef04783eac4e5",
-          "title": "Uncovering the Social Interaction in Swarm Intelligence with Network Science",
-          "year": 2018
-        },
-        {
-          "paperId": "17384b4d3eb3df0eabe7ce0b3433b31c19fd13fa",
-          "title": "Unveiling Swarm Intelligence with Network Science - the Metaphor Explained",
-          "year": 2018
-        },
-        {
-          "paperId": "cf3566e3b2de5f4f9fd86a2191eef9f96242ffc0",
-          "title": "Spatio-temporal variations in the urban rhythm: the travelling waves of crime",
-          "year": 2018
-        },
-        {
-          "paperId": "70e1d348dc858f3197445e98318cbc272e70ce5d",
-          "title": "Better exploration-exploitation pace, better swarm: Examining the social interactions",
-          "year": 2017
-        },
-        {
-          "paperId": "4a4bf82f6152d81a83a695fd7e063248f8d42e83",
-          "title": "Communication Diversity in Particle Swarm Optimizers",
-          "year": 2016
-        },
-        {
-          "paperId": "84c919514d4749d53e46f12e4881bf1a9aa260ad",
-          "title": "Using network science to assess particle swarm optimizers",
-          "year": 2015
-        },
-        {
-          "paperId": "bfc9d254b549710c3a338ee0caaf96dc43515697",
-          "title": "Using network science to assess particle swarm optimizers",
-          "year": 2015
-        },
-        {
-          "paperId": "32e512f792d1fc0547cc0e3f2144a6ccc8d047a6",
-          "title": "Towards a network-based approach to analyze particle swarm optimizers",
-          "year": 2014
-        },
-        {
-          "paperId": "ae37bef92f89075806c25a7df01174ce07e9c6f0",
-          "title": "Assessing Particle Swarm Optimizers Using Network Science Metrics",
-          "year": 2013
-        },
-        {
-          "paperId": "8c5b933c3170ea055ea41a1830895d63051d7004",
-          "title": "Using Network Science to Define a Dynamic Communication Topology for Particle Swarm Optimizers",
-          "year": 2012
-        },
-        {
-          "paperId": "aa9b66c6dbf2cb915d5e3205b5ddbc8313a01fa3",
-          "title": "Spatial concentration and temporal regularities in crime",
-          "year": 2019
-        },
-        {
-          "paperId": "06187b695f7758cd9324de2f59280f53107836c0",
-          "title": "The scaling of crime concentration in cities",
-          "year": 2017
-        },
-        {
-          "paperId": "66a4e444a3408a93390d1260f7cf8ce36216bfb1",
-          "title": "Tippers and stiffers: An analysis of tipping behavior in taxi trips",
-          "year": 2017
-        },
-        {
-          "paperId": "a67e1fe5ac29cf1d87a9d17d855eef8f7ff3cfb2",
-          "title": "Using Social Media to Assess Neighborhood Social Disorganization: A Case Study in the United Kingdom",
-          "year": 2017
-        },
-        {
-          "paperId": "96de7fca6f5d66382e8df457680bb282881917dc",
-          "title": "From Criminal Spheres of Familiarity to Crime Networks",
-          "year": 2015
-        },
-        {
-          "paperId": "d44d6c476c28aea48f90dec575e90b3ad4e0437a",
-          "title": "The Spatial Structure of Crime in Urban Environments",
-          "year": 2014
-        },
-        {
-          "paperId": "f64054e85fa80052d1528f503d8f581c6b0262eb",
-          "title": "Uncovering Criminal Networks From Crime Locations",
-          "year": 2014
-        },
-        {
-          "paperId": "c1280da1a3c06b933df97f1c4e4d71ad3433a494",
-          "title": "Political Social Networks Reveal Strong Party Loyalty in Brazil and Weak Regionalism",
-          "year": 2015
-        }
-      ]
-    },
     {
       "authorId": "144373898",
       "name": "Diego Pinheiro",
@@ -240,26 +96,21 @@
       ]
     },
     {
-      "authorId": "2338828830",
-      "name": "Mariana Macedo",
+      "authorId": "2110648641",
+      "name": "Marcos A. C. Oliveira",
       "collaborationCount": 16,
-      "firstCollabYear": 2017,
-      "lastCollabYear": 2025,
+      "firstCollabYear": 2012,
+      "lastCollabYear": 2022,
       "sharedPapers": [
         {
-          "paperId": "1360a9021976e2af72b2f3733d8547c122a946a1",
-          "title": "Vector fields as a framework for modelling the mobility of commodities",
-          "year": 2025
+          "paperId": "8117ab262bfb4a17c9a908eae639c381f12a6662",
+          "title": "Dynamic predictability and spatio-temporal contexts in human mobility",
+          "year": 2022
         },
         {
-          "paperId": "5070065d69e4bffb742382a791481b237ac4089a",
-          "title": "The parenthood effect in urban mobility",
-          "year": 2025
-        },
-        {
-          "paperId": "c1fc2157a18010efbd5e8cf3f7ff327da725ca46",
-          "title": "Systematic comparison of gender inequality in scientific rankings across disciplines",
-          "year": 2025
+          "paperId": "ec3afe317d6f773dcc5b9393e8e3397ab35a9ff4",
+          "title": "Beyond exploitation: Measuring the impact of local search in swarm-based memetic algorithms through the interactions of individuals in the population",
+          "year": 2022
         },
         {
           "paperId": "46c92ab82eeeea206d64d453f8c0ecac777cd384",
@@ -267,29 +118,9 @@
           "year": 2021
         },
         {
-          "paperId": "68e9640c6cbf74eda8522c61260bac6d0782272b",
-          "title": "Differences in the spatial landscape of urban mobility: Gender and socioeconomic perspectives",
-          "year": 2021
-        },
-        {
-          "paperId": "6dd16c7c8c3297ebb3c1dd1dafbfc9e55e6af9f1",
-          "title": "Modelling the Social Interactions in Grey Wolf Optimizer",
-          "year": 2021
-        },
-        {
-          "paperId": "eed73ca6be04f99e772df9d2db81f8a091ad5594",
-          "title": "Breast cancer diagnosis using thermal image analysis: A data-driven approach based on swarm intelligence and supervised learning for optimized feature selection",
-          "year": 2021
-        },
-        {
           "paperId": "3e460237cc828b5c7f3142d6d081de6093ca1b05",
           "title": "Uncovering the social interaction network in swarm intelligence algorithms",
           "year": 2020
-        },
-        {
-          "paperId": "46a0c762a0c6d583db1752e9ddf572f4ce532b6c",
-          "title": "Gender Patterns of Human Mobility in Colombia: Reexamining Ravenstein's Laws of Migration",
-          "year": 2019
         },
         {
           "paperId": "b484b7ff1f5e33e98fa064429707c728603ac17f",
@@ -312,8 +143,8 @@
           "year": 2018
         },
         {
-          "paperId": "fa4b6ab08bee2cb950ac19516e7a5c50c234e4cb",
-          "title": "Improved Multi-Objective Binary Fish School for Feature Selection",
+          "paperId": "cf3566e3b2de5f4f9fd86a2191eef9f96242ffc0",
+          "title": "Spatio-temporal variations in the urban rhythm: the travelling waves of crime",
           "year": 2018
         },
         {
@@ -322,98 +153,34 @@
           "year": 2017
         },
         {
-          "paperId": "b676b14bf3eb1ea17c669f7f0ec2e1deedf760f7",
-          "title": "Reaching to the Top: the Gender effect in Highly-Ranked academics in Computer Science",
-          "year": 2021
-        }
-      ]
-    },
-    {
-      "authorId": "2284590143",
-      "name": "Hugo Barbosa",
-      "collaborationCount": 16,
-      "firstCollabYear": 2015,
-      "lastCollabYear": 2024,
-      "sharedPapers": [
-        {
-          "paperId": "0bb1635525e4820bcf361042ff89d1e4956f4dd9",
-          "title": "A data-driven supervised machine learning approach to estimating global ambient air pollution concentrations with associated prediction intervals",
-          "year": 2024
+          "paperId": "4a4bf82f6152d81a83a695fd7e063248f8d42e83",
+          "title": "Communication Diversity in Particle Swarm Optimizers",
+          "year": 2016
         },
         {
-          "paperId": "55c91b968dc113c82aca8fccffe213342c4bf182",
-          "title": "Dynamic predictability and activity-location contexts in human mobility",
-          "year": 2024
-        },
-        {
-          "paperId": "cb5f9580d40e2ae5935f563ed90adc3b55ba6a1b",
-          "title": "The role of transport systems in housing insecurity: a mobility-based analysis",
-          "year": 2024
-        },
-        {
-          "paperId": "221c62651b68d76a2751e34ba845e67d2339a3e9",
-          "title": "Transport and Mobility Segregation in Urban Spaces",
-          "year": 2023
-        },
-        {
-          "paperId": "02b6fd58f88b30fb8dfc62f02f8d5c1c2299ac49",
-          "title": "Does Transport Inequality Perpetuate Housing Insecurity?",
-          "year": 2023
-        },
-        {
-          "paperId": "61587f0d27e2f82a3ddbd19d581eb952ed61c47f",
-          "title": "Network Entropy as a Measure of Socioeconomic Segregation in Residential and Employment Landscapes",
-          "year": 2023
-        },
-        {
-          "paperId": "87cf91fb8fa29d358c6384ac2a2be3a9de31deff",
-          "title": "Mobility and transit segregation in urban spaces",
-          "year": 2023
-        },
-        {
-          "paperId": "8117ab262bfb4a17c9a908eae639c381f12a6662",
-          "title": "Dynamic predictability and spatio-temporal contexts in human mobility",
-          "year": 2022
-        },
-        {
-          "paperId": "8d4f9df56f4488bf3c10cb8686307dae87605668",
-          "title": "Changes in the time-space dimension of human mobility during the COVID-19 pandemic",
-          "year": 2022
-        },
-        {
-          "paperId": "b8608d96a215f3e8fbfce05510e942f95ef5294d",
-          "title": "COVID-19 is linked to changes in the time\u2013space dimension of human mobility",
-          "year": 2022
-        },
-        {
-          "paperId": "68e9640c6cbf74eda8522c61260bac6d0782272b",
-          "title": "Differences in the spatial landscape of urban mobility: Gender and socioeconomic perspectives",
-          "year": 2021
-        },
-        {
-          "paperId": "46a0c762a0c6d583db1752e9ddf572f4ce532b6c",
-          "title": "Gender Patterns of Human Mobility in Colombia: Reexamining Ravenstein's Laws of Migration",
-          "year": 2019
-        },
-        {
-          "paperId": "d5ab554c9c292624262ca979657f4808d0464a3c",
-          "title": "Uncovering the differences and similarities between physical and virtual mobility",
-          "year": 2019
-        },
-        {
-          "paperId": "f1be9ac5f0e36b40464b0643d5d8b718b30e7149",
-          "title": "A data-driven network approach for characterization of political parties\u2019 ideology dynamics",
-          "year": 2019
-        },
-        {
-          "paperId": "70ea714e0010f6084a38a0e9ec91b013fad8a9e4",
-          "title": "The E\ufb00ect of Recency to Human Mobility \u2013 Supporting Information \u2013",
+          "paperId": "84c919514d4749d53e46f12e4881bf1a9aa260ad",
+          "title": "Using network science to assess particle swarm optimizers",
           "year": 2015
         },
         {
-          "paperId": "7fe4a0e3112fe77139ab076bb16bb40de3affed2",
-          "title": "The effect of recency to human mobility",
+          "paperId": "bfc9d254b549710c3a338ee0caaf96dc43515697",
+          "title": "Using network science to assess particle swarm optimizers",
           "year": 2015
+        },
+        {
+          "paperId": "32e512f792d1fc0547cc0e3f2144a6ccc8d047a6",
+          "title": "Towards a network-based approach to analyze particle swarm optimizers",
+          "year": 2014
+        },
+        {
+          "paperId": "ae37bef92f89075806c25a7df01174ce07e9c6f0",
+          "title": "Assessing Particle Swarm Optimizers Using Network Science Metrics",
+          "year": 2013
+        },
+        {
+          "paperId": "8c5b933c3170ea055ea41a1830895d63051d7004",
+          "title": "Using Network Science to Define a Dynamic Communication Topology for Particle Swarm Optimizers",
+          "year": 2012
         }
       ]
     },
@@ -507,6 +274,90 @@
       ]
     },
     {
+      "authorId": "2338828830",
+      "name": "Mariana Macedo",
+      "collaborationCount": 15,
+      "firstCollabYear": 2017,
+      "lastCollabYear": 2025,
+      "sharedPapers": [
+        {
+          "paperId": "1360a9021976e2af72b2f3733d8547c122a946a1",
+          "title": "Vector fields as a framework for modelling the mobility of commodities",
+          "year": 2025
+        },
+        {
+          "paperId": "5070065d69e4bffb742382a791481b237ac4089a",
+          "title": "The parenthood effect in urban mobility",
+          "year": 2025
+        },
+        {
+          "paperId": "c1fc2157a18010efbd5e8cf3f7ff327da725ca46",
+          "title": "Systematic comparison of gender inequality in scientific rankings across disciplines",
+          "year": 2025
+        },
+        {
+          "paperId": "46c92ab82eeeea206d64d453f8c0ecac777cd384",
+          "title": "Fishing for interactions: a network science approach to modeling fish school search",
+          "year": 2021
+        },
+        {
+          "paperId": "68e9640c6cbf74eda8522c61260bac6d0782272b",
+          "title": "Differences in the spatial landscape of urban mobility: Gender and socioeconomic perspectives",
+          "year": 2021
+        },
+        {
+          "paperId": "6dd16c7c8c3297ebb3c1dd1dafbfc9e55e6af9f1",
+          "title": "Modelling the Social Interactions in Grey Wolf Optimizer",
+          "year": 2021
+        },
+        {
+          "paperId": "eed73ca6be04f99e772df9d2db81f8a091ad5594",
+          "title": "Breast cancer diagnosis using thermal image analysis: A data-driven approach based on swarm intelligence and supervised learning for optimized feature selection",
+          "year": 2021
+        },
+        {
+          "paperId": "3e460237cc828b5c7f3142d6d081de6093ca1b05",
+          "title": "Uncovering the social interaction network in swarm intelligence algorithms",
+          "year": 2020
+        },
+        {
+          "paperId": "46a0c762a0c6d583db1752e9ddf572f4ce532b6c",
+          "title": "Gender Patterns of Human Mobility in Colombia: Reexamining Ravenstein's Laws of Migration",
+          "year": 2019
+        },
+        {
+          "paperId": "b484b7ff1f5e33e98fa064429707c728603ac17f",
+          "title": "Characterizing the Social Interactions in the Artificial Bee Colony Algorithm",
+          "year": 2019
+        },
+        {
+          "paperId": "feb436931fcd475a764b03592247c91739c8982e",
+          "title": "Modelling the Social Interactions in Ant Colony Optimization",
+          "year": 2019
+        },
+        {
+          "paperId": "0c30921ede73d0c6612c5e7af78ef04783eac4e5",
+          "title": "Uncovering the Social Interaction in Swarm Intelligence with Network Science",
+          "year": 2018
+        },
+        {
+          "paperId": "17384b4d3eb3df0eabe7ce0b3433b31c19fd13fa",
+          "title": "Unveiling Swarm Intelligence with Network Science - the Metaphor Explained",
+          "year": 2018
+        },
+        {
+          "paperId": "fa4b6ab08bee2cb950ac19516e7a5c50c234e4cb",
+          "title": "Improved Multi-Objective Binary Fish School for Feature Selection",
+          "year": 2018
+        },
+        {
+          "paperId": "70e1d348dc858f3197445e98318cbc272e70ce5d",
+          "title": "Better exploration-exploitation pace, better swarm: Examining the social interactions",
+          "year": 2017
+        }
+      ]
+    },
+    {
       "authorId": "2275393511",
       "name": "Martin Cadeiras",
       "collaborationCount": 13,
@@ -577,6 +428,80 @@
           "paperId": "e9f6ee9331bd39d327e7d9d1b7ea28e800a6d953",
           "title": "The Social Structure of Organ Transplantation in the United States",
           "year": 2012
+        }
+      ]
+    },
+    {
+      "authorId": "144447784",
+      "name": "Hugo Barbosa",
+      "collaborationCount": 13,
+      "firstCollabYear": 2015,
+      "lastCollabYear": 2023,
+      "sharedPapers": [
+        {
+          "paperId": "02b6fd58f88b30fb8dfc62f02f8d5c1c2299ac49",
+          "title": "Does Transport Inequality Perpetuate Housing Insecurity?",
+          "year": 2023
+        },
+        {
+          "paperId": "61587f0d27e2f82a3ddbd19d581eb952ed61c47f",
+          "title": "Network Entropy as a Measure of Socioeconomic Segregation in Residential and Employment Landscapes",
+          "year": 2023
+        },
+        {
+          "paperId": "87cf91fb8fa29d358c6384ac2a2be3a9de31deff",
+          "title": "Mobility and transit segregation in urban spaces",
+          "year": 2023
+        },
+        {
+          "paperId": "8117ab262bfb4a17c9a908eae639c381f12a6662",
+          "title": "Dynamic predictability and spatio-temporal contexts in human mobility",
+          "year": 2022
+        },
+        {
+          "paperId": "8d4f9df56f4488bf3c10cb8686307dae87605668",
+          "title": "Changes in the time-space dimension of human mobility during the COVID-19 pandemic",
+          "year": 2022
+        },
+        {
+          "paperId": "b8608d96a215f3e8fbfce05510e942f95ef5294d",
+          "title": "COVID-19 is linked to changes in the time\u2013space dimension of human mobility",
+          "year": 2022
+        },
+        {
+          "paperId": "68e9640c6cbf74eda8522c61260bac6d0782272b",
+          "title": "Differences in the spatial landscape of urban mobility: Gender and socioeconomic perspectives",
+          "year": 2021
+        },
+        {
+          "paperId": "46a0c762a0c6d583db1752e9ddf572f4ce532b6c",
+          "title": "Gender Patterns of Human Mobility in Colombia: Reexamining Ravenstein's Laws of Migration",
+          "year": 2019
+        },
+        {
+          "paperId": "d5ab554c9c292624262ca979657f4808d0464a3c",
+          "title": "Uncovering the differences and similarities between physical and virtual mobility",
+          "year": 2019
+        },
+        {
+          "paperId": "f1be9ac5f0e36b40464b0643d5d8b718b30e7149",
+          "title": "A data-driven network approach for characterization of political parties\u2019 ideology dynamics",
+          "year": 2019
+        },
+        {
+          "paperId": "d7661d1f9115ae39fc0831071c8b559456f64ff0",
+          "title": "Human mobility: Models and applications",
+          "year": 2017
+        },
+        {
+          "paperId": "70ea714e0010f6084a38a0e9ec91b013fad8a9e4",
+          "title": "The E\ufb00ect of Recency to Human Mobility \u2013 Supporting Information \u2013",
+          "year": 2015
+        },
+        {
+          "paperId": "7fe4a0e3112fe77139ab076bb16bb40de3affed2",
+          "title": "The effect of recency to human mobility",
+          "year": 2015
         }
       ]
     },
@@ -906,109 +831,6 @@
       ]
     },
     {
-      "authorId": "6727411",
-      "name": "Fernando Buarque de Lima-Neto",
-      "collaborationCount": 10,
-      "firstCollabYear": 2010,
-      "lastCollabYear": 2017,
-      "sharedPapers": [
-        {
-          "paperId": "b4a1050579f9ce901f45df408ddef020f532a298",
-          "title": "Sensing language relationships from social media",
-          "year": 2017
-        },
-        {
-          "paperId": "479128700e92c0b392cd19f40292c1cee4fbb17e",
-          "title": "Characterization of Football Supporters from Twitter Conversations",
-          "year": 2016
-        },
-        {
-          "paperId": "e5c5d1cd82f0cb7cc8cb63c61d8a2e6abefd22e3",
-          "title": "Returners and Explorers Dichotomy in Web Browsing Behavior - A Human Mobility Approach",
-          "year": 2016
-        },
-        {
-          "paperId": "21ae4df2de7add91e551cc394c8370fabf945134",
-          "title": "The effect of recency to human mobility",
-          "year": 2015
-        },
-        {
-          "paperId": "e95026e57fef8e20f1cc85436de597d5e4f7d3b7",
-          "title": "Football Conversations: What Twitter Reveals about the 2014 World Cup",
-          "year": 2015
-        },
-        {
-          "paperId": "6fabb45c05d346f115a28906a2c87d6eaa34c803",
-          "title": "Understanding History Through Networks: The Brazil Case Study",
-          "year": 2013
-        },
-        {
-          "paperId": "45fa843265bc42eb3ca74a646b1c27b2658f60cf",
-          "title": "Hybrid and evolutionary Agent-Based Social Simulations using L\u00e9vy flight as randomization method",
-          "year": 2010
-        },
-        {
-          "paperId": "70ea714e0010f6084a38a0e9ec91b013fad8a9e4",
-          "title": "The E\ufb00ect of Recency to Human Mobility \u2013 Supporting Information \u2013",
-          "year": 2015
-        },
-        {
-          "paperId": "43d633d88cfb9284a2a0bf8b9f31fa3c26da2fa7",
-          "title": "Using Interactions in the Quantification of Media Bias",
-          "year": 2014
-        },
-        {
-          "paperId": "7fe4a0e3112fe77139ab076bb16bb40de3affed2",
-          "title": "The effect of recency to human mobility",
-          "year": 2015
-        }
-      ]
-    },
-    {
-      "authorId": "2061208618",
-      "name": "Clodomir Santana",
-      "collaborationCount": 7,
-      "firstCollabYear": 2020,
-      "lastCollabYear": 2026,
-      "sharedPapers": [
-        {
-          "paperId": "4ccd5b15e43cd72584706270710ce99372602212",
-          "title": "Natural language processing of biomedical text to map and prioritize protein-disease associations in HFpEF.",
-          "year": 2026
-        },
-        {
-          "paperId": "2943dfb1b85a2c80a0f968268ca3abb6624c4786",
-          "title": "The impact of the Social Exposome in Cardiovascular Health and Disease",
-          "year": 2025
-        },
-        {
-          "paperId": "8d4f9df56f4488bf3c10cb8686307dae87605668",
-          "title": "Changes in the time-space dimension of human mobility during the COVID-19 pandemic",
-          "year": 2022
-        },
-        {
-          "paperId": "b8608d96a215f3e8fbfce05510e942f95ef5294d",
-          "title": "COVID-19 is linked to changes in the time\u2013space dimension of human mobility",
-          "year": 2022
-        },
-        {
-          "paperId": "ec3afe317d6f773dcc5b9393e8e3397ab35a9ff4",
-          "title": "Beyond exploitation: Measuring the impact of local search in swarm-based memetic algorithms through the interactions of individuals in the population",
-          "year": 2022
-        },
-        {
-          "paperId": "fd59407e5e57708bda48e86f1b561d6a730312d8",
-          "title": "Networks of evolution: modelling and deconstructing genetic algorithms using dynamic networks",
-          "year": 2022
-        },
-        {
-          "paperId": "8b6c44a7eb649e0c551ab1962d8ec9f001257af7",
-          "title": "An approach to assess swarm intelligence algorithms based on complex networks",
-          "year": 2020
-        }
-      ]
-    },
-    {
       "authorId": "2408791",
       "name": "Gourab Ghoshal",
       "collaborationCount": 7,
@@ -1093,6 +915,94 @@
           "paperId": "fb13d78b2767a2c4c85ef47f676eb2f0a0e82b6a",
           "title": "Weighted Multi-resource Minority Games",
           "year": 2016
+        }
+      ]
+    },
+    {
+      "authorId": "2110649249",
+      "name": "Marcos A. C. Oliveira",
+      "collaborationCount": 7,
+      "firstCollabYear": 2014,
+      "lastCollabYear": 2019,
+      "sharedPapers": [
+        {
+          "paperId": "aa9b66c6dbf2cb915d5e3205b5ddbc8313a01fa3",
+          "title": "Spatial concentration and temporal regularities in crime",
+          "year": 2019
+        },
+        {
+          "paperId": "06187b695f7758cd9324de2f59280f53107836c0",
+          "title": "The scaling of crime concentration in cities",
+          "year": 2017
+        },
+        {
+          "paperId": "66a4e444a3408a93390d1260f7cf8ce36216bfb1",
+          "title": "Tippers and stiffers: An analysis of tipping behavior in taxi trips",
+          "year": 2017
+        },
+        {
+          "paperId": "a67e1fe5ac29cf1d87a9d17d855eef8f7ff3cfb2",
+          "title": "Using Social Media to Assess Neighborhood Social Disorganization: A Case Study in the United Kingdom",
+          "year": 2017
+        },
+        {
+          "paperId": "96de7fca6f5d66382e8df457680bb282881917dc",
+          "title": "From Criminal Spheres of Familiarity to Crime Networks",
+          "year": 2015
+        },
+        {
+          "paperId": "d44d6c476c28aea48f90dec575e90b3ad4e0437a",
+          "title": "The Spatial Structure of Crime in Urban Environments",
+          "year": 2014
+        },
+        {
+          "paperId": "f64054e85fa80052d1528f503d8f581c6b0262eb",
+          "title": "Uncovering Criminal Networks From Crime Locations",
+          "year": 2014
+        }
+      ]
+    },
+    {
+      "authorId": "6727411",
+      "name": "Fernando Buarque de Lima-Neto",
+      "collaborationCount": 7,
+      "firstCollabYear": 2010,
+      "lastCollabYear": 2017,
+      "sharedPapers": [
+        {
+          "paperId": "b4a1050579f9ce901f45df408ddef020f532a298",
+          "title": "Sensing language relationships from social media",
+          "year": 2017
+        },
+        {
+          "paperId": "479128700e92c0b392cd19f40292c1cee4fbb17e",
+          "title": "Characterization of Football Supporters from Twitter Conversations",
+          "year": 2016
+        },
+        {
+          "paperId": "e5c5d1cd82f0cb7cc8cb63c61d8a2e6abefd22e3",
+          "title": "Returners and Explorers Dichotomy in Web Browsing Behavior - A Human Mobility Approach",
+          "year": 2016
+        },
+        {
+          "paperId": "21ae4df2de7add91e551cc394c8370fabf945134",
+          "title": "The effect of recency to human mobility",
+          "year": 2015
+        },
+        {
+          "paperId": "e95026e57fef8e20f1cc85436de597d5e4f7d3b7",
+          "title": "Football Conversations: What Twitter Reveals about the 2014 World Cup",
+          "year": 2015
+        },
+        {
+          "paperId": "6fabb45c05d346f115a28906a2c87d6eaa34c803",
+          "title": "Understanding History Through Networks: The Brazil Case Study",
+          "year": 2013
+        },
+        {
+          "paperId": "45fa843265bc42eb3ca74a646b1c27b2658f60cf",
+          "title": "Hybrid and evolutionary Agent-Based Social Simulations using L\u00e9vy flight as randomization method",
+          "year": 2010
         }
       ]
     },
@@ -1803,31 +1713,60 @@
       ]
     },
     {
-      "authorId": "2341538191",
-      "name": "Ana Mar\u00eda Jaramillo",
+      "authorId": "2061208618",
+      "name": "Clodomir Santana",
       "collaborationCount": 4,
-      "firstCollabYear": 2021,
-      "lastCollabYear": 2025,
+      "firstCollabYear": 2022,
+      "lastCollabYear": 2026,
       "sharedPapers": [
         {
-          "paperId": "c1fc2157a18010efbd5e8cf3f7ff327da725ca46",
-          "title": "Systematic comparison of gender inequality in scientific rankings across disciplines",
+          "paperId": "4ccd5b15e43cd72584706270710ce99372602212",
+          "title": "Natural language processing of biomedical text to map and prioritize protein-disease associations in HFpEF.",
+          "year": 2026
+        },
+        {
+          "paperId": "2943dfb1b85a2c80a0f968268ca3abb6624c4786",
+          "title": "The impact of the Social Exposome in Cardiovascular Health and Disease",
           "year": 2025
         },
         {
-          "paperId": "09819c16e47dbda8eaeaa42daf004d72265de1a6",
-          "title": "The structure of segregation in co-authorship networks and its impact on scientific production",
+          "paperId": "8d4f9df56f4488bf3c10cb8686307dae87605668",
+          "title": "Changes in the time-space dimension of human mobility during the COVID-19 pandemic",
           "year": 2022
         },
         {
-          "paperId": "73a5211098e99e836610e427fb742f07e3255d20",
-          "title": "The community structure of collaboration networks in computer science and its impact on scientific production and consumption",
+          "paperId": "b8608d96a215f3e8fbfce05510e942f95ef5294d",
+          "title": "COVID-19 is linked to changes in the time\u2013space dimension of human mobility",
           "year": 2022
+        }
+      ]
+    },
+    {
+      "authorId": "2284590143",
+      "name": "Hugo Barbosa",
+      "collaborationCount": 4,
+      "firstCollabYear": 2023,
+      "lastCollabYear": 2024,
+      "sharedPapers": [
+        {
+          "paperId": "0bb1635525e4820bcf361042ff89d1e4956f4dd9",
+          "title": "A data-driven supervised machine learning approach to estimating global ambient air pollution concentrations with associated prediction intervals",
+          "year": 2024
         },
         {
-          "paperId": "b676b14bf3eb1ea17c669f7f0ec2e1deedf760f7",
-          "title": "Reaching to the Top: the Gender effect in Highly-Ranked academics in Computer Science",
-          "year": 2021
+          "paperId": "55c91b968dc113c82aca8fccffe213342c4bf182",
+          "title": "Dynamic predictability and activity-location contexts in human mobility",
+          "year": 2024
+        },
+        {
+          "paperId": "cb5f9580d40e2ae5935f563ed90adc3b55ba6a1b",
+          "title": "The role of transport systems in housing insecurity: a mobility-based analysis",
+          "year": 2024
+        },
+        {
+          "paperId": "221c62651b68d76a2751e34ba845e67d2339a3e9",
+          "title": "Transport and Mobility Segregation in Urban Spaces",
+          "year": 2023
         }
       ]
     },
@@ -2059,26 +1998,50 @@
       ]
     },
     {
-      "authorId": "2257348298",
-      "name": "Zexun Chen",
+      "authorId": "2337874088",
+      "name": "Marcos Oliveira",
       "collaborationCount": 3,
-      "firstCollabYear": 2021,
-      "lastCollabYear": 2024,
+      "firstCollabYear": 2015,
+      "lastCollabYear": 2025,
       "sharedPapers": [
         {
-          "paperId": "55c91b968dc113c82aca8fccffe213342c4bf182",
-          "title": "Dynamic predictability and activity-location contexts in human mobility",
+          "paperId": "c1fc2157a18010efbd5e8cf3f7ff327da725ca46",
+          "title": "Systematic comparison of gender inequality in scientific rankings across disciplines",
+          "year": 2025
+        },
+        {
+          "paperId": "836b92b46ee26a924bde41dc3fa6f3f408879a24",
+          "title": "Unravelling the dynamics of child sexual exploitation material circulation on the Dark Web",
           "year": 2024
         },
         {
-          "paperId": "8117ab262bfb4a17c9a908eae639c381f12a6662",
-          "title": "Dynamic predictability and spatio-temporal contexts in human mobility",
+          "paperId": "c1280da1a3c06b933df97f1c4e4d71ad3433a494",
+          "title": "Political Social Networks Reveal Strong Party Loyalty in Brazil and Weak Regionalism",
+          "year": 2015
+        }
+      ]
+    },
+    {
+      "authorId": "31603994",
+      "name": "Clodomir Santana",
+      "collaborationCount": 3,
+      "firstCollabYear": 2020,
+      "lastCollabYear": 2022,
+      "sharedPapers": [
+        {
+          "paperId": "ec3afe317d6f773dcc5b9393e8e3397ab35a9ff4",
+          "title": "Beyond exploitation: Measuring the impact of local search in swarm-based memetic algorithms through the interactions of individuals in the population",
           "year": 2022
         },
         {
-          "paperId": "e21df088c702fbe45c5a04f444cf5866d81bc30a",
-          "title": "Contrasting social and non-social sources of predictability in human mobility",
-          "year": 2021
+          "paperId": "fd59407e5e57708bda48e86f1b561d6a730312d8",
+          "title": "Networks of evolution: modelling and deconstructing genetic algorithms using dynamic networks",
+          "year": 2022
+        },
+        {
+          "paperId": "8b6c44a7eb649e0c551ab1962d8ec9f001257af7",
+          "title": "An approach to assess swarm intelligence algorithms based on complex networks",
+          "year": 2020
         }
       ]
     },
@@ -2782,6 +2745,25 @@
       ]
     },
     {
+      "authorId": "2341538191",
+      "name": "Ana Mar\u00eda Jaramillo",
+      "collaborationCount": 2,
+      "firstCollabYear": 2021,
+      "lastCollabYear": 2025,
+      "sharedPapers": [
+        {
+          "paperId": "c1fc2157a18010efbd5e8cf3f7ff327da725ca46",
+          "title": "Systematic comparison of gender inequality in scientific rankings across disciplines",
+          "year": 2025
+        },
+        {
+          "paperId": "b676b14bf3eb1ea17c669f7f0ec2e1deedf760f7",
+          "title": "Reaching to the Top: the Gender effect in Highly-Ranked academics in Computer Science",
+          "year": 2021
+        }
+      ]
+    },
+    {
       "authorId": "1753630062",
       "name": "Bibandhan Poudyal",
       "collaborationCount": 2,
@@ -2796,6 +2778,25 @@
         {
           "paperId": "8117ab262bfb4a17c9a908eae639c381f12a6662",
           "title": "Dynamic predictability and spatio-temporal contexts in human mobility",
+          "year": 2022
+        }
+      ]
+    },
+    {
+      "authorId": "120744827",
+      "name": "Ana Mar\u00eda Jaramillo",
+      "collaborationCount": 2,
+      "firstCollabYear": 2022,
+      "lastCollabYear": 2022,
+      "sharedPapers": [
+        {
+          "paperId": "09819c16e47dbda8eaeaa42daf004d72265de1a6",
+          "title": "The structure of segregation in co-authorship networks and its impact on scientific production",
+          "year": 2022
+        },
+        {
+          "paperId": "73a5211098e99e836610e427fb742f07e3255d20",
+          "title": "The community structure of collaboration networks in computer science and its impact on scientific production and consumption",
           "year": 2022
         }
       ]
@@ -2835,6 +2836,25 @@
           "paperId": "73a5211098e99e836610e427fb742f07e3255d20",
           "title": "The community structure of collaboration networks in computer science and its impact on scientific production and consumption",
           "year": 2022
+        }
+      ]
+    },
+    {
+      "authorId": "31954599",
+      "name": "Zexun Chen",
+      "collaborationCount": 2,
+      "firstCollabYear": 2021,
+      "lastCollabYear": 2022,
+      "sharedPapers": [
+        {
+          "paperId": "8117ab262bfb4a17c9a908eae639c381f12a6662",
+          "title": "Dynamic predictability and spatio-temporal contexts in human mobility",
+          "year": 2022
+        },
+        {
+          "paperId": "e21df088c702fbe45c5a04f444cf5866d81bc30a",
+          "title": "Contrasting social and non-social sources of predictability in human mobility",
+          "year": 2021
         }
       ]
     },
@@ -3119,6 +3139,25 @@
         {
           "paperId": "51274b4cdc51ed9dc557634a50e4aae77e70d0ef",
           "title": "Social system as complex networks",
+          "year": 2014
+        }
+      ]
+    },
+    {
+      "authorId": "1403789320",
+      "name": "Fernando B. Lima-Neto",
+      "collaborationCount": 2,
+      "firstCollabYear": 2014,
+      "lastCollabYear": 2015,
+      "sharedPapers": [
+        {
+          "paperId": "70ea714e0010f6084a38a0e9ec91b013fad8a9e4",
+          "title": "The E\ufb00ect of Recency to Human Mobility \u2013 Supporting Information \u2013",
+          "year": 2015
+        },
+        {
+          "paperId": "43d633d88cfb9284a2a0bf8b9f31fa3c26da2fa7",
+          "title": "Using Interactions in the Quantification of Media Bias",
           "year": 2014
         }
       ]
@@ -3937,6 +3976,34 @@
       ]
     },
     {
+      "authorId": "2257481322",
+      "name": "Marcos A. C. Oliveira",
+      "collaborationCount": 1,
+      "firstCollabYear": 2024,
+      "lastCollabYear": 2024,
+      "sharedPapers": [
+        {
+          "paperId": "55c91b968dc113c82aca8fccffe213342c4bf182",
+          "title": "Dynamic predictability and activity-location contexts in human mobility",
+          "year": 2024
+        }
+      ]
+    },
+    {
+      "authorId": "2257348298",
+      "name": "Zexun Chen",
+      "collaborationCount": 1,
+      "firstCollabYear": 2024,
+      "lastCollabYear": 2024,
+      "sharedPapers": [
+        {
+          "paperId": "55c91b968dc113c82aca8fccffe213342c4bf182",
+          "title": "Dynamic predictability and activity-location contexts in human mobility",
+          "year": 2024
+        }
+      ]
+    },
+    {
       "authorId": "2336740238",
       "name": "J. Taveira",
       "collaborationCount": 1,
@@ -4002,6 +4069,20 @@
         {
           "paperId": "6dd16c7c8c3297ebb3c1dd1dafbfc9e55e6af9f1",
           "title": "Modelling the Social Interactions in Grey Wolf Optimizer",
+          "year": 2021
+        }
+      ]
+    },
+    {
+      "authorId": "2055092248",
+      "name": "Mariana Macedo",
+      "collaborationCount": 1,
+      "firstCollabYear": 2021,
+      "lastCollabYear": 2021,
+      "sharedPapers": [
+        {
+          "paperId": "b676b14bf3eb1ea17c669f7f0ec2e1deedf760f7",
+          "title": "Reaching to the Top: the Gender effect in Highly-Ranked academics in Computer Science",
           "year": 2021
         }
       ]
@@ -4483,20 +4564,6 @@
       ]
     },
     {
-      "authorId": "1404177660",
-      "name": "Hugo Barbosa-Filho",
-      "collaborationCount": 1,
-      "firstCollabYear": 2017,
-      "lastCollabYear": 2017,
-      "sharedPapers": [
-        {
-          "paperId": "d7661d1f9115ae39fc0831071c8b559456f64ff0",
-          "title": "Human mobility: Models and applications",
-          "year": 2017
-        }
-      ]
-    },
-    {
       "authorId": "47837753",
       "name": "M. Barthelemy",
       "collaborationCount": 1,
@@ -4716,6 +4783,20 @@
         {
           "paperId": "70ea714e0010f6084a38a0e9ec91b013fad8a9e4",
           "title": "The E\ufb00ect of Recency to Human Mobility \u2013 Supporting Information \u2013",
+          "year": 2015
+        }
+      ]
+    },
+    {
+      "authorId": "2202786502",
+      "name": "Fernando B de Lima-Neto",
+      "collaborationCount": 1,
+      "firstCollabYear": 2015,
+      "lastCollabYear": 2015,
+      "sharedPapers": [
+        {
+          "paperId": "7fe4a0e3112fe77139ab076bb16bb40de3affed2",
+          "title": "The effect of recency to human mobility",
           "year": 2015
         }
       ]
