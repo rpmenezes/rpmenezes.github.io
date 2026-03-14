@@ -1,5 +1,5 @@
 {
-  "updated": "2026-03-13T06:35:14.871524+00:00",
+  "updated": "2026-03-14T06:31:17.239347+00:00",
   "stats": {
     "paperCount": 230,
     "hIndex": 21,
@@ -36,6 +36,20 @@
       "doiValue": "10.1016/j.compbiomed.2026.111599",
       "doiUrl": "https://doi.org/10.1016/j.compbiomed.2026.111599",
       "citationCount": 0
+    },
+    {
+      "year": "2026",
+      "title": "Vector fields as a framework for modelling the mobility of commodities",
+      "authors": [
+        "Sima Farokhnejad",
+        "Ang\u00e9lica S. da Mata",
+        "Mariana Macedo",
+        "Ronaldo Menezes"
+      ],
+      "venue": "PLOS One",
+      "doiValue": "10.1371/journal.pone.0340109",
+      "doiUrl": "https://doi.org/10.1371/journal.pone.0340109",
+      "citationCount": null
     },
     {
       "year": "2026",
