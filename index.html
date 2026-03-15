@@ -144,9 +144,13 @@
         async function loadRecentPubs() {
             const list = document.getElementById('recent-pubs');
             try {
-                const res = await fetch('data/auto/stats.json?v=' + Date.now());
-                if (!res.ok) throw new Error();
-                const data = await res.json();
+                const [statsRes, manifestRes] = await Promise.all([
+                    fetch('data/auto/stats.json?v=' + Date.now()),
+                    fetch('highlights/manifest.json?v=' + Date.now())
+                ]);
+                if (!statsRes.ok) throw new Error();
+                const data = await statsRes.json();
+                const highlights = manifestRes.ok ? await manifestRes.json() : [];
                 const pubs = data.publications || [];
 
                 // Sort by year descending, take first 3
@@ -157,8 +161,10 @@
                 if (recent.length === 0) throw new Error();
 
                 list.innerHTML = recent.map(pub => {
-                    const titleHtml = pub.doiUrl
-                        ? `<a href="${pub.doiUrl}" target="_blank" class="pub-title-link">${pub.title}</a><span class="pub-title-arrow">↗&#xFE0E;</span>`
+                    const slug = pub.doiValue ? pub.doiValue.split('/').pop() : null;
+                    const hasHighlight = slug && highlights.includes(slug);
+                    const titleHtml = hasHighlight
+                        ? `<a href="highlights/${slug}.html" class="pub-title-link">${pub.title}</a><span class="pub-title-arrow">↗&#xFE0E;</span>`
                         : `<span class="pub-title-link">${pub.title}</span>`;
                     const venueHtml = pub.venue
                         ? `<span class="pub-venue">${pub.venue}</span>` : '';
