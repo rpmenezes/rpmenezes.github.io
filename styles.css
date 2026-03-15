@@ -854,6 +854,7 @@ footer {
 a {
     color: #111;
     text-decoration: none;
+    font-weight: 400;
     transition: color 0.2s ease;
 }
 
