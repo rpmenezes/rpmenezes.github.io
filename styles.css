@@ -1297,68 +1297,6 @@ a:hover {
 }
 
 
-/* ── Projects ── */
-.project-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-}
-
-.project-entry {
-    padding: 1.25rem 0;
-    border-bottom: 1px solid #f0f0f0;
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
-}
-.project-entry p {
-    margin: 0;
-}
-
-.project-entry:last-child {
-    border-bottom: none;
-}
-
-.project-entry .project-title {
-    font-size: 0.95rem;
-    font-weight: 400;
-    color: #111;
-    letter-spacing: 0.01em;
-    line-height: 1.4;
-    margin: 0;
-}
-
-.project-description {
-    font-size: 0.9rem;
-    font-weight: 300;
-    color: #444;
-    line-height: 1.7;
-    margin: 0;
-}
-
-.project-entry a {
-    color: #111;
-    text-decoration: none;
-    font-weight: 400;
-}
-
-.project-entry a:hover {
-    color: #007D69;
-    text-decoration: underline;
-}
-
-.project-team {
-    font-size: 0.85rem;
-    font-weight: 300;
-    color: #666;
-    line-height: 1.6;
-    margin: 0;
-}
-
-.project-team-label {
-    font-weight: 400;
-    color: #111;
-}
 
 /* ── Publication metrics row ── */
 .pub-metrics-row {
