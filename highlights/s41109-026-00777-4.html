@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Not All Roads Are Created Equal: Network Science Shows Some Highways Matter More for Brazil's Connectivity</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #111;
+            background-color: #ffffff;
+            font-size: 16px;
+            font-weight: 300;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 1.25rem 4rem 0;
+        }
+
+        .breadcrumb a {
+            font-size: 0.8rem;
+            font-weight: 300;
+            color: #999;
+            text-decoration: none;
+            letter-spacing: 0.02em;
+            transition: color 0.2s ease;
+        }
+
+        .breadcrumb a:hover {
+            color: #007D69;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 3rem 4rem 5rem;
+        }
+
+        /* Hero */
+        .hero {
+            padding: 3rem 0 2rem;
+            border-bottom: 1px solid #e8e8e8;
+            margin-bottom: 4rem;
+        }
+
+        .hero-meta {
+            font-size: 0.78rem;
+            font-weight: 400;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 300;
+            color: #003C3C;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            max-width: 800px;
+        }
+
+        .title-divider {
+            width: 40px;
+            height: 1px;
+            background: #111;
+            margin: 2rem 0;
+        }
+
+        .hero-authors {
+            font-size: 1rem;
+            font-weight: 300;
+            color: #444;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-authors span.highlight {
+            color: #007D69;
+            font-weight: 400;
+        }
+
+        .hero-journal {
+            font-size: 0.9rem;
+            font-weight: 300;
+            color: #666;
+            font-style: italic;
+            margin-bottom: 2rem;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            padding: 0.7rem 1.75rem;
+            background-color: #111;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 300;
+            transition: background-color 0.2s ease, border-color 0.2s ease;
+            border: 1px solid #111;
+            font-size: 0.85rem;
+            letter-spacing: 0.04em;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background-color: #007D69;
+            border-color: #007D69;
+        }
+
+        .btn-outline {
+            display: inline-block;
+            padding: 0.7rem 1.75rem;
+            background-color: transparent;
+            color: #111;
+            text-decoration: none;
+            font-weight: 300;
+            transition: all 0.2s ease;
+            border: 1px solid #111;
+            font-size: 0.85rem;
+            letter-spacing: 0.04em;
+            cursor: pointer;
+        }
+
+        .btn-outline:hover {
+            background-color: #007D69;
+            border-color: #007D69;
+            color: #fff;
+        }
+
+        /* Key stats row */
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin: 4rem 0;
+            padding: 2.5rem 0;
+            border-top: 1px solid #e8e8e8;
+            border-bottom: 1px solid #e8e8e8;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .stat-label {
+            font-size: 0.7rem;
+            font-weight: 400;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .stat-value {
+            font-size: 1.4rem;
+            font-weight: 300;
+            color: #007D69;
+        }
+
+        .stat-desc {
+            font-size: 0.82rem;
+            font-weight: 300;
+            color: #666;
+        }
+
+        /* Content sections */
+        .content-section {
+            margin: 5rem 0;
+        }
+
+        .content-section h2 {
+            font-size: 1.4rem;
+            font-weight: 300;
+            color: #007D69;
+            margin-bottom: 2.5rem;
+            letter-spacing: 0.02em;
+        }
+
+        .content-section h3 {
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: #111;
+            margin: 2rem 0 0.8rem;
+        }
+
+        .content-section p {
+            font-size: 1rem;
+            font-weight: 300;
+            color: #111;
+            line-height: 1.8;
+            margin-bottom: 1.4rem;
+            max-width: 760px;
+        }
+
+        /* Two-column layout */
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        /* Highlighted quote */
+        .pull-quote {
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: #003C3C;
+            line-height: 1.7;
+            border-left: 2px solid #007D69;
+            padding-left: 1.5rem;
+            margin: 2rem 0;
+            font-style: italic;
+            max-width: 700px;
+        }
+
+        /* Steps */
+        .steps-list {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+        }
+
+        .step-item {
+            display: flex;
+            gap: 1.5rem;
+            padding: 1.25rem 0;
+            border-bottom: 1px solid #f0f0f0;
+            align-items: flex-start;
+        }
+
+        .step-item:last-child {
+            border-bottom: none;
+        }
+
+        .step-number {
+            font-size: 0.72rem;
+            font-weight: 400;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            min-width: 60px;
+            padding-top: 0.2rem;
+        }
+
+        .step-content h4 {
+            font-size: 0.95rem;
+            font-weight: 400;
+            color: #111;
+            margin-bottom: 0.4rem;
+        }
+
+        .step-content p {
+            font-size: 0.9rem;
+            font-weight: 300;
+            color: #444;
+            line-height: 1.7;
+            margin: 0;
+            max-width: none;
+        }
+
+        /* Findings cards */
+        .findings-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+            margin-top: 2.5rem;
+        }
+
+        .finding-card {
+            border-top: 2px solid #007D69;
+            padding-top: 1.25rem;
+        }
+
+        .finding-card h4 {
+            font-size: 0.95rem;
+            font-weight: 400;
+            color: #111;
+            margin-bottom: 0.7rem;
+            letter-spacing: 0.01em;
+        }
+
+        .finding-card p {
+            font-size: 0.88rem;
+            font-weight: 300;
+            color: #555;
+            line-height: 1.7;
+            margin: 0;
+            max-width: none;
+        }
+
+        /* Applications list */
+        .applications-list {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+        }
+
+        .app-item {
+            display: flex;
+            gap: 1.5rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid #e8e8e8;
+            align-items: flex-start;
+        }
+
+        .app-item:last-child {
+            border-bottom: none;
+        }
+
+        .app-label {
+            font-size: 0.78rem;
+            font-weight: 400;
+            color: #007D69;
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+            width: 210px;
+            flex-shrink: 0;
+            padding-top: 0.15rem;
+        }
+
+        .app-desc {
+            font-size: 0.92rem;
+            font-weight: 300;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Authors section */
+        .authors-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem 3rem;
+            margin-top: 1.5rem;
+        }
+
+        .author-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .author-name {
+            font-size: 0.95rem;
+            font-weight: 400;
+            color: #111;
+        }
+
+        .author-affiliation {
+            font-size: 0.82rem;
+            font-weight: 300;
+            color: #666;
+        }
+
+        /* Citation box */
+        .citation-box {
+            background: #f8f8f8;
+            padding: 1.75rem 2rem;
+            margin-top: 1.5rem;
+            font-size: 0.85rem;
+            font-weight: 300;
+            color: #444;
+            line-height: 1.8;
+            font-family: 'Courier New', monospace;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+
+        /* Footer */
+        footer {
+            background-color: transparent;
+            padding: 3rem 4rem;
+            text-align: left;
+            color: #666;
+            font-size: 0.82rem;
+            border-top: 1px solid #111;
+            margin-top: 6rem;
+            font-weight: 300;
+        }
+
+        .footer-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-inner a {
+            color: #666;
+            text-decoration: none;
+        }
+
+        .footer-inner a:hover {
+            color: #007D69;
+        }
+
+        /* Fade-in */
+        .fade-in {
+            opacity: 0;
+            transition: opacity 0.7s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .breadcrumb,
+            .container {
+                padding-left: 3rem;
+                padding-right: 3rem;
+            }
+            footer { padding-left: 3rem; padding-right: 3rem; }
+        }
+
+        @media (max-width: 768px) {
+            .breadcrumb { padding: 1rem 2rem 0; }
+            .container { padding: 2.5rem 2rem 4rem; }
+            .hero h1 { font-size: 1.9rem; }
+            .stats-row { grid-template-columns: repeat(2, 1fr); }
+            .two-col { grid-template-columns: 1fr; gap: 2rem; }
+            .findings-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .authors-grid { grid-template-columns: 1fr; }
+            footer { padding: 2.5rem 2rem; }
+            .footer-inner { flex-direction: column; }
+            .app-item { flex-direction: column; gap: 0.3rem; }
+            .app-label { min-width: unset; }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 1.6rem; }
+            .hero-actions { flex-direction: column; align-items: flex-start; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <a href="https://rpmenezes.github.io">← rpmenezes.github.io</a>
+    </div>
+
+    <main class="container">
+
+        <!-- Hero -->
+        <section class="hero">
+            <div class="hero-meta">Research Article &nbsp;·&nbsp; Applied Network Science &nbsp;·&nbsp; Published 2026</div>
+            <h1>Not All Roads Are Created Equal: Network Science Shows Some Highways Matter More for Brazil's Connectivity</h1>
+            <div class="title-divider"></div>
+            <p class="hero-authors">
+                Júlio Taveira &nbsp;·&nbsp;
+                <span class="highlight">Ronaldo Menezes</span> &nbsp;·&nbsp;
+                Fernando Buarque
+            </p>
+            <p class="hero-journal">
+                Applied Network Science, 11: 25 &nbsp;·&nbsp;
+                DOI: <a href="https://doi.org/10.1007/s41109-026-00777-4" target="_blank" rel="noopener" style="color:#666; font-style:normal;">10.1007/s41109-026-00777-4</a>
+            </p>
+            <div class="hero-actions">
+                <a href="https://doi.org/10.1007/s41109-026-00777-4" target="_blank" rel="noopener" class="btn-primary">Read the Paper ↗</a>
+            </div>
+        </section>
+
+        <!-- Key numbers -->
+        <div class="stats-row fade-in">
+            <div class="stat-item">
+                <span class="stat-label">Road Network</span>
+                <span class="stat-value">75,000</span>
+                <span class="stat-desc">km of Brazilian federal roads modelled as weighted networks</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Geographic Data</span>
+                <span class="stat-value">5.67M</span>
+                <span class="stat-desc">georeferenced positions from DNIT's national road system (2023)</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Incident Records</span>
+                <span class="stat-value">1M+</span>
+                <span class="stat-desc">road accident records spanning 2007–present from Federal Highway Police</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Network Diameter</span>
+                <span class="stat-value">5,838 km</span>
+                <span class="stat-desc">longest road path, from Cruzeiro do Sul, AC to Chuí, RS</span>
+            </div>
+        </div>
+
+        <!-- The Problem -->
+        <section class="content-section fade-in">
+            <h2>The Problem</h2>
+            <div class="two-col">
+                <div>
+                    <p>Brazil moves <strong>66% of its freight and 95% of its passengers by road</strong>. With approximately 8.5 million square kilometers of territory, its federal highway network serves as the connective tissue of the entire national economy. Yet this infrastructure is poorly understood as a system — planners typically manage individual roads in isolation, without a structural picture of which segments are truly critical to national connectivity.</p>
+                    <p>Road infrastructure growth has slowed to just 2.2% in the last decade, while public investment in federal roads in 2024 covered only 14% of estimated need. With limited resources, the question of <em>where</em> to invest — and <em>what</em> to protect — becomes consequential. Which highways, if disrupted by disaster, floods, or degradation, would most fracture Brazil's connectivity? Traditional engineering approaches cannot answer this at scale.</p>
+                    <p>Previous network science studies of Brazil treated the entire road system as a single, coarse network using cities as nodes. This obscures what happens at the segment level, where the actual physical infrastructure — and its vulnerabilities — reside.</p>
+                </div>
+                <div>
+                    <div class="pull-quote">
+                        "Road infrastructure growth has slowed, with an increase of only 2.2% in the last decade. Public investment in federal roads amounted to $2.5 billion in 2024, representing only 14% of the estimated need."
+                    </div>
+                    <p style="font-size:0.88rem; color:#666; margin-top:1rem; max-width:none;">The distribution of federal roads is deeply unequal: the South region has a road density of 20.5 km per 1,000 km², while the North — nearly seven times larger in area — has just 2.7 km per 1,000 km². A single model cannot capture both without regional decomposition.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Approach -->
+        <section class="content-section fade-in">
+            <h2>The Approach</h2>
+            <p>The study builds five weighted network variants of Brazil's federal road system at both national and regional levels, then subjects each to structural analysis and simulated disruptions. Data comes from three official Brazilian sources: DNIT (road structure and traffic flow), and the Federal Highway Police (accidents).</p>
+
+            <ul class="steps-list">
+                <li class="step-item">
+                    <span class="step-number">Step 01</span>
+                    <div class="step-content">
+                        <h4>Segment-level network construction</h4>
+                        <p>Road segment endpoints (junctions, state borders, significant kilometre markers) become nodes. The road segment bodies become edges. GeoHash encoding uniquely identifies shared node locations across segments, enabling precise concatenation of 5,678,097 georeferenced points into a connected graph with 5,025 nodes and 5,240 edges nationally.</p>
+                    </div>
+                </li>
+                <li class="step-item">
+                    <span class="step-number">Step 02</span>
+                    <div class="step-content">
+                        <h4>Five weighted network variants</h4>
+                        <p>Each edge is weighted five ways: by physical distance (BRN), incident count (BRN-I), vehicle flow (BRN-F), incidents per kilometre (BRN-R), and flow per lane (BRN-T). Each variant surfaces a different operational reality of the same physical infrastructure, from spatial efficiency to safety risk to capacity pressure.</p>
+                    </div>
+                </li>
+                <li class="step-item">
+                    <span class="step-number">Step 03</span>
+                    <div class="step-content">
+                        <h4>Structural analysis — topology, communities, assortativity</h4>
+                        <p>For each variant and each of the five geographic regions, the study computes weighted degree distributions and power-law exponents, network diameter, community structure via the Louvain algorithm (modularity Q), and degree assortativity. Analysis runs independently at national and regional levels to reveal hierarchical differences.</p>
+                    </div>
+                </li>
+                <li class="step-item">
+                    <span class="step-number">Step 04</span>
+                    <div class="step-content">
+                        <h4>Vulnerability and resilience simulation</h4>
+                        <p>Node and edge removal experiments simulate infrastructure disruption. Three removal strategies are compared: random (baseline for non-targeted failures), highest weighted degree, and highest betweenness centrality. Regional edge removal tests each region's contribution to national connectivity, identifying which geographic areas are load-bearing for the whole country.</p>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Findings -->
+        <section class="content-section fade-in">
+            <h2>Key Findings</h2>
+            <p>The multi-weight, hierarchical analysis revealed structural properties of Brazil's federal road network that coarser models had obscured, including a counterintuitive vulnerability pattern with direct implications for infrastructure investment.</p>
+
+            <div class="findings-grid">
+                <div class="finding-card">
+                    <h4>Scale-free nationally, dangerously hub-dependent regionally</h4>
+                    <p>National networks are scale-free (power-law exponent γ between 2.17–2.67), indicating moderate hub dominance. The North region is consistently heavy scale-free (γ &lt; 2) across all weight schemes, meaning its connectivity depends critically on a handful of junctions — making it disproportionately vulnerable to targeted disruption.</p>
+                </div>
+                <div class="finding-card">
+                    <h4>The longest road path exceeds Brazil's physical width</h4>
+                    <p>The distance-weighted network diameter is 5,838 km — from Cruzeiro do Sul, AC to Chuí, RS — 33% longer than the maximum straight-line distance across Brazil (4,394 km). The North's diameter alone (5,112 km) nearly matches the national figure, reflecting the indirect routing forced by rivers, rainforest, and sparse infrastructure.</p>
+                </div>
+                <div class="finding-card">
+                    <h4>Roads cluster into isolated corridors</h4>
+                    <p>All network variants exhibit modularity above 0.90, indicating that Brazil's federal roads naturally organise into distinct, internally cohesive communities. These road-corridor clusters facilitate regional integration but their weak inter-community connections represent bottlenecks for national mobility — the North has the lowest inter-state connectivity (9%).</p>
+                </div>
+                <div class="finding-card">
+                    <h4>Major junctions connect to other major junctions</h4>
+                    <p>All networks show unexpectedly high positive assortativity (rw = 0.56–0.82), especially under flow and incident weighting. This contrasts with typical infrastructure networks, which are disassortative. High-degree nodes in Brazil's road system preferentially connect to other high-degree nodes — a hub-rich structure that concentrates traffic and risk simultaneously.</p>
+                </div>
+                <div class="finding-card">
+                    <h4>The Northeast is the national linchpin</h4>
+                    <p>Removing just 7.75% of the Northeast's road edges (by distance weight) causes the national giant component to collapse by 34%. The region contains a small set of critical long-distance inter-regional connectors; once severed, the network plateaus at 65% of original size regardless of further removals. The Southeast shows a similar sharp transition at 15.1% removal.</p>
+                </div>
+                <div class="finding-card">
+                    <h4>Peripheral, not central, nodes create structural fragility</h4>
+                    <p>Counterintuitively, targeting high-betweenness nodes is <em>less</em> damaging than random removal. Central nodes in dense urban cores are surrounded by redundant paths; it is the low-betweenness peripheral nodes — the sole connections to remote regions — that are structurally critical. Random disruptions, which hit peripheral and central nodes indiscriminately, fragment the network faster.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why it matters -->
+        <section class="content-section fade-in">
+            <h2>Why It Matters</h2>
+            <p>A structural map of Brazil's federal highways, with vulnerability profiles attached, gives planners and policymakers something they have not had before: a ranked list of what must be protected, and what the country can afford to lose.</p>
+
+            <ul class="applications-list">
+                <li class="app-item">
+                    <span class="app-label">Infrastructure Investment</span>
+                    <span class="app-desc">The finding that the North region is heavy scale-free across all weight schemes justifies targeted redundancy investment there. Adding parallel routes or bypasses around its critical hubs would substantially reduce systemic vulnerability at relatively low cost.</span>
+                </li>
+                <li class="app-item">
+                    <span class="app-label">Disaster Preparedness</span>
+                    <span class="app-desc">The Northeast's sharp connectivity transition at 7.75% edge removal means that a concentrated flood or landslide event affecting a small set of long-distance connectors could fragment the national network. Identifying and hardening these specific segments is a tractable emergency-preparedness target.</span>
+                </li>
+                <li class="app-item">
+                    <span class="app-label">Road Safety Policy</span>
+                    <span class="app-desc">Incident and flow removal experiments show similar fragmentation patterns, suggesting that accidents are geographically dispersed rather than concentrated on high-traffic corridors. This implies that safety interventions focused exclusively on busy roads would miss a large share of incident-related network risk.</span>
+                </li>
+                <li class="app-item">
+                    <span class="app-label">Traffic Management</span>
+                    <span class="app-desc">High assortativity under flow weighting reveals that traffic is concentrated in interconnected hub clusters rather than distributed across the network. Congestion mitigation strategies in the Southeast — which shows the highest flow-network community counts — must address cluster-level dynamics, not just individual road segments.</span>
+                </li>
+                <li class="app-item">
+                    <span class="app-label">General Road Network Modelling</span>
+                    <span class="app-desc">The segment-level, multi-weight, hierarchical framework is methodologically transferable. Any country with georeferenced road data, traffic counts, and incident records can apply this approach to produce its own structural vulnerability profile — particularly relevant for large, road-dependent nations in the Global South.</span>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Paper & Authors -->
+        <section class="content-section fade-in">
+            <h2>Paper &amp; Authors</h2>
+
+            <div class="two-col">
+                <div>
+                    <h3 style="margin-top:0;">Authors</h3>
+                    <div class="authors-grid">
+                        <div class="author-item">
+                            <span class="author-name">Júlio Taveira</span>
+                            <span class="author-affiliation">University of Pernambuco, Recife, PE, Brazil<br>University of the Federal Highway Police, Florianópolis, SC, Brazil</span>
+                        </div>
+                        <div class="author-item">
+                            <span class="author-name" style="color:#007D69;">Ronaldo Menezes <span style="font-size:0.75rem; color:#aaa;">(corresponding)</span></span>
+                            <span class="author-affiliation">Department of Computer Science<br>University of Exeter, UK</span>
+                        </div>
+                        <div class="author-item">
+                            <span class="author-name">Fernando Buarque</span>
+                            <span class="author-affiliation">University of Pernambuco<br>Recife, PE, Brazil</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 style="margin-top:0;">Cite This Work</h3>
+                    <div class="citation-box">@article{taveira2026roads,
+  title   = {Not all roads are created equal: network
+             science shows some highways matter more
+             for {Brazil}'s connectivity},
+  author  = {Taveira, J\'{u}lio and Menezes, Ronaldo
+             and Buarque, Fernando},
+  journal = {Applied Network Science},
+  volume  = {11},
+  pages   = {25},
+  year    = {2026},
+  doi     = {10.1007/s41109-026-00777-4}
+}</div>
+                    <div style="margin-top:1rem; display:flex; gap:0.75rem; flex-wrap:wrap;">
+                        <button class="btn-outline" onclick="downloadBibtex()" style="font-size:0.8rem; padding:0.5rem 1.25rem;">Download .bib</button>
+                        <button class="btn-outline" onclick="copyBibtex(this)" style="font-size:0.8rem; padding:0.5rem 1.25rem;">Copy BibTeX</button>
+                    </div>
+                    <p style="font-size:0.82rem; color:#999; margin-top:1rem; max-width:none;">
+                        Open access · CC BY 4.0
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <span>© 2026 Taveira, Menezes &amp; Buarque &nbsp;·&nbsp; Open Access under CC BY 4.0</span>
+            <span>
+                <a href="https://doi.org/10.1007/s41109-026-00777-4" target="_blank" rel="noopener">DOI: 10.1007/s41109-026-00777-4</a>
+                &nbsp;·&nbsp;
+                <a href="https://rpmenezes.github.io">rpmenezes.github.io</a>
+            </span>
+        </div>
+    </footer>
+
+    <script>
+        // Fade-in on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.05 });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // BibTeX content
+        const bibtex = `@article{taveira2026roads,
+  title   = {Not all roads are created equal: network science shows some highways matter more for {Brazil}'s connectivity},
+  author  = {Taveira, J\\'{u}lio and Menezes, Ronaldo and Buarque, Fernando},
+  journal = {Applied Network Science},
+  volume  = {11},
+  pages   = {25},
+  year    = {2026},
+  doi     = {10.1007/s41109-026-00777-4}
+}`;
+
+        function downloadBibtex() {
+            const blob = new Blob([bibtex], { type: 'text/plain' });
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = 'taveira2026roads.bib';
+            a.click();
+            URL.revokeObjectURL(a.href);
+        }
+
+        function copyBibtex(btn) {
+            navigator.clipboard.writeText(bibtex).then(() => {
+                const original = btn.textContent;
+                btn.textContent = 'Copied!';
+                setTimeout(() => btn.textContent = original, 2000);
+            });
+        }
+    </script>
+
+</body>
+</html>
