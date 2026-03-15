@@ -1,9 +1,9 @@
 {
-  "updated": "2026-03-14T06:31:17.239347+00:00",
+  "updated": "2026-03-15T06:40:23.612642+00:00",
   "stats": {
-    "paperCount": 230,
+    "paperCount": 231,
     "hIndex": 21,
-    "citationCount": 2831,
+    "citationCount": 2841,
     "influentialCitationCount": 100
   },
   "publications": [
@@ -49,7 +49,7 @@
       "venue": "PLOS One",
       "doiValue": "10.1371/journal.pone.0340109",
       "doiUrl": "https://doi.org/10.1371/journal.pone.0340109",
-      "citationCount": null
+      "citationCount": 0
     },
     {
       "year": "2026",
