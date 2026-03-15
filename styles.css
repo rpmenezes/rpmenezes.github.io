@@ -165,15 +165,6 @@ body {
     margin: 2rem 0;
 }
 
-.hero-text {
-    font-size: 1.15rem;
-    color: #111;
-    line-height: 1.7;
-    margin-bottom: 2.5rem;
-    font-weight: 300;
-    max-width: 650px;
-}
-
 .research-keywords {
     display: flex;
     gap: 1.5rem;
@@ -218,8 +209,6 @@ body {
 .profile-image {
     width: 100%;
     display: block;
-    filter: grayscale(100%);
-    /* subtle grain/contrast to match the B&W site palette */
     filter: grayscale(100%) contrast(1.05);
 }
 
@@ -370,18 +359,6 @@ body {
     border-bottom: none;
 }
 
-.pub-title {
-    color: #111;
-    font-size: 0.95rem;
-    font-weight: 400;
-    text-decoration: none;
-    line-height: 1.4;
-}
-
-.pub-title:hover {
-    color: #007D69;
-}
-
 .pub-venue {
     color: #666666;
     font-size: 0.85rem;
@@ -498,20 +475,6 @@ a.pub-title-link:hover {
     font-weight: 300;
     color: #666666;
     font-style: italic;
-}
-
-.pub-doi-text {
-    font-size: 0.8rem;
-    font-weight: 300;
-    color: #999999;
-}
-
-.pub-doi-text a {
-    color: #999999;
-}
-
-.pub-doi-text a:hover {
-    opacity: 0.5;
 }
 
 .pub-title-row {
@@ -1007,10 +970,6 @@ a:hover {
 
     .hero h1 {
         font-size: 2rem;
-    }
-
-    .hero-text {
-        font-size: 1rem;
     }
 
     .container {
