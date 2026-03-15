@@ -853,11 +853,13 @@ footer {
 /* Links */
 a {
     color: #111;
-    transition: opacity 0.2s ease;
+    text-decoration: none;
+    transition: color 0.2s ease;
 }
 
 a:hover {
-    opacity: 0.5;
+    color: #007D69;
+    text-decoration: underline;
 }
 
 /* Buttons */
