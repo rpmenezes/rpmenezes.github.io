@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vector Fields as a Framework for Modelling the Mobility of Commodities</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #111;
+            background-color: #ffffff;
+            font-size: 16px;
+            font-weight: 300;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 1.25rem 4rem 0;
+        }
+
+        .breadcrumb a {
+            font-size: 0.8rem;
+            font-weight: 300;
+            color: #999;
+            text-decoration: none;
+            letter-spacing: 0.02em;
+            transition: color 0.2s ease;
+        }
+
+        .breadcrumb a:hover {
+            color: #007D69;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 3rem 4rem 5rem;
+        }
+
+        /* Hero */
+        .hero {
+            padding: 3rem 0 2rem;
+            border-bottom: 1px solid #e8e8e8;
+            margin-bottom: 4rem;
+        }
+
+        .hero-meta {
+            font-size: 0.78rem;
+            font-weight: 400;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 300;
+            color: #003C3C;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            max-width: 800px;
+        }
+
+        .title-divider {
+            width: 40px;
+            height: 1px;
+            background: #111;
+            margin: 2rem 0;
+        }
+
+        .hero-authors {
+            font-size: 1rem;
+            font-weight: 300;
+            color: #444;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-authors span.highlight {
+            color: #007D69;
+            font-weight: 400;
+        }
+
+        .hero-journal {
+            font-size: 0.9rem;
+            font-weight: 300;
+            color: #666;
+            font-style: italic;
+            margin-bottom: 2rem;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            padding: 0.7rem 1.75rem;
+            background-color: #111;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 300;
+            transition: background-color 0.2s ease, border-color 0.2s ease;
+            border: 1px solid #111;
+            font-size: 0.85rem;
+            letter-spacing: 0.04em;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background-color: #007D69;
+            border-color: #007D69;
+        }
+
+        .btn-outline {
+            display: inline-block;
+            padding: 0.7rem 1.75rem;
+            background-color: transparent;
+            color: #111;
+            text-decoration: none;
+            font-weight: 300;
+            transition: all 0.2s ease;
+            border: 1px solid #111;
+            font-size: 0.85rem;
+            letter-spacing: 0.04em;
+            cursor: pointer;
+        }
+
+        .btn-outline:hover {
+            background-color: #007D69;
+            border-color: #007D69;
+            color: #fff;
+        }
+
+        /* Key stats row */
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin: 4rem 0;
+            padding: 2.5rem 0;
+            border-top: 1px solid #e8e8e8;
+            border-bottom: 1px solid #e8e8e8;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .stat-label {
+            font-size: 0.7rem;
+            font-weight: 400;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .stat-value {
+            font-size: 1.4rem;
+            font-weight: 300;
+            color: #007D69;
+        }
+
+        .stat-desc {
+            font-size: 0.82rem;
+            font-weight: 300;
+            color: #666;
+        }
+
+        /* Content sections */
+        .content-section {
+            margin: 5rem 0;
+        }
+
+        .content-section h2 {
+            font-size: 1.4rem;
+            font-weight: 300;
+            color: #007D69;
+            margin-bottom: 2.5rem;
+            letter-spacing: 0.02em;
+        }
+
+        .content-section h3 {
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: #111;
+            margin: 2rem 0 0.8rem;
+        }
+
+        .content-section p {
+            font-size: 1rem;
+            font-weight: 300;
+            color: #111;
+            line-height: 1.8;
+            margin-bottom: 1.4rem;
+            max-width: 760px;
+        }
+
+        /* Two-column layout */
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        /* Highlighted quote */
+        .pull-quote {
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: #003C3C;
+            line-height: 1.7;
+            border-left: 2px solid #007D69;
+            padding-left: 1.5rem;
+            margin: 2rem 0;
+            font-style: italic;
+            max-width: 700px;
+        }
+
+        /* Steps */
+        .steps-list {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+        }
+
+        .step-item {
+            display: flex;
+            gap: 1.5rem;
+            padding: 1.25rem 0;
+            border-bottom: 1px solid #f0f0f0;
+            align-items: flex-start;
+        }
+
+        .step-item:last-child {
+            border-bottom: none;
+        }
+
+        .step-number {
+            font-size: 0.72rem;
+            font-weight: 400;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            min-width: 60px;
+            padding-top: 0.2rem;
+        }
+
+        .step-content h4 {
+            font-size: 0.95rem;
+            font-weight: 400;
+            color: #111;
+            margin-bottom: 0.4rem;
+        }
+
+        .step-content p {
+            font-size: 0.9rem;
+            font-weight: 300;
+            color: #444;
+            line-height: 1.7;
+            margin: 0;
+            max-width: none;
+        }
+
+        /* Findings cards */
+        .findings-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+            margin-top: 2.5rem;
+        }
+
+        .finding-card {
+            border-top: 2px solid #007D69;
+            padding-top: 1.25rem;
+        }
+
+        .finding-card h4 {
+            font-size: 0.95rem;
+            font-weight: 400;
+            color: #111;
+            margin-bottom: 0.7rem;
+            letter-spacing: 0.01em;
+        }
+
+        .finding-card p {
+            font-size: 0.88rem;
+            font-weight: 300;
+            color: #555;
+            line-height: 1.7;
+            margin: 0;
+            max-width: none;
+        }
+
+        /* Applications list */
+        .applications-list {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+        }
+
+        .app-item {
+            display: flex;
+            gap: 1.5rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid #e8e8e8;
+            align-items: flex-start;
+        }
+
+        .app-item:last-child {
+            border-bottom: none;
+        }
+
+        .app-label {
+            font-size: 0.78rem;
+            font-weight: 400;
+            color: #007D69;
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+            width: 210px;
+            flex-shrink: 0;
+            padding-top: 0.15rem;
+        }
+
+        .app-desc {
+            font-size: 0.92rem;
+            font-weight: 300;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Authors section */
+        .authors-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem 3rem;
+            margin-top: 1.5rem;
+        }
+
+        .author-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .author-name {
+            font-size: 0.95rem;
+            font-weight: 400;
+            color: #111;
+        }
+
+        .author-affiliation {
+            font-size: 0.82rem;
+            font-weight: 300;
+            color: #666;
+        }
+
+        /* Citation box */
+        .citation-box {
+            background: #f8f8f8;
+            padding: 1.75rem 2rem;
+            margin-top: 1.5rem;
+            font-size: 0.85rem;
+            font-weight: 300;
+            color: #444;
+            line-height: 1.8;
+            font-family: 'Courier New', monospace;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+
+        /* Footer — matches main site */
+        footer {
+            background-color: transparent;
+            padding: 3rem 4rem;
+            text-align: left;
+            color: #666666;
+            font-size: 0.85rem;
+            border-top: 1px solid #111;
+            margin-top: 8rem;
+            font-weight: 300;
+        }
+
+        footer a {
+            color: #666666;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #007D69;
+        }
+
+        /* Fade-in */
+        .fade-in {
+            opacity: 0;
+            transition: opacity 0.7s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .breadcrumb,
+            .container {
+                padding-left: 3rem;
+                padding-right: 3rem;
+            }
+            footer { padding-left: 3rem; padding-right: 3rem; }
+        }
+
+        @media (max-width: 768px) {
+            .breadcrumb { padding: 1rem 2rem 0; }
+            .container { padding: 2.5rem 2rem 4rem; }
+            .hero h1 { font-size: 1.9rem; }
+            .stats-row { grid-template-columns: repeat(2, 1fr); }
+            .two-col { grid-template-columns: 1fr; gap: 2rem; }
+            .findings-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .authors-grid { grid-template-columns: 1fr; }
+            footer { padding: 2.5rem 2rem; }
+            .app-item { flex-direction: column; gap: 0.3rem; }
+            .app-label { min-width: unset; }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 1.6rem; }
+            .hero-actions { flex-direction: column; align-items: flex-start; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <a href="https://rpmenezes.github.io">← Ronaldo Menezes</a>
+    </div>
+
+    <main class="container">
+
+        <!-- Hero -->
+        <section class="hero">
+            <div class="hero-meta">Research Article &nbsp;·&nbsp; PLoS One &nbsp;·&nbsp; Published March 13, 2026</div>
+            <h1>Vector Fields as a Framework for Modelling the Mobility of Commodities</h1>
+            <div class="title-divider"></div>
+            <p class="hero-authors">
+                Sima Farokhnejad &nbsp;·&nbsp;
+                Angélica S. da Mata &nbsp;·&nbsp;
+                Mariana Macedo &nbsp;·&nbsp;
+                <span class="highlight">Ronaldo Menezes</span>
+            </p>
+            <p class="hero-journal">
+                PLoS One, 21(3): e0340109 &nbsp;·&nbsp;
+                DOI: <a href="https://doi.org/10.1371/journal.pone.0340109" target="_blank" rel="noopener" style="color:#666; font-style:normal;">10.1371/journal.pone.0340109</a>
+            </p>
+            <div class="hero-actions">
+                <a href="https://doi.org/10.1371/journal.pone.0340109" target="_blank" rel="noopener" class="btn-primary">Read the Paper ↗</a>
+                <a href="https://github.com/Sima-Far/Flow_vector_field" target="_blank" rel="noopener" class="btn-outline">Code &amp; Data ↗</a>
+            </div>
+        </section>
+
+        <!-- Key numbers -->
+        <div class="stats-row fade-in">
+            <div class="stat-item">
+                <span class="stat-label">Study Region</span>
+                <span class="stat-value">853</span>
+                <span class="stat-desc">municipalities in Minas Gerais, Brazil</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Data Resilience</span>
+                <span class="stat-value">36%</span>
+                <span class="stat-desc">of areas keep &lt;15° directional error after 60% data removed</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Time Span</span>
+                <span class="stat-value">4 yrs</span>
+                <span class="stat-desc">of monthly cattle trade records analysed</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Spatial Autocorrelation</span>
+                <span class="stat-value">0.258</span>
+                <span class="stat-desc">Moran's I, indicating statistically significant spatial clustering</span>
+            </div>
+        </div>
+
+        <!-- The Problem -->
+        <section class="content-section fade-in">
+            <h2>The Problem</h2>
+            <div class="two-col">
+                <div>
+                    <p>Tracking how goods (animals, crops, manufactured products) move across a country is harder than it sounds. The standard tool is an <strong>origin-destination (OD) matrix</strong>: a table that records where each shipment starts and ends.</p>
+                    <p>But OD matrices have a blind spot. They only know about the towns that appeared as origins or destinations. Any municipality that neither sent nor received a recorded shipment simply disappears from the map, even if cattle pass through it every day, even if a disease outbreak could ignite there.</p>
+                    <p>This matters enormously for animal health surveillance. Foot-and-mouth disease, for example, travels along livestock trade routes. If your model cannot see half the network, you cannot protect half the country.</p>
+                </div>
+                <div>
+                    <div class="pull-quote">
+                        "Locations that are not explicitly recorded as origins or destinations are ignored, even though they may play significant roles in the overall flow of commodities."
+                    </div>
+                    <p style="font-size:0.88rem; color:#666; margin-top:1rem; max-width:none;">Beyond missing locations, the sheer scale of livestock trade, with millions of individual movement records, makes traditional network graphs computationally expensive to build and nearly impossible to visualise meaningfully at a national level.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Approach -->
+        <section class="content-section fade-in">
+            <h2>The Approach</h2>
+            <p>This study borrows a concept from meteorology: the <strong>vector field</strong>. Just as weather maps show wind direction and speed at every point on a grid (including over the open ocean where no weather station exists), a vector field can represent commodity flow at every location in a region, including unmonitored ones.</p>
+
+            <ul class="steps-list">
+                <li class="step-item">
+                    <span class="step-number">Step 01</span>
+                    <div class="step-content">
+                        <h4>From trades to vectors</h4>
+                        <p>Each recorded cattle movement from town A to town B becomes an arrow pointing from A to B. All arrows leaving a given municipality are averaged into one representative vector, capturing the dominant direction and distance of that town's trade activity.</p>
+                    </div>
+                </li>
+                <li class="step-item">
+                    <span class="step-number">Step 02</span>
+                    <div class="step-content">
+                        <h4>Filling the gaps with interpolation</h4>
+                        <p>Towns with no recorded trades are estimated using triangle-based interpolation (Delaunay triangulation). Neighbouring towns with known vectors provide a reasonable guess for the missing ones, just as a weather forecaster estimates wind speed between two stations.</p>
+                    </div>
+                </li>
+                <li class="step-item">
+                    <span class="step-number">Step 03</span>
+                    <div class="step-content">
+                        <h4>Measuring diversity and regularity</h4>
+                        <p>Shannon entropy tells us how unpredictable a municipality's trade direction is across the year. Cosine similarity between consecutive months reveals whether trade routes stay stable or shift with the seasons.</p>
+                    </div>
+                </li>
+                <li class="step-item">
+                    <span class="step-number">Step 04</span>
+                    <div class="step-content">
+                        <h4>Finding critical points</h4>
+                        <p>Some locations act as <em>sinks</em>, places where cattle converge (think slaughterhouses). Others are <em>sources</em>, places that consistently dispatch cattle outward (breeding farms). Identifying these hubs reveals the hidden skeleton of the trade network.</p>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Findings -->
+        <section class="content-section fade-in">
+            <h2>Key Findings</h2>
+            <p>Applied to cattle trade data from <strong>Minas Gerais, Brazil</strong>, one of the country's largest cattle-producing states, the framework revealed patterns that traditional network analysis had missed.</p>
+
+            <div class="findings-grid">
+                <div class="finding-card">
+                    <h4>Stable in the north, volatile in the south</h4>
+                    <p>Northern municipalities showed low entropy; their trade directions barely changed month to month. Southern municipalities, where long-distance trade is less established, exhibited far more unpredictable flows.</p>
+                </div>
+                <div class="finding-card">
+                    <h4>Rhythmic seasonal patterns</h4>
+                    <p>Cosine similarity between consecutive months followed a wave-like pattern across the four-year study period, with a consistent dip towards year-end, consistent with known breeding and slaughter cycles in Brazilian cattle farming.</p>
+                </div>
+                <div class="finding-card">
+                    <h4>Sinks shift with the seasons</h4>
+                    <p>Sink regions (where cattle accumulate) moved across the map with the seasons. During spring and summer, sink locations closely matched the known distribution of slaughterhouses across the state.</p>
+                </div>
+                <div class="finding-card">
+                    <h4>Spatially clustered trade distances</h4>
+                    <p>Moran's I confirmed that municipalities trading over similar distances cluster geographically. Spatial lag maps revealed "doughnut" and "diamond" patterns: towns with atypically short or long trade ranges surrounded by towns behaving oppositely.</p>
+                </div>
+                <div class="finding-card">
+                    <h4>Robust under data loss</h4>
+                    <p>When 60% of municipalities were artificially removed from the dataset, the majority still showed directional deviations under 45° and distance errors under 25 km, a small perturbation at the scale of Minas Gerais (approximately 1,250 km across).</p>
+                </div>
+                <div class="finding-card">
+                    <h4>Northern hubs for long-distance trade</h4>
+                    <p>Source regions were concentrated in the north, acting as supply hubs for long-distance movements. Central-eastern areas served as transit corridors linking north and south of the state.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why it matters -->
+        <section class="content-section fade-in">
+            <h2>Why It Matters</h2>
+            <p>Vector fields are not just a prettier way to draw a network. They unlock analytical capabilities that are simply not possible with OD matrices alone.</p>
+
+            <ul class="applications-list">
+                <li class="app-item">
+                    <span class="app-label">Disease Surveillance</span>
+                    <span class="app-desc">By estimating flows in unmonitored areas, the model can identify likely disease pathways even where trade records are absent, which is critical for containing outbreaks like foot-and-mouth disease before they reach detection.</span>
+                </li>
+                <li class="app-item">
+                    <span class="app-label">Supply Chain Planning</span>
+                    <span class="app-desc">Persistent sink regions and stable-source clusters indicate natural hub locations. Logistics planners and veterinary authorities can use these insights to deploy inspection resources where animals genuinely concentrate.</span>
+                </li>
+                <li class="app-item">
+                    <span class="app-label">Policy &amp; Biosecurity</span>
+                    <span class="app-desc">Regions with high entropy require flexible, adaptive monitoring rather than fixed checkpoints. Seasonal shifts in critical points suggest surveillance infrastructure could be deployed dynamically, saving resources.</span>
+                </li>
+                <li class="app-item">
+                    <span class="app-label">Beyond Cattle</span>
+                    <span class="app-desc">The framework requires only origin-destination data, which exists for grain shipments, pharmaceutical supply chains, container traffic, and many other commodities. Any OD-formatted dataset is a candidate for this analysis.</span>
+                </li>
+                <li class="app-item">
+                    <span class="app-label">Sparse Data Environments</span>
+                    <span class="app-desc">Many low- and middle-income countries have incomplete trade records due to limited surveillance infrastructure. The interpolation method is specifically designed to extract meaningful patterns from exactly these kinds of imperfect datasets.</span>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Paper & Authors -->
+        <section class="content-section fade-in">
+            <h2>Paper &amp; Authors</h2>
+
+            <div class="two-col">
+                <div>
+                    <h3 style="margin-top:0;">Authors</h3>
+                    <div class="authors-grid">
+                        <div class="author-item">
+                            <span class="author-name">Sima Farokhnejad</span>
+                            <span class="author-affiliation">Department of Computer Science<br>University of Exeter, UK</span>
+                        </div>
+                        <div class="author-item">
+                            <span class="author-name">Angélica S. da Mata</span>
+                            <span class="author-affiliation">Department of Physics<br>Federal University of Lavras, Brazil</span>
+                        </div>
+                        <div class="author-item">
+                            <span class="author-name">Mariana Macedo</span>
+                            <span class="author-affiliation">Northeastern University (London &amp; Boston)<br>Constructor University, Bremen</span>
+                        </div>
+                        <div class="author-item">
+                            <span class="author-name" style="color:#007D69;">Ronaldo Menezes</span>
+                            <span class="author-affiliation">Department of Computer Science<br>University of Exeter, UK</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 style="margin-top:0;">Cite This Work</h3>
+                    <div class="citation-box">@article{farokhnejad2026vectorfields,
+  title   = {Vector fields as a framework for modelling the mobility of commodities},
+  author  = {Farokhnejad, Sima and da Mata, Ang\'{e}lica S. and Macedo, Mariana and Menezes, Ronaldo},
+  journal = {PLOS One},
+  volume  = {21},
+  number  = {3},
+  pages   = {e0340109},
+  year    = {2026},
+  doi     = {10.1371/journal.pone.0340109}
+}</div>
+                    <div style="margin-top:1rem; display:flex; gap:0.75rem; flex-wrap:wrap;">
+                        <button class="btn-outline" onclick="downloadBibtex()" style="font-size:0.8rem; padding:0.5rem 1.25rem;">Download .bib</button>
+                        <button class="btn-outline" onclick="copyBibtex(this)" style="font-size:0.8rem; padding:0.5rem 1.25rem;">Copy BibTeX</button>
+                    </div>
+                    <p style="font-size:0.82rem; color:#999; margin-top:1rem; max-width:none;">
+                        Open access · CC BY 4.0 ·
+                        <a href="https://github.com/Sima-Far/Flow_vector_field" target="_blank" rel="noopener" style="color:#007D69; text-decoration:none;">Code &amp; data on GitHub ↗</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Ronaldo Menezes | University of Exeter | Department of Computer Science &nbsp;&nbsp;·&nbsp;&nbsp; <a href="https://doi.org/10.1371/journal.pone.0340109" target="_blank" rel="noopener">DOI: 10.1371/journal.pone.0340109</a></p>
+    </footer>
+
+    <script>
+        // Fade-in on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.05 });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // BibTeX content
+        const bibtex = `@article{farokhnejad2026vectorfields,
+  title   = {Vector fields as a framework for modelling the mobility of commodities},
+  author  = {Farokhnejad, Sima and da Mata, Ang\\'{e}lica S. and Macedo, Mariana and Menezes, Ronaldo},
+  journal = {PLOS One},
+  volume  = {21},
+  number  = {3},
+  pages   = {e0340109},
+  year    = {2026},
+  doi     = {10.1371/journal.pone.0340109}
+}`;
+
+        function downloadBibtex() {
+            const blob = new Blob([bibtex], { type: 'text/plain' });
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = 'farokhnejad2026vectorfields.bib';
+            a.click();
+            URL.revokeObjectURL(a.href);
+        }
+
+        function copyBibtex(btn) {
+            navigator.clipboard.writeText(bibtex).then(() => {
+                const original = btn.textContent;
+                btn.textContent = 'Copied!';
+                setTimeout(() => btn.textContent = original, 2000);
+            });
+        }
+    </script>
+
+</body>
+</html>
