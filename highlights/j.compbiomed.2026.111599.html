@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vector Fields as a Framework for Modelling the Mobility of Commodities</title>
+    <title>NLP of Biomedical Text to Map and Prioritize Protein–Disease Associations in HFpEF</title>
     <style>
         * {
             margin: 0;
@@ -469,46 +469,48 @@
 
         <!-- Hero -->
         <section class="hero">
-            <div class="hero-meta">Research Article &nbsp;·&nbsp; PLoS One &nbsp;·&nbsp; Published March 13, 2026</div>
-            <h1>Vector Fields as a Framework for Modelling the Mobility of Commodities</h1>
+            <div class="hero-meta">Research Article &nbsp;·&nbsp; Computers in Biology and Medicine &nbsp;·&nbsp; Published March 3, 2026</div>
+            <h1>Natural Language Processing of Biomedical Text to Map and Prioritize Protein–Disease Associations in HFpEF</h1>
             <div class="title-divider"></div>
             <p class="hero-authors">
-                Sima Farokhnejad &nbsp;·&nbsp;
-                Angélica S. da Mata &nbsp;·&nbsp;
-                Mariana Macedo &nbsp;·&nbsp;
-                <span class="highlight">Ronaldo Menezes</span>
+                Clodomir Santana &nbsp;·&nbsp;
+                Chitra Mukherjee &nbsp;·&nbsp;
+                Arnib Quazi &nbsp;·&nbsp;
+                <span class="highlight">Ronaldo Menezes</span> &nbsp;·&nbsp;
+                Vladimir Filkov &nbsp;·&nbsp;
+                David A. Liem &nbsp;&amp;&nbsp; others
             </p>
             <p class="hero-journal">
-                PLoS One, 21(3): e0340109 &nbsp;·&nbsp;
-                DOI: <a href="https://doi.org/10.1371/journal.pone.0340109" target="_blank" rel="noopener" style="color:#666; font-style:normal;">10.1371/journal.pone.0340109</a>
+                Computers in Biology and Medicine, 205: 111599 &nbsp;·&nbsp;
+                DOI: <a href="https://doi.org/10.1016/j.compbiomed.2026.111599" target="_blank" rel="noopener" style="color:#666; font-style:normal;">10.1016/j.compbiomed.2026.111599</a>
             </p>
             <div class="hero-actions">
-                <a href="https://doi.org/10.1371/journal.pone.0340109" target="_blank" rel="noopener" class="btn-primary">Read the Paper ↗</a>
-                <a href="https://github.com/Sima-Far/Flow_vector_field" target="_blank" rel="noopener" class="btn-outline">Code &amp; Data ↗</a>
+                <a href="https://doi.org/10.1016/j.compbiomed.2026.111599" target="_blank" rel="noopener" class="btn-primary">Read the Paper ↗</a>
+                <a href="https://github.com/chitram1/VITAL" target="_blank" rel="noopener" class="btn-outline">Code on GitHub ↗</a>
             </div>
         </section>
 
         <!-- Key numbers -->
         <div class="stats-row fade-in">
             <div class="stat-item">
-                <span class="stat-label">Study Region</span>
-                <span class="stat-value">853</span>
-                <span class="stat-desc">municipalities in Minas Gerais, Brazil</span>
+                <span class="stat-label">Literature Corpus</span>
+                <span class="stat-value">38M+</span>
+                <span class="stat-desc">PubMed abstracts screened for CVD relevance</span>
             </div>
             <div class="stat-item">
-                <span class="stat-label">Data Resilience</span>
-                <span class="stat-value">36%</span>
-                <span class="stat-desc">of areas keep &lt;15° directional error after 60% data removed</span>
+                <span class="stat-label">CVD Abstracts</span>
+                <span class="stat-value">5.5M</span>
+                <span class="stat-desc">publications curated across 6 cardiovascular disease groups</span>
             </div>
             <div class="stat-item">
-                <span class="stat-label">Time Span</span>
-                <span class="stat-value">4 yrs</span>
-                <span class="stat-desc">of monthly cattle trade records analysed</span>
+                <span class="stat-label">HFpEF Proteins</span>
+                <span class="stat-value">5,124</span>
+                <span class="stat-desc">proteins computationally identified and ranked for HFpEF</span>
             </div>
             <div class="stat-item">
-                <span class="stat-label">Spatial Autocorrelation</span>
-                <span class="stat-value">0.258</span>
-                <span class="stat-desc">Moran's I, indicating statistically significant spatial clustering</span>
+                <span class="stat-label">Biopsy Validation</span>
+                <span class="stat-value">2.65×</span>
+                <span class="stat-desc">enrichment factor over chance in HFpEF patient tissue data</span>
             </div>
         </div>
 
@@ -517,15 +519,15 @@
             <h2>The Problem</h2>
             <div class="two-col">
                 <div>
-                    <p>Tracking how goods (animals, crops, manufactured products) move across a country is harder than it sounds. The standard tool is an <strong>origin-destination (OD) matrix</strong>: a table that records where each shipment starts and ends.</p>
-                    <p>But OD matrices have a blind spot. They only know about the towns that appeared as origins or destinations. Any municipality that neither sent nor received a recorded shipment simply disappears from the map, even if cattle pass through it every day, even if a disease outbreak could ignite there.</p>
-                    <p>This matters enormously for animal health surveillance. Foot-and-mouth disease, for example, travels along livestock trade routes. If your model cannot see half the network, you cannot protect half the country.</p>
+                    <p>Identifying clinical biomarkers and drug targets for cardiovascular disease has traditionally relied on biochemical and omics experiments. These studies have generated millions of publications — but the knowledge they contain is scattered across a fragmented, ever-growing literature that now exceeds <strong>38 million indexed papers</strong> on PubMed alone.</p>
+                    <p>No single researcher, lab, or even institution can synthesise that body of work. Proteins of high diagnostic or therapeutic relevance go unnoticed simply because the evidence for them is buried across thousands of papers that have never been read side-by-side.</p>
+                    <p>This problem is especially acute for <strong>heart failure with preserved ejection fraction (HFpEF)</strong>, a subtype of heart failure where the left ventricle contracts normally but stiffens during filling. HFpEF is entangled with aging, obesity, diabetes, hypertension, and hyperlipidemia, has no approved disease-modifying therapy, and remains poorly understood at the molecular level.</p>
                 </div>
                 <div>
                     <div class="pull-quote">
-                        "Locations that are not explicitly recorded as origins or destinations are ignored, even though they may play significant roles in the overall flow of commodities."
+                        "The validation of promising clinical biomarkers, molecular mechanisms, and novel drug targets in cardiovascular disease is hindered by a vast and fragmented biomedical literature, which now exceeds 38 million publications indexed in PubMed."
                     </div>
-                    <p style="font-size:0.88rem; color:#666; margin-top:1rem; max-width:none;">Beyond missing locations, the sheer scale of livestock trade, with millions of individual movement records, makes traditional network graphs computationally expensive to build and nearly impossible to visualise meaningfully at a national level.</p>
+                    <p style="font-size:0.88rem; color:#666; margin-top:1rem; max-width:none;">Previous text-mining efforts in cardiology have focused on electronic health records or narrow bibliometric analyses. No study had previously applied NLP at this scale to systematically map protein–disease associations across all major CVD groups and then focused specifically on HFpEF.</p>
                 </div>
             </div>
         </section>
@@ -533,35 +535,35 @@
         <!-- The Approach -->
         <section class="content-section fade-in">
             <h2>The Approach</h2>
-            <p>This study borrows a concept from meteorology: the <strong>vector field</strong>. Just as weather maps show wind direction and speed at every point on a grid (including over the open ocean where no weather station exists), a vector field can represent commodity flow at every location in a region, including unmonitored ones.</p>
+            <p>The authors developed <strong>VITAL</strong> (ValIdated Text-mining using Advanced Language models), a computational framework built around the <strong>CaseOLAP</strong> algorithm (Context Aware Semantic Online Analytical Processing). VITAL scores each of the 20,428 known human proteins against every disease domain of interest, producing a ranked list of protein–disease associations derived entirely from published text.</p>
 
             <ul class="steps-list">
                 <li class="step-item">
                     <span class="step-number">Step 01</span>
                     <div class="step-content">
-                        <h4>From trades to vectors</h4>
-                        <p>Each recorded cattle movement from town A to town B becomes an arrow pointing from A to B. All arrows leaving a given municipality are averaged into one representative vector, capturing the dominant direction and distance of that town's trade activity.</p>
+                        <h4>Corpus assembly via MeSH descriptors</h4>
+                        <p>All PubMed abstracts relevant to six major CVD groups (ischemic heart disease, cardiomyopathy, cerebrovascular accident, arrhythmia, valvular disease, and congenital heart disease) plus HFpEF and its comorbidities were retrieved using Medical Subject Headings, yielding 5.5 million curated abstracts from 38 million total publications.</p>
                     </div>
                 </li>
                 <li class="step-item">
                     <span class="step-number">Step 02</span>
                     <div class="step-content">
-                        <h4>Filling the gaps with interpolation</h4>
-                        <p>Towns with no recorded trades are estimated using triangle-based interpolation (Delaunay triangulation). Neighbouring towns with known vectors provide a reasonable guess for the missing ones, just as a weather forecaster estimates wind speed between two stations.</p>
+                        <h4>CaseOLAP scoring — integrity, distinctiveness, popularity</h4>
+                        <p>For each protein–disease pair, the algorithm computes three quantities: how reliably the protein name refers to a single concept (integrity), how exclusively the protein appears in that disease's literature versus other diseases (distinctiveness), and how frequently it is mentioned in that disease domain (popularity). Their product is the final attribution score.</p>
                     </div>
                 </li>
                 <li class="step-item">
                     <span class="step-number">Step 03</span>
                     <div class="step-content">
-                        <h4>Measuring diversity and regularity</h4>
-                        <p>Shannon entropy tells us how unpredictable a municipality's trade direction is across the year. Cosine similarity between consecutive months reveals whether trade routes stay stable or shift with the seasons.</p>
+                        <h4>HFpEF deep dive — comorbidities and pathological mechanisms</h4>
+                        <p>Using HFpEF as the primary case study, the framework mapped protein scores across four comorbidity domains (aging, type 2 diabetes/obesity, hypertension, hyperlipidemia) and three pathological mechanisms (mitochondrial dysfunction, inflammation, fibrosis), identifying proteins shared and unique across each domain.</p>
                     </div>
                 </li>
                 <li class="step-item">
                     <span class="step-number">Step 04</span>
                     <div class="step-content">
-                        <h4>Finding critical points</h4>
-                        <p>Some locations act as <em>sinks</em>, places where cattle converge (think slaughterhouses). Others are <em>sources</em>, places that consistently dispatch cattle outward (breeding farms). Identifying these hubs reveals the hidden skeleton of the trade network.</p>
+                        <h4>Validation against real patient biopsy data</h4>
+                        <p>The top computationally ranked HFpEF proteins were cross-referenced against a myocardial proteomics dataset from HFpEF patients and age-matched controls. A hypergeometric test confirmed that the overlap between computational predictions and biopsy-detected proteins was 2.65× greater than expected by chance (p = 0.00265).</p>
                     </div>
                 </li>
             </ul>
@@ -570,32 +572,32 @@
         <!-- Findings -->
         <section class="content-section fade-in">
             <h2>Key Findings</h2>
-            <p>Applied to cattle trade data from <strong>Minas Gerais, Brazil</strong>, one of the country's largest cattle-producing states, the framework revealed patterns that traditional network analysis had missed.</p>
+            <p>Applied to the full PubMed corpus, VITAL mapped protein–disease associations across six CVD groups and produced a rich molecular portrait of HFpEF and its biological neighbourhood.</p>
 
             <div class="findings-grid">
                 <div class="finding-card">
-                    <h4>Stable in the north, volatile in the south</h4>
-                    <p>Northern municipalities showed low entropy; their trade directions barely changed month to month. Southern municipalities, where long-distance trade is less established, exhibited far more unpredictable flows.</p>
+                    <h4>IHD, CM, and CVA share the densest molecular landscapes</h4>
+                    <p>Ischemic heart disease, cardiomyopathy, and cerebrovascular accidents each had over 7,000 associated proteins and substantial pairwise overlap — CM and IHD alone share 6,595 proteins — suggesting convergent molecular pathways across these three conditions.</p>
                 </div>
                 <div class="finding-card">
-                    <h4>Rhythmic seasonal patterns</h4>
-                    <p>Cosine similarity between consecutive months followed a wave-like pattern across the four-year study period, with a consistent dip towards year-end, consistent with known breeding and slaughter cycles in Brazilian cattle farming.</p>
+                    <h4>Known biomarkers confirmed at high scores</h4>
+                    <p>Established clinical biomarkers — troponin-I (IHD), BNP (cardiomyopathy), ACE and renin (heart failure), TNF and galectin-3 (inflammation) — all received CaseOLAP scores above the statistically derived cut-off for their respective diseases, validating the scoring framework.</p>
                 </div>
                 <div class="finding-card">
-                    <h4>Sinks shift with the seasons</h4>
-                    <p>Sink regions (where cattle accumulate) moved across the map with the seasons. During spring and summer, sink locations closely matched the known distribution of slaughterhouses across the state.</p>
+                    <h4>4,879 proteins converge across HFpEF and all comorbidities</h4>
+                    <p>Of 5,124 proteins found in HFpEF literature, 4,879 are shared across all four comorbidity domains. Aging showed the strongest computational correlation with HFpEF (r = 0.61), suggesting the deepest shared biological pathways of any comorbidity studied.</p>
                 </div>
                 <div class="finding-card">
-                    <h4>Spatially clustered trade distances</h4>
-                    <p>Moran's I confirmed that municipalities trading over similar distances cluster geographically. Spatial lag maps revealed "doughnut" and "diamond" patterns: towns with atypically short or long trade ranges surrounded by towns behaving oppositely.</p>
+                    <h4>Eight top-ranked proteins are consistent across all domains</h4>
+                    <p>TDO2, SPARC, TCO1, MYPC3, and ASA were the highest-ranked HFpEF proteins and remained top-ranked across comorbidities and pathological mechanisms alike, implying they are central molecular drivers rather than domain-specific signals.</p>
                 </div>
                 <div class="finding-card">
-                    <h4>Robust under data loss</h4>
-                    <p>When 60% of municipalities were artificially removed from the dataset, the majority still showed directional deviations under 45° and distance errors under 25 km, a small perturbation at the scale of Minas Gerais (approximately 1,250 km across).</p>
+                    <h4>HFpEF proteins localise outside the heart</h4>
+                    <p>Cross-referencing with the Human Protein Atlas revealed that the top computationally ranked proteins are primarily expressed in liver, pancreas, and adipose tissue — not cardiac tissue — providing computational evidence that HFpEF is fundamentally a multisystemic disorder driven by inter-organ signalling.</p>
                 </div>
                 <div class="finding-card">
-                    <h4>Northern hubs for long-distance trade</h4>
-                    <p>Source regions were concentrated in the north, acting as supply hubs for long-distance movements. Central-eastern areas served as transit corridors linking north and south of the state.</p>
+                    <h4>Computational predictions validated in patient biopsies</h4>
+                    <p>Seven of the top 20 NLP-ranked HFpEF proteins appeared in the top 100 differentially expressed proteins in myocardial biopsies from HFpEF patients, with an enrichment factor of 2.65× (p = 0.00265) over random expectation. Vinculin, desmin, and SPARC were among the validated candidates.</p>
                 </div>
             </div>
         </section>
@@ -603,28 +605,28 @@
         <!-- Why it matters -->
         <section class="content-section fade-in">
             <h2>Why It Matters</h2>
-            <p>Vector fields are not just a prettier way to draw a network. They unlock analytical capabilities that are simply not possible with OD matrices alone.</p>
+            <p>VITAL is not a replacement for wet-lab science — it is a navigation system for it. By ranking proteins against disease domains at the scale of the entire biomedical literature, it surfaces candidates that experiments alone would take decades to reach.</p>
 
             <ul class="applications-list">
                 <li class="app-item">
-                    <span class="app-label">Disease Surveillance</span>
-                    <span class="app-desc">By estimating flows in unmonitored areas, the model can identify likely disease pathways even where trade records are absent, which is critical for containing outbreaks like foot-and-mouth disease before they reach detection.</span>
+                    <span class="app-label">Biomarker Discovery</span>
+                    <span class="app-desc">Proteins that score high in exclusivity and frequency for a given disease are strong candidates for diagnostic or prognostic biomarkers. VITAL systematically surfaces these candidates from millions of publications, complementing and guiding costly experimental omics studies.</span>
                 </li>
                 <li class="app-item">
-                    <span class="app-label">Supply Chain Planning</span>
-                    <span class="app-desc">Persistent sink regions and stable-source clusters indicate natural hub locations. Logistics planners and veterinary authorities can use these insights to deploy inspection resources where animals genuinely concentrate.</span>
+                    <span class="app-label">Drug Target Identification</span>
+                    <span class="app-desc">High-scoring proteins with known molecular functions (like TDO2 in the microbiome–heart axis, or SPARC in cardiac remodelling) represent actionable targets for therapeutic development, especially in HFpEF where no approved disease-modifying therapy currently exists.</span>
                 </li>
                 <li class="app-item">
-                    <span class="app-label">Policy &amp; Biosecurity</span>
-                    <span class="app-desc">Regions with high entropy require flexible, adaptive monitoring rather than fixed checkpoints. Seasonal shifts in critical points suggest surveillance infrastructure could be deployed dynamically, saving resources.</span>
+                    <span class="app-label">Systems Medicine</span>
+                    <span class="app-desc">By mapping 4,991 proteins shared across HFpEF and its three key pathological mechanisms, the framework reveals convergent molecular networks that operate across inflammation, mitochondrial dysfunction, and fibrosis simultaneously, pointing to multi-target intervention strategies.</span>
                 </li>
                 <li class="app-item">
-                    <span class="app-label">Beyond Cattle</span>
-                    <span class="app-desc">The framework requires only origin-destination data, which exists for grain shipments, pharmaceutical supply chains, container traffic, and many other commodities. Any OD-formatted dataset is a candidate for this analysis.</span>
+                    <span class="app-label">HFpEF as a Systemic Disease</span>
+                    <span class="app-desc">The finding that top-ranked HFpEF proteins are predominantly expressed in liver, pancreas, and adipose tissue rather than heart tissue provides computational corroboration for the emerging clinical view that HFpEF is driven by inter-organ crosstalk and metabolic dysregulation.</span>
                 </li>
                 <li class="app-item">
-                    <span class="app-label">Sparse Data Environments</span>
-                    <span class="app-desc">Many low- and middle-income countries have incomplete trade records due to limited surveillance infrastructure. The interpolation method is specifically designed to extract meaningful patterns from exactly these kinds of imperfect datasets.</span>
+                    <span class="app-label">Scalable to Other Diseases</span>
+                    <span class="app-desc">VITAL requires only a text corpus and a protein list. The same pipeline can be applied to any disease with a PubMed presence, making it a general-purpose framework for protein prioritisation across the full spectrum of human disease.</span>
                 </li>
             </ul>
         </section>
@@ -638,35 +640,47 @@
                     <h3 style="margin-top:0;">Authors</h3>
                     <div class="authors-grid">
                         <div class="author-item">
-                            <span class="author-name">Sima Farokhnejad</span>
-                            <span class="author-affiliation">Department of Computer Science<br>University of Exeter, UK</span>
+                            <span class="author-name">Clodomir Santana <span style="font-size:0.75rem; color:#aaa;">(co-first)</span></span>
+                            <span class="author-affiliation">Division of Cardiovascular Disease<br>University of California, Davis, USA</span>
                         </div>
                         <div class="author-item">
-                            <span class="author-name">Angélica S. da Mata</span>
-                            <span class="author-affiliation">Department of Physics<br>Federal University of Lavras, Brazil</span>
-                        </div>
-                        <div class="author-item">
-                            <span class="author-name">Mariana Macedo</span>
-                            <span class="author-affiliation">Northeastern University (London &amp; Boston)<br>Constructor University, Bremen</span>
+                            <span class="author-name">Chitra Mukherjee <span style="font-size:0.75rem; color:#aaa;">(co-first)</span></span>
+                            <span class="author-affiliation">AI for Health Center<br>University of California, Davis, USA</span>
                         </div>
                         <div class="author-item">
                             <span class="author-name" style="color:#007D69;">Ronaldo Menezes</span>
                             <span class="author-affiliation">Department of Computer Science<br>University of Exeter, UK</span>
                         </div>
+                        <div class="author-item">
+                            <span class="author-name">Arnib Quazi</span>
+                            <span class="author-affiliation">Center for Precision Medicine &amp; Data Science<br>University of California, Davis, USA</span>
+                        </div>
+                        <div class="author-item">
+                            <span class="author-name">Vladimir Filkov</span>
+                            <span class="author-affiliation">AI for Health Center<br>University of California, Davis, USA</span>
+                        </div>
+                        <div class="author-item">
+                            <span class="author-name">David A. Liem <span style="font-size:0.75rem; color:#aaa;">(corresponding)</span></span>
+                            <span class="author-affiliation">Division of Cardiovascular Disease<br>University of California, Davis, USA</span>
+                        </div>
                     </div>
+                    <p style="font-size:0.8rem; color:#aaa; margin-top:1.25rem; max-width:none;">Full author list includes 20 contributors from UC Davis, University of Exeter, Virginia Tech, UIUC, and the University of Arizona.</p>
                 </div>
 
                 <div>
                     <h3 style="margin-top:0;">Cite This Work</h3>
-                    <div class="citation-box">@article{farokhnejad2026vectorfields,
-  title   = {Vector fields as a framework for modelling the mobility of commodities},
-  author  = {Farokhnejad, Sima and da Mata, Ang\'{e}lica S. and Macedo, Mariana and Menezes, Ronaldo},
-  journal = {PLOS One},
-  volume  = {21},
-  number  = {3},
-  pages   = {e0340109},
+                    <div class="citation-box">@article{santana2026vital,
+  title   = {Natural language processing of biomedical text
+             to map and prioritize protein--disease
+             associations in {HFpEF}},
+  author  = {Santana, Clodomir and Mukherjee, Chitra and
+             Quazi, Arnib and Menezes, Ronaldo and
+             Filkov, Vladimir and others},
+  journal = {Computers in Biology and Medicine},
+  volume  = {205},
+  pages   = {111599},
   year    = {2026},
-  doi     = {10.1371/journal.pone.0340109}
+  doi     = {10.1016/j.compbiomed.2026.111599}
 }</div>
                     <div style="margin-top:1rem; display:flex; gap:0.75rem; flex-wrap:wrap;">
                         <button class="btn-outline" onclick="downloadBibtex()" style="font-size:0.8rem; padding:0.5rem 1.25rem;">Download .bib</button>
@@ -674,7 +688,7 @@
                     </div>
                     <p style="font-size:0.82rem; color:#999; margin-top:1rem; max-width:none;">
                         Open access · CC BY 4.0 ·
-                        <a href="https://github.com/Sima-Far/Flow_vector_field" target="_blank" rel="noopener" style="color:#007D69; text-decoration:none;">Code &amp; data on GitHub ↗</a>
+                        <a href="https://github.com/chitram1/VITAL" target="_blank" rel="noopener" style="color:#007D69; text-decoration:none;">VITAL code on GitHub ↗</a>
                     </p>
                 </div>
             </div>
@@ -684,9 +698,9 @@
 
     <footer>
         <div class="footer-inner">
-            <span>© 2026 Farokhnejad, da Mata, Macedo &amp; Menezes &nbsp;·&nbsp; Open Access under CC BY 4.0</span>
+            <span>© 2026 Santana, Mukherjee, Quazi, Menezes et al. &nbsp;·&nbsp; Open Access under CC BY 4.0</span>
             <span>
-                <a href="https://doi.org/10.1371/journal.pone.0340109" target="_blank" rel="noopener">DOI: 10.1371/journal.pone.0340109</a>
+                <a href="https://doi.org/10.1016/j.compbiomed.2026.111599" target="_blank" rel="noopener">DOI: 10.1016/j.compbiomed.2026.111599</a>
                 &nbsp;·&nbsp;
                 <a href="https://rpmenezes.github.io">rpmenezes.github.io</a>
             </span>
@@ -704,22 +718,21 @@
         document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
         // BibTeX content
-        const bibtex = `@article{farokhnejad2026vectorfields,
-  title   = {Vector fields as a framework for modelling the mobility of commodities},
-  author  = {Farokhnejad, Sima and da Mata, Ang\\'{e}lica S. and Macedo, Mariana and Menezes, Ronaldo},
-  journal = {PLOS One},
-  volume  = {21},
-  number  = {3},
-  pages   = {e0340109},
+        const bibtex = `@article{santana2026vital,
+  title   = {Natural language processing of biomedical text to map and prioritize protein--disease associations in {HFpEF}},
+  author  = {Santana, Clodomir and Mukherjee, Chitra and Quazi, Arnib and Menezes, Ronaldo and Filkov, Vladimir and others},
+  journal = {Computers in Biology and Medicine},
+  volume  = {205},
+  pages   = {111599},
   year    = {2026},
-  doi     = {10.1371/journal.pone.0340109}
+  doi     = {10.1016/j.compbiomed.2026.111599}
 }`;
 
         function downloadBibtex() {
             const blob = new Blob([bibtex], { type: 'text/plain' });
             const a = document.createElement('a');
             a.href = URL.createObjectURL(blob);
-            a.download = 'farokhnejad2026vectorfields.bib';
+            a.download = 'santana2026vital.bib';
             a.click();
             URL.revokeObjectURL(a.href);
         }
