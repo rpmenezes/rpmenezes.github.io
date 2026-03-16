@@ -78,7 +78,6 @@
     border-top: 1px solid #e8e8e8;
 }
 
-.post-item:hover .post-title { color: #007D69; }
 
 .post-meta {
     display: flex;
@@ -94,14 +93,20 @@
     letter-spacing: 0.03em;
 }
 
-.post-title {
+.post-title-link {
+    display: block;
     font-size: 1.25rem;
-    font-weight: 300;
-    color: #003C3C;
+    font-weight: 400;
+    color: #111;
+    text-decoration: none;
     margin-bottom: 0.6rem;
     letter-spacing: -0.01em;
     line-height: 1.35;
     transition: color 0.2s ease;
+}
+
+.post-title-link:hover {
+    color: #007D69;
 }
 
 .post-excerpt {
@@ -112,15 +117,6 @@
     max-width: 640px;
 }
 
-.post-read-more {
-    display: inline-block;
-    margin-top: 0.75rem;
-    font-size: 0.78rem;
-    font-weight: 400;
-    color: #999;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-}
 
 /* ── Post page hero ── */
 .post-hero {
