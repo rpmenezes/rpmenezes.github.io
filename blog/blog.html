@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog — Ronaldo Menezes</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="blog.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <header class="site-header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <h1><a href="../index.html" style="text-decoration:none;color:inherit;">Ronaldo Menezes</a></h1>
+                    <p class="nav-subtitle">Professor of Data and Network Science</p>
+                </div>
+                <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-menu">
+                    <li><a href="../index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item-dropdown">
+                        <a href="../research.html" class="nav-link">Research</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="../research.html#research-interests">Interests</a></li>
+                            <li><a href="../research.html#publications">Publications</a></li>
+                            <li><a href="../research.html#network">Collaboration Network</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item-dropdown">
+                        <a href="../scholarly-engagement.html" class="nav-link">Scholarly Engagement</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="../scholarly-engagement.html#editorial">Editorial and Advisory Roles</a></li>
+                            <li><a href="../scholarly-engagement.html#students">Supervision</a></li>
+                            <li><a href="../scholarly-engagement.html#collaborators">Selected Collaborators</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item-dropdown">
+                        <a href="../about.html" class="nav-link">About Me</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="../about.html#biography">Biography</a></li>
+                            <li><a href="../about.html#about-me">About Me</a></li>
+                            <li><a href="../about.html#passions">Passions</a></li>
+                            <li><a href="../about.html#favourites">Favourites</a></li>
+                            <li><a href="../about.html#motto">Personal Motto</a></li>
+                            <li><a href="../about.html#contact">Contact</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../videos.html" class="nav-link">Videos</a></li>
+                    <li><a href="../cv.html" class="nav-link">CV</a></li>
+                    <li><a href="blog.html" class="nav-link active">Blog</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+
+        <header class="blog-header fade-in">
+            <h1>Academic Thoughts and other Rumblings</h1>
+            <p>The text here reflects my personal view of certain issues at the time of writing. I don't claim to be right on the points. These are not here to generate debate but rather as mechanism for me to express my view of the world, especially academia, in a platform that doesn't require me to use soundbites.</p>
+        </header>
+
+        <div class="post-list">
+
+            <a href="posts/2026-03-16.html" class="post-item fade-in">
+                <div class="post-meta">
+                    <span class="post-date">16 Mar 2026</span>
+                </div>
+                <div class="post-body">
+                    <div class="post-title">Peer Review from the Other Side of the Table</div>
+                    <div class="post-excerpt">What happens when an editor sends out 50 invitations just to get two people to review a single paper? Having served as Editor-in-Chief, I want to shed some light on what the peer-review crisis looks like from the editorial seat.</div>
+                    <span class="post-read-more">Read →</span>
+                </div>
+            </a>
+
+        </div>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Ronaldo Menezes | University of Exeter | Department of Computer Science</p>
+    </footer>
+
+    <script>
+        const navToggle = document.querySelector('.nav-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+        navToggle.addEventListener('click', () => {
+            const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+            navToggle.setAttribute('aria-expanded', !expanded);
+            navMenu.classList.toggle('nav-open');
+        });
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.05 });
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+
+</body>
+</html>
