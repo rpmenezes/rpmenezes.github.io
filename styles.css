@@ -86,6 +86,20 @@ body {
     color: #007D69;
 }
 
+/* Blog button nav item */
+.nav-link-btn {
+    border: 1px solid #111;
+    padding: 0.3rem 0.85rem !important;
+    font-weight: 400 !important;
+}
+
+.nav-link-btn:hover,
+.nav-link-btn.active {
+    background-color: #111;
+    color: #fff !important;
+    border-color: #111;
+}
+
 /* Dropdown Menu Styles */
 .dropdown-menu {
     position: absolute;
