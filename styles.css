@@ -95,9 +95,9 @@ body {
 
 .nav-link-btn:hover,
 .nav-link-btn.active {
-    background-color: #111;
+    background-color: #007D69;
     color: #fff !important;
-    border-color: #111;
+    border-color: #007D69;
 }
 
 /* Dropdown Menu Styles */
