@@ -1,6 +1,14 @@
 {
   "videos": [
     {
+      "rawTitle": "Mapping the Invisible Flow of Goods",
+      "description": "Title: Vector fields as a framework for modelling the mobility of commodities\nAuthors: Sima Farokhnejad, Ang\u00e9lica S. da Mata, Mariana Macedo, Ronaldo Menezes\nDOI: https://doi.org/10.1371/journal.pone.0340109",
+      "videoId": "VHjtzGtDtBo",
+      "url": "https://www.youtube.com/watch?v=VHjtzGtDtBo",
+      "publishedAt": "2026-03-15T16:01:29Z",
+      "viewCount": 11
+    },
+    {
       "rawTitle": "NLP of biomedical text to map and prioritize protein-disease associations in HFpEF",
       "description": "Title: Natural language processing of biomedical text to map and prioritize protein\u2013disease associations in HFpEF\nAuthors: Clodomir Santana, Chitra Mukherjee, Arnib Quazi, Ronaldo Menezes, Vladimir Filkov, Dibakar Sigdel, Howard Choi, Imo Ebong, Padmini Sirish, Nicholas R. Anderson, Xuan Wang, Heng Ji, JiaWei Han, Baback Roshanravan, Leighton T. Izu, Thomas W. Smith, Nipavan Chiamvimonvat, Colleen E. Clancy, Martin Cadeiras, David A. Liem\nDOI: https://doi.org/10.1016/j.compbiomed.2026.111599",
       "videoId": "kZQUJpPN4sA",
@@ -31,15 +39,7 @@
       "url": "https://www.youtube.com/watch?v=Mx2-KUZkTX0",
       "publishedAt": "2026-02-22T11:26:18Z",
       "viewCount": 2
-    },
-    {
-      "rawTitle": "A data-driven supervised machine learning approach to estimating global ambient air pollution",
-      "description": "Title: A data-driven supervised machine learning approach to estimating global ambient air pollution concentrations with associated prediction intervals\nAuthors: Liam J. Berrisford, Hugo Barbosa, Ronaldo Menezes\nDOI: https://doi.org/10.1098/rsos.241288",
-      "videoId": "zkk9k38I1Hw",
-      "url": "https://www.youtube.com/watch?v=zkk9k38I1Hw",
-      "publishedAt": "2026-02-22T11:26:18Z",
-      "viewCount": 3
     }
   ],
-  "updated": "2026-03-15T06:59:22.738658"
+  "updated": "2026-03-16T07:20:21.526072"
 }
