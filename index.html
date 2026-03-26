@@ -328,7 +328,7 @@
                         const scoreAl=Math.min(1,(node.arrivalScore-LABEL_THRESHOLD)/1.5);
                         const al=globalAlpha*scoreAl;
                         if(al<=0)return;
-                        ctx.fillStyle=`rgba(255,255,255,${al*0.9})`;
+                        ctx.fillStyle=`rgba(255,216,60,${al*0.95})`;
                         ctx.fillText(node.poiLabel,node.x+sz+7,node.y);
                     });
                 }
@@ -340,7 +340,15 @@
             if(fadeAlpha>0){ctx.fillStyle=`rgba(10,14,26,${fadeAlpha})`;ctx.fillRect(0,0,W,H);}
             requestAnimationFrame(draw);
         }
-        fetch('data/manual/poi-categories.json').then(r=>r.json()).then(d=>{poiData=d;}).catch(()=>{});
+        fetch('data/manual/poi-categories.json').then(r=>r.json()).then(d=>{
+            poiData=d;
+            // If animation already started before fetch completed, pick names now
+            if(!poiNames.length && poiData.length){
+                const cat=poiData[Math.floor(Math.random()*poiData.length)];
+                const sh=[...cat.pois].sort(()=>Math.random()-0.5);
+                poiNames=sh.slice(0,3);
+            }
+        }).catch(()=>{});
         if (window.innerWidth > 768) {
             window.addEventListener('resize', resize);
             resize(); draw();
