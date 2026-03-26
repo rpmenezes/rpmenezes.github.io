@@ -1,0 +1,10 @@
+[
+  { "category": "Healthcare",   "pois": ["Hospital", "Pharmacy", "Health Clinic", "GP Surgery", "Urgent Care"] },
+  { "category": "Retail",       "pois": ["Supermarket", "Shopping Centre", "Farmers Market", "Bakery", "Convenience Store"] },
+  { "category": "Education",    "pois": ["University", "School", "Public Library", "Research Centre", "College"] },
+  { "category": "Transport",    "pois": ["Train Station", "Bus Terminal", "Airport", "Metro Stop", "Ferry Port"] },
+  { "category": "Services",     "pois": ["Post Office", "Bank", "Town Hall", "Police Station", "Fire Station"] },
+  { "category": "Leisure",      "pois": ["City Park", "Sports Centre", "Cinema", "Museum", "Theatre"] },
+  { "category": "Food & Drink", "pois": ["Restaurant", "Café", "Food Market", "Bar", "Street Food Hub"] },
+  { "category": "Automotive",   "pois": ["Garage", "Petrol Station", "Car Park", "MOT Centre", "Dealership"] }
+]
