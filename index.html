@@ -298,24 +298,6 @@
                 ctx.fillStyle=grd;ctx.beginPath();ctx.arc(node.x,node.y,size*3.2,0,Math.PI*2);ctx.fill();
                 const{r,g,b}=nodeRGB(ts);ctx.beginPath();ctx.arc(node.x,node.y,size,0,Math.PI*2);ctx.fillStyle=`rgba(${r},${g},${b},0.92)`;ctx.fill();
             });
-            // Assign POI labels to top nodes (sticky — assigned once, never swapped)
-            if(poiNames.length){
-                const labeled=nodes.filter(n=>n.poiLabel).length;
-                if(labeled<3){
-                    const used=new Set(nodes.filter(n=>n.poiLabel).map(n=>n.poiLabel));
-                    const avail=poiNames.filter(n=>!used.has(n));
-                    nodes.filter(n=>!n.poiLabel&&n.arrivalScore>LABEL_THRESHOLD).sort((a,b)=>b.arrivalScore-a.arrivalScore).slice(0,3-labeled).forEach((node,i)=>{if(avail[i])node.poiLabel=avail[i];});
-                }
-            }
-            ctx.font='bold 11px system-ui,sans-serif';ctx.textBaseline='middle';
-            nodes.forEach(node=>{
-                if(!node.poiLabel)return;
-                const sz=Math.min(MAX_SIZE,BASE_SIZE+node.arrivalScore);
-                const al=Math.min(1,(node.arrivalScore-LABEL_THRESHOLD)/1.5);
-                if(al<=0)return;
-                ctx.fillStyle=`rgba(255,255,255,${al*0.88})`;
-                ctx.fillText(node.poiLabel,node.x+sz+6,node.y);
-            });
             particles.forEach((p,i)=>{
                 p.progress+=1/p.duration;
                 if(p.progress>=1){if(!p.completed){p.completed=true;onTripComplete(p);}particles[i]=spawnParticle(false);return;}
@@ -327,6 +309,30 @@
                 ctx.fillStyle=hg;ctx.beginPath();ctx.arc(pos.x,pos.y,p.pSize*2.5,0,Math.PI*2);ctx.fill();
                 ctx.beginPath();ctx.arc(pos.x,pos.y,p.pSize,0,Math.PI*2);ctx.fillStyle=PARTICLE_COL+(alpha*0.95)+')';ctx.fill();
             });
+            // POI labels — drawn last so they sit above everything
+            if(poiNames.length && fadeState==='run'){
+                const gate=cycleFrames/3;
+                const globalAlpha=Math.min(1,(frameCount-gate)/(60*4)); // fade in over ~4s after gate
+                if(globalAlpha>0){
+                    // Assign labels (sticky — once set, never swapped)
+                    const labeled=nodes.filter(n=>n.poiLabel).length;
+                    if(labeled<3){
+                        const used=new Set(nodes.filter(n=>n.poiLabel).map(n=>n.poiLabel));
+                        const avail=poiNames.filter(n=>!used.has(n));
+                        nodes.filter(n=>!n.poiLabel&&n.arrivalScore>LABEL_THRESHOLD).sort((a,b)=>b.arrivalScore-a.arrivalScore).slice(0,3-labeled).forEach((node,i)=>{if(avail[i])node.poiLabel=avail[i];});
+                    }
+                    ctx.font='bold 11px system-ui,sans-serif';ctx.textBaseline='middle';
+                    nodes.forEach(node=>{
+                        if(!node.poiLabel)return;
+                        const sz=Math.min(MAX_SIZE,BASE_SIZE+node.arrivalScore);
+                        const scoreAl=Math.min(1,(node.arrivalScore-LABEL_THRESHOLD)/1.5);
+                        const al=globalAlpha*scoreAl;
+                        if(al<=0)return;
+                        ctx.fillStyle=`rgba(255,255,255,${al*0.9})`;
+                        ctx.fillText(node.poiLabel,node.x+sz+7,node.y);
+                    });
+                }
+            }
             if(fadeState==='in'){fadeAlpha=Math.max(0,fadeAlpha-1/FADE_FRAMES);if(fadeAlpha<=0){fadeState='run';frameCount=0;}}
             else if(fadeState==='run'){if(++frameCount>=cycleFrames)fadeState='out';}
             else if(fadeState==='out'){fadeAlpha=Math.min(1,fadeAlpha+1/FADE_FRAMES);if(fadeAlpha>=1)fadeState='reset';}
