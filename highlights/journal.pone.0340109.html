@@ -373,6 +373,93 @@
             color: #666;
         }
 
+        /* Infographics section */
+        .infographic {
+            background: #f5f6f7;
+            border: 1px solid #e0e1e2;
+            padding: 2rem 2.5rem 1.75rem;
+            margin-top: 2rem;
+        }
+        .infographic-title {
+            font-size: 1.05rem;
+            font-weight: 400;
+            color: #111;
+            margin-bottom: 0.5rem;
+        }
+        .infographic-desc {
+            font-size: 0.82rem;
+            color: #666;
+            max-width: 680px;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+        .infographic .two-panel {
+            display: grid;
+            grid-template-columns: 1fr 56px 1fr;
+            align-items: center;
+        }
+        .infographic .panel { display: flex; flex-direction: column; }
+        .infographic .panel-canvas-wrap {
+            background: #08142e;
+            overflow: hidden;
+        }
+        .infographic .panel-canvas-wrap canvas {
+            display: block;
+            width: 100%;
+            height: 200px;
+        }
+        .infographic .panel-foot {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.55rem 0.1rem 0;
+        }
+        .infographic .panel-name {
+            font-size: 0.73rem;
+            font-weight: 500;
+            color: #333;
+            letter-spacing: 0.02em;
+        }
+        .infographic .panel-sub {
+            font-size: 0.68rem;
+            color: #999;
+        }
+        .infographic .sep {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            color: #bbb;
+        }
+        .entropy-meter {
+            margin-top: 1.25rem;
+            display: grid;
+            grid-template-columns: 1fr 56px 1fr;
+            align-items: center;
+        }
+        .entropy-val { font-size: 0.78rem; color: #444; }
+        .entropy-val strong {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: #003C3C;
+            display: block;
+        }
+        .entropy-val.right { text-align: right; }
+        .entropy-bar-wrap { padding: 0 8px; }
+        .entropy-bar {
+            height: 6px;
+            background: linear-gradient(to right, #2a5fd4, #c47a00);
+            border-radius: 3px;
+        }
+        .entropy-bar-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.6rem;
+            color: #aaa;
+            margin-top: 4px;
+            letter-spacing: 0.06em;
+        }
+
         /* Citation box */
         .citation-box {
             background: #f8f8f8;
@@ -629,6 +716,103 @@
             </ul>
         </section>
 
+        <!-- Infographics -->
+        <section class="content-section fade-in">
+            <h2>Infographics</h2>
+
+            <!-- 1. OD → Vector Field -->
+            <div class="infographic">
+                <div class="infographic-title">From sparse network to complete field</div>
+                <div class="infographic-desc">
+                    A standard origin-destination model only connects municipalities that actually traded —
+                    leaving every other region blank. The vector field uses triangle-based interpolation
+                    to estimate a flow vector for every cell, even those absent from the original records.
+                </div>
+                <div class="two-panel">
+                    <div class="panel">
+                        <div class="panel-canvas-wrap"><canvas id="pone-odCanvas"></canvas></div>
+                        <div class="panel-foot">
+                            <span class="panel-name">Origin–Destination Network</span>
+                            <span class="panel-sub">sparse · gaps present</span>
+                        </div>
+                    </div>
+                    <div class="sep">→</div>
+                    <div class="panel">
+                        <div class="panel-canvas-wrap"><canvas id="pone-vfCanvas"></canvas></div>
+                        <div class="panel-foot">
+                            <span class="panel-name">Vector Field (interpolated)</span>
+                            <span class="panel-sub">complete · no gaps</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Entropy -->
+            <div class="infographic">
+                <div class="infographic-title">Directional entropy: how stable is the flow direction over the year?</div>
+                <div class="infographic-desc">
+                    Each cell contains an arrow representing trade direction. In a stable region the arrows
+                    barely change across seasons. In a dynamic region they rotate continuously.
+                </div>
+                <div class="two-panel">
+                    <div class="panel">
+                        <div class="panel-canvas-wrap"><canvas id="pone-stableCanvas"></canvas></div>
+                        <div class="panel-foot">
+                            <span class="panel-name">Static region</span>
+                            <span class="panel-sub">e.g., northern Minas Gerais</span>
+                        </div>
+                    </div>
+                    <div class="sep"></div>
+                    <div class="panel">
+                        <div class="panel-canvas-wrap"><canvas id="pone-dynamicCanvas"></canvas></div>
+                        <div class="panel-foot">
+                            <span class="panel-name">Dynamic region</span>
+                            <span class="panel-sub">e.g., central / eastern areas</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="entropy-meter">
+                    <div class="entropy-val">
+                        <strong>≈ 0.08</strong>Normalised entropy
+                    </div>
+                    <div class="entropy-bar-wrap">
+                        <div class="entropy-bar"></div>
+                        <div class="entropy-bar-label"><span>STABLE</span><span>DYNAMIC</span></div>
+                    </div>
+                    <div class="entropy-val right">
+                        <strong>≈ 0.92</strong>Normalised entropy
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Sinks & Sources -->
+            <div class="infographic">
+                <div class="infographic-title">Critical points: sinks and sources in the cattle trade field</div>
+                <div class="infographic-desc">
+                    Particles converge toward the sink (red) — likely a slaughterhouse or feedlot —
+                    and radiate outward from the source (green), a breeding region dispersing livestock.
+                    These critical points shift location between seasons.
+                </div>
+                <div class="two-panel">
+                    <div class="panel">
+                        <div class="panel-canvas-wrap"><canvas id="pone-sinkCanvas"></canvas></div>
+                        <div class="panel-foot">
+                            <span class="panel-name">Sink — Attractor</span>
+                            <span class="panel-sub">cattle converge here</span>
+                        </div>
+                    </div>
+                    <div class="sep"></div>
+                    <div class="panel">
+                        <div class="panel-canvas-wrap"><canvas id="pone-sourceCanvas"></canvas></div>
+                        <div class="panel-foot">
+                            <span class="panel-name">Source — Repeller</span>
+                            <span class="panel-sub">cattle disperse from here</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Paper & Authors -->
         <section class="content-section fade-in">
             <h2>Paper &amp; Authors</h2>
@@ -731,6 +915,260 @@
                 setTimeout(() => btn.textContent = original, 2000);
             });
         }
+    </script>
+
+    <script>
+    // ── Infographic canvases ──────────────────────────────────
+    (function () {
+        const dpr = window.devicePixelRatio || 1;
+
+        function setupCanvas(id) {
+            const c = document.getElementById(id);
+            if (!c) return null;
+            function resize() {
+                c.width  = c.offsetWidth * dpr;
+                c.height = 200 * dpr;
+                c.style.height = '200px';
+            }
+            resize();
+            window.addEventListener('resize', resize);
+            return c;
+        }
+
+        function lerp(a, b, t) { return a + (b - a) * t; }
+
+        // ── OD Network ──
+        const odC = setupCanvas('pone-odCanvas');
+        if (odC) {
+            const ctx = odC.getContext('2d');
+            const COLS = 10, ROWS = 7;
+            const allCells = [];
+            for (let c = 0; c < COLS; c++) for (let r = 0; r < ROWS; r++) allCells.push([c, r]);
+            const activeCells = [
+                [1,1],[1,4],[2,2],[3,5],[4,1],[4,3],[5,2],[5,5],
+                [6,0],[6,3],[7,1],[7,4],[8,2],[8,5],[9,0],[9,3]
+            ];
+            const activeSet = new Set(activeCells.map(([c,r]) => `${c},${r}`));
+            const edges = [
+                [0,2],[0,6],[1,4],[2,5],[3,7],[4,8],[5,9],[6,10],
+                [7,11],[8,12],[9,13],[10,14],[11,15],[12,15],[3,9]
+            ].map(([a,b]) => ({ a: activeCells[a], b: activeCells[b], t: Math.random(), speed: 0.004 + Math.random() * 0.004 }));
+
+            function cellCentre(c, r) {
+                const W = odC.width, H = odC.height;
+                return [(c + 0.5) * (W / COLS), (r + 0.5) * (H / ROWS)];
+            }
+            (function draw() {
+                const W = odC.width, H = odC.height;
+                ctx.fillStyle = '#08142e'; ctx.fillRect(0, 0, W, H);
+                ctx.strokeStyle = 'rgba(255,255,255,0.04)'; ctx.lineWidth = dpr;
+                for (let c = 0; c <= COLS; c++) { ctx.beginPath(); ctx.moveTo(c * W/COLS, 0); ctx.lineTo(c * W/COLS, H); ctx.stroke(); }
+                for (let r = 0; r <= ROWS; r++) { ctx.beginPath(); ctx.moveTo(0, r * H/ROWS); ctx.lineTo(W, r * H/ROWS); ctx.stroke(); }
+                allCells.forEach(([c, r]) => {
+                    if (activeSet.has(`${c},${r}`)) return;
+                    const [x, y] = cellCentre(c, r);
+                    ctx.beginPath(); ctx.arc(x, y, 2.5 * dpr, 0, Math.PI * 2);
+                    ctx.fillStyle = 'rgba(140,145,160,0.28)'; ctx.fill();
+                });
+                edges.forEach(e => {
+                    const [x0, y0] = cellCentre(...e.a), [x1, y1] = cellCentre(...e.b);
+                    ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x1, y1);
+                    ctx.strokeStyle = 'rgba(80,150,220,0.22)'; ctx.lineWidth = dpr; ctx.stroke();
+                    e.t = (e.t + e.speed) % 1;
+                    const px = lerp(x0, x1, e.t), py = lerp(y0, y1, e.t);
+                    ctx.beginPath(); ctx.arc(px, py, 2 * dpr, 0, Math.PI * 2);
+                    ctx.fillStyle = 'rgba(100,180,255,0.75)'; ctx.fill();
+                });
+                activeCells.forEach(([c, r]) => {
+                    const [x, y] = cellCentre(c, r);
+                    ctx.beginPath(); ctx.arc(x, y, 3.5 * dpr, 0, Math.PI * 2);
+                    ctx.fillStyle = 'rgba(90,170,255,0.9)'; ctx.fill();
+                });
+                requestAnimationFrame(draw);
+            })();
+        }
+
+        // ── VF panel ──
+        const vfC = setupCanvas('pone-vfCanvas');
+        if (vfC) {
+            const ctx = vfC.getContext('2d');
+            const COLS = 10, ROWS = 7;
+            let t = 0;
+            const particles = Array.from({ length: 45 }, () => ({ x: Math.random(), y: Math.random(), age: Math.random() * 60, maxAge: 50 + Math.random() * 50 }));
+            function angle(nx, ny) { return Math.sin(nx * 3.5 + t * 0.025) * 0.8 + Math.cos(ny * 2.5 + t * 0.02) * 0.5 - 0.4; }
+            (function draw() {
+                t++;
+                const W = vfC.width, H = vfC.height;
+                ctx.fillStyle = 'rgba(8,20,46,0.22)'; ctx.fillRect(0, 0, W, H);
+                const cw = W / COLS, ch = H / ROWS;
+                for (let c = 0; c < COLS; c++) for (let r = 0; r < ROWS; r++) {
+                    const cx = (c + 0.5) * cw, cy = (r + 0.5) * ch;
+                    const a = angle(cx / W, cy / H);
+                    const len = 11 * dpr, ah = 3.5 * dpr;
+                    const x2 = cx + Math.cos(a) * len, y2 = cy + Math.sin(a) * len;
+                    ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(x2, y2);
+                    ctx.strokeStyle = 'rgba(42,95,212,0.55)'; ctx.lineWidth = dpr; ctx.stroke();
+                    ctx.beginPath(); ctx.moveTo(x2, y2);
+                    ctx.lineTo(x2 - Math.cos(a-0.38)*ah, y2 - Math.sin(a-0.38)*ah);
+                    ctx.lineTo(x2 - Math.cos(a+0.38)*ah, y2 - Math.sin(a+0.38)*ah);
+                    ctx.closePath(); ctx.fillStyle = 'rgba(42,95,212,0.65)'; ctx.fill();
+                }
+                particles.forEach((p, i) => {
+                    p.age++;
+                    if (p.age > p.maxAge) { particles[i] = { x: Math.random(), y: Math.random(), age: 0, maxAge: 50 + Math.random() * 50 }; return; }
+                    const a = angle(p.x, p.y);
+                    p.x += Math.cos(a) * 0.009; p.y += Math.sin(a) * 0.009;
+                    if (p.x < 0) p.x += 1; if (p.x > 1) p.x -= 1;
+                    if (p.y < 0) p.y += 1; if (p.y > 1) p.y -= 1;
+                    const al = Math.sin((p.age / p.maxAge) * Math.PI) * 0.65;
+                    ctx.beginPath(); ctx.arc(p.x * W, p.y * H, 1.8 * dpr, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(100,180,255,${al})`; ctx.fill();
+                });
+                requestAnimationFrame(draw);
+            })();
+        }
+
+        // ── Stable arrows ──
+        const stC = setupCanvas('pone-stableCanvas');
+        if (stC) {
+            const ctx = stC.getContext('2d');
+            const COLS = 7, ROWS = 5;
+            let t = 0;
+            const offsets = Array.from({ length: COLS * ROWS }, () => (Math.random() - 0.5) * 0.12);
+            (function draw() {
+                t++;
+                const W = stC.width, H = stC.height;
+                ctx.fillStyle = '#08142e'; ctx.fillRect(0, 0, W, H);
+                const cw = W / COLS, ch = H / ROWS;
+                for (let c = 0; c < COLS; c++) for (let r = 0; r < ROWS; r++) {
+                    const cx = (c + 0.5) * cw, cy = (r + 0.5) * ch;
+                    const off = offsets[c * ROWS + r];
+                    const a = -Math.PI * 0.25 + off + Math.sin(t * 0.018 + off * 5) * 0.06;
+                    const len = 13 * dpr, ah = 4 * dpr;
+                    const x2 = cx + Math.cos(a) * len, y2 = cy + Math.sin(a) * len;
+                    ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(x2, y2);
+                    ctx.strokeStyle = 'rgba(42,95,212,0.6)'; ctx.lineWidth = 1.2 * dpr; ctx.stroke();
+                    ctx.beginPath(); ctx.moveTo(x2, y2);
+                    ctx.lineTo(x2 - Math.cos(a-0.38)*ah, y2 - Math.sin(a-0.38)*ah);
+                    ctx.lineTo(x2 - Math.cos(a+0.38)*ah, y2 - Math.sin(a+0.38)*ah);
+                    ctx.closePath(); ctx.fillStyle = 'rgba(42,95,212,0.75)'; ctx.fill();
+                }
+                requestAnimationFrame(draw);
+            })();
+        }
+
+        // ── Dynamic arrows ──
+        const dynC = setupCanvas('pone-dynamicCanvas');
+        if (dynC) {
+            const ctx = dynC.getContext('2d');
+            const COLS = 7, ROWS = 5;
+            let t = 0;
+            const cells = Array.from({ length: COLS * ROWS }, () => ({
+                speed: (0.6 + Math.random()) * (Math.random() < 0.5 ? 1 : -1) * 0.022,
+                phase: Math.random() * Math.PI * 2
+            }));
+            (function draw() {
+                t++;
+                const W = dynC.width, H = dynC.height;
+                ctx.fillStyle = '#08142e'; ctx.fillRect(0, 0, W, H);
+                const cw = W / COLS, ch = H / ROWS;
+                for (let c = 0; c < COLS; c++) for (let r = 0; r < ROWS; r++) {
+                    const cx = (c + 0.5) * cw, cy = (r + 0.5) * ch;
+                    const cell = cells[c * ROWS + r];
+                    const a = cell.phase + t * cell.speed;
+                    const len = 13 * dpr, ah = 4 * dpr;
+                    const x2 = cx + Math.cos(a) * len, y2 = cy + Math.sin(a) * len;
+                    ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(x2, y2);
+                    ctx.strokeStyle = 'rgba(196,122,0,0.65)'; ctx.lineWidth = 1.2 * dpr; ctx.stroke();
+                    ctx.beginPath(); ctx.moveTo(x2, y2);
+                    ctx.lineTo(x2 - Math.cos(a-0.38)*ah, y2 - Math.sin(a-0.38)*ah);
+                    ctx.lineTo(x2 - Math.cos(a+0.38)*ah, y2 - Math.sin(a+0.38)*ah);
+                    ctx.closePath(); ctx.fillStyle = 'rgba(196,122,0,0.8)'; ctx.fill();
+                }
+                requestAnimationFrame(draw);
+            })();
+        }
+
+        // ── Sink ──
+        const sinkC = setupCanvas('pone-sinkCanvas');
+        if (sinkC) {
+            const ctx = sinkC.getContext('2d');
+            const COLS = 10, ROWS = 7;
+            const particles = Array.from({ length: 60 }, () => ({ angle: Math.random() * Math.PI * 2, r: 0.15 + Math.random() * 0.42, speed: 0.004 + Math.random() * 0.005 }));
+            (function draw() {
+                const W = sinkC.width, H = sinkC.height;
+                const cx = W / 2, cy = H / 2;
+                ctx.fillStyle = 'rgba(8,20,46,0.25)'; ctx.fillRect(0, 0, W, H);
+                const cw = W / COLS, ch = H / ROWS;
+                for (let c = 0; c < COLS; c++) for (let r = 0; r < ROWS; r++) {
+                    const px = (c + 0.5) * cw, py = (r + 0.5) * ch;
+                    const a = Math.atan2(cy - py, cx - px);
+                    if (Math.hypot(cx - px, cy - py) < 15 * dpr) continue;
+                    const len = 12 * dpr, ah = 3.5 * dpr;
+                    const x2 = px + Math.cos(a) * len, y2 = py + Math.sin(a) * len;
+                    ctx.beginPath(); ctx.moveTo(px, py); ctx.lineTo(x2, y2);
+                    ctx.strokeStyle = 'rgba(200,70,70,0.45)'; ctx.lineWidth = dpr; ctx.stroke();
+                    ctx.beginPath(); ctx.moveTo(x2, y2);
+                    ctx.lineTo(x2 - Math.cos(a-0.38)*ah, y2 - Math.sin(a-0.38)*ah);
+                    ctx.lineTo(x2 - Math.cos(a+0.38)*ah, y2 - Math.sin(a+0.38)*ah);
+                    ctx.closePath(); ctx.fillStyle = 'rgba(200,70,70,0.6)'; ctx.fill();
+                }
+                const g = ctx.createRadialGradient(cx, cy, 0, cx, cy, 22 * dpr);
+                g.addColorStop(0, 'rgba(220,80,80,0.55)'); g.addColorStop(1, 'rgba(220,80,80,0)');
+                ctx.beginPath(); ctx.arc(cx, cy, 22 * dpr, 0, Math.PI * 2); ctx.fillStyle = g; ctx.fill();
+                particles.forEach((p, i) => {
+                    p.r = Math.max(0.02, p.r - p.speed);
+                    if (p.r < 0.04) { particles[i] = { angle: Math.random() * Math.PI * 2, r: 0.15 + Math.random() * 0.42, speed: 0.004 + Math.random() * 0.005 }; return; }
+                    const px = cx + Math.cos(p.angle) * p.r * W * 0.5;
+                    const py = cy + Math.sin(p.angle) * p.r * H * 0.6;
+                    const al = Math.min((p.r - 0.04) / 0.2, 1) * 0.75;
+                    ctx.beginPath(); ctx.arc(px, py, 1.8 * dpr, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(240,110,110,${al})`; ctx.fill();
+                });
+                requestAnimationFrame(draw);
+            })();
+        }
+
+        // ── Source ──
+        const srcC = setupCanvas('pone-sourceCanvas');
+        if (srcC) {
+            const ctx = srcC.getContext('2d');
+            const COLS = 10, ROWS = 7;
+            const particles = Array.from({ length: 60 }, () => ({ angle: Math.random() * Math.PI * 2, r: Math.random() * 0.08, speed: 0.004 + Math.random() * 0.005 }));
+            (function draw() {
+                const W = srcC.width, H = srcC.height;
+                const cx = W / 2, cy = H / 2;
+                ctx.fillStyle = 'rgba(8,20,46,0.25)'; ctx.fillRect(0, 0, W, H);
+                const cw = W / COLS, ch = H / ROWS;
+                for (let c = 0; c < COLS; c++) for (let r = 0; r < ROWS; r++) {
+                    const px = (c + 0.5) * cw, py = (r + 0.5) * ch;
+                    const a = Math.atan2(py - cy, px - cx);
+                    if (Math.hypot(cx - px, cy - py) < 15 * dpr) continue;
+                    const len = 12 * dpr, ah = 3.5 * dpr;
+                    const x2 = px + Math.cos(a) * len, y2 = py + Math.sin(a) * len;
+                    ctx.beginPath(); ctx.moveTo(px, py); ctx.lineTo(x2, y2);
+                    ctx.strokeStyle = 'rgba(60,170,90,0.45)'; ctx.lineWidth = dpr; ctx.stroke();
+                    ctx.beginPath(); ctx.moveTo(x2, y2);
+                    ctx.lineTo(x2 - Math.cos(a-0.38)*ah, y2 - Math.sin(a-0.38)*ah);
+                    ctx.lineTo(x2 - Math.cos(a+0.38)*ah, y2 - Math.sin(a+0.38)*ah);
+                    ctx.closePath(); ctx.fillStyle = 'rgba(60,170,90,0.62)'; ctx.fill();
+                }
+                const g = ctx.createRadialGradient(cx, cy, 0, cx, cy, 22 * dpr);
+                g.addColorStop(0, 'rgba(60,200,100,0.55)'); g.addColorStop(1, 'rgba(60,200,100,0)');
+                ctx.beginPath(); ctx.arc(cx, cy, 22 * dpr, 0, Math.PI * 2); ctx.fillStyle = g; ctx.fill();
+                particles.forEach((p, i) => {
+                    p.r += p.speed;
+                    if (p.r > 0.52) { particles[i] = { angle: Math.random() * Math.PI * 2, r: 0, speed: 0.004 + Math.random() * 0.005 }; return; }
+                    const px = cx + Math.cos(p.angle) * p.r * W * 0.5;
+                    const py = cy + Math.sin(p.angle) * p.r * H * 0.6;
+                    const al = Math.min(p.r / 0.15, 1) * (1 - p.r / 0.52) * 0.8;
+                    ctx.beginPath(); ctx.arc(px, py, 1.8 * dpr, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(80,220,120,${al})`; ctx.fill();
+                });
+                requestAnimationFrame(draw);
+            })();
+        }
+    })();
     </script>
 
 </body>
