@@ -1,0 +1,44 @@
+[
+  {
+    "name": "Biodiversity Workshop",
+    "location": "Penryn, UK",
+    "date": "March 2026",
+    "url": null
+  },
+  {
+    "name": "India, Various Cities",
+    "location": null,
+    "date": "April 2026",
+    "url": null
+  },
+  {
+    "name": "ComplexNet 2026",
+    "location": "Zaragoza, Spain",
+    "date": "May 2026",
+    "url": "https://complenet.weeblysite.com/"
+  },
+  {
+    "name": "NetSci 2026",
+    "location": "Boston, USA",
+    "date": "June 2026",
+    "url": "https://www.netsci2026.com/"
+  },
+  {
+    "name": "Environmental Intelligence - Exeter Food",
+    "location": "Penryn, UK",
+    "date": "June 2026",
+    "url": null
+  },
+  {
+    "name": "Enredando 2026",
+    "location": "Viçosa, Brazil",
+    "date": "July 2026",
+    "url": "https://enredando.giscbr.org/"
+  },
+  {
+    "name": "DIME 2026",
+    "location": "Porto Alegre, Brazil",
+    "date": "August 2026",
+    "url": "https://biocomplex.github.io/Dime/"
+  }
+]
