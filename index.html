@@ -247,7 +247,7 @@
             for(let d=0;d<nD;d++)districts.push({cx:pad.x+Math.random()*(W-2*pad.x),cy:pad.y+Math.random()*(H-2*pad.y),sigma:W*(0.06+Math.random()*0.1),weight:0.6+Math.random()*1.4});
             const wSum=districts.reduce((s,d)=>s+d.weight,0);districts.forEach(d=>d.weight/=wSum);
             cycleFrames=(60+Math.floor(Math.random()*31))*60;
-            if(poiData.length){const cat=poiData[Math.floor(Math.random()*poiData.length)];const sh=[...cat.pois].sort(()=>Math.random()-0.5);poiNames=sh.slice(0,3);}
+            if(poiData.length){const cats=[...poiData].sort(()=>Math.random()-0.5).slice(0,4);poiNames=cats.map(c=>c.pois[Math.floor(Math.random()*c.pois.length)]);}
             nodes=[];let att=0;
             while(nodes.length<N_NODES&&att++<N_NODES*40){
                 let rw=Math.random(),dist=districts[districts.length-1];
@@ -311,17 +311,17 @@
             });
             // POI labels — drawn last so they sit above everything
             if(poiNames.length && fadeState==='run'){
-                const gate=cycleFrames/3;
+                const gate=10*60;
                 const globalAlpha=Math.min(1,(frameCount-gate)/(60*4));
                 if(globalAlpha>0){
-                    // Assign labels to top 3 nodes by arrivals (sticky once assigned, no score threshold)
+                    // Assign labels to top 4 nodes by arrivals (sticky once assigned, one per category)
                     const labeled=nodes.filter(n=>n.poiLabel).length;
-                    if(labeled<3){
+                    if(labeled<4){
                         const used=new Set(nodes.filter(n=>n.poiLabel).map(n=>n.poiLabel));
                         const avail=poiNames.filter(n=>!used.has(n));
-                        nodes.filter(n=>!n.poiLabel).sort((a,b)=>b.arrivals-a.arrivals).slice(0,3-labeled).forEach((node,i)=>{if(avail[i])node.poiLabel=avail[i];});
+                        nodes.filter(n=>!n.poiLabel).sort((a,b)=>b.arrivals-a.arrivals).slice(0,4-labeled).forEach((node,i)=>{if(avail[i])node.poiLabel=avail[i];});
                     }
-                    ctx.font='bold 11px system-ui,sans-serif';ctx.textBaseline='middle';
+                    ctx.font='bold 9.5px system-ui,sans-serif';ctx.textBaseline='middle';
                     nodes.forEach(node=>{
                         if(!node.poiLabel)return;
                         const sz=Math.min(MAX_SIZE,BASE_SIZE+node.arrivalScore);
@@ -341,9 +341,8 @@
             poiData=d;
             // If animation already started before fetch completed, pick names now
             if(!poiNames.length && poiData.length){
-                const cat=poiData[Math.floor(Math.random()*poiData.length)];
-                const sh=[...cat.pois].sort(()=>Math.random()-0.5);
-                poiNames=sh.slice(0,3);
+                const cats=[...poiData].sort(()=>Math.random()-0.5).slice(0,4);
+                poiNames=cats.map(c=>c.pois[Math.floor(Math.random()*c.pois.length)]);
             }
         }).catch(()=>{});
         if (window.innerWidth > 768) {
