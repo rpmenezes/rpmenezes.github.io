@@ -312,23 +312,20 @@
             // POI labels — drawn last so they sit above everything
             if(poiNames.length && fadeState==='run'){
                 const gate=cycleFrames/3;
-                const globalAlpha=Math.min(1,(frameCount-gate)/(60*4)); // fade in over ~4s after gate
+                const globalAlpha=Math.min(1,(frameCount-gate)/(60*4));
                 if(globalAlpha>0){
-                    // Assign labels (sticky — once set, never swapped)
+                    // Assign labels to top 3 nodes by arrivals (sticky once assigned, no score threshold)
                     const labeled=nodes.filter(n=>n.poiLabel).length;
                     if(labeled<3){
                         const used=new Set(nodes.filter(n=>n.poiLabel).map(n=>n.poiLabel));
                         const avail=poiNames.filter(n=>!used.has(n));
-                        nodes.filter(n=>!n.poiLabel&&n.arrivalScore>LABEL_THRESHOLD).sort((a,b)=>b.arrivalScore-a.arrivalScore).slice(0,3-labeled).forEach((node,i)=>{if(avail[i])node.poiLabel=avail[i];});
+                        nodes.filter(n=>!n.poiLabel).sort((a,b)=>b.arrivals-a.arrivals).slice(0,3-labeled).forEach((node,i)=>{if(avail[i])node.poiLabel=avail[i];});
                     }
                     ctx.font='bold 11px system-ui,sans-serif';ctx.textBaseline='middle';
                     nodes.forEach(node=>{
                         if(!node.poiLabel)return;
                         const sz=Math.min(MAX_SIZE,BASE_SIZE+node.arrivalScore);
-                        const scoreAl=Math.min(1,(node.arrivalScore-LABEL_THRESHOLD)/1.5);
-                        const al=globalAlpha*scoreAl;
-                        if(al<=0)return;
-                        ctx.fillStyle=`rgba(255,216,60,${al*0.95})`;
+                        ctx.fillStyle=`rgba(255,216,60,${globalAlpha*0.95})`;
                         ctx.fillText(node.poiLabel,node.x+sz+7,node.y);
                     });
                 }
