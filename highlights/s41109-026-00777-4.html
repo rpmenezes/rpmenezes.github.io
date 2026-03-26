@@ -373,6 +373,65 @@
             color: #666;
         }
 
+        /* Infographics section */
+        .infographic {
+            background: #f5f6f7;
+            border: 1px solid #e0e1e2;
+            padding: 2rem 2.5rem 1.75rem;
+            margin-top: 2rem;
+        }
+        .infographic-title {
+            font-size: 1.05rem;
+            font-weight: 400;
+            color: #111;
+            margin-bottom: 0.5rem;
+        }
+        .infographic-desc {
+            font-size: 0.82rem;
+            color: #666;
+            max-width: 680px;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+        .infographic .two-panel {
+            display: grid;
+            grid-template-columns: 1fr 56px 1fr;
+            align-items: center;
+        }
+        .infographic .panel { display: flex; flex-direction: column; }
+        .infographic .panel-canvas-wrap {
+            background: #08142e;
+            overflow: hidden;
+        }
+        .infographic .panel-canvas-wrap canvas {
+            display: block;
+            width: 100%;
+            height: 220px;
+        }
+        .infographic .panel-foot {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.55rem 0.1rem 0;
+        }
+        .infographic .panel-name {
+            font-size: 0.73rem;
+            font-weight: 500;
+            color: #333;
+            letter-spacing: 0.02em;
+        }
+        .infographic .panel-sub {
+            font-size: 0.68rem;
+            color: #999;
+        }
+        .infographic .sep {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            color: #bbb;
+        }
+
         /* Citation box */
         .citation-box {
             background: #f8f8f8;
@@ -627,6 +686,66 @@
             </ul>
         </section>
 
+        <!-- Infographics -->
+        <section class="content-section fade-in">
+            <h2>Infographics</h2>
+
+            <!-- 1. Vulnerability paradox -->
+            <div class="infographic">
+                <div class="infographic-title">Peripheral nodes create structural fragility</div>
+                <div class="infographic-desc">
+                    Counterintuitively, removing a high-betweenness central node (left) barely affects connectivity —
+                    dense urban cores have many redundant paths. But removing a low-betweenness peripheral bridge node
+                    (right) immediately splits the network into two disconnected components.
+                </div>
+                <div class="two-panel">
+                    <div class="panel">
+                        <div class="panel-canvas-wrap"><canvas id="brn-resilientCanvas"></canvas></div>
+                        <div class="panel-foot">
+                            <span class="panel-name">Central hub removed</span>
+                            <span class="panel-sub">network stays connected</span>
+                        </div>
+                    </div>
+                    <div class="sep">vs</div>
+                    <div class="panel">
+                        <div class="panel-canvas-wrap"><canvas id="brn-fragileCanvas"></canvas></div>
+                        <div class="panel-foot">
+                            <span class="panel-name">Peripheral bridge removed</span>
+                            <span class="panel-sub">network splits</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Five network variants -->
+            <div class="infographic">
+                <div class="infographic-title">Five network variants — five operational realities</div>
+                <div class="infographic-desc">
+                    The same 75,000 km of federal roads are encoded five ways: by physical distance (BRN),
+                    incident count (BRN-I), vehicle flow (BRN-F), incidents per km (BRN-R), and flow per lane (BRN-T).
+                    Each lens reveals different critical corridors — a road that appears minor by distance may be
+                    a major bottleneck by flow or a dangerous outlier by incident density.
+                </div>
+                <div class="two-panel">
+                    <div class="panel">
+                        <div class="panel-canvas-wrap"><canvas id="brn-varA"></canvas></div>
+                        <div class="panel-foot">
+                            <span class="panel-name" id="brn-varA-name">BRN — Distance</span>
+                            <span class="panel-sub">edge weight = road length</span>
+                        </div>
+                    </div>
+                    <div class="sep"></div>
+                    <div class="panel">
+                        <div class="panel-canvas-wrap"><canvas id="brn-varB"></canvas></div>
+                        <div class="panel-foot">
+                            <span class="panel-name" id="brn-varB-name">BRN-F — Vehicle flow</span>
+                            <span class="panel-sub">edge weight = traffic volume</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Paper & Authors -->
         <section class="content-section fade-in">
             <h2>Paper &amp; Authors</h2>
@@ -722,6 +841,380 @@
                 setTimeout(() => btn.textContent = original, 2000);
             });
         }
+    </script>
+
+    <script>
+    // ── BRN Infographic canvases ─────────────────────────────
+    (function () {
+        const dpr = window.devicePixelRatio || 1;
+
+        function setupCanvas(id, h) {
+            const c = document.getElementById(id);
+            if (!c) return null;
+            function resize() {
+                c.width  = c.offsetWidth * dpr;
+                c.height = (h || 220) * dpr;
+                c.style.height = (h || 220) + 'px';
+            }
+            resize();
+            window.addEventListener('resize', resize);
+            return c;
+        }
+
+        function lerp(a, b, t) { return a + (b - a) * t; }
+
+        // ══════════════════════════════════════════════════════
+        //  INFOGRAPHIC 1 — The Vulnerability Paradox
+        // ══════════════════════════════════════════════════════
+
+        // ── Left: dense mesh — hub removal is resilient ──────
+        const resC = setupCanvas('brn-resilientCanvas', 220);
+        if (resC) {
+            const ctx = resC.getContext('2d');
+
+            // 13 nodes: hub + 8 ring + 4 inner
+            const N = [
+                {x:0.50,y:0.50,hub:true},
+                {x:0.50,y:0.10},{x:0.82,y:0.24},{x:0.95,y:0.55},{x:0.80,y:0.86},
+                {x:0.50,y:0.93},{x:0.20,y:0.86},{x:0.05,y:0.55},{x:0.18,y:0.24},
+                {x:0.36,y:0.34},{x:0.64,y:0.34},{x:0.64,y:0.68},{x:0.36,y:0.68}
+            ];
+            // All edges (hub + ring + inner cross-connections)
+            const ALL_E = [
+                [0,1],[0,2],[0,3],[0,4],[0,5],[0,6],[0,7],[0,8],
+                [0,9],[0,10],[0,11],[0,12],
+                [1,2],[2,3],[3,4],[4,5],[5,6],[6,7],[7,8],[8,1],
+                [9,1],[9,2],[10,3],[10,4],[11,5],[11,6],[12,7],[12,8],
+                [9,10],[10,11],[11,12],[12,9]
+            ];
+            const NO_HUB_E = ALL_E.filter(([a,b]) => a!==0 && b!==0);
+
+            // Particles: random paths between non-hub nodes
+            const particles = Array.from({length:30}, () => resetParticle(null));
+            function resetParticle(p) {
+                const a = 1 + Math.floor(Math.random() * 12);
+                let b = 1 + Math.floor(Math.random() * 12);
+                while (b === a) b = 1 + Math.floor(Math.random() * 12);
+                return { a, b, t: Math.random(), speed: 0.008 + Math.random()*0.006 };
+            }
+
+            const CYCLE = 300, WARN = 60, REMOVE = 180;
+            let tick = 0;
+
+            (function draw() {
+                tick++;
+                const W = resC.width, H = resC.height;
+                const ph = tick % CYCLE;
+                const hubRemoved = ph >= WARN && ph < WARN + REMOVE;
+                const hubWarn    = ph >= WARN - 20 && ph < WARN;
+                const hubAlpha   = hubRemoved ? Math.max(0, 1 - (ph - WARN) / 20) : 1;
+
+                ctx.fillStyle = '#08142e'; ctx.fillRect(0, 0, W, H);
+
+                // Edges
+                const edges = hubRemoved ? NO_HUB_E : ALL_E;
+                edges.forEach(([a, b]) => {
+                    const na = N[a], nb = N[b];
+                    ctx.beginPath();
+                    ctx.moveTo(na.x*W, na.y*H);
+                    ctx.lineTo(nb.x*W, nb.y*H);
+                    ctx.strokeStyle = 'rgba(60,120,220,0.28)';
+                    ctx.lineWidth = dpr;
+                    ctx.stroke();
+                });
+
+                // Nodes
+                N.forEach((n, i) => {
+                    if (i === 0 && hubRemoved) return;
+                    let col, r;
+                    if (i === 0) {
+                        r = 7 * dpr;
+                        if (hubWarn) {
+                            const blink = Math.sin(tick * 0.4) > 0;
+                            col = blink ? 'rgba(255,200,50,0.9)' : 'rgba(80,160,255,0.9)';
+                        } else {
+                            col = `rgba(80,160,255,${hubAlpha})`;
+                        }
+                    } else {
+                        r = 4 * dpr;
+                        col = 'rgba(80,160,255,0.75)';
+                    }
+                    ctx.beginPath(); ctx.arc(n.x*W, n.y*H, r, 0, Math.PI*2);
+                    ctx.fillStyle = col; ctx.fill();
+                });
+
+                // Particles — always find a path (resilience)
+                particles.forEach((p, i) => {
+                    p.t += p.speed;
+                    if (p.t >= 1) particles[i] = resetParticle(p);
+                    const na = N[p.a], nb = N[p.b];
+                    const px = lerp(na.x, nb.x, p.t) * W;
+                    const py = lerp(na.y, nb.y, p.t) * H;
+                    const al = Math.sin(p.t * Math.PI) * 0.7;
+                    ctx.beginPath(); ctx.arc(px, py, 2.2*dpr, 0, Math.PI*2);
+                    ctx.fillStyle = `rgba(120,200,255,${al})`; ctx.fill();
+                });
+
+                // Status label
+                ctx.fillStyle = hubRemoved ? 'rgba(100,220,120,0.8)' : hubWarn ? 'rgba(255,200,50,0.8)' : 'rgba(255,255,255,0.25)';
+                ctx.font = `${10*dpr}px sans-serif`;
+                ctx.fillText(hubRemoved ? 'Hub removed — still connected' : hubWarn ? 'Removing hub…' : 'Flowing normally', 10*dpr, (H - 12*dpr));
+
+                requestAnimationFrame(draw);
+            })();
+        }
+
+        // ── Right: bridge topology — bridge removal is fragile ─
+        const fragC = setupCanvas('brn-fragileCanvas', 220);
+        if (fragC) {
+            const ctx = fragC.getContext('2d');
+
+            // 11 nodes: 5 left cluster + bridge + 5 right cluster
+            const N = [
+                {x:0.10,y:0.18},{x:0.28,y:0.12},{x:0.10,y:0.50},
+                {x:0.28,y:0.50},{x:0.10,y:0.82},{x:0.28,y:0.88},
+                {x:0.50,y:0.50,bridge:true},
+                {x:0.72,y:0.12},{x:0.90,y:0.18},{x:0.72,y:0.50},
+                {x:0.90,y:0.50},{x:0.72,y:0.88},{x:0.90,y:0.82}
+            ];
+            const LEFT_E  = [[0,1],[0,2],[1,3],[2,3],[2,4],[3,5],[4,5]];
+            const BRIDGE_E = [[3,6],[6,9]];
+            const RIGHT_E  = [[7,8],[7,9],[8,10],[9,10],[9,11],[10,12],[11,12]];
+            const ALL_E    = [...LEFT_E, ...BRIDGE_E, ...RIGHT_E];
+
+            const CYCLE = 300, WARN = 60, REMOVE = 180;
+            let tick = 0;
+
+            // Particles for left and right clusters
+            const leftParts  = Array.from({length:12}, () => ({ a: Math.floor(Math.random()*6), b: Math.floor(Math.random()*6), t: Math.random(), speed: 0.007+Math.random()*0.005 }));
+            const rightParts = Array.from({length:12}, () => ({ a: 7+Math.floor(Math.random()*6), b: 7+Math.floor(Math.random()*6), t: Math.random(), speed: 0.007+Math.random()*0.005 }));
+            const crossParts = Array.from({length:6},  () => ({ t: Math.random(), speed: 0.005+Math.random()*0.004, dir: Math.random()<0.5 ? 1 : -1 }));
+
+            (function draw() {
+                tick++;
+                const W = fragC.width, H = fragC.height;
+                const ph = tick % CYCLE;
+                const bridgeRemoved = ph >= WARN && ph < WARN + REMOVE;
+                const bridgeWarn    = ph >= WARN - 20 && ph < WARN;
+                const bridgeAlpha   = bridgeRemoved ? Math.max(0, 1-(ph-WARN)/20) : 1;
+
+                ctx.fillStyle = '#08142e'; ctx.fillRect(0, 0, W, H);
+
+                // Draw edges
+                const edgeSets = bridgeRemoved
+                    ? [{edges:LEFT_E,col:'rgba(60,120,220,0.3)'},{edges:RIGHT_E,col:'rgba(60,120,220,0.3)'}]
+                    : [{edges:ALL_E,col:'rgba(60,120,220,0.28)'}];
+                edgeSets.forEach(({edges,col}) => {
+                    edges.forEach(([a,b]) => {
+                        const na=N[a],nb=N[b];
+                        ctx.beginPath(); ctx.moveTo(na.x*W,na.y*H); ctx.lineTo(nb.x*W,nb.y*H);
+                        ctx.strokeStyle=col; ctx.lineWidth=dpr; ctx.stroke();
+                    });
+                });
+
+                // Show disconnection gap when bridge removed
+                if (bridgeRemoved) {
+                    ctx.beginPath();
+                    ctx.moveTo(W*0.42, 0); ctx.lineTo(W*0.42, H);
+                    ctx.strokeStyle = 'rgba(220,80,80,0.15)';
+                    ctx.lineWidth = 16*dpr; ctx.stroke();
+                    ctx.strokeStyle = 'rgba(220,80,80,0.45)';
+                    ctx.lineWidth = 1.5*dpr;
+                    ctx.setLineDash([4*dpr, 4*dpr]); ctx.stroke(); ctx.setLineDash([]);
+                }
+
+                // Nodes
+                N.forEach((n, i) => {
+                    if (i === 6 && bridgeRemoved) return;
+                    let col, r;
+                    if (i === 6) {
+                        r = 7*dpr;
+                        if (bridgeWarn) {
+                            const blink = Math.sin(tick*0.4)>0;
+                            col = blink ? 'rgba(255,200,50,0.9)' : 'rgba(80,160,255,0.9)';
+                        } else {
+                            col = `rgba(80,160,255,${bridgeAlpha})`;
+                        }
+                    } else {
+                        r = 4*dpr;
+                        col = i<6 ? 'rgba(80,160,255,0.75)' : 'rgba(80,160,255,0.75)';
+                    }
+                    ctx.beginPath(); ctx.arc(n.x*W, n.y*H, r, 0, Math.PI*2);
+                    ctx.fillStyle=col; ctx.fill();
+                });
+
+                // Left-cluster particles (always flow)
+                leftParts.forEach((p,i) => {
+                    p.t += p.speed;
+                    if (p.t >= 1) { leftParts[i] = {a:Math.floor(Math.random()*6),b:Math.floor(Math.random()*6),t:0,speed:0.007+Math.random()*0.005}; return; }
+                    const na=N[p.a],nb=N[p.b];
+                    const px=lerp(na.x,nb.x,p.t)*W, py=lerp(na.y,nb.y,p.t)*H;
+                    ctx.beginPath(); ctx.arc(px,py,1.8*dpr,0,Math.PI*2);
+                    ctx.fillStyle=`rgba(120,200,255,${Math.sin(p.t*Math.PI)*0.65})`; ctx.fill();
+                });
+
+                // Right-cluster particles (always flow)
+                rightParts.forEach((p,i) => {
+                    p.t += p.speed;
+                    if (p.t >= 1) { rightParts[i] = {a:7+Math.floor(Math.random()*6),b:7+Math.floor(Math.random()*6),t:0,speed:0.007+Math.random()*0.005}; return; }
+                    const na=N[p.a],nb=N[p.b];
+                    const px=lerp(na.x,nb.x,p.t)*W, py=lerp(na.y,nb.y,p.t)*H;
+                    ctx.beginPath(); ctx.arc(px,py,1.8*dpr,0,Math.PI*2);
+                    ctx.fillStyle=`rgba(120,200,255,${Math.sin(p.t*Math.PI)*0.65})`; ctx.fill();
+                });
+
+                // Cross-bridge particles (only flow when bridge present)
+                if (!bridgeRemoved) {
+                    const bx = N[6].x*W, by = N[6].y*H;
+                    crossParts.forEach((p,i) => {
+                        p.t += p.speed * p.dir;
+                        if (p.t>1||p.t<0) p.dir*=-1;
+                        // Path: cluster3 → bridge → cluster9
+                        const x = lerp(N[3].x*W, N[9].x*W, Math.max(0,Math.min(1,p.t)));
+                        const y = lerp(N[3].y*W, N[9].y*W, Math.max(0,Math.min(1,p.t)));
+                        ctx.beginPath(); ctx.arc(x, by, 2.2*dpr, 0, Math.PI*2);
+                        ctx.fillStyle=`rgba(180,240,180,${Math.sin(p.t*Math.PI)*0.7})`; ctx.fill();
+                    });
+                }
+
+                // Status label
+                ctx.fillStyle = bridgeRemoved ? 'rgba(220,80,80,0.85)' : bridgeWarn ? 'rgba(255,200,50,0.8)' : 'rgba(255,255,255,0.25)';
+                ctx.font = `${10*dpr}px sans-serif`;
+                ctx.fillText(bridgeRemoved ? 'Bridge removed — network split' : bridgeWarn ? 'Removing bridge…' : 'Flowing normally', 10*dpr, H-12*dpr);
+
+                requestAnimationFrame(draw);
+            })();
+        }
+
+        // ══════════════════════════════════════════════════════
+        //  INFOGRAPHIC 2 — Five Network Variants
+        // ══════════════════════════════════════════════════════
+
+        // Shared road-like node layout (12 nodes, 18 edges)
+        const ROAD_NODES = [
+            {x:0.05,y:0.50},  // 0 west
+            {x:0.20,y:0.28},  // 1 NW junction
+            {x:0.20,y:0.72},  // 2 SW junction
+            {x:0.38,y:0.50},  // 3 center-west
+            {x:0.50,y:0.12},  // 4 north branch
+            {x:0.50,y:0.88},  // 5 south branch
+            {x:0.62,y:0.50},  // 6 center-east
+            {x:0.80,y:0.28},  // 7 NE junction
+            {x:0.80,y:0.72},  // 8 SE junction
+            {x:0.95,y:0.50},  // 9 east
+        ];
+        const ROAD_EDGES = [
+            [0,1],[0,2],[1,2],[1,3],[2,3],
+            [1,4],[3,4],[3,5],[2,5],
+            [3,6],[4,6],[5,6],
+            [4,7],[6,7],[5,8],[6,8],
+            [7,9],[8,9],[7,8]
+        ];
+
+        // 5 variants: [name, label, rgb-color, per-edge weights (0-1)]
+        const VARIANTS = [
+            {name:'BRN',        sub:'edge weight = road length',
+             col:[60,120,220],
+             w:[0.4,0.5,0.3,0.6,0.4,0.8,0.5,0.6,0.5,0.5,0.7,0.6,0.7,0.5,0.6,0.5,0.4,0.5,0.3]},
+            {name:'BRN-I',      sub:'edge weight = incident count',
+             col:[210,60,60],
+             w:[0.3,0.9,0.2,0.7,0.4,0.3,0.8,0.4,0.6,0.9,0.3,0.5,0.8,0.4,0.3,0.9,0.5,0.3,0.7]},
+            {name:'BRN-F',      sub:'edge weight = vehicle flow',
+             col:[50,170,90],
+             w:[0.8,0.5,0.4,0.9,0.7,0.3,0.6,0.8,0.3,0.9,0.5,0.7,0.4,0.8,0.5,0.4,0.9,0.6,0.3]},
+            {name:'BRN-R',      sub:'edge weight = incidents per km',
+             col:[200,120,0],
+             w:[0.4,0.7,0.3,0.5,0.8,0.4,0.6,0.3,0.9,0.5,0.4,0.8,0.6,0.3,0.7,0.5,0.4,0.8,0.3]},
+            {name:'BRN-T',      sub:'edge weight = flow per lane',
+             col:[130,60,190],
+             w:[0.6,0.4,0.8,0.3,0.5,0.9,0.4,0.6,0.5,0.3,0.8,0.4,0.5,0.9,0.3,0.6,0.7,0.4,0.8]},
+        ];
+        const VARIANT_TICKS = 200; // ticks per variant
+
+        function drawVariantCanvas(canvas, variantOffset, nameElId, subElId) {
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            let tick = 0;
+            let lastVariant = -1;
+
+            // Particles per edge
+            const particles = ROAD_EDGES.map(() => Array.from({length:2}, () => ({ t: Math.random(), speed: 0.006+Math.random()*0.006 })));
+
+            (function draw() {
+                tick++;
+                const W = canvas.width, H = canvas.height;
+                const varIdx = Math.floor((tick / VARIANT_TICKS) % VARIANTS.length);
+                const vI = (varIdx + variantOffset) % VARIANTS.length;
+                const frac = (tick % VARIANT_TICKS) / VARIANT_TICKS;
+                const v = VARIANTS[vI];
+
+                // Update label
+                if (vI !== lastVariant) {
+                    lastVariant = vI;
+                    const nameEl = document.getElementById(nameElId);
+                    const subEl  = document.getElementById(subElId);
+                    if (nameEl) { nameEl.style.opacity='0'; setTimeout(()=>{nameEl.textContent=v.name; nameEl.style.transition='opacity 0.4s'; nameEl.style.opacity='1';},200); }
+                    if (subEl)  { subEl.style.opacity='0';  setTimeout(()=>{subEl.textContent=v.sub;   subEl.style.transition='opacity 0.4s'; subEl.style.opacity='1';},200); }
+                }
+
+                ctx.fillStyle='rgba(8,20,46,0.3)'; ctx.fillRect(0,0,W,H);
+
+                const [cr,cg,cb] = v.col;
+
+                // Edges
+                ROAD_EDGES.forEach(([a,b], ei) => {
+                    const na=ROAD_NODES[a], nb=ROAD_NODES[b];
+                    const wt = v.w[ei] || 0.5;
+                    ctx.beginPath();
+                    ctx.moveTo(na.x*W, na.y*H);
+                    ctx.lineTo(nb.x*W, nb.y*H);
+                    ctx.strokeStyle = `rgba(${cr},${cg},${cb},${0.15+wt*0.45})`;
+                    ctx.lineWidth   = (0.8+wt*3) * dpr;
+                    ctx.stroke();
+                });
+
+                // Nodes
+                ROAD_NODES.forEach(n => {
+                    ctx.beginPath(); ctx.arc(n.x*W, n.y*H, 3.5*dpr, 0, Math.PI*2);
+                    ctx.fillStyle=`rgba(${cr+50},${cg+50},${cb+50},0.85)`; ctx.fill();
+                });
+
+                // Particles along edges (speed proportional to weight)
+                ROAD_EDGES.forEach(([a,b], ei) => {
+                    const na=ROAD_NODES[a], nb=ROAD_NODES[b];
+                    const wt = v.w[ei] || 0.5;
+                    particles[ei].forEach((p, pi) => {
+                        p.t += p.speed * (0.4+wt*0.8);
+                        if (p.t>=1) p.t=0;
+                        const px=lerp(na.x,nb.x,p.t)*W, py=lerp(na.y,nb.y,p.t)*H;
+                        const al=Math.sin(p.t*Math.PI)*(0.4+wt*0.4);
+                        ctx.beginPath(); ctx.arc(px,py,1.8*dpr,0,Math.PI*2);
+                        ctx.fillStyle=`rgba(${cr+80},${cg+80},${cb+80},${al})`; ctx.fill();
+                    });
+                });
+
+                // Variant label overlay
+                ctx.fillStyle = `rgba(${cr},${cg},${cb},0.8)`;
+                ctx.font = `bold ${11*dpr}px sans-serif`;
+                ctx.fillText(v.name, 10*dpr, 18*dpr);
+
+                requestAnimationFrame(draw);
+            })();
+
+            // Initial fill
+            ctx.fillStyle='#08142e'; ctx.fillRect(0,0,canvas.width,canvas.height);
+        }
+
+        drawVariantCanvas(
+            setupCanvas('brn-varA', 220),
+            0, 'brn-varA-name', 'brn-varA-sub'
+        );
+        drawVariantCanvas(
+            setupCanvas('brn-varB', 220),
+            2, 'brn-varB-name', 'brn-varB-sub'
+        );
+
+    })();
     </script>
 
 </body>

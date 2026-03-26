@@ -373,6 +373,68 @@
             color: #666;
         }
 
+        /* Infographics section */
+        .infographic {
+            background: #f5f6f7;
+            border: 1px solid #e0e1e2;
+            padding: 2rem 2.5rem 1.75rem;
+            margin-top: 2rem;
+        }
+        .infographic-title {
+            font-size: 1.05rem;
+            font-weight: 400;
+            color: #111;
+            margin-bottom: 0.5rem;
+        }
+        .infographic-desc {
+            font-size: 0.82rem;
+            color: #666;
+            max-width: 680px;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+        .infographic .two-panel {
+            display: grid;
+            grid-template-columns: 1fr 56px 1fr;
+            align-items: center;
+        }
+        .infographic .full-panel canvas {
+            display: block;
+            width: 100%;
+            height: 160px;
+            background: #08142e;
+        }
+        .infographic .panel { display: flex; flex-direction: column; }
+        .infographic .panel-canvas-wrap {
+            background: #08142e;
+            overflow: hidden;
+        }
+        .infographic .panel-canvas-wrap canvas {
+            display: block;
+            width: 100%;
+            height: 210px;
+        }
+        .infographic .panel-foot {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.55rem 0.1rem 0;
+        }
+        .infographic .panel-name {
+            font-size: 0.73rem;
+            font-weight: 500;
+            color: #333;
+            letter-spacing: 0.02em;
+        }
+        .infographic .panel-sub { font-size: 0.68rem; color: #999; }
+        .infographic .sep {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            color: #bbb;
+        }
+
         /* Citation box */
         .citation-box {
             background: #f8f8f8;
@@ -645,6 +707,80 @@
             </ul>
         </section>
 
+        <!-- Infographics -->
+        <section class="content-section fade-in">
+            <h2>Infographics</h2>
+
+            <!-- 1. The VITAL Pipeline -->
+            <div class="infographic">
+                <div class="infographic-title">The VITAL pipeline: from biomedical text to prioritized proteins</div>
+                <div class="infographic-desc">
+                    VITAL processes the entire PubMed literature in five automated stages. Each stage builds on the
+                    previous: raw text is mined for biomedical entities, co-occurrence relations are extracted,
+                    a weighted knowledge graph is constructed, and proteins are finally ranked by their association
+                    strength with HFpEF.
+                </div>
+                <div class="full-panel">
+                    <canvas id="vital-pipelineCanvas"></canvas>
+                </div>
+            </div>
+
+            <!-- 2. Protein-Disease Knowledge Graph -->
+            <div class="infographic">
+                <div class="infographic-title">From noisy associations to a focused HFpEF protein landscape</div>
+                <div class="infographic-desc">
+                    The raw knowledge graph contains thousands of protein-disease co-occurrences spread across the
+                    literature. VITAL filters and ranks this network to surface the proteins most strongly and
+                    specifically linked to HFpEF — transforming an unnavigable graph into a tractable priority list
+                    for experimental follow-up.
+                </div>
+                <div class="two-panel">
+                    <div class="panel">
+                        <div class="panel-canvas-wrap"><canvas id="vital-rawGraph"></canvas></div>
+                        <div class="panel-foot">
+                            <span class="panel-name">Raw association graph</span>
+                            <span class="panel-sub">thousands of proteins · noisy</span>
+                        </div>
+                    </div>
+                    <div class="sep">→</div>
+                    <div class="panel">
+                        <div class="panel-canvas-wrap"><canvas id="vital-focusGraph"></canvas></div>
+                        <div class="panel-foot">
+                            <span class="panel-name">HFpEF priority subgraph</span>
+                            <span class="panel-sub">top-ranked proteins · actionable</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Named Entity Recognition -->
+            <div class="infographic">
+                <div class="infographic-title">Named entity recognition: detecting proteins and diseases in text</div>
+                <div class="infographic-desc">
+                    The first NLP stage scans each sentence for biomedical entities. Protein mentions (blue)
+                    and disease terms (amber) are tagged independently before relation extraction links
+                    co-occurring pairs into candidate protein-disease associations.
+                </div>
+                <div class="two-panel">
+                    <div class="panel">
+                        <div class="panel-canvas-wrap"><canvas id="vital-proteinNER"></canvas></div>
+                        <div class="panel-foot">
+                            <span class="panel-name">Protein entity detection</span>
+                            <span class="panel-sub">e.g. TITIN, MYH7, TNNT2, TTN</span>
+                        </div>
+                    </div>
+                    <div class="sep"></div>
+                    <div class="panel">
+                        <div class="panel-canvas-wrap"><canvas id="vital-diseaseNER"></canvas></div>
+                        <div class="panel-foot">
+                            <span class="panel-name">Disease entity detection</span>
+                            <span class="panel-sub">e.g. HFpEF, fibrosis, hypertrophy</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Paper & Authors -->
         <section class="content-section fade-in">
             <h2>Paper &amp; Authors</h2>
@@ -809,6 +945,473 @@
                 setTimeout(() => btn.textContent = original, 2000);
             });
         }
+    </script>
+
+    <script>
+    /* ============================================================
+       VITAL Infographic Animations
+       Canvas IDs: vital-pipelineCanvas, vital-rawGraph,
+                   vital-focusGraph, vital-proteinNER, vital-diseaseNER
+    ============================================================ */
+    (function(){
+
+    function setupCanvas(id) {
+        const canvas = document.getElementById(id);
+        if (!canvas) return null;
+        const dpr = window.devicePixelRatio || 1;
+        const rect = canvas.getBoundingClientRect();
+        canvas.width  = Math.round(rect.width  * dpr);
+        canvas.height = Math.round(rect.height * dpr);
+        const ctx = canvas.getContext('2d');
+        ctx.scale(dpr, dpr);
+        return { canvas, ctx, w: rect.width, h: rect.height };
+    }
+
+    /* ----------------------------------------------------------
+       1. VITAL PIPELINE — 5-stage animated flow
+    ---------------------------------------------------------- */
+    (function pipelineAnim(){
+        const cv = setupCanvas('vital-pipelineCanvas');
+        if (!cv) return;
+        const { ctx, w, h } = cv;
+
+        const STAGES = [
+            { label: 'Literature\nMining',  sub: 'PubMed',        col: '#4a9eff' },
+            { label: 'NER',                 sub: 'Entities',      col: '#7ecfa8' },
+            { label: 'Relation\nExtraction',sub: 'Co-occurrence', col: '#f5a623' },
+            { label: 'Knowledge\nGraph',    sub: 'Network',       col: '#e86c8a' },
+            { label: 'Priority\nRanking',   sub: 'HFpEF',         col: '#a78bfa' },
+        ];
+
+        const pad    = 18;
+        const boxW   = (w - pad*2 - 20*4) / 5;  // 4 gaps between 5 boxes
+        const boxH   = h - 36;
+        const boxY   = 8;
+        const gap    = 20;
+
+        function boxX(i) { return pad + i*(boxW + gap); }
+
+        // Particles
+        const MAX_P = 30;
+        const particles = [];
+        for (let i = 0; i < MAX_P; i++) {
+            const seg = Math.floor(Math.random() * 4); // segment 0-3 between stages
+            particles.push({
+                seg,
+                t: Math.random(),
+                speed: 0.004 + Math.random()*0.003,
+                y: boxY + 10 + Math.random()*(boxH - 20),
+                size: 2 + Math.random()*2,
+                alpha: 0.6 + Math.random()*0.4,
+            });
+        }
+
+        let activeStage = 0;
+        let stageTick   = 0;
+        const STAGE_DUR = 90;
+
+        function drawStage(i, active, t) {
+            const x = boxX(i);
+            const glow = active ? 0.18 + 0.12*Math.sin(t*0.12) : 0;
+
+            // Box shadow glow
+            if (active) {
+                ctx.save();
+                ctx.shadowColor  = STAGES[i].col;
+                ctx.shadowBlur   = 18 * glow * 8;
+            }
+
+            // Box fill
+            ctx.fillStyle = active
+                ? `rgba(${hexToRgb(STAGES[i].col)},0.18)`
+                : 'rgba(255,255,255,0.04)';
+            ctx.strokeStyle = active ? STAGES[i].col : 'rgba(255,255,255,0.15)';
+            ctx.lineWidth   = active ? 2 : 1;
+            roundRect(ctx, x, boxY, boxW, boxH, 8);
+            ctx.fill();
+            ctx.stroke();
+
+            if (active) ctx.restore();
+
+            // Stage number
+            ctx.fillStyle = active ? STAGES[i].col : 'rgba(255,255,255,0.3)';
+            ctx.font = `bold 10px system-ui`;
+            ctx.textAlign = 'center';
+            ctx.fillText(`0${i+1}`, x + boxW/2, boxY + 16);
+
+            // Label (may be multiline)
+            const lines = STAGES[i].label.split('\n');
+            ctx.fillStyle = active ? '#fff' : 'rgba(255,255,255,0.6)';
+            ctx.font = `bold 11px system-ui`;
+            const lineH = 14;
+            const totalH = lines.length * lineH;
+            const startY = boxY + boxH/2 - totalH/2 + lineH/2 - 2;
+            lines.forEach((ln, li) => ctx.fillText(ln, x + boxW/2, startY + li*lineH));
+
+            // Sub label
+            ctx.fillStyle = active ? STAGES[i].col : 'rgba(255,255,255,0.3)';
+            ctx.font = `10px system-ui`;
+            ctx.fillText(STAGES[i].sub, x + boxW/2, boxY + boxH - 10);
+        }
+
+        function drawArrow(i) {
+            const x1 = boxX(i) + boxW + 2;
+            const x2 = boxX(i+1) - 2;
+            const cy = boxY + boxH/2;
+            ctx.strokeStyle = 'rgba(255,255,255,0.2)';
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(x1, cy);
+            ctx.lineTo(x2, cy);
+            ctx.stroke();
+            // arrowhead
+            ctx.fillStyle = 'rgba(255,255,255,0.2)';
+            ctx.beginPath();
+            ctx.moveTo(x2, cy);
+            ctx.lineTo(x2-5, cy-3);
+            ctx.lineTo(x2-5, cy+3);
+            ctx.closePath();
+            ctx.fill();
+        }
+
+        function drawParticles(tick) {
+            particles.forEach(p => {
+                p.t += p.speed;
+                if (p.t > 1) { p.t -= 1; }
+                const x1 = boxX(p.seg) + boxW;
+                const x2 = boxX(p.seg+1);
+                const px = x1 + (x2-x1)*p.t;
+                const col = STAGES[p.seg].col;
+                ctx.beginPath();
+                ctx.arc(px, p.y, p.size, 0, Math.PI*2);
+                ctx.fillStyle = `rgba(${hexToRgb(col)},${p.alpha*(0.4+0.6*Math.sin(p.t*Math.PI))})`;
+                ctx.fill();
+            });
+        }
+
+        let tick = 0;
+        function frame() {
+            ctx.clearRect(0, 0, w, h);
+            tick++;
+            stageTick++;
+            if (stageTick > STAGE_DUR) { stageTick = 0; activeStage = (activeStage+1) % STAGES.length; }
+
+            for (let i = 0; i < 4; i++) drawArrow(i);
+            drawParticles(tick);
+            for (let i = 0; i < STAGES.length; i++) drawStage(i, i === activeStage, tick);
+
+            requestAnimationFrame(frame);
+        }
+        frame();
+    })();
+
+    /* ----------------------------------------------------------
+       2a. RAW GRAPH — dense noisy protein-disease network
+    ---------------------------------------------------------- */
+    (function rawGraphAnim(){
+        const cv = setupCanvas('vital-rawGraph');
+        if (!cv) return;
+        const { ctx, w, h } = cv;
+
+        const rng = seededRng(42);
+        const N = 28;
+        const nodes = [];
+        for (let i = 0; i < N; i++) {
+            // scatter with slight centre bias
+            nodes.push({
+                x: w*0.1 + rng()*w*0.8,
+                y: h*0.1 + rng()*h*0.8,
+                r: 3 + rng()*3,
+                col: rng() < 0.5 ? '#4a9eff' : '#f5a623',
+                vx: (rng()-0.5)*0.2, vy: (rng()-0.5)*0.2,
+            });
+        }
+        // edges: random ~40
+        const edges = [];
+        for (let i = 0; i < 40; i++) {
+            const a = Math.floor(rng()*N), b = Math.floor(rng()*N);
+            if (a !== b) edges.push([a, b]);
+        }
+
+        let tick = 0;
+        function frame() {
+            ctx.clearRect(0, 0, w, h);
+            tick++;
+
+            // gentle drift
+            nodes.forEach(n => {
+                n.x += n.vx; n.y += n.vy;
+                if (n.x < 5 || n.x > w-5) n.vx *= -1;
+                if (n.y < 5 || n.y > h-5) n.vy *= -1;
+            });
+
+            // edges
+            edges.forEach(([a,b]) => {
+                ctx.strokeStyle = 'rgba(255,255,255,0.08)';
+                ctx.lineWidth = 0.8;
+                ctx.beginPath();
+                ctx.moveTo(nodes[a].x, nodes[a].y);
+                ctx.lineTo(nodes[b].x, nodes[b].y);
+                ctx.stroke();
+            });
+
+            // nodes
+            nodes.forEach(n => {
+                ctx.beginPath();
+                ctx.arc(n.x, n.y, n.r, 0, Math.PI*2);
+                ctx.fillStyle = n.col;
+                ctx.globalAlpha = 0.7;
+                ctx.fill();
+                ctx.globalAlpha = 1;
+            });
+
+            requestAnimationFrame(frame);
+        }
+        frame();
+    })();
+
+    /* ----------------------------------------------------------
+       2b. FOCUS GRAPH — HFpEF central node + priority proteins
+    ---------------------------------------------------------- */
+    (function focusGraphAnim(){
+        const cv = setupCanvas('vital-focusGraph');
+        if (!cv) return;
+        const { ctx, w, h } = cv;
+
+        const cx = w/2, cy = h/2;
+        const PROTEINS = ['TITIN','MYH7','TNNT2','PLN','MYBPC3','RYR2','SCN5A','SERCA2'];
+        const RING_R = Math.min(w,h)*0.35;
+
+        const nodes = PROTEINS.map((name, i) => {
+            const ang = (i/PROTEINS.length)*Math.PI*2 - Math.PI/2;
+            return {
+                name,
+                x: cx + Math.cos(ang)*RING_R,
+                y: cy + Math.sin(ang)*RING_R,
+                ang,
+                pulse: Math.random()*Math.PI*2,
+            };
+        });
+
+        let tick = 0;
+        function frame() {
+            ctx.clearRect(0, 0, w, h);
+            tick++;
+
+            // edges
+            nodes.forEach(n => {
+                const alpha = 0.3 + 0.2*Math.sin(n.pulse + tick*0.04);
+                ctx.strokeStyle = `rgba(167,139,250,${alpha})`;
+                ctx.lineWidth = 1.5;
+                ctx.beginPath();
+                ctx.moveTo(cx, cy);
+                ctx.lineTo(n.x, n.y);
+                ctx.stroke();
+            });
+
+            // protein nodes
+            nodes.forEach(n => {
+                const glow = 0.5 + 0.5*Math.sin(n.pulse + tick*0.04);
+                ctx.save();
+                ctx.shadowColor = '#a78bfa';
+                ctx.shadowBlur  = 6*glow;
+                ctx.beginPath();
+                ctx.arc(n.x, n.y, 5, 0, Math.PI*2);
+                ctx.fillStyle = '#4a9eff';
+                ctx.fill();
+                ctx.restore();
+                // label
+                ctx.fillStyle = 'rgba(255,255,255,0.8)';
+                ctx.font = '8.5px system-ui';
+                ctx.textAlign = 'center';
+                const lx = cx + Math.cos(n.ang)*(RING_R + 16);
+                const ly = cy + Math.sin(n.ang)*(RING_R + 16) + 3;
+                ctx.fillText(n.name, lx, ly);
+            });
+
+            // central HFpEF node
+            const pulse = 1 + 0.08*Math.sin(tick*0.05);
+            ctx.save();
+            ctx.shadowColor = '#a78bfa';
+            ctx.shadowBlur  = 18;
+            ctx.beginPath();
+            ctx.arc(cx, cy, 20*pulse, 0, Math.PI*2);
+            ctx.fillStyle = '#a78bfa';
+            ctx.globalAlpha = 0.25;
+            ctx.fill();
+            ctx.globalAlpha = 1;
+            ctx.restore();
+            ctx.beginPath();
+            ctx.arc(cx, cy, 14, 0, Math.PI*2);
+            ctx.fillStyle = '#a78bfa';
+            ctx.fill();
+            ctx.fillStyle = '#fff';
+            ctx.font = 'bold 9px system-ui';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText('HFpEF', cx, cy);
+            ctx.textBaseline = 'alphabetic';
+
+            requestAnimationFrame(frame);
+        }
+        frame();
+    })();
+
+    /* ----------------------------------------------------------
+       3a. PROTEIN NER — streaming text with protein highlights
+    ---------------------------------------------------------- */
+    (function proteinNER(){
+        const cv = setupCanvas('vital-proteinNER');
+        if (!cv) return;
+        const { ctx, w, h } = cv;
+
+        const SENTENCES = [
+            [ {t:'The '}, {t:'TITIN',hl:true}, {t:' mutation causes '}, {t:'MYH7',hl:true}, {t:' overexpression.'} ],
+            [ {t:'Elevated '}, {t:'PLN',hl:true}, {t:' inhibits '}, {t:'SERCA2',hl:true}, {t:' calcium uptake.'} ],
+            [ {t:'Variants in '}, {t:'TNNT2',hl:true}, {t:' and '}, {t:'MYBPC3',hl:true}, {t:' are linked.'} ],
+            [ {t:'Expression of '}, {t:'RYR2',hl:true}, {t:' modulates SR Ca release.'} ],
+            [ {t:'The '}, {t:'SCN5A',hl:true}, {t:' channel is dysregulated in failure.'} ],
+        ];
+
+        nerAnim(ctx, w, h, SENTENCES, '#4a9eff', 'Protein');
+    })();
+
+    /* ----------------------------------------------------------
+       3b. DISEASE NER — streaming text with disease highlights
+    ---------------------------------------------------------- */
+    (function diseaseNER(){
+        const cv = setupCanvas('vital-diseaseNER');
+        if (!cv) return;
+        const { ctx, w, h } = cv;
+
+        const SENTENCES = [
+            [ {t:'Patients with '}, {t:'HFpEF',hl:true}, {t:' show diastolic dysfunction.'} ],
+            [ {t:'Cardiac '}, {t:'fibrosis',hl:true}, {t:' progresses with '}, {t:'hypertrophy',hl:true}, {t:'.'} ],
+            [ {t:'Co-morbid '}, {t:'hypertension',hl:true}, {t:' worsens '}, {t:'HFpEF',hl:true}, {t:'.'} ],
+            [ {t:'Risk of '}, {t:'atrial fibrillation',hl:true}, {t:' rises sharply.'} ],
+            [ {t:'Interstitial '}, {t:'fibrosis',hl:true}, {t:' impairs ventricular compliance.'} ],
+        ];
+
+        nerAnim(ctx, w, h, SENTENCES, '#f5a623', 'Disease');
+    })();
+
+    /* ----------------------------------------------------------
+       Shared NER animation helper
+    ---------------------------------------------------------- */
+    function nerAnim(ctx, w, h, sentences, hlCol, label) {
+        const FONT_SIZE = 11;
+        const LINE_H    = 20;
+        const PAD       = 12;
+
+        // Flatten each sentence into a list of {text, hl, x, y, visible}
+        // We'll stream one character at a time per sentence, then pause, then advance
+
+        let sentIdx   = 0;
+        let charCount = 0;   // how many chars of current sentence are shown
+        let pause     = 0;
+        let tick      = 0;
+
+        function currentSentence() { return sentences[sentIdx % sentences.length]; }
+        function totalChars(sent) { return sent.reduce((s,t)=>s+t.t.length,0); }
+
+        function frame() {
+            tick++;
+            if (pause > 0) {
+                pause--;
+            } else {
+                charCount++;
+                const sent = currentSentence();
+                if (charCount > totalChars(sent) + 20) {
+                    charCount = 0;
+                    sentIdx = (sentIdx+1) % sentences.length;
+                    pause = 30;
+                }
+            }
+
+            ctx.clearRect(0, 0, w, h);
+
+            // Draw label chip
+            ctx.fillStyle = hlCol + '22';
+            roundRect(ctx, PAD, PAD, w - PAD*2, LINE_H + 4, 4);
+            ctx.fill();
+            ctx.fillStyle = hlCol;
+            ctx.font = `bold 9px system-ui`;
+            ctx.textAlign = 'left';
+            ctx.fillText(`${label.toUpperCase()} NER`, PAD+6, PAD+13);
+
+            // Draw sentence at vertical centre
+            const sent = currentSentence();
+            const cy   = h/2 + 8;
+            let   rem  = charCount;
+            let   x    = PAD;
+
+            ctx.font = `${FONT_SIZE}px system-ui`;
+            ctx.textBaseline = 'middle';
+
+            sent.forEach(token => {
+                if (rem <= 0) return;
+                const visible = token.t.slice(0, rem);
+                rem -= token.t.length;
+
+                if (token.hl) {
+                    // measure width for highlight box
+                    const tw = ctx.measureText(visible).width;
+                    ctx.fillStyle = hlCol + '33';
+                    roundRect(ctx, x-2, cy-9, tw+4, 18, 3);
+                    ctx.fill();
+                    ctx.fillStyle = hlCol;
+                } else {
+                    ctx.fillStyle = 'rgba(255,255,255,0.85)';
+                }
+                ctx.fillText(visible, x, cy);
+                x += ctx.measureText(visible).width;
+            });
+
+            // blinking cursor
+            if (rem >= 0 && (tick % 60) < 30) {
+                ctx.fillStyle = 'rgba(255,255,255,0.7)';
+                ctx.fillRect(x, cy-8, 1.5, 16);
+            }
+
+            ctx.textBaseline = 'alphabetic';
+            requestAnimationFrame(frame);
+        }
+        frame();
+    }
+
+    /* ----------------------------------------------------------
+       Utility helpers
+    ---------------------------------------------------------- */
+    function roundRect(ctx, x, y, w, h, r) {
+        ctx.beginPath();
+        ctx.moveTo(x+r, y);
+        ctx.lineTo(x+w-r, y);
+        ctx.arcTo(x+w, y, x+w, y+r, r);
+        ctx.lineTo(x+w, y+h-r);
+        ctx.arcTo(x+w, y+h, x+w-r, y+h, r);
+        ctx.lineTo(x+r, y+h);
+        ctx.arcTo(x, y+h, x, y+h-r, r);
+        ctx.lineTo(x, y+r);
+        ctx.arcTo(x, y, x+r, y, r);
+        ctx.closePath();
+    }
+
+    function hexToRgb(hex) {
+        const r = parseInt(hex.slice(1,3),16);
+        const g = parseInt(hex.slice(3,5),16);
+        const b = parseInt(hex.slice(5,7),16);
+        return `${r},${g},${b}`;
+    }
+
+    function seededRng(seed) {
+        let s = seed;
+        return function() {
+            s = (s * 16807 + 0) % 2147483647;
+            return (s - 1) / 2147483646;
+        };
+    }
+
+    })(); // end VITAL animations
     </script>
 
 </body>
