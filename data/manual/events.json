@@ -2,7 +2,7 @@
   {
     "name": "Biodiversity Workshop",
     "location": "Penryn, UK",
-    "date": "30-31 March 2026",
+    "date": "March 2026",
     "url": null
   },
   {
@@ -24,8 +24,26 @@
     "url": "https://www.netsci2026.com/"
   },
   {
-    "name": "Environmental Intelligence - Exeter Food",
+    "name": "Environmental Intelligence / Exeter Food",
     "location": "Penryn, UK",
+    "date": "June 2026",
+    "url": null
+  },
+  {
+    "name": "Constructor University (TBC)",
+    "location": "Bremen, Germany",
+    "date": "June 2026",
+    "url": null
+  },
+  {
+    "name": "Centre for Data Science and Complexity (TBC)",
+    "location": "Münster, Germany",
+    "date": "June 2026",
+    "url": null
+  },
+  {
+    "name": "University of Siegen (TBC)",
+    "location": "Siegen, Germany",
     "date": "June 2026",
     "url": null
   },
