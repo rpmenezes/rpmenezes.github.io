@@ -1,5 +1,5 @@
 {
-  "updated": "2026-03-27T06:52:54.948452+00:00",
+  "updated": "2026-03-28T06:41:09.244240+00:00",
   "stats": {
     "paperCount": 231,
     "hIndex": 21,
@@ -36,6 +36,21 @@
       "doiValue": "10.1016/j.compbiomed.2026.111599",
       "doiUrl": "https://doi.org/10.1016/j.compbiomed.2026.111599",
       "citationCount": 0
+    },
+    {
+      "year": "2026",
+      "title": "Validating urban scaling laws through mobile phone data: analysis of Brazil\u2019s largest cities",
+      "authors": [
+        "Ricardo de\u00a0S.\u00a0Alencar",
+        "Fabiano L. Ribeiro",
+        "Horacio Samaniego",
+        "Ronaldo Menezes",
+        "Alexandre G. Evsukoff"
+      ],
+      "venue": "Computational Urban Science",
+      "doiValue": "10.1007/s43762-026-00252-x",
+      "doiUrl": "https://doi.org/10.1007/s43762-026-00252-x",
+      "citationCount": null
     },
     {
       "year": "2026",
