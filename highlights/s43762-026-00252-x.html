@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validating Urban Scaling Laws Through Mobile Phone Data: Analysis of Brazil's Largest Cities</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #111;
+            background-color: #ffffff;
+            font-size: 16px;
+            font-weight: 300;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 1.25rem 4rem 0;
+        }
+
+        .breadcrumb a {
+            font-size: 0.8rem;
+            font-weight: 300;
+            color: #999;
+            text-decoration: none;
+            letter-spacing: 0.02em;
+            transition: color 0.2s ease;
+        }
+
+        .breadcrumb a:hover {
+            color: #007D69;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 3rem 4rem 5rem;
+        }
+
+        /* Hero */
+        .hero {
+            padding: 3rem 0 2rem;
+            border-bottom: 1px solid #e8e8e8;
+            margin-bottom: 4rem;
+        }
+
+        .hero-meta {
+            font-size: 0.78rem;
+            font-weight: 400;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 300;
+            color: #003C3C;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            max-width: 800px;
+        }
+
+        .title-divider {
+            width: 40px;
+            height: 1px;
+            background: #111;
+            margin: 2rem 0;
+        }
+
+        .hero-authors {
+            font-size: 1rem;
+            font-weight: 300;
+            color: #444;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-authors span.highlight {
+            color: #007D69;
+            font-weight: 400;
+        }
+
+        .hero-journal {
+            font-size: 0.9rem;
+            font-weight: 300;
+            color: #666;
+            font-style: italic;
+            margin-bottom: 2rem;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            padding: 0.7rem 1.75rem;
+            background-color: #111;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 300;
+            transition: background-color 0.2s ease, border-color 0.2s ease;
+            border: 1px solid #111;
+            font-size: 0.85rem;
+            letter-spacing: 0.04em;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background-color: #007D69;
+            border-color: #007D69;
+        }
+
+        .btn-outline {
+            display: inline-block;
+            padding: 0.7rem 1.75rem;
+            background-color: transparent;
+            color: #111;
+            text-decoration: none;
+            font-weight: 300;
+            transition: all 0.2s ease;
+            border: 1px solid #111;
+            font-size: 0.85rem;
+            letter-spacing: 0.04em;
+            cursor: pointer;
+        }
+
+        .btn-outline:hover {
+            background-color: #007D69;
+            border-color: #007D69;
+            color: #fff;
+        }
+
+        /* Key stats row */
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin: 4rem 0;
+            padding: 2.5rem 0;
+            border-top: 1px solid #e8e8e8;
+            border-bottom: 1px solid #e8e8e8;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .stat-label {
+            font-size: 0.7rem;
+            font-weight: 400;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .stat-value {
+            font-size: 1.4rem;
+            font-weight: 300;
+            color: #007D69;
+        }
+
+        .stat-desc {
+            font-size: 0.82rem;
+            font-weight: 300;
+            color: #666;
+        }
+
+        /* Content sections */
+        .content-section {
+            margin: 5rem 0;
+        }
+
+        .content-section h2 {
+            font-size: 1.4rem;
+            font-weight: 300;
+            color: #007D69;
+            margin-bottom: 2.5rem;
+            letter-spacing: 0.02em;
+        }
+
+        .content-section h3 {
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: #111;
+            margin: 2rem 0 0.8rem;
+        }
+
+        .content-section p {
+            font-size: 1rem;
+            font-weight: 300;
+            color: #111;
+            line-height: 1.8;
+            margin-bottom: 1.4rem;
+            max-width: 760px;
+        }
+
+        /* Two-column layout */
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        /* Highlighted quote */
+        .pull-quote {
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: #003C3C;
+            line-height: 1.7;
+            border-left: 2px solid #007D69;
+            padding-left: 1.5rem;
+            margin: 2rem 0;
+            font-style: italic;
+            max-width: 700px;
+        }
+
+        /* Steps */
+        .steps-list {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+        }
+
+        .step-item {
+            display: flex;
+            gap: 1.5rem;
+            padding: 1.25rem 0;
+            border-bottom: 1px solid #f0f0f0;
+            align-items: flex-start;
+        }
+
+        .step-item:last-child {
+            border-bottom: none;
+        }
+
+        .step-number {
+            font-size: 0.72rem;
+            font-weight: 400;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            min-width: 60px;
+            padding-top: 0.2rem;
+        }
+
+        .step-content h4 {
+            font-size: 0.95rem;
+            font-weight: 400;
+            color: #111;
+            margin-bottom: 0.4rem;
+        }
+
+        .step-content p {
+            font-size: 0.9rem;
+            font-weight: 300;
+            color: #444;
+            line-height: 1.7;
+            margin: 0;
+            max-width: none;
+        }
+
+        /* Findings cards */
+        .findings-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+            margin-top: 2.5rem;
+        }
+
+        .finding-card {
+            border-top: 2px solid #007D69;
+            padding-top: 1.25rem;
+        }
+
+        .finding-card h4 {
+            font-size: 0.95rem;
+            font-weight: 400;
+            color: #111;
+            margin-bottom: 0.7rem;
+            letter-spacing: 0.01em;
+        }
+
+        .finding-card p {
+            font-size: 0.88rem;
+            font-weight: 300;
+            color: #555;
+            line-height: 1.7;
+            margin: 0;
+            max-width: none;
+        }
+
+        /* Applications list */
+        .applications-list {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+        }
+
+        .app-item {
+            display: flex;
+            gap: 1.5rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid #e8e8e8;
+            align-items: flex-start;
+        }
+
+        .app-item:last-child {
+            border-bottom: none;
+        }
+
+        .app-label {
+            font-size: 0.78rem;
+            font-weight: 400;
+            color: #007D69;
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+            width: 210px;
+            flex-shrink: 0;
+            padding-top: 0.15rem;
+        }
+
+        .app-desc {
+            font-size: 0.92rem;
+            font-weight: 300;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Authors section */
+        .authors-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem 3rem;
+            margin-top: 1.5rem;
+        }
+
+        .author-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .author-name {
+            font-size: 0.95rem;
+            font-weight: 400;
+            color: #111;
+        }
+
+        .author-affiliation {
+            font-size: 0.82rem;
+            font-weight: 300;
+            color: #666;
+        }
+
+        /* Infographics section */
+        .infographic {
+            background: #f5f6f7;
+            border: 1px solid #e0e1e2;
+            padding: 2rem 2.5rem 1.75rem;
+            margin-top: 2rem;
+        }
+        .infographic-title {
+            font-size: 1.05rem;
+            font-weight: 400;
+            color: #111;
+            margin-bottom: 0.5rem;
+        }
+        .infographic-desc {
+            font-size: 0.82rem;
+            color: #666;
+            max-width: 680px;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+        .infographic .two-panel {
+            display: grid;
+            grid-template-columns: 1fr 56px 1fr;
+            align-items: center;
+        }
+        .infographic .panel { display: flex; flex-direction: column; }
+        .infographic .panel-canvas-wrap {
+            background: #08142e;
+            overflow: hidden;
+        }
+        .infographic .panel-canvas-wrap canvas {
+            display: block;
+            width: 100%;
+            height: 220px;
+        }
+        .infographic .panel-foot {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.55rem 0.1rem 0;
+        }
+        .infographic .panel-name {
+            font-size: 0.73rem;
+            font-weight: 500;
+            color: #333;
+            letter-spacing: 0.02em;
+        }
+        .infographic .panel-sub {
+            font-size: 0.68rem;
+            color: #999;
+        }
+        .infographic .sep {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            color: #bbb;
+        }
+        .infographic .full-panel {
+            background: #08142e;
+            overflow: hidden;
+        }
+        .infographic .full-panel canvas {
+            display: block;
+            width: 100%;
+            height: 200px;
+        }
+
+        /* Citation box */
+        .citation-box {
+            background: #f8f8f8;
+            padding: 1.75rem 2rem;
+            margin-top: 1.5rem;
+            font-size: 0.85rem;
+            font-weight: 300;
+            color: #444;
+            line-height: 1.8;
+            font-family: 'Courier New', monospace;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+
+        /* Footer */
+        footer {
+            background-color: transparent;
+            padding: 3rem 4rem;
+            text-align: left;
+            color: #666;
+            font-size: 0.82rem;
+            border-top: 1px solid #111;
+            margin-top: 6rem;
+            font-weight: 300;
+        }
+
+        .footer-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-inner a {
+            color: #666;
+            text-decoration: none;
+        }
+
+        .footer-inner a:hover {
+            color: #007D69;
+        }
+
+        /* Fade-in */
+        .fade-in {
+            opacity: 0;
+            transition: opacity 0.7s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .breadcrumb,
+            .container {
+                padding-left: 3rem;
+                padding-right: 3rem;
+            }
+            footer { padding-left: 3rem; padding-right: 3rem; }
+        }
+
+        @media (max-width: 768px) {
+            .breadcrumb { padding: 1rem 2rem 0; }
+            .container { padding: 2.5rem 2rem 4rem; }
+            .hero h1 { font-size: 1.9rem; }
+            .stats-row { grid-template-columns: repeat(2, 1fr); }
+            .two-col { grid-template-columns: 1fr; gap: 2rem; }
+            .findings-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .authors-grid { grid-template-columns: 1fr; }
+            footer { padding: 2.5rem 2rem; }
+            .footer-inner { flex-direction: column; }
+            .app-item { flex-direction: column; gap: 0.3rem; }
+            .app-label { min-width: unset; }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 1.6rem; }
+            .hero-actions { flex-direction: column; align-items: flex-start; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <a href="https://rpmenezes.github.io">← Home</a>
+    </div>
+
+    <main class="container">
+
+        <!-- Hero -->
+        <section class="hero">
+            <div class="hero-meta">Research Article &nbsp;·&nbsp; Computational Urban Science &nbsp;·&nbsp; Published 2026</div>
+            <h1>Validating Urban Scaling Laws Through Mobile Phone Data: Analysis of Brazil's Largest Cities</h1>
+            <div class="title-divider"></div>
+            <p class="hero-authors">
+                Ricardo de S. Alencar &nbsp;·&nbsp;
+                Fabiano L. Ribeiro &nbsp;·&nbsp;
+                Horacio Samaniego &nbsp;·&nbsp;
+                <span class="highlight">Ronaldo Menezes</span> &nbsp;·&nbsp;
+                Alexandre G. Evsukoff
+            </p>
+            <p class="hero-journal">
+                Computational Urban Science, 6: 21 &nbsp;·&nbsp;
+                DOI: <a href="https://doi.org/10.1007/s43762-026-00252-x" target="_blank" rel="noopener" style="color:#666; font-style:normal;">10.1007/s43762-026-00252-x</a>
+            </p>
+            <div class="hero-actions">
+                <a href="https://doi.org/10.1007/s43762-026-00252-x" target="_blank" rel="noopener" class="btn-primary">Read the Paper ↗</a>
+                <a href="https://doi.org/10.5281/zenodo.15359949" target="_blank" rel="noopener" class="btn-outline">Data on Zenodo ↗</a>
+            </div>
+        </section>
+
+        <!-- Key numbers -->
+        <div class="stats-row fade-in">
+            <div class="stat-item">
+                <span class="stat-label">CDR Dataset</span>
+                <span class="stat-value">3.1 billion</span>
+                <span class="stat-desc">mobile phone call records across Brazil's 100 most populous cities</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Social contacts scaling</span>
+                <span class="stat-value">β = 1.19</span>
+                <span class="stat-desc">superlinear exponent for cumulative voice-call degree vs. population</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Physical trips scaling</span>
+                <span class="stat-value">β = 1.25</span>
+                <span class="stat-desc">superlinear exponent for total trips vs. population — mobility amplifies with city size</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Observation window</span>
+                <span class="stat-value">30 days</span>
+                <span class="stat-desc">March 13–April 13, 2013 — a typical, non-eventful month minimising holiday biases</span>
+            </div>
+        </div>
+
+        <!-- The Problem -->
+        <section class="content-section fade-in">
+            <h2>The Problem</h2>
+            <div class="two-col">
+                <div>
+                    <p>Urban scaling theory predicts that larger cities exhibit disproportionately higher socioeconomic output and human interaction — a relationship captured empirically across many indicators, from patents to GDP to wages. Yet most evidence comes from wealthy, developed nations. Whether these <em>superlinear scaling laws</em> hold in rapidly urbanising, deeply unequal societies remains an open question.</p>
+                    <p>Brazil offers an ideal stress test: its 100 most populous municipalities span São Paulo (over 12 million inhabitants, contributing ~32% of national GDP) to mid-sized cities of under two million, across vastly different climates, infrastructure levels, and income distributions. The country's Gini coefficient is among the world's highest, challenging the assumption that scaling mechanisms operate uniformly regardless of socioeconomic context.</p>
+                    <p>Prior studies used indirect proxies or datasets from single countries with different contexts. What was missing was a <strong>national-scale, high-resolution test using direct behavioural data</strong> — one that measures both remote communication and physical mobility as complementary dimensions of urban interaction.</p>
+                </div>
+                <div>
+                    <div class="pull-quote">
+                        "Our findings reveal that interaction-driven agglomeration effects manifest across both digital and physical interaction layers, strongly reinforcing urban scaling theory even in conditions of pronounced socioeconomic inequality."
+                    </div>
+                    <p style="font-size:0.88rem; color:#666; margin-top:1rem; max-width:none;">São Paulo residents maintain approximately 10 mobile phone contacts on average, while those in Belém (population ~1.3 million) maintain about 7. This ~40% difference over a tenfold population gap is precisely what superlinear scaling with β ≈ 0.19 per-capita would predict.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Approach -->
+        <section class="content-section fade-in">
+            <h2>The Approach</h2>
+            <p>The study develops a rigorous statistical framework to extrapolate from a single telecom operator's sampled data (~20% market share) to population-level interaction metrics, using two complementary proxies for human interaction intensity across all 100 cities.</p>
+
+            <ul class="steps-list">
+                <li class="step-item">
+                    <span class="step-number">Step 01</span>
+                    <div class="step-content">
+                        <h4>Home location inference</h4>
+                        <p>Each user's residence is estimated as the antenna location with the highest call frequency between 7 p.m. and 6 a.m. on weekdays and at any time on weekends. Only users with a clearly established residential location (at least 50% of qualifying calls from the inferred antenna) are included, anchoring all subsequent interaction metrics to the city of residence.</p>
+                    </div>
+                </li>
+                <li class="step-item">
+                    <span class="step-number">Step 02</span>
+                    <div class="step-content">
+                        <h4>Contact degree — measuring remote social ties</h4>
+                        <p>A contact network is constructed where nodes are users and edges denote at least one voice call between two users. The degree k<sub>i</sub> of each user is their number of distinct contacts. City-level cumulative degree K is extrapolated from the sampled users to the full population using a sampling-convergence framework validated empirically: the average sampled degree converges to the population average as sample size grows.</p>
+                    </div>
+                </li>
+                <li class="step-item">
+                    <span class="step-number">Step 03</span>
+                    <div class="step-content">
+                        <h4>Trip detection — measuring physical mobility</h4>
+                        <p>A trip is defined as movement between two antennas at least 2 km apart, inferred from consecutive calls made within a 30-minute to 4-hour window. This threshold focuses on medium- to long-range, deliberate travel — commutes, professional engagements, consumer activities — while filtering out pedestrian noise and antenna fluctuations. OD matrices are constructed for each city, and total trips per city are summed across all users.</p>
+                    </div>
+                </li>
+                <li class="step-item">
+                    <span class="step-number">Step 04</span>
+                    <div class="step-content">
+                        <h4>Scaling estimation via log-log regression</h4>
+                        <p>For each urban metric Y (contacts, trips, GDP, antennas, users), ordinary least squares regression is applied to the log-transformed data: log Y = β log N + const. The slope β is the scaling exponent. Values β > 1 indicate superlinear (increasing-returns) scaling; β &lt; 1 indicates sublinear (economies of scale). Standard errors quantify uncertainty across the 100-city sample.</p>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Key Findings -->
+        <section class="content-section fade-in">
+            <h2>Key Findings</h2>
+            <div class="findings-grid">
+                <div class="finding-card">
+                    <h4>Superlinear social interactions</h4>
+                    <p>Cumulative voice-call degree scales as K ~ N<sup>1.19</sup>. Larger cities not only have more residents — they generate disproportionately more communication ties per person, confirming the core prediction of urban scaling theory in a developing-nation context for the first time at national scale.</p>
+                </div>
+                <div class="finding-card">
+                    <h4>Superlinear physical mobility</h4>
+                    <p>Total trips scale as τ ~ N<sup>1.25</sup>, slightly steeper than contact scaling. The consistency between two independent interaction proxies — phone contacts and physical trips — rules out measurement artefacts and suggests complementary mechanisms: digital connectivity and face-to-face engagement reinforce each other in larger cities.</p>
+                </div>
+                <div class="finding-card">
+                    <h4>GDP scales superlinearly, intermediate</h4>
+                    <p>Gross Domestic Product scales as GDP ~ N<sup>1.12</sup>, lying between linear and the interaction exponents. This is consistent with the hypothesis that enhanced connectivity creates conditions for economic productivity rather than being a simple byproduct of wealth — causality remains an open question for longitudinal study.</p>
+                </div>
+                <div class="finding-card">
+                    <h4>Sublinear infrastructure — economies of scale</h4>
+                    <p>The number of mobile antennas relative to active users scales sublinearly: N<sub>A</sub> ~ U<sup>0.84</sup>. Denser, more active urban users share antenna infrastructure more efficiently. This aligns with classical infrastructure scaling theory and introduces the concept of <em>effective population</em> as the appropriate denominator for infrastructure analysis.</p>
+                </div>
+                <div class="finding-card">
+                    <h4>Phone adoption grows faster than population</h4>
+                    <p>The number of mobile phone IDs (SIM cards) scales as U ~ N<sup>1.29</sup> — faster than population growth. Larger, more economically dynamic cities show higher per-capita SIM card multiplicity, likely reflecting multi-device adoption, business use, and prepaid plan switching behaviour common in Brazil's mobile market.</p>
+                </div>
+                <div class="finding-card">
+                    <h4>Robust across inequality</h4>
+                    <p>Scaling exponents remain statistically stable across cities with a per-capita GDP difference of a factor of 2 (São Paulo vs. Manaus). This consistency across profound socioeconomic inequality suggests that the mechanisms driving superlinear interaction growth operate independently of local economic conditions — they appear to be fundamental urban properties.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Infographics -->
+        <section class="content-section fade-in">
+            <h2>Infographics</h2>
+
+            <!-- 1. City size and interaction density -->
+            <div class="infographic">
+                <div class="infographic-title">Larger cities, more interactions per person</div>
+                <div class="infographic-desc">
+                    Urban scaling theory predicts that human interaction density grows superlinearly with city size — each doubling of population brings more than a doubling of social contacts and trips per capita. This animation contrasts a small city's sparse contact network with the dense, richly connected network of a large metropolis.
+                </div>
+                <div class="two-panel">
+                    <div class="panel">
+                        <div class="panel-canvas-wrap"><canvas id="cdr-smallCityCanvas"></canvas></div>
+                        <div class="panel-foot">
+                            <span class="panel-name">Small city (~1M residents)</span>
+                            <span class="panel-sub">~7 contacts/person</span>
+                        </div>
+                    </div>
+                    <div class="sep">→</div>
+                    <div class="panel">
+                        <div class="panel-canvas-wrap"><canvas id="cdr-largeCityCanvas"></canvas></div>
+                        <div class="panel-foot">
+                            <span class="panel-name">Large city (~10M residents)</span>
+                            <span class="panel-sub">~10 contacts/person · β = 1.19</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Scaling law scatter -->
+            <div class="infographic">
+                <div class="infographic-title">Power-law scaling across 100 Brazilian cities</div>
+                <div class="infographic-desc">
+                    On a log-log scale, both social contacts (β = 1.19) and physical trips (β = 1.25) align along superlinear power-law curves across all 100 cities — from mid-sized Palmas to São Paulo. Points above the dashed linear reference line show that larger cities generate disproportionately more interaction than their population alone would predict.
+                </div>
+                <div class="full-panel">
+                    <canvas id="cdr-scalingCanvas"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- Implications -->
+        <section class="content-section fade-in">
+            <h2>Implications</h2>
+            <ul class="applications-list">
+                <li class="app-item">
+                    <span class="app-label">Urban Policy</span>
+                    <span class="app-desc">The superlinear scaling of social interactions suggests that investment in urban density and connectivity has amplified returns. Infrastructure that reduces friction for movement and communication in large cities generates outsized economic and social gains compared to equivalent investment in smaller centres.</span>
+                </li>
+                <li class="app-item">
+                    <span class="app-label">Global South</span>
+                    <span class="app-desc">These findings extend the empirical foundation of urban scaling theory to a rapidly urbanising, highly unequal nation. The robustness of scaling laws across Brazil's diverse cities suggests they may generalise to other Global South contexts — a key open question for future research across Africa, South Asia, and Latin America.</span>
+                </li>
+                <li class="app-item">
+                    <span class="app-label">Telecom Planning</span>
+                    <span class="app-desc">The sublinear scaling of antennas with active users (β = 0.84) implies that infrastructure costs per connected user decrease in larger cities. Telecom operators and regulators can use scaling exponents as benchmarks to identify cities where antenna deployment is disproportionate to actual usage — a signal of either over-investment or under-served demand.</span>
+                </li>
+                <li class="app-item">
+                    <span class="app-label">CDR Methodology</span>
+                    <span class="app-desc">The paper demonstrates a sampling framework for extrapolating city-level interaction metrics from a single operator's data (~20% market share), validated by the convergence of average degree with sample size. This methodology is applicable to any country where multi-operator data remains proprietary — offering a practical path to national-scale urban research from incomplete telecom data.</span>
+                </li>
+                <li class="app-item">
+                    <span class="app-label">Future Work</span>
+                    <span class="app-desc">The cross-sectional design limits causal inference. Whether heightened interaction drives economic growth or vice versa — or both — requires longitudinal data tracking how scaling exponents evolve as cities grow. Functional boundary definitions based on mobility rather than administrative units may also alter measured exponents and deserve further investigation.</span>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Paper & Authors -->
+        <section class="content-section fade-in">
+            <div class="two-col">
+                <div>
+                    <h3 style="margin-top:0;">About the Authors</h3>
+                    <div class="authors-grid">
+                        <div class="author-item">
+                            <span class="author-name">Ricardo de S. Alencar</span>
+                            <span class="author-affiliation">COPPE<br>Federal University of Rio de Janeiro, Brazil</span>
+                        </div>
+                        <div class="author-item">
+                            <span class="author-name">Fabiano L. Ribeiro</span>
+                            <span class="author-affiliation">Departamento de Física<br>Universidade Federal de Lavras (UFLA), Brazil</span>
+                        </div>
+                        <div class="author-item">
+                            <span class="author-name">Horacio Samaniego</span>
+                            <span class="author-affiliation">Laboratorio de Ecoinformática, Universidad Austral de Chile;<br>Instituto de Sistemas Complejos de Valparaíso, Chile</span>
+                        </div>
+                        <div class="author-item">
+                            <span class="author-name" style="color:#007D69;">Ronaldo Menezes <span style="font-size:0.75rem; color:#aaa;">(corresponding)</span></span>
+                            <span class="author-affiliation">Department of Computer Science<br>University of Exeter, United Kingdom</span>
+                        </div>
+                        <div class="author-item">
+                            <span class="author-name">Alexandre G. Evsukoff</span>
+                            <span class="author-affiliation">COPPE<br>Federal University of Rio de Janeiro, Brazil</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 style="margin-top:0;">Cite This Work</h3>
+                    <div class="citation-box">@article{alencar2026urban,
+  title   = {Validating urban scaling laws through mobile phone data: analysis of {Brazil}'s largest cities},
+  author  = {de S. Alencar, Ricardo and Ribeiro, Fabiano L. and Samaniego, Horacio and Menezes, Ronaldo and Evsukoff, Alexandre G.},
+  journal = {Computational Urban Science},
+  volume  = {6},
+  pages   = {21},
+  year    = {2026},
+  doi     = {10.1007/s43762-026-00252-x}
+}</div>
+                    <div style="margin-top:1rem; display:flex; gap:0.75rem; flex-wrap:wrap;">
+                        <button class="btn-outline" onclick="downloadBibtex()" style="font-size:0.8rem; padding:0.5rem 1.25rem;">Download .bib</button>
+                        <button class="btn-outline" onclick="copyBibtex(this)" style="font-size:0.8rem; padding:0.5rem 1.25rem;">Copy BibTeX</button>
+                    </div>
+                    <p style="font-size:0.82rem; color:#999; margin-top:1rem; max-width:none;">
+                        Open access · CC BY 4.0 ·
+                        <a href="https://doi.org/10.5281/zenodo.15359949" target="_blank" rel="noopener" style="color:#007D69; text-decoration:none;">Data on Zenodo ↗</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <span>© 2026 Ronaldo Menezes | University of Exeter | Department of Computer Science</span>
+            <span>
+                <a href="https://doi.org/10.1007/s43762-026-00252-x" target="_blank" rel="noopener">DOI: 10.1007/s43762-026-00252-x</a>
+                &nbsp;·&nbsp;
+                <a href="https://rpmenezes.github.io">rpmenezes.github.io</a>
+            </span>
+        </div>
+    </footer>
+
+    <script>
+        // Fade-in on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.05 });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // BibTeX content
+        const bibtex = `@article{alencar2026urban,
+  title   = {Validating urban scaling laws through mobile phone data: analysis of {Brazil}'s largest cities},
+  author  = {de S. Alencar, Ricardo and Ribeiro, Fabiano L. and Samaniego, Horacio and Menezes, Ronaldo and Evsukoff, Alexandre G.},
+  journal = {Computational Urban Science},
+  volume  = {6},
+  pages   = {21},
+  year    = {2026},
+  doi     = {10.1007/s43762-026-00252-x}
+}`;
+
+        function downloadBibtex() {
+            const blob = new Blob([bibtex], { type: 'text/plain' });
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = 'alencar2026urban.bib';
+            a.click();
+            URL.revokeObjectURL(a.href);
+        }
+
+        function copyBibtex(btn) {
+            navigator.clipboard.writeText(bibtex).then(() => {
+                const original = btn.textContent;
+                btn.textContent = 'Copied!';
+                setTimeout(() => btn.textContent = original, 2000);
+            });
+        }
+    </script>
+
+    <script>
+    /* ============================================================
+       CDR Urban Scaling Infographic Animations
+       Canvas IDs: cdr-smallCityCanvas, cdr-largeCityCanvas,
+                   cdr-scalingCanvas
+    ============================================================ */
+    (function(){
+
+    function setupCanvas(id) {
+        const canvas = document.getElementById(id);
+        if (!canvas) return null;
+        const dpr = window.devicePixelRatio || 1;
+        const rect = canvas.getBoundingClientRect();
+        canvas.width  = Math.round(rect.width  * dpr);
+        canvas.height = Math.round(rect.height * dpr);
+        const ctx = canvas.getContext('2d');
+        ctx.scale(dpr, dpr);
+        return { canvas, ctx, w: rect.width, h: rect.height };
+    }
+
+    function seededRng(seed) {
+        let s = seed;
+        return function() {
+            s = (s * 16807 + 0) % 2147483647;
+            return (s - 1) / 2147483646;
+        };
+    }
+
+    function roundRect(ctx, x, y, w, h, r) {
+        ctx.beginPath();
+        ctx.moveTo(x+r, y);
+        ctx.lineTo(x+w-r, y);
+        ctx.arcTo(x+w, y, x+w, y+r, r);
+        ctx.lineTo(x+w, y+h-r);
+        ctx.arcTo(x+w, y+h, x+w-r, y+h, r);
+        ctx.lineTo(x+r, y+h);
+        ctx.arcTo(x, y+h, x, y+h-r, r);
+        ctx.lineTo(x, y+r);
+        ctx.arcTo(x, y, x+r, y, r);
+        ctx.closePath();
+    }
+
+    /* ----------------------------------------------------------
+       City network animation helper
+    ---------------------------------------------------------- */
+    function cityNetworkAnim(id, nodeCount, avgDegree, nodeColor, seed) {
+        const cv = setupCanvas(id);
+        if (!cv) return;
+        const { ctx, w, h } = cv;
+
+        const rng = seededRng(seed);
+        const PAD = 20;
+
+        // Place nodes
+        const nodes = [];
+        for (let i = 0; i < nodeCount; i++) {
+            nodes.push({
+                x: PAD + rng() * (w - PAD*2),
+                y: PAD + rng() * (h - PAD*2),
+                r: 2.5 + rng() * 2,
+                vx: (rng()-0.5)*0.25,
+                vy: (rng()-0.5)*0.25,
+                phase: rng() * Math.PI * 2,
+            });
+        }
+
+        // Build edges: each node gets ~avgDegree connections
+        const edges = new Set();
+        for (let i = 0; i < nodeCount; i++) {
+            // find nearest neighbours
+            const dists = nodes.map((n, j) => ({
+                j,
+                d: Math.hypot(n.x - nodes[i].x, n.y - nodes[i].y)
+            })).filter(e => e.j !== i).sort((a,b) => a.d - b.d);
+            const k = Math.round(avgDegree * (0.5 + rng()));
+            for (let m = 0; m < Math.min(k, dists.length); m++) {
+                const key = [Math.min(i, dists[m].j), Math.max(i, dists[m].j)].join('-');
+                edges.add(key);
+            }
+        }
+        const edgeList = [...edges].map(e => e.split('-').map(Number));
+
+        let tick = 0;
+        function frame() {
+            ctx.clearRect(0, 0, w, h);
+            tick++;
+
+            // drift
+            nodes.forEach(n => {
+                n.x += n.vx; n.y += n.vy;
+                if (n.x < PAD || n.x > w-PAD) n.vx *= -1;
+                if (n.y < PAD || n.y > h-PAD) n.vy *= -1;
+            });
+
+            // edges
+            edgeList.forEach(([a, b]) => {
+                const alpha = 0.08 + 0.05 * Math.sin(tick * 0.02 + nodes[a].phase);
+                ctx.strokeStyle = `rgba(${nodeColor},${alpha})`;
+                ctx.lineWidth = 0.8;
+                ctx.beginPath();
+                ctx.moveTo(nodes[a].x, nodes[a].y);
+                ctx.lineTo(nodes[b].x, nodes[b].y);
+                ctx.stroke();
+            });
+
+            // nodes
+            nodes.forEach(n => {
+                const glow = 0.5 + 0.5 * Math.sin(n.phase + tick * 0.03);
+                ctx.beginPath();
+                ctx.arc(n.x, n.y, n.r, 0, Math.PI*2);
+                ctx.fillStyle = `rgba(${nodeColor},${0.55 + 0.35 * glow})`;
+                ctx.fill();
+            });
+
+            requestAnimationFrame(frame);
+        }
+        frame();
+    }
+
+    /* ----------------------------------------------------------
+       1a. Small city contact network (~18 nodes, avg degree ~3)
+    ---------------------------------------------------------- */
+    cityNetworkAnim('cdr-smallCityCanvas', 18, 3, '100,180,255', 7);
+
+    /* ----------------------------------------------------------
+       1b. Large city contact network (~42 nodes, avg degree ~5)
+    ---------------------------------------------------------- */
+    cityNetworkAnim('cdr-largeCityCanvas', 42, 5, '80,220,160', 13);
+
+    /* ----------------------------------------------------------
+       2. Log-log scaling scatter — contacts & trips
+    ---------------------------------------------------------- */
+    (function scalingAnim(){
+        const cv = setupCanvas('cdr-scalingCanvas');
+        if (!cv) return;
+        const { ctx, w, h } = cv;
+
+        const PAD = { l: 52, r: 24, t: 20, b: 38 };
+        const PW = w - PAD.l - PAD.r;
+        const PH = h - PAD.t - PAD.b;
+
+        // Simulate 100 city data points on log-log scale
+        // x: log10(population), range ~5.1 to 7.1 (100k to 12M)
+        const rng = seededRng(99);
+        const CITIES = Array.from({length: 100}, (_, i) => {
+            const logN = 5.1 + (i / 99) * 2.0 + (rng()-0.5)*0.18;
+            return { logN };
+        });
+
+        // Scaling lines: contacts β=1.19, trips β=1.25
+        // Normalised so that at logN=6 (1M), logK_contacts=6.0, logT=6.1
+        const BETA_C = 1.19;
+        const BETA_T = 1.25;
+        const C0 = 6.0 - BETA_C * 6.0;  // intercept for contacts
+        const T0 = 6.05 - BETA_T * 6.0; // intercept for trips (offset slightly)
+        const L0 = 0;                     // linear reference: slope=1, intercept=0 (normalised)
+        const LN_REF = 6.0;
+
+        // Scatter points with noise
+        const contactPts = CITIES.map(c => ({
+            logN: c.logN,
+            logY: C0 + BETA_C * c.logN + (rng()-0.5)*0.18,
+        }));
+        const tripPts = CITIES.map(c => ({
+            logN: c.logN,
+            logY: T0 + BETA_T * c.logN + (rng()-0.5)*0.18,
+        }));
+
+        // Data bounds
+        const xMin = 5.05, xMax = 7.2;
+        const yMin = C0 + BETA_C * xMin - 0.3;
+        const yMax = T0 + BETA_T * xMax + 0.3;
+
+        function toScreen(logN, logY) {
+            const x = PAD.l + (logN - xMin) / (xMax - xMin) * PW;
+            const y = PAD.t + PH - (logY - yMin) / (yMax - yMin) * PH;
+            return [x, y];
+        }
+
+        // Animate: points appear sequentially, then loop
+        let revealed = 0;
+        let tick = 0;
+        const REVEAL_RATE = 1.5; // points per frame
+
+        function drawAxes() {
+            ctx.strokeStyle = 'rgba(255,255,255,0.15)';
+            ctx.lineWidth = 1;
+
+            // x ticks
+            for (let logN = 5.5; logN <= 7.0; logN += 0.5) {
+                const [x] = toScreen(logN, yMin);
+                ctx.beginPath();
+                ctx.moveTo(x, PAD.t);
+                ctx.lineTo(x, PAD.t + PH);
+                ctx.stroke();
+                ctx.fillStyle = 'rgba(255,255,255,0.35)';
+                ctx.font = '9px system-ui';
+                ctx.textAlign = 'center';
+                const label = logN === 5.5 ? '300K' : logN === 6.0 ? '1M' : logN === 6.5 ? '3M' : '10M';
+                ctx.fillText(label, x, PAD.t + PH + 14);
+            }
+            // y ticks
+            for (let logY = Math.ceil(yMin * 2)/2; logY <= yMax; logY += 0.5) {
+                const [, y] = toScreen(xMin, logY);
+                ctx.beginPath();
+                ctx.moveTo(PAD.l, y);
+                ctx.lineTo(PAD.l + PW, y);
+                ctx.stroke();
+                ctx.fillStyle = 'rgba(255,255,255,0.35)';
+                ctx.font = '9px system-ui';
+                ctx.textAlign = 'right';
+                ctx.fillText('10^' + logY.toFixed(1), PAD.l - 4, y + 3);
+            }
+
+            // Axis labels
+            ctx.fillStyle = 'rgba(255,255,255,0.5)';
+            ctx.font = '10px system-ui';
+            ctx.textAlign = 'center';
+            ctx.fillText('City population (log scale)', PAD.l + PW/2, h - 4);
+
+            ctx.save();
+            ctx.translate(12, PAD.t + PH/2);
+            ctx.rotate(-Math.PI/2);
+            ctx.fillText('Interactions (log scale)', 0, 0);
+            ctx.restore();
+        }
+
+        function drawLine(beta, intercept, color, label, dashLen) {
+            const x1 = xMin, x2 = xMax;
+            const [sx1, sy1] = toScreen(x1, intercept + beta * x1);
+            const [sx2, sy2] = toScreen(x2, intercept + beta * x2);
+            ctx.strokeStyle = color;
+            ctx.lineWidth = 1.5;
+            if (dashLen) ctx.setLineDash([dashLen, dashLen]);
+            else ctx.setLineDash([]);
+            ctx.beginPath();
+            ctx.moveTo(sx1, sy1);
+            ctx.lineTo(sx2, sy2);
+            ctx.stroke();
+            ctx.setLineDash([]);
+
+            // label at right end
+            ctx.fillStyle = color;
+            ctx.font = 'bold 9px system-ui';
+            ctx.textAlign = 'left';
+            ctx.fillText(label, sx2 + 3, sy2 + 3);
+        }
+
+        function drawPoints(pts, color, maxShow) {
+            const n = Math.min(maxShow, pts.length);
+            for (let i = 0; i < n; i++) {
+                const [x, y] = toScreen(pts[i].logN, pts[i].logY);
+                ctx.beginPath();
+                ctx.arc(x, y, 2.8, 0, Math.PI*2);
+                ctx.fillStyle = color;
+                ctx.globalAlpha = 0.75;
+                ctx.fill();
+                ctx.globalAlpha = 1;
+            }
+        }
+
+        function frame() {
+            ctx.clearRect(0, 0, w, h);
+            tick++;
+
+            revealed = Math.min(100, revealed + REVEAL_RATE);
+            if (revealed >= 100) {
+                // after all revealed, pause then restart
+                if (tick % 300 === 0) { revealed = 0; }
+            }
+
+            drawAxes();
+
+            // Linear reference (dashed white)
+            const linRef = LN_REF - LN_REF; // slope=1, passes through (6, midpoint)
+            const midY = (yMin + yMax) / 2;
+            const linInt = midY - 1.0 * (xMin + xMax) / 2;
+            drawLine(1.0, linInt, 'rgba(255,255,255,0.25)', 'linear', 4);
+
+            // Data points
+            const nShow = Math.floor(revealed);
+            drawPoints(contactPts, 'rgba(100,180,255,0.9)', nShow);
+            drawPoints(tripPts,    'rgba(80,220,160,0.9)',  nShow);
+
+            // Fit lines (only show after enough points)
+            if (nShow > 20) {
+                const alpha = Math.min(1, (nShow - 20) / 30);
+                ctx.globalAlpha = alpha;
+                drawLine(BETA_C, C0, '#4ab4ff', `β=${BETA_C} (contacts)`, 0);
+                drawLine(BETA_T, T0, '#50dc9a', `β=${BETA_T} (trips)`, 0);
+                ctx.globalAlpha = 1;
+            }
+
+            // Legend chips
+            [[' contacts', '#4ab4ff'], [' trips', '#50dc9a']].forEach(([lbl, col], i) => {
+                const lx = PAD.l + 10;
+                const ly = PAD.t + 12 + i * 18;
+                ctx.beginPath();
+                ctx.arc(lx, ly, 4, 0, Math.PI*2);
+                ctx.fillStyle = col;
+                ctx.fill();
+                ctx.fillStyle = 'rgba(255,255,255,0.7)';
+                ctx.font = '9px system-ui';
+                ctx.textAlign = 'left';
+                ctx.fillText(lbl, lx + 8, ly + 3);
+            });
+
+            requestAnimationFrame(frame);
+        }
+        frame();
+    })();
+
+    })(); // end CDR animations
+    </script>
+
+</body>
+</html>
