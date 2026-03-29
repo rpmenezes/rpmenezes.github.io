@@ -176,7 +176,7 @@
         });
     </script>
     <script>
-        // Load 3 most recent publications from stats.json
+        // Load highlighted publications from manifest
         async function loadRecentPubs() {
             const list = document.getElementById('recent-pubs');
             try {
@@ -184,15 +184,15 @@
                     fetch('data/auto/stats.json?v=' + Date.now()),
                     fetch('highlights/manifest.json?v=' + Date.now())
                 ]);
-                if (!statsRes.ok) throw new Error();
+                if (!statsRes.ok || !manifestRes.ok) throw new Error();
                 const data = await statsRes.json();
-                const highlights = manifestRes.ok ? await manifestRes.json() : [];
+                const highlights = await manifestRes.json();
                 const pubs = data.publications || [];
 
-                // Sort by year descending, take first 3
-                const recent = pubs
-                    .sort((a, b) => parseInt(b.year) - parseInt(a.year))
-                    .slice(0, 3);
+                // Show only publications that have a highlight page, preserving manifest order
+                const recent = highlights
+                    .map(slug => pubs.find(p => p.doiValue && p.doiValue.split('/').pop() === slug))
+                    .filter(Boolean);
 
                 if (recent.length === 0) throw new Error();
 
