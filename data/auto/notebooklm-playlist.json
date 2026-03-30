@@ -1,6 +1,14 @@
 {
   "videos": [
     {
+      "rawTitle": "The Scaling of Brazilian Cities",
+      "description": "Title: Validating urban scaling laws through mobile phone data: analysis of Brazil\u2019s largest cities\nAuthors: Ricardo de S. Alencar, Fabiano L. Ribeiro, Horacio Samaniego, Ronaldo Menezes, Alexandre G. Evsukoff \nDOI: https://doi.org/10.1007/s43762-026-00252-x",
+      "videoId": "M_ebK7ZTjGA",
+      "url": "https://www.youtube.com/watch?v=M_ebK7ZTjGA",
+      "publishedAt": "2026-03-29T23:05:34Z",
+      "viewCount": 0
+    },
+    {
       "rawTitle": "Mapping the Invisible Flow of Goods",
       "description": "Title: Vector fields as a framework for modelling the mobility of commodities\nAuthors: Sima Farokhnejad, Ang\u00e9lica S. da Mata, Mariana Macedo, Ronaldo Menezes\nDOI: https://doi.org/10.1371/journal.pone.0340109",
       "videoId": "VHjtzGtDtBo",
@@ -31,15 +39,7 @@
       "url": "https://www.youtube.com/watch?v=YOTzkdZtgu4",
       "publishedAt": "2026-02-22T11:26:18Z",
       "viewCount": 5
-    },
-    {
-      "rawTitle": "The Rephrased Reality: Analysing Sentiment Shifts in LLM-Rephrased Text",
-      "description": "Title: The Rephrased Reality: Analysing Sentiment Shifts in LLM-Rephrased Text\nAuthors: Frederico L. Richardson, Aline Villavicencio, Ronaldo Menezes\nDOI: https://doi.org/10.1145/3672608.370771",
-      "videoId": "Mx2-KUZkTX0",
-      "url": "https://www.youtube.com/watch?v=Mx2-KUZkTX0",
-      "publishedAt": "2026-02-22T11:26:18Z",
-      "viewCount": 2
     }
   ],
-  "updated": "2026-03-29T07:06:33.346066"
+  "updated": "2026-03-30T07:45:56.535910"
 }
