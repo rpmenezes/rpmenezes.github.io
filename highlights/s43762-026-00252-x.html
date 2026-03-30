@@ -373,6 +373,29 @@
             color: #666;
         }
 
+        /* Green box for key text sections */
+        .content-section--green {
+            background: #f0f7f5;
+            border-left: 4px solid #007D69;
+            padding: 2rem 2.5rem;
+            border-radius: 2px;
+        }
+        .content-section--green h2 {
+            color: #003C3C;
+        }
+        .content-section--green p {
+            max-width: none;
+        }
+        .content-section--green .finding-card {
+            background: #fff;
+            padding: 1.25rem;
+            border-top: none;
+            border-left: 2px solid #007D69;
+        }
+        .content-section--green .app-item {
+            border-bottom-color: rgba(0,125,105,0.2);
+        }
+
         /* Infographics section */
         .infographic {
             background: #f5f6f7;
@@ -637,7 +660,7 @@
         </section>
 
         <!-- Key Findings -->
-        <section class="content-section fade-in">
+        <section class="content-section content-section--green fade-in">
             <h2>Key Findings</h2>
             <div class="findings-grid">
                 <div class="finding-card">
@@ -709,7 +732,7 @@
         </section>
 
         <!-- Implications -->
-        <section class="content-section fade-in">
+        <section class="content-section content-section--green fade-in">
             <h2>Implications</h2>
             <ul class="applications-list">
                 <li class="app-item">

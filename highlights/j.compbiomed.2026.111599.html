@@ -373,6 +373,29 @@
             color: #666;
         }
 
+        /* Green box for key text sections */
+        .content-section--green {
+            background: #f0f7f5;
+            border-left: 4px solid #007D69;
+            padding: 2rem 2.5rem;
+            border-radius: 2px;
+        }
+        .content-section--green h2 {
+            color: #003C3C;
+        }
+        .content-section--green p {
+            max-width: none;
+        }
+        .content-section--green .finding-card {
+            background: #fff;
+            padding: 1.25rem;
+            border-top: none;
+            border-left: 2px solid #007D69;
+        }
+        .content-section--green .app-item {
+            border-bottom-color: rgba(0,125,105,0.2);
+        }
+
         /* Infographics section */
         .infographic {
             background: #f5f6f7;
@@ -646,7 +669,7 @@
         </section>
 
         <!-- Findings -->
-        <section class="content-section fade-in">
+        <section class="content-section content-section--green fade-in">
             <h2>Key Findings</h2>
             <p>Applied to the full PubMed corpus, VITAL mapped protein–disease associations across six CVD groups and produced a rich molecular portrait of HFpEF and its biological neighbourhood.</p>
 
@@ -679,7 +702,7 @@
         </section>
 
         <!-- Why it matters -->
-        <section class="content-section fade-in">
+        <section class="content-section content-section--green fade-in">
             <h2>Why It Matters</h2>
             <p>VITAL is not a replacement for wet-lab science — it is a navigation system for it. By ranking proteins against disease domains at the scale of the entire biomedical literature, it surfaces candidates that experiments alone would take decades to reach.</p>
 
