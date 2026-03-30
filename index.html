@@ -150,6 +150,10 @@
                     <ul class="events-list" id="events-list"></ul>
                     <p style="margin-top:1rem;font-size:0.85rem;color:#666;font-weight:300;font-style:italic;">If you are in any of these locations and would like to meet, please get in touch.</p>
                 </div>
+                <div class="update-card update-card--news">
+                    <h3>News &amp; Opportunities</h3>
+                    <ul class="news-list" id="news-list"></ul>
+                </div>
             </div>
         </section>
     </main>
@@ -359,6 +363,22 @@
                     return `<li>
                         <span class="event-name">${nameHtml}${locationHtml}</span>
                         <span class="event-date">${e.date}</span>
+                    </li>`;
+                }).join('');
+            })
+            .catch(() => {});
+        // Load news from JSON
+        fetch('data/manual/news.json?v=' + Date.now())
+            .then(r => r.json())
+            .then(items => {
+                const ul = document.getElementById('news-list');
+                ul.innerHTML = items.map(item => {
+                    const titleHtml = item.url
+                        ? `<a href="${item.url}" target="_blank">${item.title}</a>`
+                        : item.title;
+                    return `<li>
+                        <span class="news-title">${titleHtml}</span>
+                        <span class="news-text">${item.text}</span>
                     </li>`;
                 }).join('');
             })
