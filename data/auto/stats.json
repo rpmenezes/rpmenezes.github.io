@@ -1,5 +1,5 @@
 {
-  "updated": "2026-03-29T06:48:38.630681+00:00",
+  "updated": "2026-03-30T07:11:33.904005+00:00",
   "stats": {
     "paperCount": 231,
     "hIndex": 21,
@@ -50,7 +50,7 @@
       "venue": "Computational Urban Science",
       "doiValue": "10.1007/s43762-026-00252-x",
       "doiUrl": "https://doi.org/10.1007/s43762-026-00252-x",
-      "citationCount": null
+      "citationCount": 0
     },
     {
       "year": "2026",
@@ -89,7 +89,7 @@
       "venue": "Nature Communications",
       "doiValue": "10.1038/s41467-025-65728-6",
       "doiUrl": "https://doi.org/10.1038/s41467-025-65728-6",
-      "citationCount": 0
+      "citationCount": 1
     },
     {
       "year": "2025",
@@ -257,7 +257,7 @@
       "venue": "Environment and Planning B: Urban Analytics and City Science",
       "doiValue": "10.1177/23998083231219294",
       "doiUrl": "https://doi.org/10.1177/23998083231219294",
-      "citationCount": 12
+      "citationCount": 13
     },
     {
       "year": "2024",
