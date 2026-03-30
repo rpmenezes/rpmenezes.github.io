@@ -13,7 +13,7 @@
   { "name": "Brooke Foucault-Welles",        "affiliation": "Northeastern University",                           "country": "USA",       "url": "https://brooke-welles.squarespace.com/" },
   { "name": "Vasco Furtado",                 "affiliation": "University of Fortaleza",                           "country": "Brazil",    "url": null },
   { "name": "Gourab Ghoshal",                "affiliation": "University of Rochester",                           "country": "USA",       "url": "https://gghoshal.pas.rochester.edu/" },
-  { "name": "Jesus Gomez-Gardeñes",          "affiliation": "Universidad de Zaragoza",                           "country": "Spain",     "url": "http://complex.unizar.es/~jesus/" },
+  { "name": "Jesus Gomez-Gardeñes",          "affiliation": "Universidad de Zaragoza",                           "country": "Spain",     "url": "https://complex.unizar.es/~jesus/" },
   { "name": "Bruno Gonçalves",               "affiliation": "ISI Foundation",                                    "country": "Italy",     "url": "https://bgoncalves.com/" },
   { "name": "Marta Gonzalez",                "affiliation": "UC Berkeley & Lawrence Berkeley National Laboratory","country": "USA",       "url": "https://ced.berkeley.edu/people/marta-gonzalez" },
   { "name": "Nezamoddin N. Kachouie",        "affiliation": "Florida Institute of Technology",                   "country": "USA",       "url": "https://kachouie.com/" },
@@ -38,7 +38,7 @@
   { "name": "José J. Ramasco",               "affiliation": "IFISC (CSIC-UIB)",                                  "country": "Spain",     "url": "https://ifisc.uib-csic.es/~jramasco/" },
   { "name": "Eraldo Ribeiro",                "affiliation": "Florida Institute of Technology",                   "country": "USA",       "url": "https://eraldoribeiro.github.io/" },
   { "name": "Fabiano L. Ribeiro",            "affiliation": "Federal University of Lavras",                      "country": "Brazil",    "url": "https://fabianorib2.wixsite.com/fabianorib?lang=en" },
-  { "name": "Horacio Samaniego",             "affiliation": "Universidad Austral de Chile",                      "country": "Chile",     "url": "http://ecoinformatica.cl/" },
+  { "name": "Horacio Samaniego",             "affiliation": "Universidad Austral de Chile",                      "country": "Chile",     "url": "https://ecoinformatica.cl/" },
   { "name": "Wellington Pinheiro dos Santos","affiliation": "Universidade Federal de Pernambuco",                 "country": "Brazil",    "url": null },
   { "name": "Marius Silaghi",                "affiliation": "Florida Institute of Technology",                   "country": "USA",       "url": "https://cs.fit.edu/~msilaghi/" },
   { "name": "Filippo Simini",                "affiliation": "Argonne National Laboratory",                       "country": "USA",       "url": null },
@@ -48,6 +48,6 @@
   { "name": "Mirko Viroli",                  "affiliation": "Università di Bologna",                             "country": "Italy",     "url": "https://www.unibo.it/sitoweb/mirko.viroli" },
   { "name": "Pu Wang",                       "affiliation": "Central South University",                          "country": "China",     "url": null },
   { "name": "Alan Wood",                     "affiliation": "University of York",                                "country": "UK",        "url": null },
-  { "name": "Franco Zambonelli",             "affiliation": "Università di Modena e Reggio Emilia",              "country": "Italy",     "url": "http://www.agentgroup.unimore.it/Zambonelli/" },
+  { "name": "Franco Zambonelli",             "affiliation": "Università di Modena e Reggio Emilia",              "country": "Italy",     "url": "https://www.agentgroup.unimore.it/Zambonelli/" },
   { "name": "Vinko Zlatic",                  "affiliation": "Institute Rudjer Boskovic",                         "country": "Croatia",   "url": null }
 ]

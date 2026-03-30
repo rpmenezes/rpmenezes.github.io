@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Networked Thoughts and Random Rumblings — personal blog by Ronaldo Menezes on science, society, and academia.">
     <title>Blog — Ronaldo Menezes</title>
-    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../styles.css?v=5">
 </head>
 <body>
 
@@ -60,10 +61,10 @@
 
     <main class="container">
 
-        <header class="blog-header fade-in">
+        <div class="blog-header fade-in">
             <h1>Networked Thoughts and Random Rumblings</h1>
             <p>The text here reflects my personal view of certain issues at the time of writing. I don't claim to be right on the points. These are not here to generate debate but rather as mechanism for me to express my view of the world, not limited to academia, in a platform that doesn't require me to use soundbites. Posts are written in English or Portuguese — the choice of language follows the thought, not a fixed rule.</p>
-        </header>
+        </div>
 
         <div class="post-list">
 
@@ -104,12 +105,15 @@
             navMenu.classList.toggle('nav-open');
         });
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) entry.target.classList.add('visible');
-            });
-        }, { threshold: 0.05 });
-        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        const fadeEls = document.querySelectorAll('.fade-in');
+        setTimeout(() => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(e => {
+                    if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+                });
+            }, { threshold: 0, rootMargin: '200px 0px 0px 0px' });
+            fadeEls.forEach(el => observer.observe(el));
+        }, 50);
     </script>
 
 </body>
