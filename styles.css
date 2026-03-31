@@ -932,6 +932,25 @@ a:hover {
     border-color: #007D69;
 }
 
+.btn-outline {
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    background-color: transparent;
+    color: #111;
+    text-decoration: none;
+    font-weight: 300;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+    border: 1px solid #111;
+    font-size: 0.9rem;
+    letter-spacing: 0.02em;
+}
+
+.btn-outline:hover {
+    background-color: #007D69;
+    border-color: #007D69;
+    color: #ffffff;
+}
+
 /* Responsive Design */
 
 @media (max-width: 1024px) {
