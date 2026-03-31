@@ -1,7 +1,7 @@
 [
   { "name": "Younis Al-Rozz",         "affiliation": "Northern Technical University",        "country": "Iraq",        "url": "https://staff.ntu.edu.iq/younis.alrozz" },
   { "name": "Firas Aswad",            "affiliation": "University of Mosul",                  "country": "Iraq",        "url": null },
-  { "name": "Hugo Barbosa",           "affiliation": "University of Exeter",                 "country": "UK",          "url": null },
+  { "name": "Hugo Barbosa",           "affiliation": "University of Exeter",                 "country": "UK",          "url": "https://hsbarbosa.github.io/" },
   { "name": "Liam J. Berrisford",     "affiliation": "University of Exeter",                 "country": "UK",          "url": null },
   { "name": "Harshit Bhatt",          "affiliation": "Amazon",                               "country": "USA",         "url": null },
   { "name": "Matteo Casadei",         "affiliation": "Università di Bologna",                "country": "Italy",       "url": null },
