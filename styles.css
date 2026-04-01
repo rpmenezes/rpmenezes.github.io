@@ -422,15 +422,8 @@ body {
     line-height: 1.4;
 }
 
-.timeline-name a {
-    color: #111;
-    text-decoration: none;
-    border-bottom: 1px solid #ccc;
-}
-
 .timeline-name a:hover {
     color: #007D69;
-    border-bottom-color: #007D69;
 }
 
 .timeline-item.past .timeline-name {
