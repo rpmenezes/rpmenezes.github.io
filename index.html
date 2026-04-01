@@ -151,8 +151,8 @@
                     </ul>
                 </div>
                 <div class="update-card">
-                    <h3>Events / Trips</h3>
-                    <ul class="events-list" id="events-list"></ul>
+                    <h3>Recent and Upcoming Events</h3>
+                    <div class="events-timeline" id="events-list"></div>
                     <p style="margin-top:1rem;font-size:0.85rem;color:#666;font-weight:300;font-style:italic;">If you are in any of these locations and would like to meet, please get in touch.</p>
                 </div>
             </div>
@@ -351,20 +351,26 @@
     </script>
 
     <script>
-        // Load events from JSON
+        // Load events from JSON and render as timeline
         fetch('data/manual/events.json?v=' + Date.now())
             .then(r => r.json())
             .then(events => {
-                const ul = document.getElementById('events-list');
-                ul.innerHTML = events.map(e => {
+                const container = document.getElementById('events-list');
+                const now = new Date();
+                const currentYear = now.getFullYear();
+                const currentMonth = now.getMonth(); // 0-indexed
+                container.innerHTML = events.map(e => {
+                    const parsed = new Date(e.date);
+                    const isPast = parsed.getFullYear() < currentYear ||
+                        (parsed.getFullYear() === currentYear && parsed.getMonth() < currentMonth);
                     const nameHtml = e.url
                         ? `<a href="${e.url}" target="_blank">${e.name}</a>`
                         : e.name;
                     const locationHtml = e.location ? `, ${e.location}` : '';
-                    return `<li>
-                        <span class="event-name">${nameHtml}${locationHtml}</span>
-                        <span class="event-date">${e.date}</span>
-                    </li>`;
+                    return `<div class="timeline-item${isPast ? ' past' : ''}">
+                        <span class="timeline-date">${e.date}</span>
+                        <span class="timeline-name">${nameHtml}${locationHtml}</span>
+                    </div>`;
                 }).join('');
             })
             .catch(() => {});

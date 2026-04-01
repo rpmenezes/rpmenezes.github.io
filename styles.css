@@ -354,6 +354,89 @@ body {
     line-height: 1.5;
 }
 
+/* Events timeline */
+.events-timeline {
+    position: relative;
+    padding-left: 20px;
+    margin-top: 0.5rem;
+}
+
+.events-timeline::before {
+    content: '';
+    position: absolute;
+    left: 4px;
+    top: 6px;
+    bottom: 6px;
+    width: 1px;
+    background: #d0d0d0;
+}
+
+.timeline-item {
+    position: relative;
+    padding: 0 0 1.1rem 1.4rem;
+}
+
+.timeline-item:last-child {
+    padding-bottom: 0;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -16px;
+    top: 5px;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    border: 2px solid #007D69;
+    background: #fff;
+}
+
+.timeline-item.past {
+    opacity: 0.4;
+}
+
+.timeline-item.past::before {
+    border-color: #aaa;
+}
+
+.timeline-date {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 400;
+    color: #007D69;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    margin-bottom: 0.15rem;
+}
+
+.timeline-item.past .timeline-date {
+    color: #999;
+}
+
+.timeline-name {
+    display: block;
+    font-size: 0.88rem;
+    font-weight: 300;
+    color: #111;
+    line-height: 1.4;
+}
+
+.timeline-name a {
+    color: #111;
+    text-decoration: none;
+    border-bottom: 1px solid #ccc;
+}
+
+.timeline-name a:hover {
+    color: #007D69;
+    border-bottom-color: #007D69;
+}
+
+.timeline-item.past .timeline-name {
+    color: #666;
+}
+
 .events-list {
     list-style: none;
     margin: 0;
