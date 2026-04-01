@@ -335,15 +335,8 @@ body {
     margin-bottom: 0.2rem;
 }
 
-.news-title a {
-    color: #111;
-    text-decoration: none;
-    border-bottom: 1px solid #ccc;
-}
-
 .news-title a:hover {
     color: #007D69;
-    border-bottom-color: #007D69;
 }
 
 .news-text {
