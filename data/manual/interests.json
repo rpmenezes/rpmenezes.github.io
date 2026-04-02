@@ -18,9 +18,13 @@
     { "name": "Social Network Analysis",
       "definition": "Social network analysis is a methodological framework for examining the structure and dynamics of social systems by modelling individuals or organisations as nodes and their relationships as edges. It employs graph-theoretical, statistical, and computational techniques to quantify patterns of connectivity, centrality, cohesion, and influence within relational data."
     },
-    { "name": "Swarm Intelligence" },
     { "name": "Self-Organisation" },
+    { "name": "Swarm Intelligence",,
+      "definition": "Swarm intelligence refers to the collective behaviour of decentralised, self-organised systems composed of interacting agents, where global coordination and problem-solving capabilities emerge from local interactions without centralised control. It is characterised by adaptive, distributed dynamics and is often modelled using computational and agent-based approaches."
+    },
     { "name": "Biologically-Inspired Computing" },
     { "name": "Science of Science"},
-    { "name": "Inequality Modelling"}
+    { "name": "Inequality Modelling",
+      "definition": "Swarm intelligence refers to the collective behaviour of decentralised, self-organised systems composed of interacting agents, where global coordination and problem-solving capabilities emerge from local interactions without centralised control. It is characterised by adaptive, distributed dynamics and is often modelled using computational and agent-based approaches."
+    }
 ]
