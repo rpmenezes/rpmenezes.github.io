@@ -348,8 +348,36 @@ body {
 }
 
 /* Events timeline — flex-based layout so dot/line alignment is handled by the browser */
+
+/* --- Keyframes --- */
+@keyframes tl-item-in {
+    from { opacity: 0; transform: translateX(-12px); }
+    to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes tl-line-grow {
+    from { transform: scaleY(0); }
+    to   { transform: scaleY(1); }
+}
+@keyframes tl-pulse {
+    0%   { transform: translate(-50%, -50%) scale(1); opacity: 0.7; }
+    70%  { opacity: 0.15; }
+    100% { transform: translate(-50%, -50%) scale(3.8); opacity: 0; }
+}
+
 .events-timeline {
     margin-top: 0.5rem;
+}
+
+/* Hidden initial state — set by JS before IntersectionObserver fires */
+.events-timeline.tl-ready .timeline-item { opacity: 0; }
+.events-timeline.tl-ready .tl-line      { transform: scaleY(0); transform-origin: top; }
+
+/* Stagger-in: JS sets animation-delay on each item / line */
+.events-timeline.tl-animate .timeline-item {
+    animation: tl-item-in 0.4s ease forwards;
+}
+.events-timeline.tl-animate .tl-line {
+    animation: tl-line-grow 0.28s ease forwards;
 }
 
 .timeline-item {
@@ -366,6 +394,7 @@ body {
     width: 10px;
     flex-shrink: 0;
     padding-top: 4px;
+    overflow: visible;
 }
 
 .tl-dot {
@@ -376,7 +405,25 @@ body {
     border: 2px solid #007D69;
     background: #fff;
     flex-shrink: 0;
+    position: relative;
+    overflow: visible;
     transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+/* Pulse ring — added once tl-pulsing class fires after entrance animation */
+.tl-pulsing .timeline-item:not(.past) .tl-dot::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    box-sizing: border-box;
+    border-radius: 50%;
+    border: 1.5px solid #007D69;
+    pointer-events: none;
+    animation: tl-pulse 2.8s ease-out infinite;
+    animation-delay: var(--pulse-stagger, 0s);
 }
 
 .tl-line {

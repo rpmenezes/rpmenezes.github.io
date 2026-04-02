@@ -375,6 +375,34 @@
                         </div>
                     </div>`;
                 }).join('');
+
+                // --- Timeline entrance + pulse animations ---
+                const tl = container;
+                tl.classList.add('tl-ready');
+
+                // Set stagger delays on each item and its connecting line
+                const tlItems = [...tl.querySelectorAll('.timeline-item')];
+                tlItems.forEach((item, i) => {
+                    item.style.animationDelay = `${i * 100}ms`;
+                    const line = item.querySelector('.tl-line');
+                    if (line) line.style.animationDelay = `${i * 100 + 180}ms`;
+                });
+
+                // Stagger pulse rings across upcoming events so they don't fire in sync
+                tl.querySelectorAll('.timeline-item:not(.past) .tl-dot').forEach((dot, i) => {
+                    dot.style.setProperty('--pulse-stagger', `${i * 0.55}s`);
+                });
+
+                // Fire entrance animation when section scrolls into view
+                const totalEntranceMs = tlItems.length * 100 + 500;
+                const tlObs = new IntersectionObserver(entries => {
+                    if (!entries[0].isIntersecting) return;
+                    tl.classList.replace('tl-ready', 'tl-animate');
+                    // Start pulses after all items have finished animating in
+                    setTimeout(() => tl.classList.add('tl-pulsing'), totalEntranceMs);
+                    tlObs.disconnect();
+                }, { threshold: 0.15 });
+                tlObs.observe(tl);
             })
             .catch(() => {});
         // Load news from JSON
