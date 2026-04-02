@@ -1715,6 +1715,15 @@ a:hover {
     letter-spacing: 0.03em;
 }
 
+.post-icon {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    filter: brightness(0) saturate(100%) invert(31%) sepia(69%) saturate(518%) hue-rotate(131deg) brightness(97%) contrast(105%);
+    opacity: 0.85;
+    margin-top: 0.3rem;
+}
+
 .post-title-link {
     display: block;
     font-size: 1.25rem;
