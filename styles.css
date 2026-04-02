@@ -97,6 +97,7 @@ body {
 .nav-link:hover,
 .nav-link.active {
     color: #007D69;
+    text-decoration: none;
 }
 
 .nav-link:hover::after,
