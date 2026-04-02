@@ -6,12 +6,21 @@
     { "name": "Complex Systems",
       "definition": "Complex systems are systems composed of many interacting components whose collective behaviour exhibits emergent properties that cannot be inferred from the properties of individual elements. They are typically characterised by nonlinearity, feedback loops, multi-scale interactions, and adaptive dynamics, often requiring computational and statistical methods to analyse their structure and evolution."
     },
-    { "name": "Human Mobility" },
-    { "name": "Urban Systems" },
-    { "name": "Data Science" },
-    { "name": "Social Network Analysis" },
+    { "name": "Human Mobility",
+      "definition": "Human mobility refers to the spatial and temporal patterns of movement of individuals or populations across geographic space. It is typically characterised by heterogeneous, non-stationary dynamics driven by socio-economic, environmental, and behavioural factors, and is often analysed using statistical, computational, and network-based methods to capture regularities, predict flows, and model diffusion processes."
+    },
+    { "name": "Urban Systems",
+      "definition": "Urban systems are complex, spatially embedded socio-technical systems characterised by dense networks of interactions among individuals, infrastructure, and institutions within cities. They exhibit emergent, multiscale dynamics driven by nonlinearity, agglomeration effects, and feedback processes, and are typically analysed using quantitative, computational, and network-based approaches to understand their structure, function, and evolution."
+    },
+    { "name": "Data Science",
+      "definition": "Data science is an interdisciplinary field focused on the extraction of knowledge and insights from structured and unstructured data through the integration of statistical inference, machine learning, and computational methods. It encompasses the processes of data acquisition, preprocessing, modelling, and validation to analyse complex, high-dimensional datasets and support predictive and decision-making tasks."
+    },
+    { "name": "Social Network Analysis",
+      "definition": "Social network analysis is a methodological framework for examining the structure and dynamics of social systems by modelling individuals or organisations as nodes and their relationships as edges. It employs graph-theoretical, statistical, and computational techniques to quantify patterns of connectivity, centrality, cohesion, and influence within relational data."
+    },
     { "name": "Swarm Intelligence" },
     { "name": "Self-Organisation" },
     { "name": "Biologically-Inspired Computing" },
-    { "name": "Optimisation" }
+    { "name": "Science of Science"},
+    { "name": "Inequality Modelling"}
 ]
