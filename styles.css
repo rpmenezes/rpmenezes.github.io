@@ -348,8 +348,9 @@ body {
 }
 
 /* Events timeline */
-/* Gutter: 24px. Line: 2px wide, left:11px → center at 12px.
-   Dot: 10px wide, left:-17px → left edge at 24-17=7px → center at 7+5=12px. ✓ */
+/* Gutter: 24px. Dot is content-box so actual width = 10px content + 4px border = 14px total.
+   Dot center = 24 (padding) - 17 (left) + 7 (half of 14px total) = 14px from timeline left edge.
+   Line: 2px wide, left:13px → center at 14px. ✓ */
 .events-timeline {
     position: relative;
     padding-left: 24px;
@@ -359,7 +360,7 @@ body {
 .events-timeline::before {
     content: '';
     position: absolute;
-    left: 11px;
+    left: 13px;
     top: 6px;
     bottom: 6px;
     width: 2px;
@@ -378,6 +379,7 @@ body {
 .timeline-item::before {
     content: '';
     position: absolute;
+    box-sizing: border-box;
     left: -17px;
     top: 5px;
     width: 10px;
