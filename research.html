@@ -262,18 +262,7 @@
 
         <section id="research-interests" class="content-section section-box-gray">
             <h2>Interests</h2>
-            <div class="research-keywords">
-                <span class="keyword">Network Science</span>
-                <span class="keyword">Complex Systems</span>
-                <span class="keyword">Human Mobility</span>
-                <span class="keyword">Urban Systems</span>
-                <span class="keyword">Data Science</span>
-                <span class="keyword">Social Network Analysis</span>
-                <span class="keyword">Swarm Intelligence</span>
-                <span class="keyword">Self-Organisation</span>
-                <span class="keyword">Biologically-Inspired Computing</span>
-                <span class="keyword">Optimisation</span>
-            </div>
+            <div class="research-keywords" id="interests-container"></div>
         </section>
 
         <section id="publications" class="content-section">
@@ -481,6 +470,29 @@
         }
 
         loadAcademicData();
+    </script>
+    <script>
+        // Load research interests from JSON
+        fetch('data/manual/interests.json?v=' + Date.now())
+            .then(r => r.json())
+            .then(interests => {
+                const container = document.getElementById('interests-container');
+                container.innerHTML = interests.map(t =>
+                    `<span class="keyword">${t}</span>`
+                ).join('');
+
+                // Stagger in when section scrolls into view
+                const obs = new IntersectionObserver(entries => {
+                    if (!entries[0].isIntersecting) return;
+                    [...container.querySelectorAll('.keyword')].forEach((el, i) => {
+                        el.style.animationDelay = `${i * 60}ms`;
+                        el.classList.add('visible');
+                    });
+                    obs.disconnect();
+                }, { threshold: 0.2 });
+                obs.observe(container);
+            })
+            .catch(() => {});
     </script>
     <script>
         // Scroll fade-in
