@@ -383,6 +383,12 @@ body {
     border-radius: 50%;
     border: 2px solid #007D69;
     background: #fff;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.timeline-item:not(.past):hover::before {
+    background: #007D69;
+    transform: scale(1.4);
 }
 
 .timeline-item.past {
