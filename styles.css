@@ -973,19 +973,13 @@ a.pub-title-link:hover {
 /* About page section boxes */
 .section-box-green {
     background: #f0f7f5;
-    border-left: 4px solid #007D69;
-    padding: 2rem 2.5rem;
+    padding: 2rem 0;
     border-radius: 2px;
-}
-
-.section-box-green h2 {
-    color: #003C3C;
 }
 
 .section-box-gray {
     background: #f5f6f7;
-    border: 1px solid #e0e1e2;
-    padding: 2rem 2.5rem;
+    padding: 2rem 0;
     border-radius: 2px;
 }
 
