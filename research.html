@@ -477,9 +477,11 @@
             .then(r => r.json())
             .then(interests => {
                 const container = document.getElementById('interests-container');
-                container.innerHTML = interests.map(t =>
-                    `<span class="keyword">${t}</span>`
-                ).join('');
+                container.innerHTML = interests.map(item => {
+                    const name = item.name || item;
+                    const def = item.definition || '';
+                    return `<span class="keyword"${def ? ` data-definition="${def.replace(/"/g,'&quot;')}"` : ''}>${name}</span>`;
+                }).join('');
 
                 // Stagger in when section scrolls into view
                 const obs = new IntersectionObserver(entries => {
@@ -491,6 +493,35 @@
                     obs.disconnect();
                 }, { threshold: 0.2 });
                 obs.observe(container);
+
+                // Popover for keywords with definitions
+                const popover = document.createElement('div');
+                popover.className = 'keyword-popover';
+                popover.innerHTML = '<div class="keyword-popover-title"></div><div class="keyword-popover-text"></div>';
+                document.body.appendChild(popover);
+
+                let hideTimer;
+                container.addEventListener('mouseover', e => {
+                    const kw = e.target.closest('.keyword[data-definition]');
+                    if (!kw) return;
+                    clearTimeout(hideTimer);
+                    popover.querySelector('.keyword-popover-title').textContent = kw.textContent;
+                    popover.querySelector('.keyword-popover-text').textContent = kw.dataset.definition;
+
+                    const rect = kw.getBoundingClientRect();
+                    const pw = 320;
+                    let left = rect.left;
+                    if (left + pw > window.innerWidth - 16) left = window.innerWidth - pw - 16;
+                    popover.style.left = left + 'px';
+                    popover.style.top = (rect.bottom + 8) + 'px';
+                    popover.classList.add('visible');
+                });
+
+                container.addEventListener('mouseout', e => {
+                    const kw = e.target.closest('.keyword[data-definition]');
+                    if (!kw) return;
+                    hideTimer = setTimeout(() => popover.classList.remove('visible'), 120);
+                });
             })
             .catch(() => {});
     </script>

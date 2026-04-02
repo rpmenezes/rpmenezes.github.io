@@ -1,12 +1,15 @@
 [
-    "Network Science",
-    "Complex Systems",
-    "Human Mobility",
-    "Urban Systems",
-    "Data Science",
-    "Social Network Analysis",
-    "Swarm Intelligence",
-    "Self-Organisation",
-    "Biologically-Inspired Computing",
-    "Optimisation"
+    {
+        "name": "Network Science",
+        "definition": "An interdisciplinary field that studies the structure, dynamics, and function of complex systems represented as networks, where entities are modelled as nodes and their interactions as edges. It integrates methods from graph theory, statistical physics, and data science to analyse topological properties, emergent behaviour, and processes such as diffusion, resilience, and synchronisation across interconnected systems."
+    },
+    { "name": "Complex Systems" },
+    { "name": "Human Mobility" },
+    { "name": "Urban Systems" },
+    { "name": "Data Science" },
+    { "name": "Social Network Analysis" },
+    { "name": "Swarm Intelligence" },
+    { "name": "Self-Organisation" },
+    { "name": "Biologically-Inspired Computing" },
+    { "name": "Optimisation" }
 ]

@@ -234,10 +234,51 @@ body {
 }
 
 .keyword:hover {
-    background: #007D69;
-    color: #fff;
+    background: #f0f7f5;
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0,125,105,0.18);
+    box-shadow: 0 4px 12px rgba(0,125,105,0.12);
+}
+
+.keyword[data-definition] {
+    cursor: help;
+}
+
+/* Floating definition popover */
+.keyword-popover {
+    position: fixed;
+    z-index: 2000;
+    max-width: 320px;
+    background: #fff;
+    border: 1px solid #d0e8e4;
+    border-left: 4px solid #007D69;
+    border-radius: 4px;
+    padding: 0.85rem 1rem;
+    box-shadow: 0 8px 28px rgba(0,0,0,0.12);
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity 0.18s ease, transform 0.18s ease;
+}
+
+.keyword-popover.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.keyword-popover-title {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #007D69;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 0.45rem;
+}
+
+.keyword-popover-text {
+    font-size: 0.82rem;
+    font-weight: 300;
+    color: #333;
+    line-height: 1.55;
 }
 
 
