@@ -347,50 +347,51 @@ body {
     line-height: 1.5;
 }
 
-/* Events timeline */
-/* Gutter: 24px. Dot is content-box so actual width = 10px content + 4px border = 14px total.
-   Dot center = 24 (padding) - 17 (left) + 7 (half of 14px total) = 14px from timeline left edge.
-   Line: 2px wide, left:13px → center at 14px. ✓ */
+/* Events timeline — flex-based layout so dot/line alignment is handled by the browser */
 .events-timeline {
-    position: relative;
-    padding-left: 24px;
     margin-top: 0.5rem;
 }
 
-.events-timeline::before {
-    content: '';
-    position: absolute;
-    left: 13px;
-    top: 6px;
-    bottom: 6px;
-    width: 2px;
-    background: #d0d0d0;
-}
-
 .timeline-item {
-    position: relative;
-    padding: 0 0 1.1rem 1.4rem;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
 }
 
-.timeline-item:last-child {
-    padding-bottom: 0;
+/* Column holding the dot + connecting line, centred on the dot */
+.tl-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 10px;
+    flex-shrink: 0;
+    padding-top: 4px;
 }
 
-.timeline-item::before {
-    content: '';
-    position: absolute;
-    box-sizing: border-box;
-    left: -17px;
-    top: 5px;
+.tl-dot {
     width: 10px;
     height: 10px;
+    box-sizing: border-box;
     border-radius: 50%;
     border: 2px solid #007D69;
     background: #fff;
+    flex-shrink: 0;
     transition: background-color 0.2s ease, transform 0.2s ease;
 }
 
-.timeline-item:not(.past):hover::before {
+.tl-line {
+    width: 1px;
+    flex: 1;
+    min-height: 10px;
+    background: #d0d0d0;
+    margin-top: 4px;
+}
+
+.timeline-item:last-child .tl-line {
+    display: none;
+}
+
+.timeline-item:not(.past):hover .tl-dot {
     background: #007D69;
     transform: scale(1.4);
 }
@@ -399,8 +400,17 @@ body {
     opacity: 0.4;
 }
 
-.timeline-item.past::before {
+.timeline-item.past .tl-dot {
     border-color: #aaa;
+}
+
+.tl-body {
+    flex: 1;
+    padding-bottom: 1rem;
+}
+
+.timeline-item:last-child .tl-body {
+    padding-bottom: 0;
 }
 
 .timeline-date {

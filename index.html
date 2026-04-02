@@ -368,8 +368,11 @@
                         : e.name;
                     const locationHtml = e.location ? `, ${e.location}` : '';
                     return `<div class="timeline-item${isPast ? ' past' : ''}">
-                        <span class="timeline-date">${e.date}</span>
-                        <span class="timeline-name">${nameHtml}${locationHtml}</span>
+                        <div class="tl-col"><div class="tl-dot"></div><div class="tl-line"></div></div>
+                        <div class="tl-body">
+                            <span class="timeline-date">${e.date}</span>
+                            <span class="timeline-name">${nameHtml}${locationHtml}</span>
+                        </div>
                     </div>`;
                 }).join('');
             })
