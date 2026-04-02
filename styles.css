@@ -165,6 +165,7 @@ body {
 .dropdown-menu a:hover {
     color: #007D69;
     background-color: #f5f5f5;
+    text-decoration: none;
 }
 
 /* Main Container */
