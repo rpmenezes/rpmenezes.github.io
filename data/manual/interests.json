@@ -3,7 +3,9 @@
         "name": "Network Science",
         "definition": "An interdisciplinary field that studies the structure, dynamics, and function of complex systems represented as networks, where entities are modelled as nodes and their interactions as edges. It integrates methods from graph theory, statistical physics, and data science to analyse topological properties, emergent behaviour, and processes such as diffusion, resilience, and synchronisation across interconnected systems."
     },
-    { "name": "Complex Systems" },
+    { "name": "Complex Systems",
+      "definition": "Complex systems are systems composed of many interacting components whose collective behaviour exhibits emergent properties that cannot be inferred from the properties of individual elements. They are typically characterised by nonlinearity, feedback loops, multi-scale interactions, and adaptive dynamics, often requiring computational and statistical methods to analyse their structure and evolution."
+    },
     { "name": "Human Mobility" },
     { "name": "Urban Systems" },
     { "name": "Data Science" },
