@@ -357,7 +357,7 @@ body {
 .events-timeline::before {
     content: '';
     position: absolute;
-    left: 4px;
+    left: 8px;
     top: 6px;
     bottom: 6px;
     width: 1px;
