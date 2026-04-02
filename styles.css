@@ -46,16 +46,19 @@ body {
 
 .nav-brand h1 {
     font-size: 1.4rem;
-    font-weight: 400;
+    font-weight: 600;
     color: #111;
+    letter-spacing: 0.02em;
     letter-spacing: 0.02em;
     text-transform: none;
 }
 
 .nav-subtitle {
-    font-size: 0.85rem;
-    color: #666666;
+    font-size: 0.82rem;
+    color: #007D69;
     font-weight: 300;
+    padding-left: 0.6rem;
+    border-left: 2px solid #007D69;
 }
 
 .nav-menu {
