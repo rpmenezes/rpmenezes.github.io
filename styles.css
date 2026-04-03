@@ -971,17 +971,26 @@ a.pub-title-link:hover {
 }
 
 /* About page section boxes */
-.section-box-green {
-    background: #f0f7f5;
+.section-box-green,
+.section-box-gray {
+    position: relative;
     padding: 2rem 0;
-    border-radius: 2px;
 }
 
-.section-box-gray {
-    background: #f5f6f7;
-    padding: 2rem 0;
-    border-radius: 2px;
+.section-box-green::before,
+.section-box-gray::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100vw;
+    z-index: -1;
 }
+
+.section-box-green::before { background: #f0f7f5; }
+.section-box-gray::before  { background: #f5f6f7; }
 
 .section-box-gray .about-item {
     border-bottom-color: #e8e8e8;
