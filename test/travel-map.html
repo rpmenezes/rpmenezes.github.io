@@ -72,7 +72,7 @@
         }
 
         .country { transition: opacity 0.15s ease; }
-        .country.has-data:hover { opacity: 0.72; cursor: default; }
+        .country:hover { opacity: 0.72; cursor: default; }
 
         .legend {
             display: flex;
@@ -112,16 +112,14 @@
             white-space: nowrap;
         }
 
-        .tooltip-cat {
-            color: #007D69;
-            font-style: italic;
-        }
+        .tooltip-cat { color: #007D69; font-style: italic; }
+        .tooltip-unknown { color: #aaa; font-style: italic; }
     </style>
 </head>
 <body>
 
     <h1>Places in the World</h1>
-    <p class="subtitle">Hover a country for details</p>
+    <p class="subtitle">Hover any country for its name</p>
 
     <div id="map-wrap">
         <div class="stats">
@@ -158,161 +156,123 @@
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="https://unpkg.com/topojson-client@3/dist/topojson-client.min.js"></script>
     <script>
-    // ISO 3166-1 numeric codes
-    const been = new Set([
-        // South America
-        76,   // Brazil
-        218,  // Ecuador
-        32,   // Argentina
-        170,  // Colombia
-        858,  // Uruguay
-        // Caribbean
-        192,  // Cuba
-        388,  // Jamaica
-        214,  // Dominican Republic
-        44,   // Bahamas
-        // North America
-        124,  // Canada
-        840,  // United States
-        484,  // Mexico
-        // Europe
-        191,  // Croatia
-        380,  // Italy
-        620,  // Portugal
-        724,  // Spain
-        250,  // France
-        276,  // Germany
-        56,   // Belgium
-        528,  // Netherlands
-        208,  // Denmark
-        703,  // Slovakia
-        826,  // United Kingdom
-        203,  // Czechia
-        300,  // Greece
-        196,  // Cyprus
-        616,  // Poland
-        372,  // Ireland
-        642,  // Romania
-        348,  // Hungary
-        40,   // Austria
-        756,  // Switzerland
-        // Africa
-        834,  // Tanzania
-        800,  // Uganda
-        404,  // Kenya
-        // Asia
-        792,  // Turkey
-        356,  // India
-        704,  // Vietnam
-        818,  // Egypt
-        156,  // China
-        410,  // South Korea
-    ]);
-
-    const wantToGo = new Set([
-        764,  // Thailand
-        392,  // Japan
-        242,  // Fiji
-        524,  // Nepal
-        188,  // Costa Rica
-        578,  // Norway
-        752,  // Sweden
-        352,  // Iceland
-        8,    // Albania
-        233,  // Estonia
-        246,  // Finland
-        36,   // Australia
-        554,  // New Zealand
-        152,  // Chile
-        504,  // Morocco
-        710,  // South Africa
-    ]);
-
-    // Tooltip names
-    const names = {
-        76:'Brazil', 218:'Ecuador', 32:'Argentina', 170:'Colombia', 858:'Uruguay',
-        192:'Cuba', 388:'Jamaica', 214:'Dominican Republic', 44:'Bahamas',
-        124:'Canada', 840:'United States', 484:'Mexico',
-        191:'Croatia', 380:'Italy', 620:'Portugal', 724:'Spain', 250:'France',
-        276:'Germany', 56:'Belgium', 528:'Netherlands', 208:'Denmark', 703:'Slovakia',
-        826:'United Kingdom', 203:'Czechia', 300:'Greece', 196:'Cyprus', 616:'Poland',
-        372:'Ireland', 642:'Romania', 348:'Hungary', 40:'Austria', 756:'Switzerland',
-        834:'Tanzania', 800:'Uganda', 404:'Kenya',
-        792:'Turkey', 356:'India', 704:'Vietnam', 818:'Egypt', 156:'China', 410:'South Korea',
-        764:'Thailand', 392:'Japan', 242:'Fiji', 524:'Nepal', 188:'Costa Rica',
-        578:'Norway', 752:'Sweden', 352:'Iceland', 8:'Albania', 233:'Estonia', 246:'Finland',
-        36:'Australia', 554:'New Zealand', 152:'Chile', 504:'Morocco', 710:'South Africa',
+    // Comprehensive ISO 3166-1 numeric → name lookup for all countries in the 110m dataset
+    const ALL_NAMES = {
+        4:'Afghanistan', 8:'Albania', 12:'Algeria', 24:'Angola', 32:'Argentina',
+        36:'Australia', 40:'Austria', 50:'Bangladesh', 56:'Belgium', 64:'Bhutan',
+        68:'Bolivia', 70:'Bosnia and Herzegovina', 72:'Botswana', 76:'Brazil',
+        84:'Belize', 100:'Bulgaria', 104:'Myanmar', 108:'Burundi', 116:'Cambodia',
+        120:'Cameroon', 124:'Canada', 140:'Central African Republic', 144:'Sri Lanka',
+        152:'Chile', 156:'China', 170:'Colombia', 178:'Republic of Congo',
+        180:'DR Congo', 188:'Costa Rica', 191:'Croatia', 192:'Cuba', 196:'Cyprus',
+        203:'Czechia', 204:'Benin', 208:'Denmark', 214:'Dominican Republic',
+        218:'Ecuador', 222:'El Salvador', 226:'Equatorial Guinea', 231:'Ethiopia',
+        232:'Eritrea', 233:'Estonia', 238:'Falkland Islands', 242:'Fiji',
+        246:'Finland', 250:'France', 266:'Gabon', 276:'Germany', 288:'Ghana',
+        300:'Greece', 304:'Greenland', 320:'Guatemala', 324:'Guinea',
+        328:'Guyana', 332:'Haiti', 340:'Honduras', 348:'Hungary', 356:'India',
+        360:'Indonesia', 364:'Iran', 368:'Iraq', 372:'Ireland', 376:'Israel',
+        380:'Italy', 388:'Jamaica', 392:'Japan', 398:'Kazakhstan', 400:'Jordan',
+        404:'Kenya', 408:'North Korea', 410:'South Korea', 418:'Laos',
+        422:'Lebanon', 426:'Lesotho', 428:'Latvia', 430:'Liberia', 434:'Libya',
+        440:'Lithuania', 450:'Madagascar', 454:'Malawi', 458:'Malaysia',
+        466:'Mali', 478:'Mauritania', 484:'Mexico', 496:'Mongolia', 499:'Montenegro',
+        504:'Morocco', 508:'Mozambique', 516:'Namibia', 524:'Nepal',
+        528:'Netherlands', 540:'New Caledonia', 554:'New Zealand', 558:'Nicaragua',
+        562:'Niger', 566:'Nigeria', 578:'Norway', 586:'Pakistan', 591:'Panama',
+        598:'Papua New Guinea', 600:'Paraguay', 604:'Peru', 608:'Philippines',
+        616:'Poland', 620:'Portugal', 624:'Guinea-Bissau', 634:'Qatar',
+        642:'Romania', 643:'Russia', 646:'Rwanda', 682:'Saudi Arabia',
+        686:'Senegal', 688:'Serbia', 694:'Sierra Leone', 703:'Slovakia',
+        705:'Slovenia', 706:'Somalia', 710:'South Africa', 716:'Zimbabwe',
+        724:'Spain', 728:'South Sudan', 729:'Sudan', 740:'Suriname',
+        752:'Sweden', 756:'Switzerland', 760:'Syria', 762:'Tajikistan',
+        764:'Thailand', 780:'Trinidad and Tobago', 788:'Tunisia', 792:'Turkey',
+        800:'Uganda', 804:'Ukraine', 784:'United Arab Emirates',
+        807:'North Macedonia', 818:'Egypt', 826:'United Kingdom',
+        834:'Tanzania', 840:'United States', 858:'Uruguay', 860:'Uzbekistan',
+        862:'Venezuela', 704:'Vietnam', 887:'Yemen', 894:'Zambia',
+        352:'Iceland', 44:'Bahamas'
     };
 
-    document.getElementById('been-count').textContent = been.size;
-    document.getElementById('want-count').textContent = wantToGo.size;
+    const tip = document.getElementById('tooltip');
 
-    const WIDTH = 960, HEIGHT = 500;
+    Promise.all([
+        d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json'),
+        d3.json('countries.json?v=' + Date.now())
+    ]).then(([world, userCountries]) => {
 
-    const projection = d3.geoNaturalEarth1()
-        .scale(155)
-        .translate([WIDTH / 2, HEIGHT / 2]);
+        // Build lookup from countries.json
+        const been     = new Set();
+        const wantToGo = new Set();
+        userCountries.forEach(c => {
+            if (c.category === 'been') been.add(c.id);
+            if (c.category === 'want') wantToGo.add(c.id);
+        });
 
-    const path = d3.geoPath().projection(projection);
-    const svg  = d3.select('#map-svg');
-    const tip  = document.getElementById('tooltip');
+        document.getElementById('been-count').textContent = been.size;
+        document.getElementById('want-count').textContent = wantToGo.size;
 
-    d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json').then(world => {
+        const WIDTH = 960, HEIGHT = 500;
+        const projection = d3.geoNaturalEarth1().scale(155).translate([WIDTH / 2, HEIGHT / 2]);
+        const path = d3.geoPath().projection(projection);
+        const svg  = d3.select('#map-svg');
+
         const countries = topojson.feature(world, world.objects.countries);
 
-        // Graticule grid
-        const graticule = d3.geoGraticule();
+        // Graticule
         svg.append('path')
-            .datum(graticule())
+            .datum(d3.geoGraticule()())
             .attr('d', path)
             .attr('fill', 'none')
             .attr('stroke', '#f0f0f0')
             .attr('stroke-width', 0.4);
 
-        // Countries
+        // Country fills
         const paths = svg.selectAll('.country')
             .data(countries.features)
             .join('path')
-            .attr('class', d => {
-                const id = +d.id;
-                return 'country' + (been.has(id) || wantToGo.has(id) ? ' has-data' : '');
-            })
+            .attr('class', 'country')
             .attr('d', path)
             .attr('fill', d => {
                 const id = +d.id;
-                if (been.has(id))      return '#007D69';
-                if (wantToGo.has(id))  return '#a8d5cc';
+                if (been.has(id))     return '#007D69';
+                if (wantToGo.has(id)) return '#a8d5cc';
                 return '#e4e4e4';
             })
             .attr('stroke', '#fff')
             .attr('stroke-width', 0.4)
             .attr('opacity', 0)
             .on('mousemove', function(event, d) {
-                const id = +d.id;
-                const name = names[id];
-                if (!name) return;
-                const cat = been.has(id) ? 'Been' : 'Want to Go';
-                tip.innerHTML = `${name} <span class="tooltip-cat">· ${cat}</span>`;
+                const id   = +d.id;
+                const name = ALL_NAMES[id] || 'Unknown territory';
+                let catHtml = '';
+                if (been.has(id))
+                    catHtml = ' <span class="tooltip-cat">· Been</span>';
+                else if (wantToGo.has(id))
+                    catHtml = ' <span class="tooltip-cat">· Want to Go</span>';
+                else if (!ALL_NAMES[id])
+                    catHtml = ' <span class="tooltip-unknown">· uncharted</span>';
+                tip.innerHTML = name + catHtml;
                 tip.style.opacity = 1;
                 tip.style.left = (event.clientX + 14) + 'px';
                 tip.style.top  = (event.clientY - 32) + 'px';
             })
             .on('mouseleave', () => { tip.style.opacity = 0; });
 
-        // Staggered fade-in by category: unvisited first, want-to-go next, been last
+        // Staggered animation: unvisited → want → been
         const order = d => {
             const id = +d.id;
             if (been.has(id))     return 2;
             if (wantToGo.has(id)) return 1;
             return 0;
         };
-
         paths.transition()
             .duration(700)
             .delay(d => order(d) * 320 + Math.random() * 180)
             .attr('opacity', 1);
 
-        // Country border mesh on top
+        // Border mesh on top
         svg.append('path')
             .datum(topojson.mesh(world, world.objects.countries, (a, b) => a !== b))
             .attr('fill', 'none')
