@@ -282,6 +282,8 @@
             const id = parseInt(c.ccn3, 10);
             if (id) ALL_NAMES[id] = c.name.common;
         });
+        // Antarctica is not a sovereign state so the API omits it
+        if (!ALL_NAMES[10]) ALL_NAMES[10] = 'Antarctica';
 
         been     = new Set();
         wantToGo = new Set();
