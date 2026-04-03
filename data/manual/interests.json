@@ -31,6 +31,6 @@
       "definition": "Science of science refers to the quantitative study of the structure dynamics and evolution of scientific systems using large scale data on publications citations collaborations and careers. It integrates statistical computational and network based methods to analyse patterns of knowledge production diffusion and impact as well as the mechanisms shaping scientific discovery and innovation."
     },
     { "name": "Inequality Modelling",
-      "definition": "Swarm intelligence refers to the collective behaviour of decentralised, self-organised systems composed of interacting agents, where global coordination and problem-solving capabilities emerge from local interactions without centralised control. It is characterised by adaptive, distributed dynamics and is often modelled using computational and agent-based approaches."
+      "definition": "Inequality modelling refers to the quantitative and computational representation of the mechanisms that generate, structure, and evolve socio-economic disparities within and across populations. It integrates statistical inference, network-based methods, and dynamical modelling to characterise the distribution of resources or opportunities, identify structural drivers, and analyse the emergence, persistence, and propagation of inequality across scales."
     }
 ]
