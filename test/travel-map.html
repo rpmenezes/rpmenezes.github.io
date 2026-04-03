@@ -205,50 +205,9 @@
     <script src="https://unpkg.com/topojson-client@3/dist/topojson-client.min.js"></script>
     <script src="https://unpkg.com/d3-geo-projection@4/dist/d3-geo-projection.min.js"></script>
     <script>
-    // All country names (ISO 3166-1 numeric → display name)
-    const ALL_NAMES = {
-        4:'Afghanistan', 8:'Albania', 12:'Algeria', 24:'Angola', 32:'Argentina',
-        36:'Australia', 40:'Austria', 31:'Azerbaijan', 44:'Bahamas', 48:'Bahrain',
-        50:'Bangladesh', 56:'Belgium', 84:'Belize', 204:'Benin', 64:'Bhutan',
-        68:'Bolivia', 70:'Bosnia and Herzegovina', 72:'Botswana', 76:'Brazil',
-        100:'Bulgaria', 854:'Burkina Faso', 108:'Burundi', 116:'Cambodia',
-        120:'Cameroon', 124:'Canada', 140:'Central African Republic', 148:'Chad',
-        152:'Chile', 156:'China', 170:'Colombia', 178:'Republic of Congo',
-        180:'DR Congo', 188:'Costa Rica', 384:'Côte d\'Ivoire', 191:'Croatia',
-        192:'Cuba', 196:'Cyprus', 203:'Czechia', 208:'Denmark', 262:'Djibouti',
-        214:'Dominican Republic', 218:'Ecuador', 818:'Egypt', 222:'El Salvador',
-        226:'Equatorial Guinea', 232:'Eritrea', 233:'Estonia', 231:'Ethiopia',
-        238:'Falkland Islands', 242:'Fiji', 246:'Finland', 250:'France',
-        266:'Gabon', 270:'Gambia', 268:'Georgia', 276:'Germany', 288:'Ghana',
-        300:'Greece', 304:'Greenland', 320:'Guatemala', 324:'Guinea',
-        624:'Guinea-Bissau', 328:'Guyana', 332:'Haiti', 340:'Honduras',
-        348:'Hungary', 356:'India', 360:'Indonesia', 364:'Iran', 368:'Iraq',
-        372:'Ireland', 376:'Israel', 380:'Italy', 388:'Jamaica', 392:'Japan',
-        400:'Jordan', 398:'Kazakhstan', 404:'Kenya', 408:'North Korea',
-        410:'South Korea', 414:'Kuwait', 417:'Kyrgyzstan', 418:'Laos',
-        422:'Lebanon', 426:'Lesotho', 430:'Liberia', 434:'Libya', 428:'Latvia',
-        440:'Lithuania', 442:'Luxembourg', 450:'Madagascar', 454:'Malawi',
-        458:'Malaysia', 466:'Mali', 478:'Mauritania', 484:'Mexico',
-        498:'Moldova', 496:'Mongolia', 499:'Montenegro', 504:'Morocco',
-        508:'Mozambique', 104:'Myanmar', 516:'Namibia', 524:'Nepal',
-        528:'Netherlands', 540:'New Caledonia', 554:'New Zealand',
-        558:'Nicaragua', 562:'Niger', 566:'Nigeria', 578:'Norway', 512:'Oman',
-        586:'Pakistan', 591:'Panama', 598:'Papua New Guinea', 600:'Paraguay',
-        604:'Peru', 608:'Philippines', 616:'Poland', 620:'Portugal',
-        634:'Qatar', 642:'Romania', 643:'Russia', 646:'Rwanda',
-        682:'Saudi Arabia', 686:'Senegal', 688:'Serbia', 694:'Sierra Leone',
-        703:'Slovakia', 705:'Slovenia', 706:'Somalia', 710:'South Africa',
-        728:'South Sudan', 724:'Spain', 144:'Sri Lanka', 729:'Sudan',
-        748:'Eswatini', 740:'Suriname', 752:'Sweden', 756:'Switzerland',
-        760:'Syria', 158:'Taiwan', 762:'Tajikistan', 834:'Tanzania',
-        764:'Thailand', 626:'Timor-Leste', 768:'Togo', 780:'Trinidad and Tobago',
-        788:'Tunisia', 792:'Turkey', 795:'Turkmenistan', 800:'Uganda',
-        804:'Ukraine', 784:'United Arab Emirates', 826:'United Kingdom',
-        840:'United States', 858:'Uruguay', 860:'Uzbekistan', 862:'Venezuela',
-        704:'Vietnam', 887:'Yemen', 894:'Zambia', 716:'Zimbabwe',
-        807:'North Macedonia', 51:'Armenia', 112:'Belarus', 352:'Iceland',
-        275:'Palestine', 383:'Kosovo'
-    };
+    // Country names are fetched dynamically from REST Countries API
+    // (ISO 3166-1 numeric → common name), built at load time
+    let ALL_NAMES = {};
 
     // Available projections (name → factory function)
     const PROJECTIONS = {
@@ -312,8 +271,17 @@
     // Load data
     Promise.all([
         d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json'),
-        d3.json('countries.json?v=' + Date.now())
-    ]).then(([world, userCountries]) => {
+        d3.json('countries.json?v=' + Date.now()),
+        fetch('https://restcountries.com/v3.1/all?fields=name,ccn3')
+            .then(r => r.json())
+            .catch(() => [])
+    ]).then(([world, userCountries, restCountries]) => {
+
+        // Build ISO numeric → common name lookup from REST Countries
+        restCountries.forEach(c => {
+            const id = parseInt(c.ccn3, 10);
+            if (id) ALL_NAMES[id] = c.name.common;
+        });
 
         been     = new Set();
         wantToGo = new Set();
