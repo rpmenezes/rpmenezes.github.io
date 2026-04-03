@@ -703,6 +703,42 @@ body {
     }
 }
 
+/* Travel map */
+#travel-map-wrap {
+    margin-top: 1rem;
+}
+
+#travel-map-svg .country {
+    transition: opacity 0.15s ease;
+}
+
+#travel-map-svg .country:hover {
+    opacity: 0.72;
+    cursor: default;
+}
+
+.travel-map-legend {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.travel-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.78rem;
+    color: #777;
+}
+
+.travel-legend-swatch {
+    width: 14px;
+    height: 14px;
+    border-radius: 3px;
+    flex-shrink: 0;
+}
+
 /* Citation lollipop chart */
 .citation-spark-wrap {
     margin-top: 1.5rem;

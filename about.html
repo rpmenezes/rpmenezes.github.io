@@ -46,6 +46,7 @@
                             <li><a href="about.html#about-me">About Me</a></li>
                             <li><a href="about.html#passions">Passions</a></li>
                             <li><a href="about.html#favourites">Favourites</a></li>
+                            <li><a href="about.html#visited-places">Visited Places</a></li>
                             <li><a href="about.html#motto">Personal Motto</a></li>
                             <li><a href="about.html#contact">Contact and Social Media</a></li>
                         </ul>
@@ -140,6 +141,27 @@
             </div>
         </section>
 
+        <section id="visited-places" class="content-section section-box-green">
+            <h2>Visited Places</h2>
+            <div id="travel-map-wrap">
+                <svg id="travel-map-svg" viewBox="0 0 960 500" style="width:100%;height:auto;display:block;"></svg>
+                <div class="travel-map-legend">
+                    <div class="travel-legend-item">
+                        <div class="travel-legend-swatch" style="background:#007D69;"></div>
+                        <span>Been</span>
+                    </div>
+                    <div class="travel-legend-item">
+                        <div class="travel-legend-swatch" style="background:#a8d5cc;"></div>
+                        <span>Want to Go</span>
+                    </div>
+                    <div class="travel-legend-item">
+                        <div class="travel-legend-swatch" style="background:#e4e4e4;"></div>
+                        <span>Not yet</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section id="motto" class="content-section">
             <h2>Personal Motto</h2>
             <blockquote class="personal-motto">
@@ -223,6 +245,93 @@
             } catch(e) {}
         }
         loadBioPubCount();
+    </script>
+    <div id="travel-map-tooltip" style="position:fixed;background:#fff;border:1px solid #d0e8e4;border-left:3px solid #007D69;border-radius:4px;padding:0.35rem 0.75rem;font-size:0.78rem;color:#333;pointer-events:none;opacity:0;transition:opacity 0.12s ease;z-index:100;white-space:nowrap;"></div>
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://unpkg.com/topojson-client@3/dist/topojson-client.min.js"></script>
+    <script src="https://unpkg.com/d3-geo-projection@4/dist/d3-geo-projection.min.js"></script>
+    <script>
+    (function() {
+        const svg = d3.select('#travel-map-svg');
+        const tip = document.getElementById('travel-map-tooltip');
+        const W = 960, H = 500;
+        let allNames = {};
+
+        Promise.all([
+            d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json'),
+            d3.json('data/manual/countries.json?v=' + Date.now()),
+            fetch('https://restcountries.com/v3.1/all?fields=name,ccn3').then(r => r.json()).catch(() => [])
+        ]).then(([world, userCountries, restCountries]) => {
+
+            restCountries.forEach(c => {
+                const id = parseInt(c.ccn3, 10);
+                if (id) allNames[id] = c.name.common;
+            });
+            if (!allNames[10]) allNames[10] = 'Antarctica';
+
+            const been     = new Set();
+            const wantToGo = new Set();
+            userCountries.forEach(c => {
+                if (c.category === 'been') been.add(c.id);
+                if (c.category === 'want') wantToGo.add(c.id);
+            });
+
+            const proj   = d3.geoPatterson().fitExtent([[16,16],[944,484]], { type: 'Sphere' });
+            const pathFn = d3.geoPath().projection(proj);
+            const countries = topojson.feature(world, world.objects.countries);
+
+            svg.append('path')
+                .datum(d3.geoGraticule()())
+                .attr('d', pathFn)
+                .attr('fill', 'none')
+                .attr('stroke', '#f0f0f0')
+                .attr('stroke-width', 0.4);
+
+            svg.selectAll('.country')
+                .data(countries.features)
+                .join('path')
+                .attr('class', 'country')
+                .attr('d', pathFn)
+                .attr('fill', d => {
+                    const id = +d.id;
+                    if (been.has(id))     return '#007D69';
+                    if (wantToGo.has(id)) return '#a8d5cc';
+                    return '#e4e4e4';
+                })
+                .attr('stroke', '#fff')
+                .attr('stroke-width', 0.4)
+                .attr('opacity', 0)
+                .on('mousemove', function(event, d) {
+                    const id   = +d.id;
+                    const name = allNames[id] || '';
+                    if (!name) return;
+                    const cat = been.has(id) ? ' <span style="color:#007D69;font-style:italic;">· Been</span>'
+                              : wantToGo.has(id) ? ' <span style="color:#007D69;font-style:italic;">· Want to Go</span>' : '';
+                    tip.innerHTML = name + cat;
+                    tip.style.opacity = 1;
+                    tip.style.left = (event.clientX + 14) + 'px';
+                    tip.style.top  = (event.clientY - 32) + 'px';
+                })
+                .on('mouseleave', () => { tip.style.opacity = 0; });
+
+            // Staggered entrance: grey → teal → green
+            svg.selectAll('.country')
+                .transition().duration(700)
+                .delay(d => {
+                    const id = +d.id;
+                    if (been.has(id))     return 640 + Math.random() * 180;
+                    if (wantToGo.has(id)) return 320 + Math.random() * 180;
+                    return Math.random() * 180;
+                })
+                .attr('opacity', 1);
+
+            svg.append('path')
+                .datum(topojson.mesh(world, world.objects.countries, (a, b) => a !== b))
+                .attr('fill', 'none').attr('stroke', '#fff').attr('stroke-width', 0.4)
+                .attr('d', pathFn);
+        });
+    })();
     </script>
     <script>
         // Scroll fade-in

@@ -271,7 +271,7 @@
     // Load data
     Promise.all([
         d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json'),
-        d3.json('countries.json?v=' + Date.now()),
+        d3.json('../data/manual/countries.json?v=' + Date.now()),
         fetch('https://restcountries.com/v3.1/all?fields=name,ccn3')
             .then(r => r.json())
             .catch(() => [])
