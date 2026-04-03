@@ -40,6 +40,7 @@
   { "id": 818, "name": "Egypt",                "category": "been" },
   { "id": 156, "name": "China",                "category": "been" },
   { "id": 410, "name": "South Korea",          "category": "been" },
+  { "id": 604, "name": "Peru",                 "category": "been" },
 
   { "id": 764, "name": "Thailand",             "category": "want" },
   { "id": 392, "name": "Japan",                "category": "want" },
@@ -56,5 +57,7 @@
   { "id": 554, "name": "New Zealand",          "category": "want" },
   { "id": 152, "name": "Chile",                "category": "want" },
   { "id": 504, "name": "Morocco",              "category": "want" },
-  { "id": 710, "name": "South Africa",         "category": "want" }
+  { "id": 710, "name": "South Africa",         "category": "want" },
+  { "id": 364, "name": "Iran",                 "category": "want" },
+  { "id": 258, "name": "French Polynesia",     "category": "want" }
 ]
