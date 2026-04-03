@@ -260,7 +260,7 @@
             </div>
             <div class="citation-spark-wrap">
                 <div class="citation-spark" id="citation-spark"></div>
-                <p class="citation-spark-caption">Citations per year &middot; Google Scholar &middot; <span id="spark-current-year"></span> in progress</p>
+                <p class="citation-spark-caption">Citations per year &middot; <a href="https://scholar.google.com/citations?user=eHej2g8AAAAJ&hl=en" target="_blank" style="color:inherit;">Google Scholar</a> &middot; <span id="spark-current-year"></span> in progress</p>
             </div>
         </section>
 
@@ -476,11 +476,13 @@
         loadAcademicData();
     </script>
     <script>
-        // Citation sparkline
+        // Citation lollipop chart
         (function() {
             const currentYear = new Date().getFullYear();
             const yearLabel = document.getElementById('spark-current-year');
             if (yearLabel) yearLabel.textContent = currentYear;
+
+            const CHART_H = 90;
 
             fetch('data/manual/citations-by-year.json?v=' + Date.now())
                 .then(r => r.json())
@@ -488,10 +490,18 @@
                     const max = Math.max(...data.map(d => d.citations));
                     const container = document.getElementById('citation-spark');
                     container.innerHTML = data.map((d, i) => {
-                        const pct = (d.citations / max * 100).toFixed(1);
+                        const h = Math.round((d.citations / max) * CHART_H);
+                        const circleBottom = h - 5;
                         const isCurrent = d.year === currentYear;
-                        return `<div class="spark-col">
-                            <div class="spark-bar${isCurrent ? ' current' : ''}" style="height:${pct}%;transition-delay:${i * 55}ms"></div>
+                        const isMax = d.citations === max;
+                        const circleClass = ['lollipop-circle', isCurrent ? 'current' : '', isMax ? 'max-circle' : ''].filter(Boolean).join(' ');
+                        const peakHtml = isMax ? `<span class="lollipop-peak" style="bottom:${h + 10}px">&#9652; peak</span>` : '';
+                        const stemDelay = i * 55;
+                        const circleDelay = i * 55 + 320;
+                        return `<div class="lollipop-col">
+                            ${peakHtml}
+                            <div class="${circleClass}" style="bottom:${circleBottom}px;transition-delay:${circleDelay}ms"></div>
+                            <div class="lollipop-stem" style="height:${h}px;transition-delay:${stemDelay}ms"></div>
                             <span class="spark-year${isCurrent ? ' current' : ''}">'${String(d.year).slice(2)}</span>
                         </div>`;
                     }).join('');
