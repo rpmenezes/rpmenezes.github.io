@@ -18,12 +18,18 @@
     { "name": "Social Network Analysis",
       "definition": "Social network analysis is a methodological framework for examining the structure and dynamics of social systems by modelling individuals or organisations as nodes and their relationships as edges. It employs graph-theoretical, statistical, and computational techniques to quantify patterns of connectivity, centrality, cohesion, and influence within relational data."
     },
-    { "name": "Self-Organisation" },
+    { "name": "Self-Organisation",
+      "definition": "Self-organisation refers to the spontaneous emergence of structured, coordinated behaviour in complex systems arising from local interactions among components, without external control or centralised coordination. It is typically characterised by nonlinearity, feedback mechanisms, and adaptive dynamics, leading to the formation of coherent patterns and macroscopic order across scales."
+    },
     { "name": "Swarm Intelligence",
       "definition": "Swarm intelligence refers to the collective behaviour of decentralised, self-organised systems composed of interacting agents, where global coordination and problem-solving capabilities emerge from local interactions without centralised control. It is characterised by adaptive, distributed dynamics and is often modelled using computational and agent-based approaches."
     },
-    { "name": "Biologically-Inspired Computing" },
-    { "name": "Science of Science"},
+    { "name": "Biologically-Inspired Computing",
+      "definition":"Biologically-inspired computing refers to a class of computational paradigms that draw on principles and mechanisms observed in biological systems such as evolution neural processing and collective behaviour to design algorithms and models. It is characterised by adaptive distributed and often stochastic dynamics and is commonly applied to optimisation learning and complex problem solving tasks."
+    },
+    { "name": "Science of Science",
+      "definition": "Science of science refers to the quantitative study of the structure dynamics and evolution of scientific systems using large scale data on publications citations collaborations and careers. It integrates statistical computational and network based methods to analyse patterns of knowledge production diffusion and impact as well as the mechanisms shaping scientific discovery and innovation."
+    },
     { "name": "Inequality Modelling",
       "definition": "Swarm intelligence refers to the collective behaviour of decentralised, self-organised systems composed of interacting agents, where global coordination and problem-solving capabilities emerge from local interactions without centralised control. It is characterised by adaptive, distributed dynamics and is often modelled using computational and agent-based approaches."
     }
