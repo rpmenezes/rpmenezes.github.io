@@ -96,6 +96,50 @@
             flex-shrink: 0;
         }
 
+        /* Projection switcher */
+        .proj-switcher {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            justify-content: center;
+            margin-top: 1.4rem;
+            padding-top: 1.2rem;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .proj-label {
+            width: 100%;
+            text-align: center;
+            font-size: 0.65rem;
+            color: #bbb;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.3rem;
+        }
+
+        .proj-btn {
+            padding: 0.28rem 0.85rem;
+            border: 1.5px solid #d0d0d0;
+            border-radius: 999px;
+            background: #fff;
+            font-size: 0.72rem;
+            color: #777;
+            cursor: pointer;
+            transition: border-color 0.18s ease, color 0.18s ease, background 0.18s ease;
+            font-family: inherit;
+        }
+
+        .proj-btn:hover {
+            border-color: #007D69;
+            color: #007D69;
+        }
+
+        .proj-btn.active {
+            background: #007D69;
+            border-color: #007D69;
+            color: #fff;
+        }
+
         #tooltip {
             position: fixed;
             background: #fff;
@@ -112,8 +156,8 @@
             white-space: nowrap;
         }
 
-        .tooltip-cat { color: #007D69; font-style: italic; }
-        .tooltip-unknown { color: #aaa; font-style: italic; }
+        .tooltip-cat     { color: #007D69; font-style: italic; }
+        .tooltip-unknown { color: #aaa;    font-style: italic; }
     </style>
 </head>
 <body>
@@ -149,14 +193,19 @@
                 <span>Not yet</span>
             </div>
         </div>
+
+        <div class="proj-switcher">
+            <div class="proj-label">Projection</div>
+        </div>
     </div>
 
     <div id="tooltip"></div>
 
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="https://unpkg.com/topojson-client@3/dist/topojson-client.min.js"></script>
+    <script src="https://unpkg.com/d3-geo-projection@4/dist/d3-geo-projection.min.js"></script>
     <script>
-    // Comprehensive ISO 3166-1 numeric → name lookup for all countries in the 110m dataset
+    // All country names (ISO 3166-1 numeric → display name)
     const ALL_NAMES = {
         4:'Afghanistan', 8:'Albania', 12:'Algeria', 24:'Angola', 32:'Argentina',
         36:'Australia', 40:'Austria', 50:'Bangladesh', 56:'Belgium', 64:'Bhutan',
@@ -195,16 +244,73 @@
         352:'Iceland', 44:'Bahamas'
     };
 
+    // Available projections (name → factory function)
+    const PROJECTIONS = {
+        'Natural Earth':  () => d3.geoNaturalEarth1(),
+        'Equal Earth':    () => d3.geoEqualEarth(),
+        'Robinson':       () => d3.geoRobinson(),
+        'Winkel Tripel':  () => d3.geoWinkel3(),
+        'Mollweide':      () => d3.geoMollweide(),
+        'Patterson':      () => d3.geoPatterson(),
+        'Mercator':       () => d3.geoMercator(),
+        'Orthographic':   () => d3.geoOrthographic(),
+    };
+
+    const DEFAULT_PROJ = 'Natural Earth';
+    const W = 960, H = 500;
+    const PAD = [[16, 16], [944, 484]];
+
+    function makePathFn(projName) {
+        const proj = PROJECTIONS[projName]().fitExtent(PAD, { type: 'Sphere' });
+        return d3.geoPath().projection(proj);
+    }
+
+    const svg = d3.select('#map-svg');
     const tip = document.getElementById('tooltip');
 
+    // Store refs for updates
+    let gratElem, borderElem;
+    let graticuleDatum, bordersDatum, countryFeatures;
+    let been, wantToGo;
+
+    function updatePaths(projName) {
+        const pathFn = makePathFn(projName);
+        gratElem.attr('d', pathFn(graticuleDatum));
+        svg.selectAll('.country').attr('d', pathFn);
+        borderElem.attr('d', pathFn(bordersDatum));
+    }
+
+    function switchTo(projName) {
+        document.querySelectorAll('.proj-btn').forEach(b =>
+            b.classList.toggle('active', b.dataset.proj === projName));
+
+        svg.transition().duration(220).attr('opacity', 0)
+            .end()
+            .then(() => {
+                updatePaths(projName);
+                svg.transition().duration(380).attr('opacity', 1);
+            });
+    }
+
+    // Build switcher buttons
+    const switcher = document.querySelector('.proj-switcher');
+    Object.keys(PROJECTIONS).forEach(name => {
+        const btn = document.createElement('button');
+        btn.className = 'proj-btn' + (name === DEFAULT_PROJ ? ' active' : '');
+        btn.dataset.proj = name;
+        btn.textContent = name;
+        btn.addEventListener('click', () => switchTo(name));
+        switcher.appendChild(btn);
+    });
+
+    // Load data
     Promise.all([
         d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json'),
         d3.json('countries.json?v=' + Date.now())
     ]).then(([world, userCountries]) => {
 
-        // Build lookup from countries.json
-        const been     = new Set();
-        const wantToGo = new Set();
+        been     = new Set();
+        wantToGo = new Set();
         userCountries.forEach(c => {
             if (c.category === 'been') been.add(c.id);
             if (c.category === 'want') wantToGo.add(c.id);
@@ -213,27 +319,27 @@
         document.getElementById('been-count').textContent = been.size;
         document.getElementById('want-count').textContent = wantToGo.size;
 
-        const WIDTH = 960, HEIGHT = 500;
-        const projection = d3.geoNaturalEarth1().scale(155).translate([WIDTH / 2, HEIGHT / 2]);
-        const path = d3.geoPath().projection(projection);
-        const svg  = d3.select('#map-svg');
+        countryFeatures = topojson.feature(world, world.objects.countries);
+        bordersDatum    = topojson.mesh(world, world.objects.countries, (a, b) => a !== b);
+        graticuleDatum  = d3.geoGraticule()();
 
-        const countries = topojson.feature(world, world.objects.countries);
+        const initPath = makePathFn(DEFAULT_PROJ);
 
         // Graticule
-        svg.append('path')
-            .datum(d3.geoGraticule()())
-            .attr('d', path)
+        gratElem = svg.append('path')
+            .datum(graticuleDatum)
+            .attr('class', 'graticule')
+            .attr('d', initPath)
             .attr('fill', 'none')
             .attr('stroke', '#f0f0f0')
             .attr('stroke-width', 0.4);
 
-        // Country fills
-        const paths = svg.selectAll('.country')
-            .data(countries.features)
+        // Countries
+        svg.selectAll('.country')
+            .data(countryFeatures.features)
             .join('path')
             .attr('class', 'country')
-            .attr('d', path)
+            .attr('d', initPath)
             .attr('fill', d => {
                 const id = +d.id;
                 if (been.has(id))     return '#007D69';
@@ -260,25 +366,26 @@
             })
             .on('mouseleave', () => { tip.style.opacity = 0; });
 
-        // Staggered animation: unvisited → want → been
-        const order = d => {
-            const id = +d.id;
-            if (been.has(id))     return 2;
-            if (wantToGo.has(id)) return 1;
-            return 0;
-        };
-        paths.transition()
+        // Staggered entrance: grey → teal → green
+        svg.selectAll('.country')
+            .transition()
             .duration(700)
-            .delay(d => order(d) * 320 + Math.random() * 180)
+            .delay(d => {
+                const id = +d.id;
+                if (been.has(id))     return 2 * 320 + Math.random() * 180;
+                if (wantToGo.has(id)) return 1 * 320 + Math.random() * 180;
+                return Math.random() * 180;
+            })
             .attr('opacity', 1);
 
-        // Border mesh on top
-        svg.append('path')
-            .datum(topojson.mesh(world, world.objects.countries, (a, b) => a !== b))
+        // Border mesh
+        borderElem = svg.append('path')
+            .datum(bordersDatum)
+            .attr('class', 'borders')
             .attr('fill', 'none')
             .attr('stroke', '#fff')
             .attr('stroke-width', 0.4)
-            .attr('d', path);
+            .attr('d', initPath);
     });
     </script>
 </body>
