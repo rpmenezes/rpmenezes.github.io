@@ -258,6 +258,10 @@
                 <div class="stat-item"><span class="stat-value">—</span><span class="stat-label">Citations</span></div>
                 <div class="stat-item"><span class="stat-value">—</span><span class="stat-label">Highly Influential Citations</span></div>
             </div>
+            <div class="citation-spark-wrap">
+                <div class="citation-spark" id="citation-spark"></div>
+                <p class="citation-spark-caption">Citations per year &middot; Google Scholar &middot; <span id="spark-current-year"></span> in progress</p>
+            </div>
         </section>
 
         <section id="research-interests" class="content-section">
@@ -470,6 +474,38 @@
         }
 
         loadAcademicData();
+    </script>
+    <script>
+        // Citation sparkline
+        (function() {
+            const currentYear = new Date().getFullYear();
+            const yearLabel = document.getElementById('spark-current-year');
+            if (yearLabel) yearLabel.textContent = currentYear;
+
+            fetch('data/manual/citations-by-year.json?v=' + Date.now())
+                .then(r => r.json())
+                .then(data => {
+                    const max = Math.max(...data.map(d => d.citations));
+                    const container = document.getElementById('citation-spark');
+                    container.innerHTML = data.map((d, i) => {
+                        const pct = (d.citations / max * 100).toFixed(1);
+                        const isCurrent = d.year === currentYear;
+                        return `<div class="spark-col">
+                            <div class="spark-bar${isCurrent ? ' current' : ''}" style="height:${pct}%;transition-delay:${i * 55}ms"></div>
+                            <span class="spark-year${isCurrent ? ' current' : ''}">'${String(d.year).slice(2)}</span>
+                        </div>`;
+                    }).join('');
+
+                    const obs = new IntersectionObserver(entries => {
+                        if (entries[0].isIntersecting) {
+                            container.classList.add('visible');
+                            obs.disconnect();
+                        }
+                    }, { threshold: 0.3 });
+                    obs.observe(container);
+                })
+                .catch(() => {});
+        })();
     </script>
     <script>
         // Load research interests from JSON

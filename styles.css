@@ -703,6 +703,63 @@ body {
     }
 }
 
+/* Citation sparkline */
+.citation-spark-wrap {
+    margin-top: 1.5rem;
+}
+
+.citation-spark {
+    display: flex;
+    align-items: flex-end;
+    gap: 6px;
+    height: 80px;
+}
+
+.spark-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    height: 100%;
+}
+
+.spark-bar {
+    width: 100%;
+    background: #007D69;
+    border-radius: 2px 2px 0 0;
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 0.5s ease;
+}
+
+.spark-bar.current {
+    background: #a8d5cc;
+}
+
+.citation-spark.visible .spark-bar {
+    transform: scaleY(1);
+}
+
+.spark-year {
+    font-size: 0.62rem;
+    color: #aaa;
+    margin-top: 5px;
+    white-space: nowrap;
+}
+
+.spark-year.current {
+    color: #007D69;
+}
+
+.citation-spark-caption {
+    font-size: 0.72rem;
+    color: #aaa;
+    text-align: center;
+    margin-top: 0.75rem;
+    letter-spacing: 0.03em;
+}
+
 /* Publications */
 
 .publications-loading {
