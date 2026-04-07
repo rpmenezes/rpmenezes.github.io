@@ -1,5 +1,5 @@
 {
-  "updated": "2026-04-06T07:13:26.495790+00:00",
+  "updated": "2026-04-07T07:02:25.122001+00:00",
   "stats": {
     "paperCount": 237,
     "hIndex": 21,
@@ -315,7 +315,7 @@
       "venue": "Nature Human Behaviour",
       "doiValue": "10.1038/s41562-023-01660-3",
       "doiUrl": "https://doi.org/10.1038/s41562-023-01660-3",
-      "citationCount": 51
+      "citationCount": 52
     },
     {
       "year": "2023",
@@ -400,7 +400,7 @@
       "venue": "PLOS ONE",
       "doiValue": "10.1371/journal.pone.0260874",
       "doiUrl": "https://doi.org/10.1371/journal.pone.0260874",
-      "citationCount": 32
+      "citationCount": 33
     },
     {
       "year": "2022",
