@@ -54,19 +54,66 @@
             margin-top: 5px;
         }
 
-        /* Map */
+        /* Map link card */
         .trip-map-wrap {
             border: 1px solid #e8e8e8;
             margin: 0 0 1.5rem;
             overflow: hidden;
         }
 
-        .trip-map-wrap iframe {
-            display: block;
-            width: 100%;
-            height: 450px;
-            border: 0;
+        .trip-map-card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            padding: 2rem 2rem;
+            background: #f9f8f7;
+            flex-wrap: wrap;
         }
+
+        .trip-map-card-info {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .trip-map-card-label {
+            font-size: 0.68rem;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            color: #aaa;
+            margin-bottom: 0.5rem;
+        }
+
+        .trip-map-card-route {
+            font-size: 1rem;
+            font-weight: 300;
+            color: #003C3C;
+            line-height: 1.5;
+        }
+
+        .trip-map-card-stops {
+            font-size: 0.75rem;
+            color: #aaa;
+            font-family: monospace;
+            margin-top: 0.4rem;
+            line-height: 1.6;
+        }
+
+        .trip-map-btn {
+            display: inline-block;
+            background: #007D69;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 400;
+            padding: 0.7rem 1.5rem;
+            letter-spacing: 0.03em;
+            white-space: nowrap;
+            transition: background 0.2s;
+            flex-shrink: 0;
+        }
+
+        .trip-map-btn:hover { background: #005a4a; color: #fff; }
 
         .trip-route-stops {
             font-size: 0.78rem;
@@ -331,15 +378,20 @@
             </div>
 
             <div class="trip-map-wrap">
-                <iframe
-                    src="https://www.google.com/maps/dir/San+Francisco,+CA/South+Lake+Tahoe,+CA/Salt+Lake+City,+UT/Jackson,+WY/Yellowstone+National+Park/Rapid+City,+SD/Sioux+Falls,+SD/Chicago,+IL/Rochester,+NY/Charlton,+MA/Boston,+MA/?output=embed"
-                    loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"
-                    title="Rota do Road Trip San Francisco → Boston">
-                </iframe>
+                <div class="trip-map-card">
+                    <div class="trip-map-card-info">
+                        <div class="trip-map-card-label">Rota completa · ~4.480 km</div>
+                        <div class="trip-map-card-route">San Francisco → Boston</div>
+                        <div class="trip-map-card-stops">CA · NV · UT · WY · SD · WI · IL · OH · NY · MA<br>Lake Tahoe · Salt Lake City · Jackson · Yellowstone · Rapid City · Sioux Falls · Chicago · Rochester · Treehouse Brewing</div>
+                    </div>
+                    <a class="trip-map-btn"
+                       href="https://www.google.com/maps/dir/San+Francisco,+CA/South+Lake+Tahoe,+CA/Salt+Lake+City,+UT/Jackson,+WY/Yellowstone+National+Park/Rapid+City,+SD/Sioux+Falls,+SD/Chicago,+IL/Rochester,+NY/Charlton,+MA/Boston,+MA"
+                       target="_blank" rel="noopener">
+                        Abrir rota no Google Maps ↗
+                    </a>
+                </div>
             </div>
 
-            <p class="trip-route-stops">CA · NV · UT · WY · SD · IL · OH · NY · MA &nbsp;·&nbsp; San Francisco · Lake Tahoe · Salt Lake City · Jackson · Yellowstone · Rapid City · Sioux Falls · Chicago · Rochester · Treehouse Brewing · Boston</p>
         </section>
 
         <!-- ── ITINERÁRIO DIA A DIA ─────────────────────────────────── -->
