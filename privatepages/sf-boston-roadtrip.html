@@ -1,0 +1,1210 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<link rel="stylesheet" href="../styles.css">
+<title>San Francisco → Boston | Road Trip | Maio 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=IBM+Plex+Sans:wght@300;400;500&family=IBM+Plex+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+
+/* ── PALETA SEGURA PARA DALTONISMO (Paul Tol – Muted) ─────────────────
+   Fundo:   #F7F5F2  (off-white quente)
+   Texto:   #1A1A1A  (quase preto)
+   Muted:   #6B6560  (cinza arenoso)
+   Primário:#0077BB  (azul – principal)
+   Acento:  #EE7733  (laranja)
+   Sucesso: #009988  (verde-azulado)
+   Info:    #BBBBBB  (cinza claro)
+   ──────────────────────────────────────────────────────────────────── */
+
+:root {
+  --bg:        #F7F5F2;
+  --surface:   #FFFFFF;
+  --border:    #E0DDD9;
+  --text:      #1A1A1A;
+  --muted:     #6B6560;
+  --blue:      #0077BB;
+  --orange:    #EE7733;
+  --teal:      #009988;
+  --gray:      #BBBBBB;
+  --serif:     'Source Serif 4', Georgia, serif;
+  --sans:      'IBM Plex Sans', sans-serif;
+  --mono:      'IBM Plex Mono', monospace;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* ── TIPOGRAFIA ─────────────────────────────────────────────────────── */
+
+h1, h2, h3 {
+  font-family: var(--serif);
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+/* ── CABEÇALHO ──────────────────────────────────────────────────────── */
+
+.trip-header {
+  background: var(--blue);
+  color: #fff;
+  padding: 64px 40px 48px;
+}
+
+.header-inner {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.route-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 16px;
+}
+
+.trip-header h1 {
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  font-weight: 300;
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+.trip-header h1 em {
+  font-style: italic;
+  color: rgba(255,255,255,0.75);
+}
+
+.header-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-top: 28px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,0.2);
+}
+
+.header-meta span {
+  font-size: 13px;
+  color: rgba(255,255,255,0.7);
+}
+
+.header-meta strong {
+  color: #fff;
+  font-weight: 500;
+}
+
+/* ── BARRA DE RESUMO ────────────────────────────────────────────────── */
+
+.summary-bar {
+  background: var(--orange);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  text-align: center;
+}
+
+.summary-item {
+  padding: 20px 12px;
+  border-right: 1px solid rgba(255,255,255,0.2);
+  color: #fff;
+}
+
+.summary-item:last-child { border-right: none; }
+
+.summary-num {
+  font-family: var(--serif);
+  font-size: 1.9rem;
+  line-height: 1;
+  display: block;
+}
+
+.summary-label {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.8;
+  margin-top: 4px;
+  display: block;
+}
+
+/* ── LINK DO MAPA ───────────────────────────────────────────────────── */
+
+.map-bar {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 28px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.map-route {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+}
+
+.map-btn {
+  display: inline-block;
+  background: var(--text);
+  color: #fff;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 400;
+  font-family: var(--sans);
+  padding: 10px 20px;
+  letter-spacing: 0.04em;
+  transition: background 0.2s;
+}
+
+.map-btn:hover { background: var(--blue); }
+
+/* ── DIAS ───────────────────────────────────────────────────────────── */
+
+.days-wrap {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 56px 40px;
+}
+
+.section-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 40px;
+}
+
+.day {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 0 32px;
+  margin-bottom: 56px;
+}
+
+.day-num-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 4px;
+}
+
+.day-badge {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--blue);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.day-badge.alt { background: var(--teal); }
+.day-badge.warn { background: var(--orange); }
+
+.day-badge-label {
+  font-size: 8px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.8;
+  line-height: 1;
+}
+
+.day-badge-n {
+  font-family: var(--serif);
+  font-size: 1.2rem;
+  line-height: 1.1;
+}
+
+.day-connector {
+  flex: 1;
+  width: 1px;
+  background: var(--border);
+  margin-top: 8px;
+}
+
+.day-content {
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 48px;
+}
+
+.day:last-child .day-content { border-bottom: none; }
+
+.day-date {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-bottom: 6px;
+}
+
+.day-title {
+  font-family: var(--serif);
+  font-size: 1.45rem;
+  margin-bottom: 4px;
+}
+
+.day-sub {
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 20px;
+  font-family: var(--mono);
+}
+
+.day-warning {
+  background: #FFF4E6;
+  border-left: 3px solid var(--orange);
+  padding: 10px 14px;
+  font-size: 13px;
+  color: #7A3B00;
+  margin-bottom: 20px;
+  border-radius: 0 4px 4px 0;
+}
+
+/* ── BLOCOS DE HORÁRIO ──────────────────────────────────────────────── */
+
+.time-block {
+  margin-bottom: 20px;
+}
+
+.time-block-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+.time-value {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text);
+}
+
+/* ── LISTAS ─────────────────────────────────────────────────────────── */
+
+.list-block {
+  margin-bottom: 24px;
+}
+
+.list-block-title {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 10px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--border);
+}
+
+.list-block ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.list-block ul li {
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+  font-size: 13.5px;
+  line-height: 1.5;
+}
+
+.list-block ul li::before {
+  content: '—';
+  color: var(--gray);
+  flex-shrink: 0;
+  font-size: 11px;
+}
+
+.list-block ul li strong {
+  font-weight: 500;
+  color: var(--text);
+}
+
+.list-block ul li span {
+  color: var(--muted);
+}
+
+/* Tags para tipo de lista */
+.list-block.restaurants .list-block-title { color: var(--orange); border-color: rgba(238,119,51,0.25); }
+.list-block.hotels .list-block-title      { color: var(--blue);   border-color: rgba(0,119,187,0.25); }
+.list-block.beer .list-block-title        { color: var(--teal);   border-color: rgba(0,153,136,0.25); }
+
+/* ── TABELA DE RESUMO ───────────────────────────────────────────────── */
+
+.summary-section {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  padding: 56px 40px;
+}
+
+.summary-inner {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.summary-section .section-label {
+  margin-bottom: 24px;
+}
+
+.summary-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.summary-table th {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-align: left;
+  padding: 8px 12px;
+  border-bottom: 2px solid var(--border);
+  font-weight: 400;
+}
+
+.summary-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+}
+
+.summary-table tr:last-child td { border-bottom: none; }
+
+.summary-table tr:hover td { background: var(--bg); }
+
+.day-num-cell {
+  font-family: var(--mono);
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.trecho-cell { font-weight: 400; }
+
+.km-cell {
+  font-family: var(--mono);
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.time-cell {
+  font-family: var(--mono);
+  white-space: nowrap;
+}
+
+.nota-cell {
+  color: var(--orange);
+  font-size: 12px;
+  font-family: var(--mono);
+}
+
+/* ── RODAPÉ ─────────────────────────────────────────────────────────── */
+
+footer {
+  background: var(--text);
+  color: rgba(255,255,255,0.5);
+  text-align: center;
+  padding: 20px;
+  font-size: 11px;
+  font-family: var(--mono);
+  letter-spacing: 0.07em;
+}
+
+footer strong { color: rgba(255,255,255,0.8); }
+
+/* ── RESPONSIVO ─────────────────────────────────────────────────────── */
+
+@media (max-width: 620px) {
+  .summary-bar { grid-template-columns: repeat(2, 1fr); }
+  .day { grid-template-columns: 56px 1fr; gap: 0 16px; }
+  .trip-header, .days-wrap, .summary-section { padding-left: 20px; padding-right: 20px; }
+  .map-bar { padding: 20px; }
+  .header-meta { gap: 14px; }
+}
+
+</style>
+</head>
+<body>
+    <!-- Site navigation: Home only -->
+    <header class="site-header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <h1><a href="../index.html" style="text-decoration:none;color:inherit;">Ronaldo Menezes</a></h1>
+                    <p class="nav-subtitle">Professor of Data and Network Science</p>
+                </div>
+                <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+                <ul class="nav-menu">
+                    <li><a href="../index.html" class="nav-link">Home</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <script>
+        const toggle = document.querySelector('.nav-toggle');
+        const menu   = document.querySelector('.nav-menu');
+        toggle.addEventListener('click', () => {
+            const open = menu.classList.toggle('nav-open');
+            toggle.setAttribute('aria-expanded', open);
+        });
+    </script>
+
+
+<!-- CABEÇALHO -->
+<header class="trip-header">
+  <div class="header-inner">
+    <div class="route-label">Road Trip · Maio 2026</div>
+    <h1>San Francisco<br><em>→ Boston</em></h1>
+    <div class="header-meta">
+      <span>23 a 31 de Maio de 2026</span>
+      <span><strong>9 dias</strong> · 6 estados</span>
+      <span><strong>~4.480 km</strong> no total</span>
+      <span>CA · NV · UT · WY · SD · IL · NY · MA</span>
+    </div>
+  </div>
+</header>
+
+<!-- BARRA DE NÚMEROS -->
+<div class="summary-bar">
+  <div class="summary-item"><span class="summary-num">9</span><span class="summary-label">Dias</span></div>
+  <div class="summary-item"><span class="summary-num">8</span><span class="summary-label">Estados</span></div>
+  <div class="summary-item"><span class="summary-num">2</span><span class="summary-label">Parques Nacionais</span></div>
+  <div class="summary-item"><span class="summary-num">~4.480</span><span class="summary-label">Quilômetros</span></div>
+</div>
+
+<!-- LINK DO MAPA -->
+<div class="map-bar">
+  <div class="map-route">San Francisco · Lake Tahoe · Salt Lake City · Jackson · Yellowstone · Rapid City · Sioux Falls · Chicago · Rochester · Treehouse Brewing · Boston</div>
+  <a class="map-btn" href="https://www.google.com/maps/dir/San+Francisco,+CA/South+Lake+Tahoe,+CA/Salt+Lake+City,+UT/Jackson,+WY/Yellowstone+National+Park/Rapid+City,+SD/Sioux+Falls,+SD/Chicago,+IL/Rochester,+NY/Charlton,+MA/Boston,+MA" target="_blank" rel="noopener">Abrir rota no Google Maps</a>
+</div>
+
+<!-- DIAS -->
+<div class="days-wrap">
+  <div class="section-label">Itinerário dia a dia</div>
+
+  <!-- DIA 1 -->
+  <div class="day">
+    <div class="day-num-col">
+      <div class="day-badge"><span class="day-badge-label">Dia</span><span class="day-badge-n">1</span></div>
+      <div class="day-connector"></div>
+    </div>
+    <div class="day-content">
+      <div class="day-date">Sábado, 23 de maio</div>
+      <div class="day-title">San Francisco → Lake Tahoe, CA</div>
+      <div class="day-sub">~300 km · US-50 Leste · ~3h de viagem</div>
+
+      <div class="time-block">
+        <div class="time-block-label">Horário de Saída</div>
+        <div class="time-value">9h00 de San Francisco</div>
+      </div>
+
+      <div class="time-block">
+        <div class="time-block-label">Horário do Almoço</div>
+        <div class="time-value">11h00 – 12h00 em Placerville, CA (~1,5h de SF)</div>
+      </div>
+
+      <div class="list-block restaurants">
+        <div class="list-block-title">Restaurantes para Almoço — Placerville, CA</div>
+        <ul>
+          <li><strong>Sequoia Restaurant</strong> <span>— americana clássica com ingredientes locais, muito bem avaliado na região</span></li>
+          <li><strong>Cosmic Cafe</strong> <span>— ambiente descontraído, sandwiches e sopas, rápido e acessível</span></li>
+          <li><strong>Farm Table Restaurant</strong> <span>— farm-to-table simples, bom para uma parada rápida na rota</span></li>
+        </ul>
+      </div>
+
+      <div class="time-block">
+        <div class="time-block-label">Horário de Chegada</div>
+        <div class="time-value">13h30 em South Lake Tahoe, CA</div>
+      </div>
+
+      <div class="list-block restaurants">
+        <div class="list-block-title">Restaurantes para Jantar — South Lake Tahoe</div>
+        <ul>
+          <li><strong>The Edge at Edgewood</strong> <span>— jantar à beira do lago com vista para as águas de Tahoe, elegância relaxada</span></li>
+          <li><strong>Landing Lakeside Dining</strong> <span>— ingredientes de origem local, lista de vinhos premiada, pátio com fogueiras</span></li>
+          <li><strong>Maggie's</strong> <span>— um dos mais bem avaliados de South Lake Tahoe, menu sazonal, ambiente charmoso</span></li>
+          <li><strong>Artemis Lakefront Café</strong> <span>— culinária mediterrânea criativa com vista para o lago, música ao vivo e pátio</span></li>
+        </ul>
+      </div>
+
+      <div class="list-block hotels">
+        <div class="list-block-title">Hotéis Sugeridos</div>
+        <ul>
+          <li><strong>Basecamp South Lake Tahoe</strong> <span>— boutique com cervejaria própria no local, ambiente jovem (~$120–160/noite)</span></li>
+          <li><strong>Blackjack Inn</strong> <span>— em frente ao Heavenly Village, quartos simples e limpos (~$100–130/noite)</span></li>
+          <li><strong>Alder Inn</strong> <span>— tranquilo com piscina e jacuzzi, minifrigorífico no quarto (~$90–120/noite)</span></li>
+          <li><strong>Quality Inn South Lake Tahoe</strong> <span>— totalmente renovado, café da manhã quente incluído (~$85–110/noite)</span></li>
+        </ul>
+      </div>
+
+      <div class="list-block beer">
+        <div class="list-block-title">Cervejarias e Bares com Craft Beer</div>
+        <ul>
+          <li><strong>South Lake Brewing Co.</strong> <span>— a melhor cervejaria artesanal do lago, beer garden ao ar livre, cervejas criativas</span></li>
+          <li><strong>Cold Water Brewery & Grill</strong> <span>— única cervejaria all-grain do lago, 14 torneiras, menu completo de comida</span></li>
+          <li><strong>South of North Brewing Co.</strong> <span>— dentro do Basecamp Hotel, fogueiras ao ar livre, música ao vivo noturna</span></li>
+          <li><strong>Sidellis Brewery</strong> <span>— especializada em barrel-aged beers e sour ales, ambiente de cabana rústica</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- DIA 2 -->
+  <div class="day">
+    <div class="day-num-col">
+      <div class="day-badge"><span class="day-badge-label">Dia</span><span class="day-badge-n">2</span></div>
+      <div class="day-connector"></div>
+    </div>
+    <div class="day-content">
+      <div class="day-date">Domingo, 24 de maio</div>
+      <div class="day-title">Lake Tahoe → Salt Lake City, UT</div>
+      <div class="day-sub">~850 km · I-80 Leste · ~8h de viagem</div>
+
+      <div class="time-block">
+        <div class="time-block-label">Horário de Saída</div>
+        <div class="time-value">9h00 de South Lake Tahoe</div>
+      </div>
+
+      <div class="time-block">
+        <div class="time-block-label">Horário do Almoço</div>
+        <div class="time-value">12h30 – 13h30 em Elko, NV (~3,5h de Tahoe)</div>
+      </div>
+
+      <div class="list-block restaurants">
+        <div class="list-block-title">Restaurantes para Almoço — Elko, NV</div>
+        <ul>
+          <li><strong>The Star Hotel</strong> <span>— culinária Basca histórica, melhor jantar e almoço de Elko em 2025, experimente o Picon Punch</span></li>
+          <li><strong>McAdoo's</strong> <span>— bifes e grelhados, no topo das avaliações locais</span></li>
+          <li><strong>Toki Ona</strong> <span>— outra opção Basca autêntica, menos conhecida que o Star mas igualmente boa</span></li>
+        </ul>
+      </div>
+
+      <div class="time-block">
+        <div class="time-block-label">Horário de Chegada</div>
+        <div class="time-value">18h00 em Salt Lake City, UT</div>
+      </div>
+
+      <div class="list-block restaurants">
+        <div class="list-block-title">Restaurantes para Jantar — Salt Lake City</div>
+        <ul>
+          <li><strong>Urban Hill</strong> <span>— semifinalista James Beard Award 2025, wood-fired grill e oyster bar no Post District</span></li>
+          <li><strong>Pago</strong> <span>— culinária sazonal do Intermountain West com ingredientes 100% locais, referência de SLC</span></li>
+          <li><strong>Red Iguana</strong> <span>— mexicano lendário de Salt Lake City, famoso pelas moles</span></li>
+          <li><strong>Feldman's Deli</strong> <span>— delicatessen estilo Nova York com sanduíches colossais, ambiente informal</span></li>
+        </ul>
+      </div>
+
+      <div class="list-block hotels">
+        <div class="list-block-title">Hotéis Sugeridos</div>
+        <ul>
+          <li><strong>Kimpton Hotel Monaco</strong> <span>— boutique no centro histórico, muito bem avaliado (~$130–170/noite)</span></li>
+          <li><strong>Hampton Inn Salt Lake City Downtown</strong> <span>— café da manhã incluído, excelente localização (~$100–130/noite)</span></li>
+          <li><strong>AC Hotel Salt Lake City Downtown</strong> <span>— moderno e acessível, perto de tudo (~$110–140/noite)</span></li>
+          <li><strong>Hilton Salt Lake City Center</strong> <span>— confiável e bem localizado (~$120–160/noite)</span></li>
+        </ul>
+      </div>
+
+      <div class="list-block beer">
+        <div class="list-block-title">Cervejarias e Bares com Craft Beer</div>
+        <ul>
+          <li><strong>T.F. Brewing (Templin Family)</strong> <span>— unanimemente eleita a favorita dos locais, cervejas alemãs de alta qualidade</span></li>
+          <li><strong>Fisher Brewing Company</strong> <span>— fundada em 1884, reaberta em 2017, clássico de SLC com food trucks rotativas no pátio</span></li>
+          <li><strong>Epic Brewing Company</strong> <span>— primeira cervejaria de Utah a servir cervejas de alto ABV, famosa pela série Bad Baptist</span></li>
+          <li><strong>Bewilder Brewing</strong> <span>— favorita do centro, salsichas artesanais, menu completo de comida e coquetéis</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- DIA 3 -->
+  <div class="day">
+    <div class="day-num-col">
+      <div class="day-badge"><span class="day-badge-label">Dia</span><span class="day-badge-n">3</span></div>
+      <div class="day-connector"></div>
+    </div>
+    <div class="day-content">
+      <div class="day-date">Segunda, 25 de maio — Memorial Day</div>
+      <div class="day-title">Salt Lake City → Jackson, WY</div>
+      <div class="day-sub">~470 km · I-15 Norte → US-89 Norte · ~5h de viagem</div>
+
+      <div class="time-block">
+        <div class="time-block-label">Horário de Saída</div>
+        <div class="time-value">9h00 de Salt Lake City</div>
+      </div>
+
+      <div class="time-block">
+        <div class="time-block-label">Horário do Almoço</div>
+        <div class="time-value">12h00 – 13h00 em Logan, UT (~2,5h de SLC)</div>
+      </div>
+
+      <div class="list-block restaurants">
+        <div class="list-block-title">Restaurantes para Almoço — Logan, UT</div>
+        <ul>
+          <li><strong>Angie's Restaurant</strong> <span>— diner clássico americano, favorito local há décadas, rápido e farto</span></li>
+          <li><strong>Crumb Brothers Artisan Bread</strong> <span>— padaria artesanal com sanduíches e sopas, muito bem avaliada</span></li>
+          <li><strong>Elements Restaurant</strong> <span>— para algo um pouco mais elaborado no caminho, ambiente tranquilo</span></li>
+        </ul>
+      </div>
+
+      <div class="time-block">
+        <div class="time-block-label">Horário de Chegada</div>
+        <div class="time-value">15h30 em Jackson, WY</div>
+      </div>
+
+      <div class="list-block restaurants">
+        <div class="list-block-title">Restaurantes para Jantar — Jackson</div>
+        <ul>
+          <li><strong>Local</strong> <span>— steakhouse moderno na Town Square com bisão e carnes de origem local</span></li>
+          <li><strong>Snake River Grill</strong> <span>— fine dining com trutas do Idaho e caça local, ambiente sofisticado</span></li>
+          <li><strong>Glorietta Trattoria</strong> <span>— italiana com ingredientes locais, boa para quem busca algo mais leve</span></li>
+          <li><strong>The Kitchen</strong> <span>— culinária asiática com opções para compartilhar, ambiente animado</span></li>
+        </ul>
+      </div>
+
+      <div class="list-block hotels">
+        <div class="list-block-title">Hotéis Sugeridos</div>
+        <ul>
+          <li><strong>Antler Inn</strong> <span>— a poucos passos da Town Square, uma das opções mais acessíveis (~$120–160/noite)</span></li>
+          <li><strong>49er Inn & Suites</strong> <span>— renovado recentemente, café da manhã continental incluído (~$130–170/noite)</span></li>
+          <li><strong>Flat Creek Inn</strong> <span>— bicicletas gratuitas para uso, cozinha no quarto (~$125–155/noite)</span></li>
+        </ul>
+      </div>
+
+      <div class="list-block beer">
+        <div class="list-block-title">Cervejarias e Bares com Craft Beer</div>
+        <ul>
+          <li><strong>Snake River Brewing</strong> <span>— a mais antiga do Wyoming, eleita melhor cervejaria de Jackson Hole em 2025, serve jantar completo</span></li>
+          <li><strong>Roadhouse Pub & Eatery</strong> <span>— mais de 20 cervejas artesanais no tap, em frente aos arcos de chifres da Town Square</span></li>
+          <li><strong>StillWest Brewery & Grill</strong> <span>— 10 cervejas próprias, pátio com vista para a Snow King Mountain</span></li>
+          <li><strong>Million Dollar Cowboy Bar</strong> <span>— honky-tonk icônico desde 1937, música ao vivo, bancos de sela no bar</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- DIA 4 -->
+  <div class="day">
+    <div class="day-num-col">
+      <div class="day-badge alt"><span class="day-badge-label">Dia</span><span class="day-badge-n">4</span></div>
+      <div class="day-connector"></div>
+    </div>
+    <div class="day-content">
+      <div class="day-date">Terça, 26 de maio — Dia completo no parque</div>
+      <div class="day-title">Yellowstone National Park</div>
+      <div class="day-sub">Saída do hotel às 8h00 · South Entrance às 8h45 · Terça comum, sem feriado</div>
+
+      <div class="list-block restaurants">
+        <div class="list-block-title">Restaurantes para Almoço — Yellowstone</div>
+        <ul>
+          <li><strong>Old Faithful Inn Dining Room</strong> <span>— o mais icônico, reserva antecipada obrigatória pelo site do NPS</span></li>
+          <li><strong>Geyser Grill</strong> <span>— opção casual na área do Old Faithful, sem reserva necessária</span></li>
+          <li><strong>Canyon Lodge Eatery</strong> <span>— bom ponto de parada se o roteiro incluir o Grand Canyon do Yellowstone</span></li>
+        </ul>
+      </div>
+
+      <div class="list-block restaurants">
+        <div class="list-block-title">Restaurantes para Jantar — Yellowstone</div>
+        <ul>
+          <li><strong>Old Faithful Inn Dining Room</strong> <span>— reserva antecipada necessária, experiência histórica única</span></li>
+          <li><strong>Lake Yellowstone Hotel Dining Room</strong> <span>— mais tranquilo, com vista para o lago, reserva necessária</span></li>
+          <li><strong>Roosevelt Lodge Dining Room</strong> <span>— estilo rústico, churrasco e pratos simples em ambiente histórico</span></li>
+        </ul>
+      </div>
+
+      <div class="list-block hotels">
+        <div class="list-block-title">Hotéis Sugeridos</div>
+        <ul>
+          <li><strong>Old Faithful Inn</strong> <span>— o hotel mais icônico do parque, reservar com meses de antecedência</span></li>
+          <li><strong>Lake Yellowstone Hotel</strong> <span>— mais calmo, vista para o lago, dentro do parque</span></li>
+          <li><strong>Hampton Inn West Yellowstone</strong> <span>— fora do parque, a 10 minutos do West Entrance (~$100–150/noite)</span></li>
+          <li><strong>Holiday Inn Express West Yellowstone</strong> <span>— confortável e econômico (~$100–140/noite)</span></li>
+        </ul>
+      </div>
+
+      <div class="list-block beer">
+        <div class="list-block-title">Cervejarias e Bares com Craft Beer</div>
+        <ul>
+          <li><strong>Yellowstone Wild</strong> <span>— West Yellowstone, MT · cervejas locais artesanais, ambiente casual fora do parque</span></li>
+          <li><strong>Madison Crossing Lounge</strong> <span>— West Yellowstone, MT · boa seleção de cervejas artesanais regionais</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- DIA 5 -->
+  <div class="day">
+    <div class="day-num-col">
+      <div class="day-badge"><span class="day-badge-label">Dia</span><span class="day-badge-n">5</span></div>
+      <div class="day-connector"></div>
+    </div>
+    <div class="day-content">
+      <div class="day-date">Quarta, 27 de maio</div>
+      <div class="day-title">Yellowstone → Rapid City, SD</div>
+      <div class="day-sub">~730 km · US-14/16 → Cody → I-90 Leste · ~8,5h de viagem</div>
+
+      <div class="time-block">
+        <div class="time-block-label">Horário de Saída</div>
+        <div class="time-value">9h00 da área do Yellowstone</div>
+      </div>
+
+      <div class="time-block">
+        <div class="time-block-label">Horário do Almoço</div>
+        <div class="time-value">10h30 – 11h30 em Cody, WY (~1,5h da saída leste do parque)</div>
+      </div>
+
+      <div class="list-block restaurants">
+        <div class="list-block-title">Restaurantes para Almoço — Cody, WY</div>
+        <ul>
+          <li><strong>Irma Hotel Restaurant</strong> <span>— fundado pelo Buffalo Bill em 1902, ambiente histórico único</span></li>
+          <li><strong>Zapata's</strong> <span>— mexicano bem avaliado localmente, rápido e satisfatório</span></li>
+          <li><strong>Beta Coffeehouse</strong> <span>— café e refeições leves, bom para quem quer algo mais rápido</span></li>
+        </ul>
+      </div>
+
+      <div class="time-block">
+        <div class="time-block-label">Horário de Chegada</div>
+        <div class="time-value">17h30 em Rapid City, SD</div>
+      </div>
+
+      <div class="list-block restaurants">
+        <div class="list-block-title">Restaurantes para Jantar — Rapid City</div>
+        <ul>
+          <li><strong>Firehouse Brewing Co.</strong> <span>— dentro de uma estação de bombeiros histórica de 1915, comida americana, ambiente animado</span></li>
+          <li><strong>Botanic</strong> <span>— farm-to-table bem avaliado no centro histórico, ingredientes locais</span></li>
+          <li><strong>Tally's Silver Spoon</strong> <span>— clássico do centro, refeições americanas bem executadas</span></li>
+          <li><strong>Murphy's Pub & Grill</strong> <span>— descomplicado e bem localizado no centro</span></li>
+        </ul>
+      </div>
+
+      <div class="list-block hotels">
+        <div class="list-block-title">Hotéis Sugeridos</div>
+        <ul>
+          <li><strong>Hotel Alex Johnson</strong> <span>— hotel histórico de 1928, Art Deco, com muita personalidade (~$110–150/noite)</span></li>
+          <li><strong>Comfort Inn & Suites Rapid City</strong> <span>— café da manhã incluído, bem localizado (~$90–120/noite)</span></li>
+          <li><strong>Super 8 by Wyndham Rapid City</strong> <span>— opção mais econômica (~$60–80/noite)</span></li>
+        </ul>
+      </div>
+
+      <div class="list-block beer">
+        <div class="list-block-title">Cervejarias e Bares com Craft Beer</div>
+        <ul>
+          <li><strong>Hay Camp Brewing</strong> <span>— a primeira cervejaria de produção de Rapid City, 2013, sours e barrel-aged stouts, música ao vivo</span></li>
+          <li><strong>Firehouse Brewing Co.</strong> <span>— brewpub com cervejas próprias dentro da estação histórica</span></li>
+          <li><strong>Miner Brewing Company</strong> <span>— ambiente descontraído no centro, variedade de estilos</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- DIA 6 -->
+  <div class="day">
+    <div class="day-num-col">
+      <div class="day-badge"><span class="day-badge-label">Dia</span><span class="day-badge-n">6</span></div>
+      <div class="day-connector"></div>
+    </div>
+    <div class="day-content">
+      <div class="day-date">Quinta, 28 de maio</div>
+      <div class="day-title">Rapid City → Badlands NP → Sioux Falls, SD</div>
+      <div class="day-sub">~300 km · I-90 Leste · dia mais curto, com parada no parque</div>
+
+      <div class="time-block">
+        <div class="time-block-label">Horário de Saída</div>
+        <div class="time-value">9h00 de Rapid City</div>
+      </div>
+
+      <div class="time-block">
+        <div class="time-block-label">Horário do Almoço</div>
+        <div class="time-value">10h30 – 12h00 no Badlands National Park ou Wall, SD</div>
+      </div>
+
+      <div class="list-block restaurants">
+        <div class="list-block-title">Restaurantes para Almoço — Badlands / Wall, SD</div>
+        <ul>
+          <li><strong>Cedar Pass Lodge</strong> <span>— dentro do parque, com vista espetacular para as formações geológicas</span></li>
+          <li><strong>Wall Drug Store</strong> <span>— instituição histórica e cultural obrigatória na rota, sanduíches e pratos simples</span></li>
+          <li><strong>Cactus Café</strong> <span>— opção mais tranquila em Wall para quem quer evitar o movimento do Wall Drug</span></li>
+        </ul>
+      </div>
+
+      <div class="time-block">
+        <div class="time-block-label">Horário de Chegada</div>
+        <div class="time-value">14h00 em Sioux Falls, SD — chegada antecipada para descanso</div>
+      </div>
+
+      <div class="list-block restaurants">
+        <div class="list-block-title">Restaurantes para Jantar — Sioux Falls</div>
+        <ul>
+          <li><strong>Fernson Downtown</strong> <span>— comida e cerveja no mesmo lugar na Phillips Avenue, pátio ao ar livre</span></li>
+          <li><strong>Minervas</strong> <span>— referência local para refeições mais elaboradas e drinks no centro</span></li>
+          <li><strong>Ode to Food and Drinks</strong> <span>— menu criativo com influências internacionais, bem avaliado</span></li>
+          <li><strong>Parker's Bistro</strong> <span>— culinária americana contemporânea em ambiente sofisticado</span></li>
+        </ul>
+      </div>
+
+      <div class="list-block hotels">
+        <div class="list-block-title">Hotéis Sugeridos</div>
+        <ul>
+          <li><strong>Canopy by Hilton Sioux Falls Downtown</strong> <span>— moderno, excelente localização central (~$110–140/noite)</span></li>
+          <li><strong>Hampton Inn Sioux Falls Airport</strong> <span>— café da manhã incluído, bem avaliado (~$90–110/noite)</span></li>
+          <li><strong>Holiday Inn Express Sioux Falls</strong> <span>— confortável, café da manhã incluído (~$85–105/noite)</span></li>
+        </ul>
+      </div>
+
+      <div class="list-block beer">
+        <div class="list-block-title">Cervejarias e Bares com Craft Beer</div>
+        <ul>
+          <li><strong>Fernson Downtown</strong> <span>— 16 cervejas próprias no tap, pátio ao ar livre dog-friendly na Phillips Avenue</span></li>
+          <li><strong>Monk's Ale House</strong> <span>— 50 cervejas artesanais rotativas no tap com foco em produtores locais e regionais</span></li>
+          <li><strong>Remedy Brewing Company</strong> <span>— considerada a melhor cerveja artesanal de Sioux Falls, ambiente moderno</span></li>
+          <li><strong>Lupulin Brewing</strong> <span>— mais de 28 cervejas no tap incluindo sours e IPAs premiadas</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- DIA 7 -->
+  <div class="day">
+    <div class="day-num-col">
+      <div class="day-badge"><span class="day-badge-label">Dia</span><span class="day-badge-n">7</span></div>
+      <div class="day-connector"></div>
+    </div>
+    <div class="day-content">
+      <div class="day-date">Sexta, 29 de maio</div>
+      <div class="day-title">Sioux Falls → Chicago, IL</div>
+      <div class="day-sub">~700 km · I-90 Leste · ~7h de viagem</div>
+
+      <div class="time-block">
+        <div class="time-block-label">Horário de Saída</div>
+        <div class="time-value">9h00 de Sioux Falls</div>
+      </div>
+
+      <div class="time-block">
+        <div class="time-block-label">Horário do Almoço</div>
+        <div class="time-value">13h30 – 14h30 em Madison, WI (~4,5h de Sioux Falls)</div>
+      </div>
+
+      <div class="list-block restaurants">
+        <div class="list-block-title">Restaurantes para Almoço — Madison, WI</div>
+        <ul>
+          <li><strong>The Old Fashioned</strong> <span>— culinária do Wisconsin com produtos e queijos locais, clássico do centro</span></li>
+          <li><strong>Marigold Kitchen</strong> <span>— café e almoços criativos, muito bem avaliado</span></li>
+          <li><strong>Brasserie V</strong> <span>— europeu com boa seleção de cervejas belgas, bom ponto de parada</span></li>
+        </ul>
+      </div>
+
+      <div class="time-block">
+        <div class="time-block-label">Horário de Chegada</div>
+        <div class="time-value">16h30 em Chicago, IL</div>
+      </div>
+
+      <div class="list-block restaurants">
+        <div class="list-block-title">Restaurantes para Jantar — Chicago</div>
+        <ul>
+          <li><strong>Lou Malnati's</strong> <span>— a deep dish pizza mais clássica de Chicago desde 1971</span></li>
+          <li><strong>Girl & the Goat</strong> <span>— menu criativo para compartilhar, um dos mais aclamados da cidade</span></li>
+          <li><strong>The Purple Pig</strong> <span>— mediterrâneo para compartilhar no Magnificent Mile, ótimo custo-benefício</span></li>
+          <li><strong>Publican</strong> <span>— bistro no West Loop com foco em carnes e frutos do mar, favorito dos moradores</span></li>
+        </ul>
+      </div>
+
+      <div class="list-block hotels">
+        <div class="list-block-title">Hospedagem</div>
+        <ul>
+          <li><strong>Casa do Mahdi Sayednezhad</strong> <span>— 1130 S Michigan Ave, Apto 1609, Chicago, IL 60609</span></li>
+        </ul>
+      </div>
+
+      <div class="list-block beer">
+        <div class="list-block-title">Cervejarias e Bares com Craft Beer</div>
+        <ul>
+          <li><strong>Goose Island Taproom</strong> <span>— conectada à fábrica na Fulton Street, cervejas clássicas e experimentais</span></li>
+          <li><strong>Goose Island Pub</strong> <span>— ao lado do Salt Shed com vista para o Chicago River, menu de comida completo</span></li>
+          <li><strong>Revolution Brewing</strong> <span>— a maior brewpub de Illinois no Lincoln Park, menu completo de refeições</span></li>
+          <li><strong>Half Acre Beer Company</strong> <span>— no Lincoln Square, uma das mais respeitadas pelos moradores locais</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- DIA 8 -->
+  <div class="day">
+    <div class="day-num-col">
+      <div class="day-badge"><span class="day-badge-label">Dia</span><span class="day-badge-n">8</span></div>
+      <div class="day-connector"></div>
+    </div>
+    <div class="day-content">
+      <div class="day-date">Sábado, 30 de maio</div>
+      <div class="day-title">Chicago, IL → Rochester, NY</div>
+      <div class="day-sub">~900 km · I-90 Leste · ~9h de viagem — o dia mais longo da viagem</div>
+
+      <div class="time-block">
+        <div class="time-block-label">Horário de Saída</div>
+        <div class="time-value">9h00 de Chicago</div>
+      </div>
+
+      <div class="time-block">
+        <div class="time-block-label">Horário do Almoço</div>
+        <div class="time-value">13h30 – 14h30 em Cleveland, OH (~4,5h de Chicago)</div>
+      </div>
+
+      <div class="list-block restaurants">
+        <div class="list-block-title">Restaurantes para Almoço — Cleveland, OH</div>
+        <ul>
+          <li><strong>West Side Market</strong> <span>— mercado histórico coberto de 1912 com dezenas de vendedores, barato e diversificado</span></li>
+          <li><strong>Barrio</strong> <span>— tacos criativos no centro de Cleveland, rápido e muito bem avaliado</span></li>
+          <li><strong>Lola Bistro</strong> <span>— do chef Michael Symon, americano contemporâneo com produtos locais</span></li>
+        </ul>
+      </div>
+
+      <div class="time-block">
+        <div class="time-block-label">Horário de Chegada</div>
+        <div class="time-value">17h30 em Rochester, NY</div>
+      </div>
+
+      <div class="list-block restaurants">
+        <div class="list-block-title">Restaurantes para Jantar — Rochester</div>
+        <ul>
+          <li><strong>Dinosaur Bar-B-Que</strong> <span>— costelas, brisket e pulled pork defumados, uma das instituições gastronômicas de Rochester</span></li>
+          <li><strong>Pane Vino on the River</strong> <span>— italiana sofisticada à beira do rio, pátio arborizado e música ao vivo semanal</span></li>
+          <li><strong>Vern's</strong> <span>— um dos mais bem avaliados em Rochester, menu contemporâneo criativo, sem reservas</span></li>
+          <li><strong>The Revelry</strong> <span>— culinária do sul americano, chicken and waffles e shrimp and grits, ambiente chique</span></li>
+        </ul>
+      </div>
+
+      <div class="list-block hotels">
+        <div class="list-block-title">Hotéis Sugeridos</div>
+        <ul>
+          <li><strong>Hampton Inn & Suites Rochester Downtown</strong> <span>— a 8 minutos do Strong Museum, bem localizado no centro (~$110–140/noite)</span></li>
+          <li><strong>Courtyard Rochester Downtown</strong> <span>— restaurante e bar no local, estacionamento gratuito (~$100–130/noite)</span></li>
+          <li><strong>The Strathallan</strong> <span>— DoubleTree by Hilton com spa e restaurante, opção mais refinada (~$130–170/noite)</span></li>
+          <li><strong>Oakfield Hotel & Suites</strong> <span>— totalmente renovado em 2025, café da manhã incluído 24h (~$90–110/noite)</span></li>
+        </ul>
+      </div>
+
+      <div class="list-block beer">
+        <div class="list-block-title">Cervejarias e Bares com Craft Beer</div>
+        <ul>
+          <li><strong>Strangebird</strong> <span>— cervejaria premiada com restaurante, aberta sábados, todos os estilos feitos na casa</span></li>
+          <li><strong>Genesee Brew House</strong> <span>— a mais antiga do estado de Nova York, vista para as High Falls, cachoeiras de 29m no centro</span></li>
+          <li><strong>Three Heads Brewing</strong> <span>— no bairro das artes, com área externa e música ao vivo na maioria dos fins de semana</span></li>
+          <li><strong>Swiftwater Brewing</strong> <span>— farm brewery no bairro South Wedge, petiscos e ambiente comunitário acolhedor</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- DIA 9 -->
+  <div class="day">
+    <div class="day-num-col">
+      <div class="day-badge alt"><span class="day-badge-label">Dia</span><span class="day-badge-n">9</span></div>
+    </div>
+    <div class="day-content">
+      <div class="day-date">Domingo, 31 de maio — Chegada</div>
+      <div class="day-title">Rochester → Treehouse Brewing → Boston, MA</div>
+      <div class="day-sub">~430 km · I-90 Leste · chegada em Boston à tarde</div>
+
+      <div class="time-block">
+        <div class="time-block-label">Horário de Saída</div>
+        <div class="time-value">9h00 de Rochester</div>
+      </div>
+
+      <div class="time-block">
+        <div class="time-block-label">Horário do Almoço</div>
+        <div class="time-value">13h00 – 15h00 na Treehouse Brewing, Charlton, MA (~4h de Rochester)</div>
+      </div>
+
+      <div class="list-block restaurants">
+        <div class="list-block-title">Parada para Almoço — Treehouse Brewing, Charlton, MA</div>
+        <ul>
+          <li><strong>Treehouse Brewing</strong> <span>— 129 Sturbridge Rd, Charlton, MA · aberta domingos das 12h às 20h · pizza, petiscos e food trucks no pátio · Julius IPA é obrigatório</span></li>
+        </ul>
+      </div>
+
+      <div class="time-block">
+        <div class="time-block-label">Horário de Chegada</div>
+        <div class="time-value">16h30 em Boston, MA</div>
+      </div>
+
+      <div class="list-block restaurants">
+        <div class="list-block-title">Restaurantes para Jantar — Boston</div>
+        <ul>
+          <li><strong>Row 34</strong> <span>— frutos do mar frescos da Nova Inglaterra no Fort Point, ostras e lagostim</span></li>
+          <li><strong>Eventide Fenway</strong> <span>— famoso pelo lobster roll com manteiga marrom, informal e bem avaliado</span></li>
+          <li><strong>Island Creek Oyster Bar</strong> <span>— referência de frutos do mar em Boston, ambiente animado</span></li>
+          <li><strong>Eastern Standard</strong> <span>— americano clássico no Kenmore Square com ótima carta de drinks</span></li>
+        </ul>
+      </div>
+
+      <div class="list-block hotels">
+        <div class="list-block-title">Hospedagem</div>
+        <ul>
+          <li><strong>Airbnb</strong> <span>— 137 Waverley Avenue, Newton, MA 02458</span></li>
+        </ul>
+      </div>
+
+      <div class="list-block beer">
+        <div class="list-block-title">Cervejarias e Bares com Craft Beer</div>
+        <ul>
+          <li><strong>Treehouse Brewing</strong> <span>— Julius IPA é o carro-chefe obrigatório, aberta domingos das 12h às 20h</span></li>
+          <li><strong>Trillium Brewing</strong> <span>— Fenway Park, cervejas de altíssimo nível, referência nacional</span></li>
+          <li><strong>Harpoon Brewery</strong> <span>— cervejaria histórica de Boston no Seaport, tours disponíveis aos domingos</span></li>
+          <li><strong>Night Shift Brewing</strong> <span>— em Everett, referência da cena craft beer de Boston</span></li>
+          <li><strong>Samuel Adams Taproom</strong> <span>— no Jamaica Plain, com cervejas exclusivas não encontradas em outros lugares</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div><!-- fim days-wrap -->
+
+<!-- TABELA DE RESUMO -->
+<div class="summary-section">
+  <div class="summary-inner">
+    <div class="section-label">Resumo da viagem</div>
+    <table class="summary-table">
+      <thead>
+        <tr>
+          <th>Dia</th>
+          <th>Data</th>
+          <th>Dia da semana</th>
+          <th>Trecho</th>
+          <th>Km</th>
+          <th>Saída</th>
+          <th>Chegada</th>
+          <th>Nota</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="day-num-cell">1</td>
+          <td>23/5</td>
+          <td>Sábado</td>
+          <td class="trecho-cell">San Francisco → Lake Tahoe, CA</td>
+          <td class="km-cell">~300</td>
+          <td class="time-cell">9h00</td>
+          <td class="time-cell">13h30</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td class="day-num-cell">2</td>
+          <td>24/5</td>
+          <td>Domingo</td>
+          <td class="trecho-cell">Lake Tahoe → Salt Lake City, UT</td>
+          <td class="km-cell">~850</td>
+          <td class="time-cell">9h00</td>
+          <td class="time-cell">18h00</td>
+          <td class="nota-cell">Dia mais longo</td>
+        </tr>
+        <tr>
+          <td class="day-num-cell">3</td>
+          <td>25/5</td>
+          <td>Segunda</td>
+          <td class="trecho-cell">Salt Lake City → Jackson, WY</td>
+          <td class="km-cell">~470</td>
+          <td class="time-cell">9h00</td>
+          <td class="time-cell">15h30</td>
+          <td class="nota-cell">Memorial Day</td>
+        </tr>
+        <tr>
+          <td class="day-num-cell">4</td>
+          <td>26/5</td>
+          <td>Terça</td>
+          <td class="trecho-cell">Yellowstone — Dia completo</td>
+          <td class="km-cell">—</td>
+          <td class="time-cell">8h00*</td>
+          <td class="time-cell">—</td>
+          <td class="nota-cell">*Saída cedo</td>
+        </tr>
+        <tr>
+          <td class="day-num-cell">5</td>
+          <td>27/5</td>
+          <td>Quarta</td>
+          <td class="trecho-cell">Yellowstone → Rapid City, SD</td>
+          <td class="km-cell">~730</td>
+          <td class="time-cell">9h00</td>
+          <td class="time-cell">17h30</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td class="day-num-cell">6</td>
+          <td>28/5</td>
+          <td>Quinta</td>
+          <td class="trecho-cell">Rapid City → Badlands → Sioux Falls, SD</td>
+          <td class="km-cell">~300</td>
+          <td class="time-cell">9h00</td>
+          <td class="time-cell">14h00</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td class="day-num-cell">7</td>
+          <td>29/5</td>
+          <td>Sexta</td>
+          <td class="trecho-cell">Sioux Falls → Chicago, IL</td>
+          <td class="km-cell">~700</td>
+          <td class="time-cell">9h00</td>
+          <td class="time-cell">16h30</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td class="day-num-cell">8</td>
+          <td>30/5</td>
+          <td>Sábado</td>
+          <td class="trecho-cell">Chicago → Rochester, NY</td>
+          <td class="km-cell">~900</td>
+          <td class="time-cell">9h00</td>
+          <td class="time-cell">17h30</td>
+          <td class="nota-cell">Dia mais longo</td>
+        </tr>
+        <tr>
+          <td class="day-num-cell">9</td>
+          <td>31/5</td>
+          <td>Domingo</td>
+          <td class="trecho-cell">Rochester → Treehouse → Boston, MA</td>
+          <td class="km-cell">~430</td>
+          <td class="time-cell">9h00</td>
+          <td class="time-cell">16h30</td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<footer>
+  <strong>San Francisco, CA → Boston, MA</strong> &nbsp;·&nbsp; 23–31 de Maio de 2026 &nbsp;·&nbsp; ~4.480 km
+</footer>
+
+</body>
+</html>
