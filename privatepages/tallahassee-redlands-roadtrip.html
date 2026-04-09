@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Tallahassee → Redlands | Road Trip | May 2026</title>
+    <link rel="stylesheet" href="../styles.css?v=5">
+    <style>
+        /* ── Trip-specific additions only ─────────────────────────── */
+
+        .trip-section {
+            margin-bottom: 4rem;
+        }
+
+        .trip-section h2 {
+            font-size: 1.25rem;
+            font-weight: 300;
+            color: #007D69;
+            margin: 3rem 0 1.5rem;
+            letter-spacing: 0.02em;
+        }
+
+        /* Stats grid */
+        .trip-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1px;
+            background: #e8e8e8;
+            border: 1px solid #e8e8e8;
+            margin: 0 0 2rem;
+        }
+
+        .trip-stat {
+            background: #fff;
+            text-align: center;
+            padding: 1.25rem 0.75rem;
+        }
+
+        .trip-stat-num {
+            display: block;
+            font-size: 1.9rem;
+            font-weight: 300;
+            color: #007D69;
+            line-height: 1.1;
+        }
+
+        .trip-stat-label {
+            display: block;
+            font-size: 0.67rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #aaa;
+            margin-top: 5px;
+        }
+
+        /* Map link card */
+        .trip-map-wrap {
+            border: 1px solid #e8e8e8;
+            margin: 0 0 1.5rem;
+            overflow: hidden;
+        }
+
+        .trip-map-card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            padding: 2rem;
+            background: #f9f8f7;
+            flex-wrap: wrap;
+        }
+
+        .trip-map-card-info {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .trip-map-card-label {
+            font-size: 0.68rem;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            color: #aaa;
+            margin-bottom: 0.5rem;
+        }
+
+        .trip-map-card-route {
+            font-size: 1rem;
+            font-weight: 300;
+            color: #003C3C;
+            line-height: 1.5;
+        }
+
+        .trip-map-card-stops {
+            font-size: 0.75rem;
+            color: #aaa;
+            font-family: monospace;
+            margin-top: 0.4rem;
+            line-height: 1.6;
+        }
+
+        .trip-map-btn {
+            display: inline-block;
+            background: #007D69;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 400;
+            padding: 0.7rem 1.5rem;
+            letter-spacing: 0.03em;
+            white-space: nowrap;
+            transition: background 0.2s;
+            flex-shrink: 0;
+        }
+
+        .trip-map-btn:hover { background: #005a4a; color: #fff; }
+
+        /* Day blocks */
+        .day-block {
+            margin-bottom: 3rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid #e8e8e8;
+        }
+
+        .day-block:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+
+        .day-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .day-badge {
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+            background: #007D69;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .day-badge.alt { background: #4a7c59; }
+
+        .day-badge-label {
+            font-size: 0.48rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            line-height: 1;
+            opacity: 0.8;
+        }
+
+        .day-badge-n {
+            font-size: 1.1rem;
+            line-height: 1.1;
+            font-weight: 300;
+        }
+
+        .day-info { flex: 1; }
+
+        .day-date-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: #007D69;
+            margin-bottom: 4px;
+        }
+
+        .day-title {
+            font-size: 1.25rem;
+            font-weight: 300;
+            color: #003C3C;
+            line-height: 1.3;
+            margin-bottom: 4px;
+        }
+
+        .day-sub {
+            font-size: 0.78rem;
+            color: #aaa;
+            font-family: monospace;
+        }
+
+        /* Narrative paragraph */
+        .day-narrative {
+            font-size: 0.92rem;
+            line-height: 1.75;
+            color: #555;
+            margin-bottom: 1.5rem;
+            max-width: 640px;
+        }
+
+        /* Time notes */
+        .trip-time {
+            margin-bottom: 1.25rem;
+        }
+
+        .trip-time-label {
+            display: block;
+            font-size: 0.67rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: #aaa;
+            margin-bottom: 3px;
+        }
+
+        .trip-time-value {
+            font-size: 0.9rem;
+            color: #444;
+        }
+
+        /* Subsection lists */
+        .trip-sub {
+            margin-bottom: 1.5rem;
+        }
+
+        .trip-sub-title {
+            font-size: 0.67rem;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+            color: #aaa;
+            border-bottom: 1px solid #e8e8e8;
+            padding-bottom: 0.4rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .trip-sub-title.rest  { color: #b5622a; border-color: rgba(181,98,42,0.25); }
+        .trip-sub-title.hotel { color: #007D69; border-color: rgba(0,125,105,0.25); }
+        .trip-sub-title.hike  { color: #4a7c59; border-color: rgba(74,124,89,0.25); }
+        .trip-sub-title.note  { color: #7a7a7a; border-color: rgba(122,122,122,0.25); }
+
+        .trip-sub ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .trip-sub ul li {
+            font-size: 0.88rem;
+            line-height: 1.55;
+            display: flex;
+            gap: 0.6rem;
+            color: #333;
+        }
+
+        .trip-sub ul li::before {
+            content: '—';
+            color: #ccc;
+            flex-shrink: 0;
+            font-size: 0.8rem;
+        }
+
+        .trip-sub ul li strong {
+            font-weight: 500;
+            color: #111;
+        }
+
+        .trip-sub ul li span {
+            color: #777;
+        }
+
+        /* Confirmed badge */
+        .confirmed-badge {
+            display: inline-block;
+            font-size: 0.62rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            background: #e6f4f1;
+            color: #007D69;
+            padding: 2px 7px;
+            margin-left: 0.4rem;
+            vertical-align: middle;
+            font-weight: 400;
+        }
+
+        /* Tips grid */
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1px;
+            background: #e8e8e8;
+            border: 1px solid #e8e8e8;
+        }
+
+        .tip-card {
+            background: #fff;
+            padding: 1.25rem 1.25rem;
+        }
+
+        .tip-card-title {
+            font-size: 0.78rem;
+            font-weight: 500;
+            color: #003C3C;
+            margin-bottom: 0.4rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+
+        .tip-card p {
+            font-size: 0.85rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Summary table */
+        .trip-table-wrap {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            margin-top: 0.5rem;
+        }
+
+        .trip-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+            min-width: 560px;
+        }
+
+        .trip-table th {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #aaa;
+            text-align: left;
+            padding: 0.5rem 0.75rem;
+            border-bottom: 2px solid #e8e8e8;
+            font-weight: 400;
+        }
+
+        .trip-table td {
+            padding: 0.6rem 0.75rem;
+            border-bottom: 1px solid #e8e8e8;
+            vertical-align: top;
+        }
+
+        .trip-table tr:last-child td { border-bottom: none; }
+        .trip-table tr:hover td { background: #f9f8f7; }
+
+        .td-mono {
+            font-family: monospace;
+            font-size: 0.78rem;
+            color: #888;
+            white-space: nowrap;
+        }
+
+        .td-note {
+            font-size: 0.75rem;
+            color: #b5622a;
+            font-family: monospace;
+        }
+
+        @media (max-width: 600px) {
+            .trip-stats { grid-template-columns: repeat(2, 1fr); }
+            .day-badge { width: 2rem; height: 2rem; }
+            .day-badge-n { font-size: 0.9rem; }
+            .day-title { font-size: 1.1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <header class="site-header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <h1><a href="../index.html" style="text-decoration:none;color:inherit;">Ronaldo Menezes</a></h1>
+                    <p class="nav-subtitle">Professor of Data and Network Science</p>
+                </div>
+                <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-menu">
+                    <li><a href="../index.html" class="nav-link">Home</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container-narrow">
+
+        <header class="post-hero fade-in">
+            <div class="post-hero-date">Road Trip · May 2026</div>
+            <h1>Tallahassee → Redlands, California</h1>
+            <p class="post-hero-deck">May 13 – 17, 2026 · 5 days · 6 states · ~2,100 miles</p>
+        </header>
+
+        <!-- ── OVERVIEW ─────────────────────────────────────────────── -->
+        <section class="trip-section fade-in" id="overview">
+            <h2>Overview</h2>
+
+            <div class="trip-stats">
+                <div class="trip-stat">
+                    <span class="trip-stat-num">5</span>
+                    <span class="trip-stat-label">Days</span>
+                </div>
+                <div class="trip-stat">
+                    <span class="trip-stat-num">6</span>
+                    <span class="trip-stat-label">States</span>
+                </div>
+                <div class="trip-stat">
+                    <span class="trip-stat-num">4</span>
+                    <span class="trip-stat-label">Nights</span>
+                </div>
+                <div class="trip-stat">
+                    <span class="trip-stat-num">~2,100</span>
+                    <span class="trip-stat-label">Miles</span>
+                </div>
+            </div>
+
+            <div class="trip-map-wrap">
+                <div class="trip-map-card">
+                    <div class="trip-map-card-info">
+                        <div class="trip-map-card-label">Full route · ~2,100 miles</div>
+                        <div class="trip-map-card-route">Tallahassee → Redlands, California</div>
+                        <div class="trip-map-card-stops">FL · LA · TX · NM · AZ · CA<br>New Orleans · Houston · El Paso · Tucson · Sedona · Redlands</div>
+                    </div>
+                    <a class="trip-map-btn"
+                       href="https://www.google.com/maps/dir/Tallahassee,+FL/New+Orleans,+LA/Houston,+TX/El+Paso,+TX/Tucson,+AZ/Sedona,+AZ/Redlands,+CA"
+                       target="_blank" rel="noopener">
+                        Open route in Google Maps ↗
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── ITINERARY ─────────────────────────────────────────────── -->
+        <section class="trip-section fade-in" id="itinerary">
+            <h2>Day-by-Day Itinerary</h2>
+
+            <!-- DAY 1 -->
+            <div class="day-block">
+                <div class="day-header">
+                    <div class="day-badge">
+                        <span class="day-badge-label">Day</span>
+                        <span class="day-badge-n">1</span>
+                    </div>
+                    <div class="day-info">
+                        <div class="day-date-label">Tuesday, May 13</div>
+                        <div class="day-title">Tallahassee → Houston, TX</div>
+                        <div class="day-sub">~650 miles · ~9.5 hrs · I-10 West</div>
+                    </div>
+                </div>
+
+                <p class="day-narrative">Depart early to make the most of the day. I-10 runs straight and flat through the Florida panhandle and across the Gulf Coast. New Orleans makes a perfect lunch stop — grab a po'boy or beignets before pushing west into Texas.</p>
+
+                <div class="trip-time">
+                    <span class="trip-time-label">Departure</span>
+                    <span class="trip-time-value">Leave Tallahassee by 7:00 AM — I-10 West the whole way</span>
+                </div>
+
+                <div class="trip-sub">
+                    <div class="trip-sub-title rest">Lunch Stop — New Orleans, LA (~3.5 hrs from Tallahassee)</div>
+                    <ul>
+                        <li><strong>Café Du Monde</strong> <span>— beignets and café au lait on Decatur Street, a classic stop. Allow ~1 hour.</span></li>
+                        <li><strong>Central Grocery</strong> <span>— home of the original muffuletta sandwich, right in the French Quarter.</span></li>
+                        <li><strong>Dooky Chase's</strong> <span>— legendary Creole cooking, if you have time for a sit-down lunch.</span></li>
+                    </ul>
+                </div>
+
+                <div class="trip-time">
+                    <span class="trip-time-label">Arrival</span>
+                    <span class="trip-time-value">Houston, TX — arrive by 6:00 PM</span>
+                </div>
+
+                <div class="trip-sub">
+                    <div class="trip-sub-title hotel">Overnight — Confirmed <span class="confirmed-badge">Confirmed</span></div>
+                    <ul>
+                        <li><strong>La Quinta Inn &amp; Suites by Wyndham Houston Channelview</strong> <span>— 5520 E Sam Houston Pkwy N, Houston, TX · Standard Room, 2 Queen Beds · Free Breakfast included · Check-in: May 13 · Check-out: May 14 · Paid in advance (MasterCard ····1554)</span></li>
+                    </ul>
+                </div>
+
+                <div class="trip-sub">
+                    <div class="trip-sub-title rest">Dinner — Houston</div>
+                    <ul>
+                        <li><strong>H&amp;H Car Wash &amp; Coffee Shop</strong> <span>— Houston institution, famous green chile and Tex-Mex. Don't let the name fool you.</span></li>
+                        <li><strong>Ninfa's on Navigation</strong> <span>— the original location of the legendary Tex-Mex chain, fajitas invented here.</span></li>
+                        <li><strong>Killen's Barbecue</strong> <span>— regularly ranked among the best BBQ in Texas, brisket is exceptional.</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- DAY 2 -->
+            <div class="day-block">
+                <div class="day-header">
+                    <div class="day-badge">
+                        <span class="day-badge-label">Day</span>
+                        <span class="day-badge-n">2</span>
+                    </div>
+                    <div class="day-info">
+                        <div class="day-date-label">Wednesday, May 14</div>
+                        <div class="day-title">Houston → El Paso, TX</div>
+                        <div class="day-sub">~750 miles · ~10 hrs · I-10 West</div>
+                    </div>
+                </div>
+
+                <p class="day-narrative">A big Texas day. Head west on I-10 and stop in San Antonio for lunch on the River Walk — the outdoor riverside seating is beautiful in May. Then push on through the vast west Texas desert to El Paso for the night, where some of the best authentic Mexican food in the country awaits.</p>
+
+                <div class="trip-time">
+                    <span class="trip-time-label">Departure</span>
+                    <span class="trip-time-value">Houston — morning, after breakfast at the hotel</span>
+                </div>
+
+                <div class="trip-sub">
+                    <div class="trip-sub-title rest">Lunch Stop — San Antonio River Walk (~3 hrs from Houston)</div>
+                    <ul>
+                        <li><strong>Four Brothers on the River Walk</strong> <span>— Texas cuisine with fantastic riverside views, excellent for a proper sit-down lunch.</span></li>
+                        <li><strong>Boudro's Texas Bistro</strong> <span>— a River Walk institution, famous for the tableside guacamole.</span></li>
+                    </ul>
+                </div>
+
+                <div class="trip-sub">
+                    <div class="trip-sub-title note">West Texas Stretch — Fort Stockton Gas Stop</div>
+                    <ul>
+                        <li><strong>Fort Stockton, TX</strong> <span>— fill up here. The West Texas stretch between San Antonio and El Paso is sparse — ~300 miles of near-empty desert. Good podcast territory.</span></li>
+                    </ul>
+                </div>
+
+                <div class="trip-time">
+                    <span class="trip-time-label">Arrival</span>
+                    <span class="trip-time-value">El Paso, TX — evening</span>
+                </div>
+
+                <div class="trip-sub">
+                    <div class="trip-sub-title hotel">Overnight — El Paso</div>
+                    <ul>
+                        <li><strong>Gateway Hotel El Paso</strong> <span>— well-reviewed, central location downtown (~$90–120/night).</span></li>
+                        <li><strong>Hilton Garden Inn El Paso Downtown</strong> <span>— reliable option, close to the best restaurants (~$100–130/night).</span></li>
+                    </ul>
+                </div>
+
+                <div class="trip-sub">
+                    <div class="trip-sub-title rest">Dinner — El Paso</div>
+                    <ul>
+                        <li><strong>Cattleman's Steakhouse at Indian Cliffs Ranch</strong> <span>— legendary El Paso steak experience, old West atmosphere, worth the short drive out of town.</span></li>
+                        <li><strong>Ardovino's Desert Crossing</strong> <span>— upscale New Mexican cuisine on the border, outdoor patio with mountain views.</span></li>
+                        <li><strong>L &amp; J Cafe</strong> <span>— oldest Mexican restaurant in El Paso (1927), local institution, Tex-Mex done right.</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- DAY 3 -->
+            <div class="day-block">
+                <div class="day-header">
+                    <div class="day-badge">
+                        <span class="day-badge-label">Day</span>
+                        <span class="day-badge-n">3</span>
+                    </div>
+                    <div class="day-info">
+                        <div class="day-date-label">Thursday, May 15</div>
+                        <div class="day-title">El Paso → Sedona, AZ</div>
+                        <div class="day-sub">~450 miles · ~6.5 hrs · I-10 → I-25 → AZ-89A</div>
+                    </div>
+                </div>
+
+                <p class="day-narrative">A shorter, stunning drive. Cross into New Mexico and head north. Stop in Tucson for lunch. Then take AZ-89A north toward Sedona — the red rock formations appear suddenly and dramatically. One of the most jaw-dropping drives in the American Southwest.</p>
+
+                <div class="trip-time">
+                    <span class="trip-time-label">Departure</span>
+                    <span class="trip-time-value">El Paso — morning</span>
+                </div>
+
+                <div class="trip-sub">
+                    <div class="trip-sub-title rest">Lunch Stop — Tucson, AZ (~3.5 hrs from El Paso)</div>
+                    <ul>
+                        <li><strong>El Charro Café</strong> <span>— the oldest Mexican restaurant in the US (1922), famous for their carne seca, a Tucson original.</span></li>
+                        <li><strong>Café Poca Cosa</strong> <span>— creative Sonoran-style Mexican, one of the most acclaimed restaurants in Tucson.</span></li>
+                        <li><strong>BK Tacos</strong> <span>— for a quick and excellent Sonoran hot dog, a uniquely Tucson experience.</span></li>
+                    </ul>
+                </div>
+
+                <div class="trip-sub">
+                    <div class="trip-sub-title hike">Scenic Drive into Sedona — AZ-89A</div>
+                    <ul>
+                        <li><strong>AZ-89A from Prescott</strong> <span>— take the scenic route north from Prescott through Jerome, a former mining town perched on a cliff. Windows down, this stretch is extraordinary.</span></li>
+                        <li><strong>AZ-89A from Flagstaff</strong> <span>— alternatively, enter Sedona from the north through Oak Creek Canyon — equally dramatic, famous for fall colours and swimming holes.</span></li>
+                    </ul>
+                </div>
+
+                <div class="trip-time">
+                    <span class="trip-time-label">Arrival</span>
+                    <span class="trip-time-value">Sedona, AZ — afternoon</span>
+                </div>
+
+                <div class="trip-sub">
+                    <div class="trip-sub-title hotel">Overnight — Sedona</div>
+                    <ul>
+                        <li><strong>Enchantment Resort</strong> <span>— 525 Boynton Canyon Rd · Nestled inside a red rock canyon with direct trail access. Book far in advance. Rating: 4.5.</span></li>
+                        <li><strong>Hilton Sedona at Bell Rock</strong> <span>— solid alternative if Enchantment is booked, excellent views of Bell Rock.</span></li>
+                        <li><strong>Sedona Pines Resort</strong> <span>— more affordable option, well-reviewed and conveniently located.</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- DAY 4 -->
+            <div class="day-block">
+                <div class="day-header">
+                    <div class="day-badge alt">
+                        <span class="day-badge-label">Day</span>
+                        <span class="day-badge-n">4</span>
+                    </div>
+                    <div class="day-info">
+                        <div class="day-date-label">Friday, May 16 — Full explore day</div>
+                        <div class="day-title">Sedona, Arizona</div>
+                        <div class="day-sub">~75°F in May · Perfect hiking weather · No driving</div>
+                    </div>
+                </div>
+
+                <p class="day-narrative">A full day in one of America's most beautiful landscapes. Hit Devil's Bridge before the crowds arrive, relax at Red Rock State Park in the afternoon, and end the day with Sedona's legendary sunset from Airport Mesa.</p>
+
+                <div class="trip-sub">
+                    <div class="trip-sub-title hike">Morning — Devil's Bridge Trail</div>
+                    <ul>
+                        <li><strong>Devil's Bridge</strong> <span>— arrive by 7 AM. Moderate 4-mile roundtrip to a stunning natural sandstone arch. Trailhead fills by 8–9 AM on weekdays in May. Rating: 4.8. Red Rock Pass required ($5/day).</span></li>
+                        <li><strong>Note on parking</strong> <span>— in May you can usually still self-park early. On weekends, take the shuttle from Uptown Sedona to avoid the wait.</span></li>
+                    </ul>
+                </div>
+
+                <div class="trip-sub">
+                    <div class="trip-sub-title hike">Afternoon — Red Rock State Park</div>
+                    <ul>
+                        <li><strong>Red Rock State Park</strong> <span>— peaceful trails along Oak Creek. $10 entry. Quieter than most Sedona trailheads, great for wildlife and a more relaxed pace. Rating: 4.7.</span></li>
+                        <li><strong>Cathedral Rock Trail</strong> <span>— if energy allows, this short but steep hike (1.5 miles roundtrip) offers perhaps the most iconic Sedona view.</span></li>
+                    </ul>
+                </div>
+
+                <div class="trip-sub">
+                    <div class="trip-sub-title hike">Evening — Airport Mesa Sunset</div>
+                    <ul>
+                        <li><strong>Airport Mesa overlook</strong> <span>— free parking, no hiking required. Best panoramic sunset view in Sedona. Arrive 30 minutes before sunset to get a good spot.</span></li>
+                    </ul>
+                </div>
+
+                <div class="trip-sub">
+                    <div class="trip-sub-title rest">Dinner — Sedona</div>
+                    <ul>
+                        <li><strong>Elote Cafe</strong> <span>— no reservations accepted, arrive early. Mexican-inspired, consistently rated the best restaurant in Sedona.</span></li>
+                        <li><strong>Mariposa Latin Inspired Grill</strong> <span>— stunning views, upscale Latin cuisine, beautiful setting for a special dinner.</span></li>
+                        <li><strong>Dahl &amp; DiLuca Ristorante Italiano</strong> <span>— reliable Italian in Uptown Sedona, good wine list, romantic atmosphere.</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- DAY 5 -->
+            <div class="day-block">
+                <div class="day-header">
+                    <div class="day-badge">
+                        <span class="day-badge-label">Day</span>
+                        <span class="day-badge-n">5</span>
+                    </div>
+                    <div class="day-info">
+                        <div class="day-date-label">Saturday, May 17 — Arrival</div>
+                        <div class="day-title">Sedona → Redlands, California</div>
+                        <div class="day-sub">~370 miles · ~5.5 hrs · I-40 West → I-15 → I-10</div>
+                    </div>
+                </div>
+
+                <p class="day-narrative">The final leg, through the Mojave Desert and into Southern California. A relaxed morning — take your time with breakfast and enjoy one last Sedona morning before heading west. Arrive in Redlands in the early to mid-afternoon.</p>
+
+                <div class="trip-time">
+                    <span class="trip-time-label">Departure</span>
+                    <span class="trip-time-value">Sedona — leisurely morning, depart after breakfast (~9:00–10:00 AM)</span>
+                </div>
+
+                <div class="trip-sub">
+                    <div class="trip-sub-title note">Gas Stop — Kingman, AZ (~2.5 hrs from Sedona)</div>
+                    <ul>
+                        <li><strong>Kingman, AZ</strong> <span>— fill up here before the Mojave stretch. Good last fuel stop on Route 66 before dropping south on I-15 toward Barstow.</span></li>
+                    </ul>
+                </div>
+
+                <div class="trip-sub">
+                    <div class="trip-sub-title rest">Lunch — Barstow or along I-15</div>
+                    <ul>
+                        <li><strong>Idle Spurs Steakhouse, Barstow</strong> <span>— reliable stop in the middle of the Mojave, good for a sit-down lunch before the final push into SoCal.</span></li>
+                        <li><strong>In-N-Out Burger, Barstow</strong> <span>— if you want something quick and quintessentially Californian on the drive in.</span></li>
+                    </ul>
+                </div>
+
+                <div class="trip-time">
+                    <span class="trip-time-label">Arrival</span>
+                    <span class="trip-time-value">Redlands, California — approximately 2:30 PM</span>
+                </div>
+
+                <div class="trip-sub">
+                    <div class="trip-sub-title hotel">Destination</div>
+                    <ul>
+                        <li><strong>Redlands, California</strong> <span>— end of the road, ~2,100 miles from Tallahassee.</span></li>
+                    </ul>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- ── TIPS & REMINDERS ──────────────────────────────────────── -->
+        <section class="trip-section fade-in" id="tips">
+            <h2>Tips &amp; Reminders</h2>
+
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <div class="tip-card-title">Book Sedona Now</div>
+                    <p>Enchantment Resort fills weeks in advance. If unavailable, try Hilton Sedona at Bell Rock or Sedona Pines Resort as solid alternatives.</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-card-title">Weather in May</div>
+                    <p>Houston ~85°F · El Paso ~88°F · Sedona ~75°F days / 48°F nights. Pack layers for Sedona evenings — canyon temperatures drop fast after sunset.</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-card-title">Gas Strategy</div>
+                    <p>Fill up in Fort Stockton, TX (West Texas is sparse). Also fill in Tucson before Sedona and in Kingman before the Mojave stretch.</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-card-title">Devil's Bridge Parking</div>
+                    <p>Trailhead parking fills by 8 AM on weekends in May. Arrive by 7 AM or take the Uptown Sedona shuttle. A Red Rock Pass ($5/day) is required.</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-card-title">Route Simplicity</div>
+                    <p>You are essentially on I-10 from Tallahassee to Arizona. Straightforward navigation for the first three days — just point west.</p>
+                </div>
+                <div class="tip-card">
+                    <div class="tip-card-title">Night 1 — Confirmed</div>
+                    <p>La Quinta Houston Channelview is confirmed and prepaid (MasterCard ····1554). Free breakfast included. Check-in May 13, check-out May 14.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ── SUMMARY TABLE ─────────────────────────────────────────── -->
+        <section class="trip-section fade-in" id="summary">
+            <h2>Summary</h2>
+
+            <div class="trip-table-wrap">
+                <table class="trip-table">
+                    <thead>
+                        <tr>
+                            <th>Day</th>
+                            <th>Date</th>
+                            <th>Day</th>
+                            <th>Leg</th>
+                            <th>Miles</th>
+                            <th>Overnight</th>
+                            <th>Note</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="td-mono">1</td>
+                            <td>May 13</td>
+                            <td>Tuesday</td>
+                            <td>Tallahassee → Houston, TX</td>
+                            <td class="td-mono">~650</td>
+                            <td>La Quinta Houston Channelview</td>
+                            <td class="td-note">Confirmed · Free breakfast</td>
+                        </tr>
+                        <tr>
+                            <td class="td-mono">2</td>
+                            <td>May 14</td>
+                            <td>Wednesday</td>
+                            <td>Houston → El Paso, TX</td>
+                            <td class="td-mono">~750</td>
+                            <td>TBD · El Paso downtown</td>
+                            <td class="td-note">Longest driving day</td>
+                        </tr>
+                        <tr>
+                            <td class="td-mono">3</td>
+                            <td>May 15</td>
+                            <td>Thursday</td>
+                            <td>El Paso → Sedona, AZ</td>
+                            <td class="td-mono">~450</td>
+                            <td>TBD · Sedona</td>
+                            <td class="td-note">Scenic AZ-89A entry</td>
+                        </tr>
+                        <tr>
+                            <td class="td-mono">4</td>
+                            <td>May 16</td>
+                            <td>Friday</td>
+                            <td>Sedona — Full Day</td>
+                            <td class="td-mono">—</td>
+                            <td>TBD · Sedona</td>
+                            <td class="td-note">Devil's Bridge · Sunset</td>
+                        </tr>
+                        <tr>
+                            <td class="td-mono">5</td>
+                            <td>May 17</td>
+                            <td>Saturday</td>
+                            <td>Sedona → Redlands, CA</td>
+                            <td class="td-mono">~370</td>
+                            <td>Redlands, CA — Arrived</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Ronaldo Menezes | Tallahassee, FL → Redlands, CA · May 13–17, 2026 · ~2,100 miles</p>
+    </footer>
+
+    <script>
+        const toggle = document.querySelector('.nav-toggle');
+        const menu = document.querySelector('.nav-menu');
+        toggle.addEventListener('click', () => {
+            const open = menu.classList.toggle('nav-open');
+            toggle.setAttribute('aria-expanded', open);
+        });
+
+        const fadeEls = document.querySelectorAll('.fade-in');
+        setTimeout(() => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(e => {
+                    if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+                });
+            }, { threshold: 0, rootMargin: '200px 0px 0px 0px' });
+            fadeEls.forEach(el => observer.observe(el));
+        }, 50);
+    </script>
+
+</body>
+</html>
