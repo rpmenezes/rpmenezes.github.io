@@ -41,6 +41,9 @@
   { "id": 156, "name": "China",                "category": "been" },
   { "id": 410, "name": "South Korea",          "category": "been" },
   { "id": 604, "name": "Peru",                 "category": "been" },
+  { "id": 442, "name": "Luxembourg",           "category": "been" },
+  { "id": 336, "name": "Vatican City",         "category": "been" },
+  { "id": 492, "name": "Monaco",               "category": "been" },
 
   { "id": 764, "name": "Thailand",             "category": "want" },
   { "id": 392, "name": "Japan",                "category": "want" },
