@@ -1996,6 +1996,25 @@ a:hover {
     font-style: italic;
 }
 
+.post-figure {
+    margin: 2.5rem 0;
+    text-align: center;
+}
+
+.post-figure img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+.post-figure figcaption {
+    font-size: 0.82rem;
+    font-weight: 300;
+    color: #999;
+    margin-top: 0.6rem;
+    font-style: italic;
+}
+
 .closing-note {
     border-top: 1px solid #e8e8e8;
     margin-top: 2.5rem;
