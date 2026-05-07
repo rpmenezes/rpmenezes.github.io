@@ -123,4 +123,5 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add data/auto/guitar-playlist.json data/auto/professional-playlist.json data/auto/notebooklm-playlist.json
           git diff --staged --quiet || git commit -m "Update video playlist data"
+          git pull --rebase
           git push
