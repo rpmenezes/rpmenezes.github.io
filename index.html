@@ -360,10 +360,15 @@
                 const now = new Date();
                 const currentYear = now.getFullYear();
                 const currentMonth = now.getMonth(); // 0-indexed
+                const monthIndex = { january:0, february:1, march:2, april:3, may:4, june:5,
+                                     july:6, august:7, september:8, october:9, november:10, december:11 };
                 container.innerHTML = events.map(e => {
-                    const parsed = new Date(e.date);
-                    const isPast = parsed.getFullYear() < currentYear ||
-                        (parsed.getFullYear() === currentYear && parsed.getMonth() < currentMonth);
+                    // Parse "Month YYYY" manually — new Date() is unreliable on mobile browsers
+                    const parts = e.date.trim().split(/\s+/);
+                    const evtMonth = monthIndex[(parts[0] || '').toLowerCase()];
+                    const evtYear  = parseInt(parts[1], 10);
+                    const isPast = !isNaN(evtYear) && evtMonth !== undefined &&
+                        (evtYear < currentYear || (evtYear === currentYear && evtMonth < currentMonth));
                     const nameHtml = e.url
                         ? `<a href="${e.url}" target="_blank">${e.name}</a>`
                         : e.name;
