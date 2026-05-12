@@ -37,10 +37,18 @@ jobs:
 
       - name: Fetch Semantic Scholar papers with authors
         run: |
-          curl -s "https://api.semanticscholar.org/graph/v1/author/145351935/papers?fields=influentialCitationCount,authors,title,year&limit=1000" \
-            -H "Accept: application/json" \
-            -o /tmp/s2_papers.json
-          echo "Semantic Scholar papers fetched"
+          for i in 1 2 3 4 5; do
+            echo "Attempt $i..."
+            curl -s "https://api.semanticscholar.org/graph/v1/author/145351935/papers?fields=influentialCitationCount,authors,title,year&limit=1000" \
+              -H "Accept: application/json" \
+              -o /tmp/s2_papers.json
+            if python3 -c "import json; d=json.load(open('/tmp/s2_papers.json')); assert isinstance(d.get('data'), list)"; then
+              echo "Valid papers data received."
+              break
+            fi
+            echo "Rate limited or invalid data, waiting 30s before retry..."
+            sleep 30
+          done
 
       - name: Fetch ORCID publications
         run: |
@@ -79,6 +87,11 @@ jobs:
               year = int((year_val.get('year') or {}).get('value', 0) or 0)
               if year >= min_year:
                   recent.append(g)
+
+          # Guard: abort if core stats are null (API failure), preserving last good file
+          if s2.get('paperCount') is None or s2.get('hIndex') is None:
+              print("ERROR: Core stats missing — aborting to preserve last good stats.json")
+              raise SystemExit(1)
 
           output = {
               'updated': datetime.now(timezone.utc).isoformat(),

@@ -240,7 +240,7 @@
             try {
                 const res = await fetch('data/auto/stats.json?v=' + Date.now());
                 const data = await res.json();
-                const count = data.publicationCount || data.publications?.length || null;
+                const count = data.stats?.paperCount || data.publications?.length || null;
                 if (count) document.getElementById('bio-pub-count').textContent = 'over ' + count;
             } catch(e) {}
         }
