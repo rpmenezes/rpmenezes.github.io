@@ -1,13 +1,18 @@
 {
-  "updated": "2026-05-11T08:50:49.995960+00:00",
+  "updated": "2026-05-12T08:15:39.112934+00:00",
   "collaborators": [
     {
       "authorId": "144373898",
       "name": "Diego Pinheiro",
-      "collaborationCount": 17,
+      "collaborationCount": 18,
       "firstCollabYear": 2016,
-      "lastCollabYear": 2021,
+      "lastCollabYear": 2026,
       "sharedPapers": [
+        {
+          "paperId": "1ac1bd3833fc074cf1dd3c2af66119e9016c1430",
+          "title": "Network analysis of cultural funding in Brazil: uncovering regional differences and signatures",
+          "year": 2026
+        },
         {
           "paperId": "46c92ab82eeeea206d64d453f8c0ecac777cd384",
           "title": "Fishing for interactions: a network science approach to modeling fish school search",
@@ -585,6 +590,75 @@
       ]
     },
     {
+      "authorId": "2319577742",
+      "name": "Diogo Pacheco",
+      "collaborationCount": 12,
+      "firstCollabYear": 2014,
+      "lastCollabYear": 2026,
+      "sharedPapers": [
+        {
+          "paperId": "1ac1bd3833fc074cf1dd3c2af66119e9016c1430",
+          "title": "Network analysis of cultural funding in Brazil: uncovering regional differences and signatures",
+          "year": 2026
+        },
+        {
+          "paperId": "b5828154839a33e2fef8f06cff91975a10644e4e",
+          "title": "Super-Linear Growth and Rising Inequality in Online Social Communities: Insights from Reddit",
+          "year": 2025
+        },
+        {
+          "paperId": "55c91b968dc113c82aca8fccffe213342c4bf182",
+          "title": "Dynamic predictability and activity-location contexts in human mobility",
+          "year": 2024
+        },
+        {
+          "paperId": "8117ab262bfb4a17c9a908eae639c381f12a6662",
+          "title": "Dynamic predictability and spatio-temporal contexts in human mobility",
+          "year": 2022
+        },
+        {
+          "paperId": "a6e66c6ed3bed5fde15d99b981dcf5ceb24449d9",
+          "title": "Predictability states in human mobility",
+          "year": 2022
+        },
+        {
+          "paperId": "8d4cca1be1d40618854c8962c0cbd7de627c1a86",
+          "title": "Language as a Measure of Welfare",
+          "year": 2017
+        },
+        {
+          "paperId": "a67e1fe5ac29cf1d87a9d17d855eef8f7ff3cfb2",
+          "title": "Using Social Media to Assess Neighborhood Social Disorganization: A Case Study in the United Kingdom",
+          "year": 2017
+        },
+        {
+          "paperId": "b4a1050579f9ce901f45df408ddef020f532a298",
+          "title": "Sensing language relationships from social media",
+          "year": 2017
+        },
+        {
+          "paperId": "f15d9ba7f0be75353ac8beaeb7b66cfb8e2fbe03",
+          "title": "Characterizing Organ Donation Awareness from Social Media",
+          "year": 2017
+        },
+        {
+          "paperId": "479128700e92c0b392cd19f40292c1cee4fbb17e",
+          "title": "Characterization of Football Supporters from Twitter Conversations",
+          "year": 2016
+        },
+        {
+          "paperId": "e95026e57fef8e20f1cc85436de597d5e4f7d3b7",
+          "title": "Football Conversations: What Twitter Reveals about the 2014 World Cup",
+          "year": 2015
+        },
+        {
+          "paperId": "43d633d88cfb9284a2a0bf8b9f31fa3c26da2fa7",
+          "title": "Using Interactions in the Quantification of Media Bias",
+          "year": 2014
+        }
+      ]
+    },
+    {
       "authorId": "2597369",
       "name": "Marcello Tomasini",
       "collaborationCount": 12,
@@ -650,70 +724,6 @@
           "paperId": "f23fc3410855ebcbc92161724198e93e307674eb",
           "title": "Using Patterns of Social Dynamics in the Design of Social Networks of Sensors",
           "year": 2013
-        }
-      ]
-    },
-    {
-      "authorId": "2319577742",
-      "name": "Diogo Pacheco",
-      "collaborationCount": 11,
-      "firstCollabYear": 2014,
-      "lastCollabYear": 2025,
-      "sharedPapers": [
-        {
-          "paperId": "b5828154839a33e2fef8f06cff91975a10644e4e",
-          "title": "Super-Linear Growth and Rising Inequality in Online Social Communities: Insights from Reddit",
-          "year": 2025
-        },
-        {
-          "paperId": "55c91b968dc113c82aca8fccffe213342c4bf182",
-          "title": "Dynamic predictability and activity-location contexts in human mobility",
-          "year": 2024
-        },
-        {
-          "paperId": "8117ab262bfb4a17c9a908eae639c381f12a6662",
-          "title": "Dynamic predictability and spatio-temporal contexts in human mobility",
-          "year": 2022
-        },
-        {
-          "paperId": "a6e66c6ed3bed5fde15d99b981dcf5ceb24449d9",
-          "title": "Predictability states in human mobility",
-          "year": 2022
-        },
-        {
-          "paperId": "8d4cca1be1d40618854c8962c0cbd7de627c1a86",
-          "title": "Language as a Measure of Welfare",
-          "year": 2017
-        },
-        {
-          "paperId": "a67e1fe5ac29cf1d87a9d17d855eef8f7ff3cfb2",
-          "title": "Using Social Media to Assess Neighborhood Social Disorganization: A Case Study in the United Kingdom",
-          "year": 2017
-        },
-        {
-          "paperId": "b4a1050579f9ce901f45df408ddef020f532a298",
-          "title": "Sensing language relationships from social media",
-          "year": 2017
-        },
-        {
-          "paperId": "f15d9ba7f0be75353ac8beaeb7b66cfb8e2fbe03",
-          "title": "Characterizing Organ Donation Awareness from Social Media",
-          "year": 2017
-        },
-        {
-          "paperId": "479128700e92c0b392cd19f40292c1cee4fbb17e",
-          "title": "Characterization of Football Supporters from Twitter Conversations",
-          "year": 2016
-        },
-        {
-          "paperId": "e95026e57fef8e20f1cc85436de597d5e4f7d3b7",
-          "title": "Football Conversations: What Twitter Reveals about the 2014 World Cup",
-          "year": 2015
-        },
-        {
-          "paperId": "43d633d88cfb9284a2a0bf8b9f31fa3c26da2fa7",
-          "title": "Using Interactions in the Quantification of Media Bias",
-          "year": 2014
         }
       ]
     },
@@ -886,6 +896,50 @@
           "paperId": "a43b9134ba5d4517bdb2222f2492943a162cbf87",
           "title": "Social system as complex networks",
           "year": 2014
+        }
+      ]
+    },
+    {
+      "authorId": "2077023175",
+      "name": "Josemar Faustino",
+      "collaborationCount": 7,
+      "firstCollabYear": 2013,
+      "lastCollabYear": 2026,
+      "sharedPapers": [
+        {
+          "paperId": "1ac1bd3833fc074cf1dd3c2af66119e9016c1430",
+          "title": "Network analysis of cultural funding in Brazil: uncovering regional differences and signatures",
+          "year": 2026
+        },
+        {
+          "paperId": "6d129c35f032cc6480a8f774a1f3dd45a96c4724",
+          "title": "Characterizing the Dynamics of Academic Affiliations: A Network Science Approach",
+          "year": 2020
+        },
+        {
+          "paperId": "61b5b463f27821bda9053276dab11fa64ae036da",
+          "title": "Unveiling the Interplay between the TLR4/MD2 Complex and HSP70 in the Human Cardiovascular System: A Computational Approach",
+          "year": 2019
+        },
+        {
+          "paperId": "f1be9ac5f0e36b40464b0643d5d8b718b30e7149",
+          "title": "A data-driven network approach for characterization of political parties\u2019 ideology dynamics",
+          "year": 2019
+        },
+        {
+          "paperId": "9ee83a3d325bcd08f53aac55e8e8e50dacb68bb6",
+          "title": "Entropy in Network Community as an Indicator of Language Structure in Emoji Usage: A Twitter Study Across Various Thematic Datasets",
+          "year": 2018
+        },
+        {
+          "paperId": "c7ef88072105cf1eb67370e2aaa4e743469eaef4",
+          "title": "Assessing the suitability of network community detection to available meta-data using rank stability",
+          "year": 2017
+        },
+        {
+          "paperId": "83d74481432c26db1b72426b4ca8a6d37b134a76",
+          "title": "Strategies, Political Position, and Electoral Performance of Brazilian Political Parties",
+          "year": 2013
         }
       ]
     },
@@ -1189,45 +1243,6 @@
           "paperId": "6d129c35f032cc6480a8f774a1f3dd45a96c4724",
           "title": "Characterizing the Dynamics of Academic Affiliations: A Network Science Approach",
           "year": 2020
-        }
-      ]
-    },
-    {
-      "authorId": "9438370",
-      "name": "Josemar Faustino",
-      "collaborationCount": 6,
-      "firstCollabYear": 2013,
-      "lastCollabYear": 2020,
-      "sharedPapers": [
-        {
-          "paperId": "6d129c35f032cc6480a8f774a1f3dd45a96c4724",
-          "title": "Characterizing the Dynamics of Academic Affiliations: A Network Science Approach",
-          "year": 2020
-        },
-        {
-          "paperId": "61b5b463f27821bda9053276dab11fa64ae036da",
-          "title": "Unveiling the Interplay between the TLR4/MD2 Complex and HSP70 in the Human Cardiovascular System: A Computational Approach",
-          "year": 2019
-        },
-        {
-          "paperId": "f1be9ac5f0e36b40464b0643d5d8b718b30e7149",
-          "title": "A data-driven network approach for characterization of political parties\u2019 ideology dynamics",
-          "year": 2019
-        },
-        {
-          "paperId": "9ee83a3d325bcd08f53aac55e8e8e50dacb68bb6",
-          "title": "Entropy in Network Community as an Indicator of Language Structure in Emoji Usage: A Twitter Study Across Various Thematic Datasets",
-          "year": 2018
-        },
-        {
-          "paperId": "c7ef88072105cf1eb67370e2aaa4e743469eaef4",
-          "title": "Assessing the suitability of network community detection to available meta-data using rank stability",
-          "year": 2017
-        },
-        {
-          "paperId": "83d74481432c26db1b72426b4ca8a6d37b134a76",
-          "title": "Strategies, Political Position, and Electoral Performance of Brazilian Political Parties",
-          "year": 2013
         }
       ]
     },
@@ -1728,6 +1743,35 @@
       ]
     },
     {
+      "authorId": "2337874088",
+      "name": "Marcos Oliveira",
+      "collaborationCount": 4,
+      "firstCollabYear": 2015,
+      "lastCollabYear": 2026,
+      "sharedPapers": [
+        {
+          "paperId": "1ac1bd3833fc074cf1dd3c2af66119e9016c1430",
+          "title": "Network analysis of cultural funding in Brazil: uncovering regional differences and signatures",
+          "year": 2026
+        },
+        {
+          "paperId": "c1fc2157a18010efbd5e8cf3f7ff327da725ca46",
+          "title": "Systematic comparison of gender inequality in scientific rankings across disciplines",
+          "year": 2025
+        },
+        {
+          "paperId": "836b92b46ee26a924bde41dc3fa6f3f408879a24",
+          "title": "Unravelling the dynamics of child sexual exploitation material circulation on the Dark Web",
+          "year": 2024
+        },
+        {
+          "paperId": "c1280da1a3c06b933df97f1c4e4d71ad3433a494",
+          "title": "Political Social Networks Reveal Strong Party Loyalty in Brazil and Weak Regionalism",
+          "year": 2015
+        }
+      ]
+    },
+    {
       "authorId": "2061208618",
       "name": "Clodomir Santana",
       "collaborationCount": 4,
@@ -2009,30 +2053,6 @@
           "paperId": "46a0c762a0c6d583db1752e9ddf572f4ce532b6c",
           "title": "Gender Patterns of Human Mobility in Colombia: Reexamining Ravenstein's Laws of Migration",
           "year": 2019
-        }
-      ]
-    },
-    {
-      "authorId": "2337874088",
-      "name": "Marcos Oliveira",
-      "collaborationCount": 3,
-      "firstCollabYear": 2015,
-      "lastCollabYear": 2025,
-      "sharedPapers": [
-        {
-          "paperId": "c1fc2157a18010efbd5e8cf3f7ff327da725ca46",
-          "title": "Systematic comparison of gender inequality in scientific rankings across disciplines",
-          "year": 2025
-        },
-        {
-          "paperId": "836b92b46ee26a924bde41dc3fa6f3f408879a24",
-          "title": "Unravelling the dynamics of child sexual exploitation material circulation on the Dark Web",
-          "year": 2024
-        },
-        {
-          "paperId": "c1280da1a3c06b933df97f1c4e4d71ad3433a494",
-          "title": "Political Social Networks Reveal Strong Party Loyalty in Brazil and Weak Regionalism",
-          "year": 2015
         }
       ]
     },
@@ -3610,6 +3630,34 @@
         {
           "paperId": "06f669c353b63c7374fc7a9fe07d80e1dca837bf",
           "title": "Not all roads are created equal: network science shows some highways matter more for Brazil's connectivity",
+          "year": 2026
+        }
+      ]
+    },
+    {
+      "authorId": "2415771909",
+      "name": "G. Moraes",
+      "collaborationCount": 1,
+      "firstCollabYear": 2026,
+      "lastCollabYear": 2026,
+      "sharedPapers": [
+        {
+          "paperId": "1ac1bd3833fc074cf1dd3c2af66119e9016c1430",
+          "title": "Network analysis of cultural funding in Brazil: uncovering regional differences and signatures",
+          "year": 2026
+        }
+      ]
+    },
+    {
+      "authorId": "2433390758",
+      "name": "Henilton Menezes",
+      "collaborationCount": 1,
+      "firstCollabYear": 2026,
+      "lastCollabYear": 2026,
+      "sharedPapers": [
+        {
+          "paperId": "1ac1bd3833fc074cf1dd3c2af66119e9016c1430",
+          "title": "Network analysis of cultural funding in Brazil: uncovering regional differences and signatures",
           "year": 2026
         }
       ]

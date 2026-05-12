@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-11T08:50:26.565520+00:00",
+  "updated": "2026-05-12T08:15:14.677939+00:00",
   "stats": {
     "paperCount": 237,
     "hIndex": 21,
@@ -7,6 +7,23 @@
     "influentialCitationCount": 101
   },
   "publications": [
+    {
+      "year": "2026",
+      "title": "Network analysis of cultural funding in Brazil: uncovering regional differences and signatures",
+      "authors": [
+        "Diogo Pacheco",
+        "Gustavo Moraes",
+        "Diego Pinheiro",
+        "Josemar Faustino",
+        "Marcos Oliveira",
+        "Henilton Menezes",
+        "Ronaldo Menezes"
+      ],
+      "venue": "Applied Network Science",
+      "doiValue": "10.1007/s41109-026-00799-y",
+      "doiUrl": "https://doi.org/10.1007/s41109-026-00799-y",
+      "citationCount": 0
+    },
     {
       "year": "2026",
       "title": "Natural language processing of biomedical text to map and prioritize protein\u2013disease associations in HFpEF",
