@@ -440,6 +440,15 @@ body {
     line-height: 1.5;
 }
 
+.news-text a {
+    color: #007D69;
+    text-decoration: none;
+}
+
+.news-text a:hover {
+    text-decoration: underline;
+}
+
 /* Events timeline — flex-based layout so dot/line alignment is handled by the browser */
 
 /* --- Keyframes --- */
