@@ -366,6 +366,48 @@
             .day-badge-n { font-size: 0.9rem; }
             .day-title { font-size: 1.1rem; }
         }
+        /* ── Photo Gallery ────────────────────────────────────────── */
+        .photos-section {
+            margin-top: 1.5rem;
+            border-top: 1px solid #e8e8e8;
+            padding-top: 1.25rem;
+        }
+        .photos-title {
+            font-size: 0.7rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #999;
+            margin-bottom: 1rem;
+            font-family: monospace;
+        }
+        .photos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 6px;
+        }
+        .photos-grid a {
+            display: block;
+            aspect-ratio: 4/3;
+            overflow: hidden;
+            border-radius: 4px;
+            background: #f0f0f0;
+        }
+        .photos-grid img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.2s;
+            display: block;
+        }
+        .photos-grid a:hover img { transform: scale(1.04); }
+        .photos-empty {
+            font-size: 0.8rem;
+            color: #bbb;
+            font-style: italic;
+        }
+        @media (max-width: 480px) {
+            .photos-grid { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); }
+        }
     </style>
 </head>
 <body>
@@ -426,10 +468,10 @@
                     <div class="trip-map-card-info">
                         <div class="trip-map-card-label">Full route · ~2,100 miles</div>
                         <div class="trip-map-card-route">Tallahassee → Redlands, California</div>
-                        <div class="trip-map-card-stops">FL · LA · TX · NM · AZ · CA<br>New Orleans · Houston · El Paso · Tucson · Sedona · Redlands</div>
+                        <div class="trip-map-card-stops">FL · LA · TX · NM · AZ · CA<br>Baton Rouge · Houston · El Paso · Tucson · Sedona · Redlands</div>
                     </div>
                     <a class="trip-map-btn"
-                       href="https://www.google.com/maps/dir/Tallahassee,+FL/New+Orleans,+LA/5520+E+Sam+Houston+Pkwy+N,+Houston,+TX/6099+Montana+Ave,+El+Paso,+TX/Tucson,+AZ/301+W+SR+89-A,+Cottonwood,+AZ/76+Lupine+Street,+Redlands,+CA+92373"
+                       href="https://www.google.com/maps/dir/Tallahassee,+FL/3535+Perkins+Rd+%23370,+Baton+Rouge,+LA+70808/5520+E+Sam+Houston+Pkwy+N,+Houston,+TX/6099+Montana+Ave,+El+Paso,+TX/Tucson,+AZ/301+W+SR+89-A,+Cottonwood,+AZ/76+Lupine+Street,+Redlands,+CA+92373"
                        target="_blank" rel="noopener">
                         Open route in Google Maps ↗
                     </a>
@@ -455,25 +497,23 @@
                     </div>
                 </div>
 
-                <p class="day-narrative">Depart early to make the most of the day. I-10 runs straight and flat through the Florida panhandle and across the Gulf Coast. New Orleans makes a perfect lunch stop — grab a po'boy or beignets before pushing west into Texas.</p>
+                <p class="day-narrative">Depart early to make the most of the day. I-10 runs straight and flat through the Florida panhandle and across the Gulf Coast. Baton Rouge makes a convenient lunch stop before pushing west into Texas.</p>
 
                 <div class="trip-time">
                     <span class="trip-time-label">Departure</span>
-                    <span class="trip-time-value">Leave Tallahassee by 7:00 AM — I-10 West the whole way</span>
+                    <span class="trip-time-value">Leave Tallahassee at 7:30 AM — I-10 West the whole way</span>
                 </div>
 
                 <div class="trip-sub">
-                    <div class="trip-sub-title rest">Lunch Stop — New Orleans, LA (~3.5 hrs from Tallahassee)</div>
+                    <div class="trip-sub-title rest">Lunch Stop — Baton Rouge, LA (~1:50 PM arrival)</div>
                     <ul>
-                        <li><strong>Café Du Monde</strong> <span>— beignets and café au lait on Decatur Street, a classic stop. Allow ~1 hour.</span></li>
-                        <li><strong>Central Grocery</strong> <span>— home of the original muffuletta sandwich, right in the French Quarter.</span></li>
-                        <li><strong>Dooky Chase's</strong> <span>— legendary Creole cooking, if you have time for a sit-down lunch.</span></li>
+                        <li><strong>Jersey Mike's Subs</strong> <span>— 3535 Perkins Rd #370, Baton Rouge, LA 70808</span></li>
                     </ul>
                 </div>
 
                 <div class="trip-time">
                     <span class="trip-time-label">Arrival</span>
-                    <span class="trip-time-value">Houston, TX — arrive by 6:00 PM</span>
+                    <span class="trip-time-value">Houston, TX — arrive approximately 7:30 PM</span>
                 </div>
 
                 <div class="trip-sub">
@@ -818,10 +858,12 @@
     <script>
         const toggle = document.querySelector('.nav-toggle');
         const menu = document.querySelector('.nav-menu');
-        toggle.addEventListener('click', () => {
-            const open = menu.classList.toggle('nav-open');
-            toggle.setAttribute('aria-expanded', open);
-        });
+        if (toggle && menu) {
+            toggle.addEventListener('click', () => {
+                const open = menu.classList.toggle('nav-open');
+                toggle.setAttribute('aria-expanded', open);
+            });
+        }
 
         const fadeEls = document.querySelectorAll('.fade-in');
         setTimeout(() => {
@@ -834,5 +876,83 @@
         }, 50);
     </script>
 
-</body>
-</html>
+    <script>
+        /* ── PHOTO GALLERY ─────────────────────────────────────────────
+           Photos are loaded from the GitHub repo via the API.
+           Upload photos to:
+             privatepages/tc-day1/   ← Day 1 photos
+             privatepages/tc-day2/   ← Day 2 photos
+             privatepages/tc-day3/   ← Day 3 photos
+             privatepages/tc-day4/   ← Day 4 photos
+             privatepages/tc-day5/   ← Day 5 photos
+           Supported formats: jpg, jpeg, png, webp, gif
+           Photos appear automatically after a page refresh.
+        ─────────────────────────────────────────────────────────────── */
+
+        const GITHUB_USER = 'rpmenezes';
+        const GITHUB_REPO = 'rpmenezes.github.io';
+
+        const DAY_FOLDERS = [
+            'privatepages/tc-day1',
+            'privatepages/tc-day2',
+            'privatepages/tc-day3',
+            'privatepages/tc-day4',
+            'privatepages/tc-day5'
+        ];
+
+        const IMAGE_EXTS = ['jpg', 'jpeg', 'png', 'webp', 'gif'];
+
+        async function loadPhotos(folder, section) {
+            const url = `https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/contents/${folder}`;
+            try {
+                const res = await fetch(url);
+                if (!res.ok) {
+                    section.querySelector('.photos-empty').textContent = 'No photos yet.';
+                    return;
+                }
+                const files = await res.json();
+                const images = files.filter(f =>
+                    IMAGE_EXTS.some(ext => f.name.toLowerCase().endsWith('.' + ext))
+                );
+                if (images.length === 0) {
+                    section.querySelector('.photos-empty').textContent = 'No photos yet.';
+                    return;
+                }
+                const grid = document.createElement('div');
+                grid.className = 'photos-grid';
+                images.forEach(img => {
+                    const a = document.createElement('a');
+                    a.href = img.download_url;
+                    a.target = '_blank';
+                    a.rel = 'noopener';
+                    const image = document.createElement('img');
+                    image.src = img.download_url;
+                    image.alt = img.name;
+                    image.loading = 'lazy';
+                    a.appendChild(image);
+                    grid.appendChild(a);
+                });
+                section.querySelector('.photos-empty').remove();
+                section.appendChild(grid);
+            } catch (e) {
+                section.querySelector('.photos-empty').textContent = 'No photos yet.';
+            }
+        }
+
+        function injectPhotoSections() {
+            const dayBlocks = document.querySelectorAll('.day-block');
+            dayBlocks.forEach((block, i) => {
+                const folder = DAY_FOLDERS[i];
+                if (!folder) return;
+                const section = document.createElement('div');
+                section.className = 'photos-section';
+                section.innerHTML = `
+                    <div class="photos-title">Day ${i + 1} Photos</div>
+                    <p class="photos-empty">Loading…</p>`;
+                block.appendChild(section);
+                loadPhotos(folder, section);
+            });
+        }
+
+        injectPhotoSections();
+    </script>
