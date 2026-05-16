@@ -322,6 +322,48 @@
             .day-badge-n { font-size: 0.9rem; }
             .day-title { font-size: 1.1rem; }
         }
+        /* ── Photo Gallery ────────────────────────────────────────── */
+        .photos-section {
+            margin-top: 1.5rem;
+            border-top: 1px solid var(--color-border-tertiary, #e8e8e8);
+            padding-top: 1.25rem;
+        }
+        .photos-title {
+            font-size: 0.7rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #999;
+            margin-bottom: 1rem;
+            font-family: monospace;
+        }
+        .photos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 6px;
+        }
+        .photos-grid a {
+            display: block;
+            aspect-ratio: 4/3;
+            overflow: hidden;
+            border-radius: 4px;
+            background: #f0f0f0;
+        }
+        .photos-grid img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.2s;
+            display: block;
+        }
+        .photos-grid a:hover img { transform: scale(1.04); }
+        .photos-empty {
+            font-size: 0.8rem;
+            color: #bbb;
+            font-style: italic;
+        }
+        @media (max-width: 480px) {
+            .photos-grid { grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); }
+        }
     </style>
 </head>
 <body>
@@ -1128,6 +1170,94 @@
             }, { threshold: 0, rootMargin: '200px 0px 0px 0px' });
             fadeEls.forEach(el => observer.observe(el));
         }, 50);
+    </script>
+    <script>
+        /* ── PHOTO GALLERY ─────────────────────────────────────────────
+           Photos are loaded from the GitHub repo via the API.
+           Upload photos to:
+             privatepages/sf-day1/   ← Day 1 photos
+             privatepages/sf-day2/   ← Day 2 photos
+             privatepages/sf-day3/   ← Day 3 photos
+             privatepages/sf-day4/   ← Day 4 photos
+             privatepages/sf-day5/   ← Day 5 photos
+             privatepages/sf-day6/   ← Day 6 photos
+             privatepages/sf-day7/   ← Day 7 photos
+             privatepages/sf-day8/   ← Day 8 photos
+             privatepages/sf-day9/   ← Day 9 photos
+           Supported formats: jpg, jpeg, png, webp, gif
+           Photos appear automatically after a page refresh.
+        ─────────────────────────────────────────────────────────────── */
+
+        const GITHUB_USER = 'rpmenezes';
+        const GITHUB_REPO = 'rpmenezes.github.io';
+
+        const DAY_FOLDERS = [
+            'privatepages/sf-day1',
+            'privatepages/sf-day2',
+            'privatepages/sf-day3',
+            'privatepages/sf-day4',
+            'privatepages/sf-day5',
+            'privatepages/sf-day6',
+            'privatepages/sf-day7',
+            'privatepages/sf-day8',
+            'privatepages/sf-day9'
+        ];
+
+        const IMAGE_EXTS = ['jpg', 'jpeg', 'png', 'webp', 'gif'];
+
+        async function loadPhotos(folder, section) {
+            const url = `https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/contents/${folder}`;
+            try {
+                const res = await fetch(url);
+                if (!res.ok) {
+                    section.querySelector('.photos-empty').textContent = 'No photos yet.';
+                    return;
+                }
+                const files = await res.json();
+                const images = files.filter(f =>
+                    IMAGE_EXTS.some(ext => f.name.toLowerCase().endsWith('.' + ext))
+                );
+                if (images.length === 0) {
+                    section.querySelector('.photos-empty').textContent = 'No photos yet.';
+                    return;
+                }
+                const grid = document.createElement('div');
+                grid.className = 'photos-grid';
+                images.forEach(img => {
+                    const a = document.createElement('a');
+                    a.href = img.download_url;
+                    a.target = '_blank';
+                    a.rel = 'noopener';
+                    const image = document.createElement('img');
+                    image.src = img.download_url;
+                    image.alt = img.name;
+                    image.loading = 'lazy';
+                    a.appendChild(image);
+                    grid.appendChild(a);
+                });
+                section.querySelector('.photos-empty').remove();
+                section.appendChild(grid);
+            } catch (e) {
+                section.querySelector('.photos-empty').textContent = 'No photos yet.';
+            }
+        }
+
+        function injectPhotoSections() {
+            const dayBlocks = document.querySelectorAll('.day-block');
+            dayBlocks.forEach((block, i) => {
+                const folder = DAY_FOLDERS[i];
+                if (!folder) return;
+                const section = document.createElement('div');
+                section.className = 'photos-section';
+                section.innerHTML = `
+                    <div class="photos-title">Day ${i + 1} Photos</div>
+                    <p class="photos-empty">Loading…</p>`;
+                block.appendChild(section);
+                loadPhotos(folder, section);
+            });
+        }
+
+        injectPhotoSections();
     </script>
 
 </body>
