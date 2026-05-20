@@ -1,6 +1,14 @@
 {
   "videos": [
     {
+      "rawTitle": "Analysis of Cultural Funding in Brazil",
+      "description": "Title: Network Analysis of Cultural Funding in Brazil: Uncovering Regional Differences and Signatures\nAuthors: Diogo Pacheco, Gustavo Moraes, Diego Pinheiro, Josemar Faustino, Marcos Oliveira, Henilton Menezes, Ronaldo Menezes\nDOI: https://doi.org/10.1007/s41109-026-00799-y",
+      "videoId": "IJIXVbf93pY",
+      "url": "https://www.youtube.com/watch?v=IJIXVbf93pY",
+      "publishedAt": "2026-05-20T05:15:24Z",
+      "viewCount": 1
+    },
+    {
       "rawTitle": "The Scaling of Brazilian Cities",
       "description": "Title: Validating urban scaling laws through mobile phone data: analysis of Brazil\u2019s largest cities\nAuthors: Ricardo de S. Alencar, Fabiano L. Ribeiro, Horacio Samaniego, Ronaldo Menezes, Alexandre G. Evsukoff \nDOI: https://doi.org/10.1007/s43762-026-00252-x",
       "videoId": "M_ebK7ZTjGA",
@@ -31,15 +39,7 @@
       "url": "https://www.youtube.com/watch?v=JDd8Ykz4YIE",
       "publishedAt": "2026-02-23T15:24:56Z",
       "viewCount": 15
-    },
-    {
-      "rawTitle": "The impact of the social exposome in cardiovascular health and disease",
-      "description": "Title: The impact of the social exposome in cardiovascular health and disease\nAuthors: Khaoula El Mekkaoui, Chitra Mukherjee, Clodomir Santana, Hitalo Silva, Arnib Quazi, Meghana Balabhadruni, Aditya Ballal, Shamika Gavaskar, Kea Turqueza, Leslie Molina, Pablo Acevedo, Kay Moua, Omar Dawar, Federico Garcia, Mohammad S Soroya, XiaoDong Zhang, Ezra Amsterdam, Chao-Yin Chen, Padmini Sirish, Leighton Izu, Ronaldo Menezes, Nipavan Chiamvimonvat, Vladimir Filkov, Martin Cadeiras, David A Liem\nDOI: https://doi.org/10.1016/j.premed.2025.100015",
-      "videoId": "YOTzkdZtgu4",
-      "url": "https://www.youtube.com/watch?v=YOTzkdZtgu4",
-      "publishedAt": "2026-02-22T11:26:18Z",
-      "viewCount": 6
     }
   ],
-  "updated": "2026-05-19T09:47:19.618332"
+  "updated": "2026-05-20T09:36:34.454080"
 }
