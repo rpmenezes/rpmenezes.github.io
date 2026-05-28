@@ -1,5 +1,5 @@
 {
-  "updated": "2026-05-27T08:54:32.813313+00:00",
+  "updated": "2026-05-28T09:37:35.000236+00:00",
   "stats": {
     "paperCount": 238,
     "hIndex": 21,
@@ -168,7 +168,7 @@
       "venue": "People and Nature",
       "doiValue": "10.1002/pan3.70081",
       "doiUrl": "https://doi.org/10.1002/pan3.70081",
-      "citationCount": 1
+      "citationCount": 2
     },
     {
       "year": "2025",
@@ -402,7 +402,7 @@
       "venue": "Nature Communications",
       "doiValue": "10.1038/s41467-022-29592-y",
       "doiUrl": "https://doi.org/10.1038/s41467-022-29592-y",
-      "citationCount": 23
+      "citationCount": 24
     },
     {
       "year": "2022",
