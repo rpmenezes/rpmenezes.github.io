@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-04T09:36:56.658512+00:00",
+  "updated": "2026-06-05T08:58:34.012388+00:00",
   "stats": {
     "paperCount": 238,
     "hIndex": 21,
@@ -154,7 +154,7 @@
       "venue": "Royal Society Open Science",
       "doiValue": "10.1098/rsos.241288",
       "doiUrl": "https://doi.org/10.1098/rsos.241288",
-      "citationCount": 5
+      "citationCount": 6
     },
     {
       "year": "2025",
@@ -316,7 +316,7 @@
       "venue": "EPJ Data Science",
       "doiValue": "10.1140/epjds/s13688-023-00411-8",
       "doiUrl": "https://doi.org/10.1140/epjds/s13688-023-00411-8",
-      "citationCount": 3
+      "citationCount": 4
     },
     {
       "year": "2023",
