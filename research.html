@@ -499,7 +499,7 @@
                         const peakHtml = isMax ? `<span class="lollipop-peak" style="bottom:${h + 10}px">&#9652; peak</span>` : '';
                         const stemDelay = i * 55;
                         const circleDelay = i * 55 + 320;
-                        return `<div class="lollipop-col">
+                        return `<div class="lollipop-col" data-tip="${d.citations.toLocaleString()} citations">
                             ${peakHtml}
                             <div class="${circleClass}" style="bottom:${circleBottom}px;transition-delay:${circleDelay}ms"></div>
                             <div class="lollipop-stem" style="height:${h}px;transition-delay:${stemDelay}ms"></div>
