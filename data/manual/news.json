@@ -1,11 +1,5 @@
 [
   {
-    "title": "Welcome Luiz Correia",
-    "text": "Luiz Correia from the Federal University of ABC, Brazil. He will be visiting until July 2026",
-    "url": null,
-    "date": "February 2026"
-  },
-  {
     "title": "PhD Opportunity",
     "text": "Join PhD Studentship with the University of Queensland on Chrono-urbanism and well-being. Deadline: April 24, 2026",
     "url": "https://www.exeter.ac.uk/study/funding/award/?id=5842",
@@ -16,5 +10,11 @@
     "text": "New paper accepted at the Applied Network Science Journal. Network Analysis of Cultural Funding in Brazil: Uncovering Regional Differences and Signatures. <a href=\"highlights/s41109-026-00799-y.html\">See Highlight</a>",
     "url": null,
     "date": "May 2026"
+  },
+  {
+    "title": "Paper Accepted",
+    "text": "New paper accepted at the npj Complexity. The Parenthood Effect in Urban Mobility",
+    "url": null,
+    "date": "June 2026"
   }
 ]
