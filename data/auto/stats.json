@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-20T08:36:23.002595+00:00",
+  "updated": "2026-06-21T09:30:08.125978+00:00",
   "stats": {
     "paperCount": 238,
     "hIndex": 21,
@@ -168,7 +168,7 @@
       "venue": "People and Nature",
       "doiValue": "10.1002/pan3.70081",
       "doiUrl": "https://doi.org/10.1002/pan3.70081",
-      "citationCount": 2
+      "citationCount": null
     },
     {
       "year": "2025",
