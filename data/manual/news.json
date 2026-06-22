@@ -1,11 +1,5 @@
 [
   {
-    "title": "PhD Opportunity",
-    "text": "Join PhD Studentship with the University of Queensland on Chrono-urbanism and well-being. Deadline: April 24, 2026",
-    "url": "https://www.exeter.ac.uk/study/funding/award/?id=5842",
-    "date": "March 2026"
-  },
-  {
     "title": "Paper Accepted",
     "text": "New paper accepted at the Applied Network Science Journal. Network Analysis of Cultural Funding in Brazil: Uncovering Regional Differences and Signatures. <a href=\"highlights/s41109-026-00799-y.html\">See Highlight</a>",
     "url": null,
@@ -15,6 +9,12 @@
     "title": "Paper Accepted",
     "text": "New paper accepted at the npj Complexity. The Parenthood Effect in Urban Mobility",
     "url": null,
+    "date": "June 2026"
+  },
+  {
+    "title": "Visitor",
+    "text": "Joao Aparicio from University of Lisbon will be visiting us in September 2026. He will explore the topic of network robustness around in the context of urban environments.",
+    "url": "https://scholar.google.com/citations?user=HOcvuhMAAAAJ&hl=en",
     "date": "June 2026"
   }
 ]
