@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-25T08:42:07.914921+00:00",
+  "updated": "2026-06-26T08:43:38.703846+00:00",
   "stats": {
     "paperCount": 238,
     "hIndex": 21,
@@ -7,6 +7,19 @@
     "influentialCitationCount": 103
   },
   "publications": [
+    {
+      "year": "2026",
+      "title": "The parenthood effect in urban mobility",
+      "authors": [
+        "Mariana Macedo",
+        "Ronaldo Menezes",
+        "Alessio Cardillo"
+      ],
+      "venue": "npj Complexity",
+      "doiValue": "10.1038/s44260-026-00089-9",
+      "doiUrl": "https://doi.org/10.1038/s44260-026-00089-9",
+      "citationCount": null
+    },
     {
       "year": "2026",
       "title": "Network analysis of cultural funding in Brazil: uncovering regional differences and signatures",
