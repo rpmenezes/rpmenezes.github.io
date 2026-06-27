@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-26T08:43:38.703846+00:00",
+  "updated": "2026-06-27T08:20:26.608942+00:00",
   "stats": {
     "paperCount": 238,
     "hIndex": 21,
@@ -18,7 +18,7 @@
       "venue": "npj Complexity",
       "doiValue": "10.1038/s44260-026-00089-9",
       "doiUrl": "https://doi.org/10.1038/s44260-026-00089-9",
-      "citationCount": null
+      "citationCount": 0
     },
     {
       "year": "2026",
