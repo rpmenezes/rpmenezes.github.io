@@ -1,5 +1,5 @@
 {
-  "updated": "2026-06-27T08:20:26.608942+00:00",
+  "updated": "2026-06-28T08:35:43.829312+00:00",
   "stats": {
     "paperCount": 238,
     "hIndex": 21,
@@ -35,7 +35,7 @@
       "venue": "Applied Network Science",
       "doiValue": "10.1007/s41109-026-00799-y",
       "doiUrl": "https://doi.org/10.1007/s41109-026-00799-y",
-      "citationCount": 0
+      "citationCount": null
     },
     {
       "year": "2026",
@@ -107,7 +107,7 @@
       "venue": "Applied Network Science",
       "doiValue": "10.1007/s41109-026-00777-4",
       "doiUrl": "https://doi.org/10.1007/s41109-026-00777-4",
-      "citationCount": 0
+      "citationCount": null
     },
     {
       "year": "2025",
@@ -119,7 +119,7 @@
       "venue": "Nature Communications",
       "doiValue": "10.1038/s41467-025-65728-6",
       "doiUrl": "https://doi.org/10.1038/s41467-025-65728-6",
-      "citationCount": 1
+      "citationCount": null
     },
     {
       "year": "2025",
@@ -181,7 +181,7 @@
       "venue": "People and Nature",
       "doiValue": "10.1002/pan3.70081",
       "doiUrl": "https://doi.org/10.1002/pan3.70081",
-      "citationCount": 3
+      "citationCount": null
     },
     {
       "year": "2025",
@@ -302,7 +302,7 @@
       "venue": "PLOS ONE",
       "doiValue": "10.1371/journal.pone.0306516",
       "doiUrl": "https://doi.org/10.1371/journal.pone.0306516",
-      "citationCount": 2
+      "citationCount": null
     },
     {
       "year": "2024",
@@ -345,7 +345,7 @@
       "venue": "Nature Human Behaviour",
       "doiValue": "10.1038/s41562-023-01660-3",
       "doiUrl": "https://doi.org/10.1038/s41562-023-01660-3",
-      "citationCount": 58
+      "citationCount": null
     },
     {
       "year": "2023",
@@ -415,7 +415,7 @@
       "venue": "Nature Communications",
       "doiValue": "10.1038/s41467-022-29592-y",
       "doiUrl": "https://doi.org/10.1038/s41467-022-29592-y",
-      "citationCount": 25
+      "citationCount": null
     },
     {
       "year": "2022",
