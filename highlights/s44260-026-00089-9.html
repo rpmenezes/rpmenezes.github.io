@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Parenthood Effect in Urban Mobility: How Life Events Reshape How We Move Through Cities</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #111;
+            background-color: #ffffff;
+            font-size: 16px;
+            font-weight: 300;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 1.25rem 4rem 0;
+        }
+
+        .breadcrumb a {
+            font-size: 0.8rem;
+            font-weight: 300;
+            color: #999;
+            text-decoration: none;
+            letter-spacing: 0.02em;
+            transition: color 0.2s ease;
+        }
+
+        .breadcrumb a:hover {
+            color: #007D69;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 3rem 4rem 5rem;
+        }
+
+        /* Hero */
+        .hero {
+            padding: 3rem 0 2rem;
+            border-bottom: 1px solid #e8e8e8;
+            margin-bottom: 4rem;
+        }
+
+        .hero-meta {
+            font-size: 0.78rem;
+            font-weight: 400;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 300;
+            color: #003C3C;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            max-width: 800px;
+        }
+
+        .title-divider {
+            width: 40px;
+            height: 1px;
+            background: #111;
+            margin: 2rem 0;
+        }
+
+        .hero-authors {
+            font-size: 1rem;
+            font-weight: 300;
+            color: #444;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-authors span.highlight {
+            color: #007D69;
+            font-weight: 400;
+        }
+
+        .hero-journal {
+            font-size: 0.9rem;
+            font-weight: 300;
+            color: #666;
+            font-style: italic;
+            margin-bottom: 2rem;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            padding: 0.7rem 1.75rem;
+            background-color: #111;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 300;
+            transition: background-color 0.2s ease, border-color 0.2s ease;
+            border: 1px solid #111;
+            font-size: 0.85rem;
+            letter-spacing: 0.04em;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background-color: #007D69;
+            border-color: #007D69;
+        }
+
+        .btn-outline {
+            display: inline-block;
+            padding: 0.7rem 1.75rem;
+            background-color: transparent;
+            color: #111;
+            text-decoration: none;
+            font-weight: 300;
+            transition: all 0.2s ease;
+            border: 1px solid #111;
+            font-size: 0.85rem;
+            letter-spacing: 0.04em;
+            cursor: pointer;
+        }
+
+        .btn-outline:hover {
+            background-color: #007D69;
+            border-color: #007D69;
+            color: #fff;
+        }
+
+        /* Key stats row */
+        .stats-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin: 4rem 0;
+            padding: 2.5rem 0;
+            border-top: 1px solid #e8e8e8;
+            border-bottom: 1px solid #e8e8e8;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .stat-label {
+            font-size: 0.7rem;
+            font-weight: 400;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .stat-value {
+            font-size: 1.4rem;
+            font-weight: 300;
+            color: #007D69;
+        }
+
+        .stat-desc {
+            font-size: 0.82rem;
+            font-weight: 300;
+            color: #666;
+        }
+
+        /* Content sections */
+        .content-section {
+            margin: 5rem 0;
+        }
+
+        .content-section h2 {
+            font-size: 1.4rem;
+            font-weight: 300;
+            color: #007D69;
+            margin-bottom: 2.5rem;
+            letter-spacing: 0.02em;
+        }
+
+        .content-section h3 {
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: #111;
+            margin: 2rem 0 0.8rem;
+        }
+
+        .content-section p {
+            font-size: 1rem;
+            font-weight: 300;
+            color: #111;
+            line-height: 1.8;
+            margin-bottom: 1.4rem;
+            max-width: 760px;
+        }
+
+        /* Two-column layout */
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        /* Highlighted quote */
+        .pull-quote {
+            font-size: 1.2rem;
+            font-weight: 300;
+            color: #003C3C;
+            line-height: 1.7;
+            border-left: 2px solid #007D69;
+            padding-left: 1.5rem;
+            margin: 2rem 0;
+            font-style: italic;
+            max-width: 700px;
+        }
+
+        /* Steps */
+        .steps-list {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+        }
+
+        .step-item {
+            display: flex;
+            gap: 1.5rem;
+            padding: 1.25rem 0;
+            border-bottom: 1px solid #f0f0f0;
+            align-items: flex-start;
+        }
+
+        .step-item:last-child {
+            border-bottom: none;
+        }
+
+        .step-number {
+            font-size: 0.72rem;
+            font-weight: 400;
+            color: #999;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            min-width: 60px;
+            padding-top: 0.2rem;
+        }
+
+        .step-content h4 {
+            font-size: 0.95rem;
+            font-weight: 400;
+            color: #111;
+            margin-bottom: 0.4rem;
+        }
+
+        .step-content p {
+            font-size: 0.9rem;
+            font-weight: 300;
+            color: #444;
+            line-height: 1.7;
+            margin: 0;
+            max-width: none;
+        }
+
+        /* Findings cards */
+        .findings-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+            margin-top: 2.5rem;
+        }
+
+        .finding-card {
+            border-top: 2px solid #007D69;
+            padding-top: 1.25rem;
+        }
+
+        .finding-card h4 {
+            font-size: 0.95rem;
+            font-weight: 400;
+            color: #111;
+            margin-bottom: 0.7rem;
+            letter-spacing: 0.01em;
+        }
+
+        .finding-card p {
+            font-size: 0.88rem;
+            font-weight: 300;
+            color: #555;
+            line-height: 1.7;
+            margin: 0;
+            max-width: none;
+        }
+
+        /* Applications list */
+        .applications-list {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+        }
+
+        .app-item {
+            display: flex;
+            gap: 1.5rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid #e8e8e8;
+            align-items: flex-start;
+        }
+
+        .app-item:last-child {
+            border-bottom: none;
+        }
+
+        .app-label {
+            font-size: 0.78rem;
+            font-weight: 400;
+            color: #007D69;
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+            width: 210px;
+            flex-shrink: 0;
+            padding-top: 0.15rem;
+        }
+
+        .app-desc {
+            font-size: 0.92rem;
+            font-weight: 300;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Authors section */
+        .authors-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem 3rem;
+            margin-top: 1.5rem;
+        }
+
+        .author-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .author-name {
+            font-size: 0.95rem;
+            font-weight: 400;
+            color: #111;
+        }
+
+        .author-affiliation {
+            font-size: 0.82rem;
+            font-weight: 300;
+            color: #666;
+        }
+
+        /* Green box for key text sections */
+        .content-section--green {
+            background: #f0f7f5;
+            border-left: 4px solid #007D69;
+            padding: 2rem 2.5rem;
+            border-radius: 2px;
+        }
+        .content-section--green h2 {
+            color: #003C3C;
+        }
+        .content-section--green p {
+            max-width: none;
+        }
+        .content-section--green .finding-card {
+            background: #fff;
+            padding: 1.25rem;
+            border-top: none;
+            border-left: 2px solid #007D69;
+        }
+        .content-section--green .app-item {
+            border-bottom-color: rgba(0,125,105,0.2);
+        }
+
+        /* Infographics section */
+        .infographic {
+            background: #f5f6f7;
+            border: 1px solid #e0e1e2;
+            padding: 2rem 2.5rem 1.75rem;
+            margin-top: 2rem;
+        }
+        .infographic-title {
+            font-size: 1.05rem;
+            font-weight: 400;
+            color: #111;
+            margin-bottom: 0.5rem;
+        }
+        .infographic-desc {
+            font-size: 0.82rem;
+            color: #666;
+            max-width: 680px;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+        .infographic .two-panel {
+            display: grid;
+            grid-template-columns: 1fr 56px 1fr;
+            align-items: center;
+        }
+        .infographic .panel { display: flex; flex-direction: column; }
+        .infographic .panel-canvas-wrap {
+            background: #08142e;
+            overflow: hidden;
+        }
+        .infographic .panel-canvas-wrap canvas {
+            display: block;
+            width: 100%;
+            height: 240px;
+        }
+        .infographic .panel-foot {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.55rem 0.1rem 0;
+        }
+        .infographic .panel-name {
+            font-size: 0.73rem;
+            font-weight: 500;
+            color: #333;
+            letter-spacing: 0.02em;
+        }
+        .infographic .panel-sub {
+            font-size: 0.68rem;
+            color: #999;
+        }
+        .infographic .sep {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            color: #bbb;
+        }
+
+        /* Amenity legend */
+        .amenity-legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem 1.1rem;
+            margin-top: 1.1rem;
+        }
+        .amenity-legend .leg {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.72rem;
+            color: #666;
+        }
+        .amenity-legend .swatch {
+            width: 10px;
+            height: 10px;
+            border-radius: 2px;
+            flex-shrink: 0;
+        }
+
+        /* Citation box */
+        .citation-box {
+            background: #f8f8f8;
+            padding: 1.75rem 2rem;
+            margin-top: 1.5rem;
+            font-size: 0.85rem;
+            font-weight: 300;
+            color: #444;
+            line-height: 1.8;
+            font-family: 'Courier New', monospace;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+
+        /* Footer */
+        footer {
+            background-color: transparent;
+            padding: 3rem 4rem;
+            text-align: left;
+            color: #666;
+            font-size: 0.82rem;
+            border-top: 1px solid #111;
+            margin-top: 6rem;
+            font-weight: 300;
+        }
+
+        .footer-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-inner a {
+            color: #666;
+            text-decoration: none;
+        }
+
+        .footer-inner a:hover {
+            color: #007D69;
+        }
+
+        /* Fade-in */
+        .fade-in {
+            opacity: 0;
+            transition: opacity 0.7s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .breadcrumb,
+            .container {
+                padding-left: 3rem;
+                padding-right: 3rem;
+            }
+            footer { padding-left: 3rem; padding-right: 3rem; }
+        }
+
+        @media (max-width: 768px) {
+            .breadcrumb { padding: 1rem 2rem 0; }
+            .container { padding: 2.5rem 2rem 4rem; }
+            .hero h1 { font-size: 1.9rem; }
+            .stats-row { grid-template-columns: repeat(2, 1fr); }
+            .two-col { grid-template-columns: 1fr; gap: 2rem; }
+            .findings-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .authors-grid { grid-template-columns: 1fr; }
+            .infographic .two-panel { grid-template-columns: 1fr; }
+            .infographic .sep { padding: 0.75rem 0; }
+            footer { padding: 2.5rem 2rem; }
+            .footer-inner { flex-direction: column; }
+            .app-item { flex-direction: column; gap: 0.3rem; }
+            .app-label { min-width: unset; }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 1.6rem; }
+            .hero-actions { flex-direction: column; align-items: flex-start; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <a href="https://rpmenezes.github.io">← Home</a>
+    </div>
+
+    <main class="container">
+
+        <!-- Hero -->
+        <section class="hero">
+            <div class="hero-meta">Research Article &nbsp;·&nbsp; npj Complexity &nbsp;·&nbsp; Published 2026</div>
+            <h1>The Parenthood Effect in Urban Mobility</h1>
+            <div class="title-divider"></div>
+            <p class="hero-authors">
+                Mariana Macedo &nbsp;·&nbsp;
+                <span class="highlight">Ronaldo Menezes</span> &nbsp;·&nbsp;
+                Alessio Cardillo
+            </p>
+            <p class="hero-journal">
+                npj Complexity, 3: 23 &nbsp;·&nbsp;
+                DOI: <a href="https://doi.org/10.1038/s44260-026-00089-9" target="_blank" rel="noopener" style="color:#666; font-style:normal;">10.1038/s44260-026-00089-9</a>
+            </p>
+            <div class="hero-actions">
+                <a href="https://www.nature.com/articles/s44260-026-00089-9" target="_blank" rel="noopener" class="btn-primary">Read the Paper ↗</a>
+            </div>
+        </section>
+
+        <!-- Key numbers -->
+        <div class="stats-row fade-in">
+            <div class="stat-item">
+                <span class="stat-label">Metropolitan Areas</span>
+                <span class="stat-value">17</span>
+                <span class="stat-desc">US urban regions analysed using American Community Survey (2019) census data</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Household Groups</span>
+                <span class="stat-value">4</span>
+                <span class="stat-desc">parent / non-parent and married / non-married arrangements compared</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Amenity Categories</span>
+                <span class="stat-value">9</span>
+                <span class="stat-desc">work, residential, leisure, health, food, transport, religious, education, services (OpenStreetMap)</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Null Models</span>
+                <span class="stat-value">5</span>
+                <span class="stat-desc">statistical tests confirming the observed differences are not random noise</span>
+            </div>
+        </div>
+
+        <!-- The Problem -->
+        <section class="content-section fade-in">
+            <h2>The Problem</h2>
+            <div class="two-col">
+                <div>
+                    <p>Most models of how people move through cities assume an <strong>"average citizen"</strong> — a single, homogeneous traveller. But cities are not experienced uniformly. A new parent and a young single professional navigate the same streets with entirely different priorities, constraints, and routines. Treating them as interchangeable produces urban policies that fit no one particularly well.</p>
+                    <p>Two of life's biggest transitions — <em>becoming a parent</em> and <em>getting married</em> — profoundly reshape daily mobility. Parenthood introduces caregiving responsibilities, the pull of schools and childcare, and a strong preference for safe, family-friendly neighbourhoods. Marriage brings shared household decision-making, potential dual incomes, and combined residential preferences. Yet these life-altering events have been largely overlooked in traditional mobility research.</p>
+                    <p>The stakes are concrete. In the United States, raising a child to age 18 costs an average of <strong>US$233,610</strong> — a figure that underscores how heavily parenthood weighs on household decisions about where to live, work, and travel. As remote work makes relocation more feasible, understanding which cities actually accommodate different household arrangements has never been more relevant.</p>
+                </div>
+                <div>
+                    <div class="pull-quote">
+                        "People do not experience urban systems in a similar manner. Some cities better accommodate single individuals, others favour married people, and still others are best suited to parents."
+                    </div>
+                    <p style="font-size:0.88rem; color:#666; margin-top:1rem; max-width:none;">Over 55% of the world's population lived in cities as of 2018, rising to a projected 68% by 2050. In the US, roughly 82% already live in urban areas. Building cities that are efficient <em>and</em> equitable demands moving beyond one-size-fits-all mobility models toward designs that recognise demographic diversity.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Approach -->
+        <section class="content-section fade-in">
+            <h2>The Approach</h2>
+            <p>The study combines individual-level mobility data from the US Census with the geolocation of amenities from OpenStreetMap, then uses entropy-based measures to quantify how evenly different household groups access the city — both in where they live and where they travel.</p>
+
+            <ul class="steps-list">
+                <li class="step-item">
+                    <span class="step-number">Step 01</span>
+                    <div class="step-content">
+                        <h4>Household classification from census data</h4>
+                        <p>Using the 2019 American Community Survey, individuals in 17 US metropolitan areas are classified along two axes: <em>married / non-married</em> (by reported marital status) and <em>parent / non-parent</em> (by number of children). Each traveller carries their home location, work location, and commuting time. New York, the largest area, spans 23 zones and nearly 19.8 million people.</p>
+                    </div>
+                </li>
+                <li class="step-item">
+                    <span class="step-number">Step 02</span>
+                    <div class="step-content">
+                        <h4>Mapping amenities across the city</h4>
+                        <p>Every zone's amenities are extracted from OpenStreetMap and grouped into nine categories — work, residential, leisure, health, food, transport, religious, education, and services. This makes it possible to measure not just <em>how far</em> people travel, but <em>what kinds</em> of destinations they can reach from home and from work.</p>
+                    </div>
+                </li>
+                <li class="step-item">
+                    <span class="step-number">Step 03</span>
+                    <div class="step-content">
+                        <h4>Diversity, mobility diversity, and travel cost</h4>
+                        <p>Three measures are computed per group. <strong>Diversity (H)</strong> captures the static spatial spread of amenities and homes. <strong>Mobility diversity (M)</strong> captures the dynamic variety of amenities reachable through commuting. <strong>Average cost (C)</strong> is the mean commuting time. Comparing groups yields the differences ΔM and ΔC that reveal who lives closer to what.</p>
+                    </div>
+                </li>
+                <li class="step-item">
+                    <span class="step-number">Step 04</span>
+                    <div class="step-content">
+                        <h4>Five null models for robustness</h4>
+                        <p>To confirm the differences are real and not statistical noise, five null models progressively shuffle household labels, travel times, travel distances, and destinations. Cities where parent and married effects survive all five tests (p &lt; 0.05) show the most robust, genuine demographic signatures in their mobility.</p>
+                    </div>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Findings -->
+        <section class="content-section content-section--green fade-in">
+            <h2>Key Findings</h2>
+            <p>Parenthood and marriage leave measurable, consistent fingerprints on how people move through cities — and different cities accommodate those fingerprints very differently.</p>
+
+            <div class="findings-grid">
+                <div class="finding-card">
+                    <h4>Cities have demographic "personalities"</h4>
+                    <p>Some metropolitan areas better accommodate single individuals (Houston, Virginia Beach), others favour married people (Atlanta, Baltimore), and others are best suited to parents (Cincinnati, Chicago). This classification becomes increasingly relevant as remote work expands where families can choose to live.</p>
+                </div>
+                <div class="finding-card">
+                    <h4>Singles travel less; parents reach more</h4>
+                    <p>Across most examined cities, non-parents and unmarried individuals spend less time travelling overall. Parents and married individuals instead tend to live in close proximity to a broad range of essential amenities — trading a wider, more diverse footprint of daily destinations for their mobility budget.</p>
+                </div>
+                <div class="finding-card">
+                    <h4>Proximity can still mean longer commutes</h4>
+                    <p>Living near a diverse set of amenities does not always mean travelling less. In several metropolitan areas, parents' amenity access is coupled with <em>longer</em> average commute times to work — a tension that points to a need for tailored interventions rather than blanket assumptions.</p>
+                </div>
+                <div class="finding-card">
+                    <h4>Singles cluster; families spread out</h4>
+                    <p>Non-parents and single people tend to be less widely distributed within metropolitan regions, concentrating in particular districts. Parents and married couples are more evenly dispersed — a difference in where each group chooses to root itself within the city.</p>
+                </div>
+                <div class="finding-card">
+                    <h4>Amenity type shapes the divide</h4>
+                    <p>Leisure and work amenities are more spatially concentrated, while education and health are more evenly spread. Because parents weight schools and clinics heavily and singles weight work and leisure, the geography of amenity types directly drives the differences between the groups.</p>
+                </div>
+                <div class="finding-card">
+                    <h4>The patterns survive rigorous testing</h4>
+                    <p>The differences are not artefacts of random variation. In the majority of metropolitan areas, parent and married effects persist across null models that shuffle household labels, travel times, speeds, and spatial layouts — a hallmark of genuine demographic effects on mobility.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why it matters -->
+        <section class="content-section content-section--green fade-in">
+            <h2>Why It Matters</h2>
+            <p>Recognising that parents, cohabitants, and single individuals navigate cities differently gives urban planners a foundation for designs that are not just efficient, but equitable — tailored to the real diversity of the people who live there.</p>
+
+            <ul class="applications-list">
+                <li class="app-item">
+                    <span class="app-label">Tailored Urban Design</span>
+                    <span class="app-desc">Rather than one-size-fits-all planning, cities can identify which demographic groups they currently serve well and which they underserve — then target investments (schools, clinics, transit, family-friendly amenities) toward the arrangements that face the highest mobility costs locally.</span>
+                </li>
+                <li class="app-item">
+                    <span class="app-label">Relocation & Remote Work</span>
+                    <span class="app-desc">As remote work loosens the tie between home and office, families and individuals gain more freedom to choose where to live. A public classification of which cities favour singles, couples, or parents gives people a data-driven lens on where their household arrangement will thrive.</span>
+                </li>
+                <li class="app-item">
+                    <span class="app-label">Equity in Transportation</span>
+                    <span class="app-desc">The finding that some groups pay higher mobility costs — sometimes invisibly, through longer commutes despite living near amenities — supports transportation-justice efforts to ensure access is distributed fairly across household types, not just optimised for a mythical average commuter.</span>
+                </li>
+                <li class="app-item">
+                    <span class="app-label">Sustainable Development Goals</span>
+                    <span class="app-desc">The work connects directly to UN SDGs on sustainable cities and inclusive urbanisation. Designing mobility around demographic diversity supports lower emissions, better access to public transport, and more inclusive, resilient urban environments for all residents.</span>
+                </li>
+                <li class="app-item">
+                    <span class="app-label">Family & Child Well-being</span>
+                    <span class="app-desc">Parents' own well-being improves when they spend more time with their children. Understanding how city layouts help or hinder families in reaching schools, healthcare, and safe spaces enables interventions — parks, walkability, road-safety near schools — that measurably improve family life.</span>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Infographics -->
+        <section class="content-section fade-in">
+            <h2>Infographics</h2>
+
+            <!-- A. Parent vs Non-parent mobility -->
+            <div class="infographic">
+                <div class="infographic-title">Two travellers, two ways of reaching the city</div>
+                <div class="infographic-desc">
+                    Both people start from home (the white marker). The single / non-parent traveller (left) makes fewer trips to a narrower set of
+                    destination types and spends less time travelling overall. The parent (right) lives embedded among a broad range of nearby amenities —
+                    school, clinic, food, services — reaching many more amenity <em>types</em>, though one longer commute to work often remains.
+                    The bar at the bottom of each panel counts the distinct amenity types reached (the study's "mobility diversity").
+                </div>
+                <div class="two-panel">
+                    <div class="panel">
+                        <div class="panel-canvas-wrap"><canvas id="pe-singleCanvas"></canvas></div>
+                        <div class="panel-foot">
+                            <span class="panel-name">Non-parent · Single</span>
+                            <span class="panel-sub">fewer amenity types · lower total travel</span>
+                        </div>
+                    </div>
+                    <div class="sep">vs</div>
+                    <div class="panel">
+                        <div class="panel-canvas-wrap"><canvas id="pe-parentCanvas"></canvas></div>
+                        <div class="panel-foot">
+                            <span class="panel-name">Parent · Family</span>
+                            <span class="panel-sub">broad amenity access · one longer commute</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="amenity-legend" id="pe-legend"></div>
+            </div>
+
+            <!-- B. City personalities -->
+            <div class="infographic">
+                <div class="infographic-title">Cities have demographic personalities</div>
+                <div class="infographic-desc">
+                    The same city can accommodate one household arrangement far better than another. The study classifies metropolitan areas by
+                    which group their mobility best serves — some favour single individuals, some married couples, and some parents.
+                    A spotlight cycles through the example cities named in the paper, sorting each into the group it accommodates best.
+                </div>
+                <div class="panel-canvas-wrap"><canvas id="pe-cityCanvas"></canvas></div>
+                <div class="panel-foot" style="margin-top:0.55rem;">
+                    <span class="panel-name">Example cities classified by best-accommodated household arrangement</span>
+                    <span class="panel-sub">from the paper's findings</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Paper & Authors -->
+        <section class="content-section fade-in">
+            <h2>Paper &amp; Authors</h2>
+
+            <div class="two-col">
+                <div>
+                    <h3 style="margin-top:0;">Authors</h3>
+                    <div class="authors-grid">
+                        <div class="author-item">
+                            <span class="author-name">Mariana Macedo <span style="font-size:0.75rem; color:#aaa;">(corresponding)</span></span>
+                            <span class="author-affiliation">Constructor University, Bremen, Germany<br>Northeastern University London, UK &amp; Boston, USA</span>
+                        </div>
+                        <div class="author-item">
+                            <span class="author-name" style="color:#007D69;">Ronaldo Menezes</span>
+                            <span class="author-affiliation">BioComplex Laboratory, Department of Computer Science, University of Exeter, UK<br>Federal University of Ceará, Brazil</span>
+                        </div>
+                        <div class="author-item">
+                            <span class="author-name">Alessio Cardillo</span>
+                            <span class="author-affiliation">University of Barcelona &amp; UBICS, Barcelona, Spain<br>BIFI, University of Zaragoza, Spain</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 style="margin-top:0;">Cite This Work</h3>
+                    <div class="citation-box">@article{macedo2026parenthood,
+  title   = {The parenthood effect in urban mobility},
+  author  = {Macedo, Mariana and Menezes, Ronaldo and Cardillo, Alessio},
+  journal = {npj Complexity},
+  volume  = {3},
+  pages   = {23},
+  year    = {2026},
+  doi     = {10.1038/s44260-026-00089-9}
+}</div>
+                    <div style="margin-top:1rem; display:flex; gap:0.75rem; flex-wrap:wrap;">
+                        <button class="btn-outline" onclick="downloadBibtex()" style="font-size:0.8rem; padding:0.5rem 1.25rem;">Download .bib</button>
+                        <button class="btn-outline" onclick="copyBibtex(this)" style="font-size:0.8rem; padding:0.5rem 1.25rem;">Copy BibTeX</button>
+                    </div>
+                    <p style="font-size:0.82rem; color:#999; margin-top:1rem; max-width:none;">
+                        Open access · CC BY 4.0 · Data: <a href="https://github.com/marianagmmacedo/parenthood_effect_mobility" target="_blank" rel="noopener" style="color:#999;">github.com/marianagmmacedo</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <span>© 2026 Ronaldo Menezes | University of Exeter | Department of Computer Science</span>
+            <span>
+                <a href="https://doi.org/10.1038/s44260-026-00089-9" target="_blank" rel="noopener">DOI: 10.1038/s44260-026-00089-9</a>
+                &nbsp;·&nbsp;
+                <a href="https://rpmenezes.github.io">rpmenezes.github.io</a>
+            </span>
+        </div>
+    </footer>
+
+    <script>
+        // Fade-in on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('visible');
+            });
+        }, { threshold: 0.05 });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // BibTeX content
+        const bibtex = `@article{macedo2026parenthood,
+  title   = {The parenthood effect in urban mobility},
+  author  = {Macedo, Mariana and Menezes, Ronaldo and Cardillo, Alessio},
+  journal = {npj Complexity},
+  volume  = {3},
+  pages   = {23},
+  year    = {2026},
+  doi     = {10.1038/s44260-026-00089-9}
+}`;
+
+        function downloadBibtex() {
+            const blob = new Blob([bibtex], { type: 'text/plain' });
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = 'macedo2026parenthood.bib';
+            a.click();
+            URL.revokeObjectURL(a.href);
+        }
+
+        function copyBibtex(btn) {
+            navigator.clipboard.writeText(bibtex).then(() => {
+                const original = btn.textContent;
+                btn.textContent = 'Copied!';
+                setTimeout(() => btn.textContent = original, 2000);
+            });
+        }
+    </script>
+
+    <script>
+    // ── Parenthood-effect infographic canvases ───────────────────
+    (function () {
+        const dpr = window.devicePixelRatio || 1;
+
+        function setupCanvas(id, h) {
+            const c = document.getElementById(id);
+            if (!c) return null;
+            function resize() {
+                c.width  = c.offsetWidth * dpr;
+                c.height = (h || 240) * dpr;
+                c.style.height = (h || 240) + 'px';
+            }
+            resize();
+            window.addEventListener('resize', resize);
+            return c;
+        }
+
+        function lerp(a, b, t) { return a + (b - a) * t; }
+
+        // ── Amenity category palette (9 types) ─────────────────────
+        const AMENITIES = [
+            {key:'work',        name:'Work',        col:[70,140,240]},
+            {key:'residential', name:'Residential', col:[240,185,50]},
+            {key:'leisure',     name:'Leisure',     col:[95,205,125]},
+            {key:'health',      name:'Health',      col:[235,85,95]},
+            {key:'food',        name:'Food',        col:[245,140,55]},
+            {key:'transport',   name:'Transport',   col:[160,100,215]},
+            {key:'religious',   name:'Religious',   col:[150,160,175]},
+            {key:'education',   name:'Education',   col:[40,195,195]},
+            {key:'services',    name:'Services',    col:[210,120,180]},
+        ];
+        const AIDX = {};
+        AMENITIES.forEach((a, i) => AIDX[a.key] = i);
+
+        // Build legend under infographic A
+        (function buildLegend() {
+            const wrap = document.getElementById('pe-legend');
+            if (!wrap) return;
+            AMENITIES.forEach(a => {
+                const el = document.createElement('span');
+                el.className = 'leg';
+                el.innerHTML = `<span class="swatch" style="background:rgb(${a.col[0]},${a.col[1]},${a.col[2]})"></span>${a.name}`;
+                wrap.appendChild(el);
+            });
+        })();
+
+        function drawHome(ctx, x, y, r) {
+            // simple house marker (white)
+            ctx.save();
+            ctx.fillStyle = 'rgba(255,255,255,0.95)';
+            ctx.strokeStyle = 'rgba(0,180,150,0.9)';
+            ctx.lineWidth = 1.5 * dpr;
+            ctx.beginPath();
+            ctx.moveTo(x, y - r);              // roof peak
+            ctx.lineTo(x + r, y - r * 0.1);    // right eave
+            ctx.lineTo(x + r * 0.62, y - r * 0.1);
+            ctx.lineTo(x + r * 0.62, y + r * 0.8);
+            ctx.lineTo(x - r * 0.62, y + r * 0.8);
+            ctx.lineTo(x - r * 0.62, y - r * 0.1);
+            ctx.lineTo(x - r, y - r * 0.1);    // left eave
+            ctx.closePath();
+            ctx.fill();
+            ctx.stroke();
+            ctx.restore();
+        }
+
+        // Generic "traveller" panel: home + set of destinations, trips flowing
+        function makeTravellerPanel(canvasId, config) {
+            const c = setupCanvas(canvasId, 240);
+            if (!c) return;
+            const ctx = c.getContext('2d');
+            const home = config.home;              // {x,y}
+            const dests = config.dests;            // [{x,y,amenity,long}]
+
+            // particles per destination
+            const parts = [];
+            dests.forEach((d, di) => {
+                const n = d.long ? 2 : 3;
+                for (let k = 0; k < n; k++)
+                    parts.push({ di, t: Math.random(), speed: (d.long ? 0.004 : 0.009) + Math.random() * 0.004, dir: Math.random() < 0.5 ? 1 : -1 });
+            });
+
+            let tick = 0;
+            (function draw() {
+                tick++;
+                const W = c.width, H = c.height;
+                ctx.fillStyle = '#08142e'; ctx.fillRect(0, 0, W, H);
+
+                const hx = home.x * W, hy = home.y * H;
+
+                // Trip lines
+                dests.forEach(d => {
+                    const [r,g,b] = AMENITIES[AIDX[d.amenity]].col;
+                    ctx.beginPath();
+                    ctx.moveTo(hx, hy);
+                    ctx.lineTo(d.x * W, d.y * H);
+                    ctx.strokeStyle = d.long ? `rgba(${r},${g},${b},0.30)` : `rgba(${r},${g},${b},0.22)`;
+                    ctx.lineWidth = (d.long ? 1.8 : 1.2) * dpr;
+                    if (d.long) ctx.setLineDash([5 * dpr, 4 * dpr]);
+                    ctx.stroke();
+                    ctx.setLineDash([]);
+                });
+
+                // Destination nodes
+                dests.forEach(d => {
+                    const [r,g,b] = AMENITIES[AIDX[d.amenity]].col;
+                    const rad = (d.long ? 6.5 : 5.5) * dpr;
+                    ctx.beginPath();
+                    ctx.arc(d.x * W, d.y * H, rad, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(${r},${g},${b},0.92)`;
+                    ctx.fill();
+                    if (d.long) {
+                        ctx.strokeStyle = 'rgba(255,255,255,0.5)';
+                        ctx.lineWidth = 1.2 * dpr;
+                        ctx.stroke();
+                    }
+                });
+
+                // Trip particles
+                parts.forEach(p => {
+                    const d = dests[p.di];
+                    const [r,g,b] = AMENITIES[AIDX[d.amenity]].col;
+                    p.t += p.speed * p.dir;
+                    if (p.t > 1) { p.t = 1; p.dir = -1; }
+                    if (p.t < 0) { p.t = 0; p.dir = 1; }
+                    const px = lerp(home.x, d.x, p.t) * W;
+                    const py = lerp(home.y, d.y, p.t) * H;
+                    const al = Math.sin(p.t * Math.PI) * 0.85;
+                    ctx.beginPath();
+                    ctx.arc(px, py, 2.4 * dpr, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(${Math.min(255,r+50)},${Math.min(255,g+50)},${Math.min(255,b+50)},${al})`;
+                    ctx.fill();
+                });
+
+                // Home marker on top
+                drawHome(ctx, hx, hy, 9 * dpr);
+
+                // Amenity-type counter bar (mobility diversity)
+                const nTypes = new Set(dests.map(d => d.amenity)).size;
+                const barY = H - 16 * dpr, barX = 12 * dpr, cell = 13 * dpr, gap = 4 * dpr;
+                ctx.font = `${8.5 * dpr}px sans-serif`;
+                ctx.fillStyle = 'rgba(255,255,255,0.45)';
+                ctx.fillText('amenity types reached', barX, barY - 8 * dpr);
+                for (let i = 0; i < 9; i++) {
+                    const on = i < nTypes;
+                    ctx.fillStyle = on ? 'rgba(0,210,160,0.9)' : 'rgba(255,255,255,0.12)';
+                    ctx.fillRect(barX + i * (cell + gap), barY, cell, 6 * dpr);
+                }
+                ctx.fillStyle = 'rgba(0,210,160,0.95)';
+                ctx.font = `bold ${11 * dpr}px sans-serif`;
+                ctx.fillText(nTypes + ' / 9', barX + 9 * (cell + gap) + 6 * dpr, barY + 6 * dpr);
+
+                requestAnimationFrame(draw);
+            })();
+        }
+
+        // Non-parent / single: few types, compact, no long commute
+        makeTravellerPanel('pe-singleCanvas', {
+            home: { x: 0.52, y: 0.60 },
+            dests: [
+                { x: 0.30, y: 0.40, amenity: 'work' },
+                { x: 0.74, y: 0.42, amenity: 'leisure' },
+                { x: 0.60, y: 0.80, amenity: 'food' },
+            ],
+        });
+
+        // Parent: many nearby types + one long work commute
+        makeTravellerPanel('pe-parentCanvas', {
+            home: { x: 0.50, y: 0.56 },
+            dests: [
+                { x: 0.30, y: 0.34, amenity: 'education' },
+                { x: 0.52, y: 0.26, amenity: 'health' },
+                { x: 0.70, y: 0.36, amenity: 'food' },
+                { x: 0.74, y: 0.58, amenity: 'services' },
+                { x: 0.30, y: 0.58, amenity: 'leisure' },
+                { x: 0.40, y: 0.80, amenity: 'religious' },
+                { x: 0.63, y: 0.78, amenity: 'transport' },
+                { x: 0.88, y: 0.12, amenity: 'work', long: true },  // longer commute
+            ],
+        });
+
+        // ══════════════════════════════════════════════════════════
+        //  INFOGRAPHIC B — City personalities
+        // ══════════════════════════════════════════════════════════
+
+        // Three groups + example cities from the paper
+        const GROUPS = [
+            { key: 'single',  label: 'FAVOURS SINGLES',  col: [245,150,55],  cities: ['Houston', 'Virginia Beach'] },
+            { key: 'married', label: 'FAVOURS MARRIED',  col: [90,190,220],  cities: ['Atlanta', 'Baltimore'] },
+            { key: 'parent',  label: 'FAVOURS PARENTS',  col: [0,200,150],   cities: ['Cincinnati', 'Chicago'] },
+        ];
+        // Flatten into a cycle order
+        const CITY_SEQ = [];
+        GROUPS.forEach((g, gi) => g.cities.forEach((name, ci) => CITY_SEQ.push({ name, gi, ci })));
+
+        // Draw a little household icon (adults + optional child)
+        function drawHousehold(ctx, cx, cy, s, adults, child, col, alpha) {
+            const [r,g,b] = col;
+            ctx.save();
+            ctx.globalAlpha = alpha;
+            const fill = `rgba(${r},${g},${b},1)`;
+            function person(px, py, ps) {
+                // head
+                ctx.beginPath();
+                ctx.arc(px, py - ps * 1.05, ps * 0.42, 0, Math.PI * 2);
+                ctx.fillStyle = fill; ctx.fill();
+                // body (bell)
+                ctx.beginPath();
+                ctx.moveTo(px - ps * 0.6, py + ps * 0.75);
+                ctx.quadraticCurveTo(px - ps * 0.6, py - ps * 0.35, px, py - ps * 0.35);
+                ctx.quadraticCurveTo(px + ps * 0.6, py - ps * 0.35, px + ps * 0.6, py + ps * 0.75);
+                ctx.closePath();
+                ctx.fillStyle = fill; ctx.fill();
+            }
+            const spread = adults > 1 ? s * 0.72 : 0;
+            if (adults === 1) {
+                person(cx, cy, s);
+            } else {
+                person(cx - spread, cy, s);
+                person(cx + spread, cy, s);
+            }
+            if (child) person(cx + (adults > 1 ? spread * 1.9 : s * 0.85), cy + s * 0.35, s * 0.6);
+            ctx.restore();
+        }
+
+        const cityC = setupCanvas('pe-cityCanvas', 300);
+        if (cityC) {
+            const ctx = cityC.getContext('2d');
+            const HOLD = 150;               // frames per city spotlight
+            let tick = 0, seqIdx = 0;
+            let spotAlpha = 0;
+
+            // Column x-centres (thirds)
+            function colX(gi) { return (gi + 0.5) / GROUPS.length; }
+
+            (function draw() {
+                tick++;
+                if (tick % HOLD === 0) {
+                    seqIdx = (seqIdx + 1) % CITY_SEQ.length;
+                    spotAlpha = 0;
+                }
+                spotAlpha = Math.min(1, spotAlpha + 0.04);
+
+                const W = cityC.width, H = cityC.height;
+                ctx.fillStyle = '#08142e'; ctx.fillRect(0, 0, W, H);
+
+                const cur = CITY_SEQ[seqIdx];
+
+                // Column separators
+                for (let i = 1; i < GROUPS.length; i++) {
+                    ctx.beginPath();
+                    ctx.moveTo(W * i / GROUPS.length, 20 * dpr);
+                    ctx.lineTo(W * i / GROUPS.length, H - 20 * dpr);
+                    ctx.strokeStyle = 'rgba(255,255,255,0.06)';
+                    ctx.lineWidth = dpr;
+                    ctx.stroke();
+                }
+
+                GROUPS.forEach((g, gi) => {
+                    const cx = colX(gi) * W;
+                    const [r,gg,b] = g.col;
+                    const isActiveCol = (gi === cur.gi);
+
+                    // Household icon at top of column
+                    const iconY = 58 * dpr;
+                    const adults = gi === 0 ? 1 : 2;
+                    const child = gi === 2;
+                    drawHousehold(ctx, cx, iconY, 15 * dpr, adults, child, g.col, isActiveCol ? 1 : 0.32);
+
+                    // Column label
+                    ctx.textAlign = 'center';
+                    ctx.font = `bold ${10 * dpr}px sans-serif`;
+                    ctx.fillStyle = isActiveCol ? `rgba(${r},${gg},${b},0.95)` : `rgba(${r},${gg},${b},0.4)`;
+                    ctx.fillText(g.label, cx, 100 * dpr);
+
+                    // City chips in this column
+                    g.cities.forEach((name, ci) => {
+                        const chipY = (135 + ci * 46) * dpr;
+                        const isCur = (gi === cur.gi && ci === cur.ci);
+                        const baseAlpha = isCur ? spotAlpha : 0.55;
+
+                        // chip background
+                        const chipW = Math.min(W / GROUPS.length - 24 * dpr, 190 * dpr);
+                        const chipH = 34 * dpr;
+                        const chipX = cx - chipW / 2;
+                        ctx.beginPath();
+                        const rad = 6 * dpr;
+                        ctx.moveTo(chipX + rad, chipY);
+                        ctx.arcTo(chipX + chipW, chipY, chipX + chipW, chipY + chipH, rad);
+                        ctx.arcTo(chipX + chipW, chipY + chipH, chipX, chipY + chipH, rad);
+                        ctx.arcTo(chipX, chipY + chipH, chipX, chipY, rad);
+                        ctx.arcTo(chipX, chipY, chipX + chipW, chipY, rad);
+                        ctx.closePath();
+                        if (isCur) {
+                            ctx.fillStyle = `rgba(${r},${gg},${b},${0.18 + spotAlpha * 0.14})`;
+                            ctx.fill();
+                            ctx.strokeStyle = `rgba(${r},${gg},${b},${0.55 + spotAlpha * 0.4})`;
+                            ctx.lineWidth = 1.5 * dpr;
+                            ctx.stroke();
+                        } else {
+                            ctx.fillStyle = 'rgba(255,255,255,0.04)';
+                            ctx.fill();
+                        }
+
+                        // city name
+                        ctx.textAlign = 'center';
+                        ctx.font = `${isCur ? 'bold ' : ''}${12 * dpr}px sans-serif`;
+                        ctx.fillStyle = isCur
+                            ? `rgba(255,255,255,${0.6 + spotAlpha * 0.4})`
+                            : 'rgba(255,255,255,0.4)';
+                        ctx.fillText(name, cx, chipY + chipH / 2 + 4 * dpr);
+
+                        // pulsing dot for current
+                        if (isCur) {
+                            const pr = (3 + Math.sin(tick * 0.15) * 1.2) * dpr;
+                            ctx.beginPath();
+                            ctx.arc(chipX + 12 * dpr, chipY + chipH / 2, pr, 0, Math.PI * 2);
+                            ctx.fillStyle = `rgba(${r},${gg},${b},${spotAlpha})`;
+                            ctx.fill();
+                        }
+                    });
+                });
+
+                // Current city banner (bottom)
+                ctx.textAlign = 'left';
+                const g = GROUPS[cur.gi];
+                const [r,gg,b] = g.col;
+                ctx.font = `${9 * dpr}px sans-serif`;
+                ctx.fillStyle = 'rgba(255,255,255,0.30)';
+                ctx.fillText('now highlighting', 14 * dpr, H - 26 * dpr);
+                ctx.font = `bold ${15 * dpr}px sans-serif`;
+                ctx.fillStyle = 'rgba(255,255,255,0.92)';
+                ctx.fillText(cur.name, 14 * dpr, H - 10 * dpr);
+                const nameW = ctx.measureText(cur.name).width;
+                ctx.font = `${11 * dpr}px sans-serif`;
+                ctx.fillStyle = `rgba(${r},${gg},${b},0.9)`;
+                ctx.fillText('→ ' + g.label.toLowerCase().replace('favours ', 'best for '), 14 * dpr + nameW + 12 * dpr, H - 10 * dpr);
+
+                ctx.textAlign = 'left';
+                requestAnimationFrame(draw);
+            })();
+        }
+
+    })();
+    </script>
+
+</body>
+</html>
