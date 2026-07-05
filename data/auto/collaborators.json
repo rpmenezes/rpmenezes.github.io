@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-04T08:15:45.273182+00:00",
+  "updated": "2026-07-05T08:34:16.962265+00:00",
   "collaborators": [
     {
       "authorId": "144373898",
@@ -286,13 +286,13 @@
       "lastCollabYear": 2025,
       "sharedPapers": [
         {
-          "paperId": "5070065d69e4bffb742382a791481b237ac4089a",
-          "title": "The parenthood effect in urban mobility",
+          "paperId": "1360a9021976e2af72b2f3733d8547c122a946a1",
+          "title": "Vector fields as a framework for modelling the mobility of commodities",
           "year": 2025
         },
         {
-          "paperId": "8d63e62a3a0979d7ed064b55108e252bf4874591",
-          "title": "Vector fields as a framework for modelling the mobility of commodities",
+          "paperId": "5070065d69e4bffb742382a791481b237ac4089a",
+          "title": "The parenthood effect in urban mobility",
           "year": 2025
         },
         {
@@ -3887,6 +3887,34 @@
       ]
     },
     {
+      "authorId": "2365036635",
+      "name": "Sima Farokhnejad",
+      "collaborationCount": 1,
+      "firstCollabYear": 2025,
+      "lastCollabYear": 2025,
+      "sharedPapers": [
+        {
+          "paperId": "1360a9021976e2af72b2f3733d8547c122a946a1",
+          "title": "Vector fields as a framework for modelling the mobility of commodities",
+          "year": 2025
+        }
+      ]
+    },
+    {
+      "authorId": "4658875",
+      "name": "A. S. Mata",
+      "collaborationCount": 1,
+      "firstCollabYear": 2025,
+      "lastCollabYear": 2025,
+      "sharedPapers": [
+        {
+          "paperId": "1360a9021976e2af72b2f3733d8547c122a946a1",
+          "title": "Vector fields as a framework for modelling the mobility of commodities",
+          "year": 2025
+        }
+      ]
+    },
+    {
       "authorId": "2373349661",
       "name": "Khaoula El Mekkaoui",
       "collaborationCount": 1,
@@ -4204,34 +4232,6 @@
         {
           "paperId": "444cb38a81b658d5b4ef49ec6785037e57a19593",
           "title": "Beyond proximity: A review and framework to further understanding of greenspace accessibility in the x\u2010minute city",
-          "year": 2025
-        }
-      ]
-    },
-    {
-      "authorId": "2365036635",
-      "name": "Sima Farokhnejad",
-      "collaborationCount": 1,
-      "firstCollabYear": 2025,
-      "lastCollabYear": 2025,
-      "sharedPapers": [
-        {
-          "paperId": "8d63e62a3a0979d7ed064b55108e252bf4874591",
-          "title": "Vector fields as a framework for modelling the mobility of commodities",
-          "year": 2025
-        }
-      ]
-    },
-    {
-      "authorId": "4658875",
-      "name": "A. S. Mata",
-      "collaborationCount": 1,
-      "firstCollabYear": 2025,
-      "lastCollabYear": 2025,
-      "sharedPapers": [
-        {
-          "paperId": "8d63e62a3a0979d7ed064b55108e252bf4874591",
-          "title": "Vector fields as a framework for modelling the mobility of commodities",
           "year": 2025
         }
       ]
