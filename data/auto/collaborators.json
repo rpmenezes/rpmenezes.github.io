@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-05T08:34:16.962265+00:00",
+  "updated": "2026-07-06T09:46:53.542888+00:00",
   "collaborators": [
     {
       "authorId": "144373898",
@@ -5353,6 +5353,20 @@
           "paperId": "b9c741dd6fe3e0b2b1d909511c074cdffd309a88",
           "title": "Using Network Sciences to Evaluate the Brazilian Airline Network",
           "year": 2013
+        }
+      ]
+    },
+    {
+      "authorId": "1740341",
+      "name": "C. B\u01cedic\u01ce",
+      "collaborationCount": 1,
+      "firstCollabYear": 2012,
+      "lastCollabYear": 2012,
+      "sharedPapers": [
+        {
+          "paperId": "5c79b2d04798357b2777f2efdbdaaa7d681cc0cc",
+          "title": "Preface to the Special Issue on intelligent distributed computing",
+          "year": 2012
         }
       ]
     },
