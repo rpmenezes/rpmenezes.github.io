@@ -1,7 +1,7 @@
 {
-  "updated": "2026-07-07T08:58:18.805945+00:00",
+  "updated": "2026-07-08T08:01:25.983594+00:00",
   "stats": {
-    "paperCount": 238,
+    "paperCount": 240,
     "hIndex": 21,
     "citationCount": 2936,
     "influentialCitationCount": 105
@@ -287,7 +287,7 @@
       "venue": "Environment and Planning B: Urban Analytics and City Science",
       "doiValue": "10.1177/23998083231219294",
       "doiUrl": "https://doi.org/10.1177/23998083231219294",
-      "citationCount": 18
+      "citationCount": 19
     },
     {
       "year": "2024",
@@ -430,7 +430,7 @@
       "venue": "PLOS ONE",
       "doiValue": "10.1371/journal.pone.0260874",
       "doiUrl": "https://doi.org/10.1371/journal.pone.0260874",
-      "citationCount": 35
+      "citationCount": 36
     },
     {
       "year": "2022",
