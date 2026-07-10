@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-09T09:07:36.261638+00:00",
+  "updated": "2026-07-10T08:53:54.798517+00:00",
   "collaborators": [
     {
       "authorId": "144373898",
@@ -443,7 +443,7 @@
     },
     {
       "authorId": "2275393511",
-      "name": "Martin Cadeiras",
+      "name": "M. Cadeiras",
       "collaborationCount": 13,
       "firstCollabYear": 2012,
       "lastCollabYear": 2026,
@@ -851,6 +851,55 @@
       ]
     },
     {
+      "authorId": "3238085",
+      "name": "Angelo Brayner",
+      "collaborationCount": 8,
+      "firstCollabYear": 2006,
+      "lastCollabYear": 2024,
+      "sharedPapers": [
+        {
+          "paperId": "0868b18d36d36cfe2c467b1b45e32f5a423a65d6",
+          "title": "Multidimensional Analysis of the Influence of Socioeconomic and Political Indicators on the Spread of COVID-19: A Case Study of Brazilian Cities (2020-2024)",
+          "year": 2024
+        },
+        {
+          "paperId": "d384502fbbd4712165ef1c9d1dc62e328bfce6f0",
+          "title": "On the effect of human mobility to the design of metropolitan mobile opportunistic networks of sensors",
+          "year": 2017
+        },
+        {
+          "paperId": "4b2dba8ff2141f92b3b86c68e47ca53a663c8071",
+          "title": "Evaluating the Performance of Social Networks of Sensors under Different Mobility Models",
+          "year": 2013
+        },
+        {
+          "paperId": "7cc2cd7125ac87de4e8c0d58f11055da9f9f86c3",
+          "title": "APPLIED COMPUTING 2008 The 23 rd Annual ACM Symposium on Applied Computing PROCEEDINGS OF THE 2008 ACM SYMPOSIUM ON APPLIED COMPUTING Fortaleza, Cear\u00e1, Brazil",
+          "year": 2008
+        },
+        {
+          "paperId": "82bd45d18e371c2636cc436424ef5017bd391b54",
+          "title": "An adaptive in-network aggregation operator for query processing in wireless sensor networks",
+          "year": 2008
+        },
+        {
+          "paperId": "07d69ed7b3262c55044d91133262e4888aa25f75",
+          "title": "Balancing energy consumption and memory usage in sensor data processing",
+          "year": 2007
+        },
+        {
+          "paperId": "3ad7955f12dcaecddbea7de59eacca4a382ee8e1",
+          "title": "Toward adaptive query processing in wireless sensor networks",
+          "year": 2007
+        },
+        {
+          "paperId": "207d014d7064ced8f3fbff5385283b2a0b448125",
+          "title": "ADAGA - ADaptive AGgregation Algorithm for Sensor Networks",
+          "year": 2006
+        }
+      ]
+    },
+    {
       "authorId": "2408791",
       "name": "Gourab Ghoshal",
       "collaborationCount": 8,
@@ -1116,50 +1165,6 @@
           "paperId": "26985359cbf37edab4c3fc598dbf0c1cb0a3257b",
           "title": "United states congress relations according to liberal and conservative newspapers",
           "year": 2013
-        }
-      ]
-    },
-    {
-      "authorId": "3238085",
-      "name": "Angelo Brayner",
-      "collaborationCount": 7,
-      "firstCollabYear": 2006,
-      "lastCollabYear": 2017,
-      "sharedPapers": [
-        {
-          "paperId": "d384502fbbd4712165ef1c9d1dc62e328bfce6f0",
-          "title": "On the effect of human mobility to the design of metropolitan mobile opportunistic networks of sensors",
-          "year": 2017
-        },
-        {
-          "paperId": "4b2dba8ff2141f92b3b86c68e47ca53a663c8071",
-          "title": "Evaluating the Performance of Social Networks of Sensors under Different Mobility Models",
-          "year": 2013
-        },
-        {
-          "paperId": "7cc2cd7125ac87de4e8c0d58f11055da9f9f86c3",
-          "title": "APPLIED COMPUTING 2008 The 23 rd Annual ACM Symposium on Applied Computing PROCEEDINGS OF THE 2008 ACM SYMPOSIUM ON APPLIED COMPUTING Fortaleza, Cear\u00e1, Brazil",
-          "year": 2008
-        },
-        {
-          "paperId": "82bd45d18e371c2636cc436424ef5017bd391b54",
-          "title": "An adaptive in-network aggregation operator for query processing in wireless sensor networks",
-          "year": 2008
-        },
-        {
-          "paperId": "07d69ed7b3262c55044d91133262e4888aa25f75",
-          "title": "Balancing energy consumption and memory usage in sensor data processing",
-          "year": 2007
-        },
-        {
-          "paperId": "3ad7955f12dcaecddbea7de59eacca4a382ee8e1",
-          "title": "Toward adaptive query processing in wireless sensor networks",
-          "year": 2007
-        },
-        {
-          "paperId": "207d014d7064ced8f3fbff5385283b2a0b448125",
-          "title": "ADAGA - ADaptive AGgregation Algorithm for Sensor Networks",
-          "year": 2006
         }
       ]
     },
@@ -2767,7 +2772,7 @@
     },
     {
       "authorId": "2163814643",
-      "name": "David A. Liem",
+      "name": "D. Liem",
       "collaborationCount": 2,
       "firstCollabYear": 2025,
       "lastCollabYear": 2026,
@@ -3958,7 +3963,7 @@
     },
     {
       "authorId": "2215178553",
-      "name": "Aditya Ballal",
+      "name": "A. Ballal",
       "collaborationCount": 1,
       "firstCollabYear": 2025,
       "lastCollabYear": 2025,
@@ -4281,20 +4286,6 @@
     {
       "authorId": "2328184945",
       "name": "R\u00f4ney Reis",
-      "collaborationCount": 1,
-      "firstCollabYear": 2024,
-      "lastCollabYear": 2024,
-      "sharedPapers": [
-        {
-          "paperId": "0868b18d36d36cfe2c467b1b45e32f5a423a65d6",
-          "title": "Multidimensional Analysis of the Influence of Socioeconomic and Political Indicators on the Spread of COVID-19: A Case Study of Brazilian Cities (2020-2024)",
-          "year": 2024
-        }
-      ]
-    },
-    {
-      "authorId": "2328176505",
-      "name": "Angelo Brayner",
       "collaborationCount": 1,
       "firstCollabYear": 2024,
       "lastCollabYear": 2024,
@@ -5353,20 +5344,6 @@
           "paperId": "b9c741dd6fe3e0b2b1d909511c074cdffd309a88",
           "title": "Using Network Sciences to Evaluate the Brazilian Airline Network",
           "year": 2013
-        }
-      ]
-    },
-    {
-      "authorId": "1740341",
-      "name": "C. B\u01cedic\u01ce",
-      "collaborationCount": 1,
-      "firstCollabYear": 2012,
-      "lastCollabYear": 2012,
-      "sharedPapers": [
-        {
-          "paperId": "5c79b2d04798357b2777f2efdbdaaa7d681cc0cc",
-          "title": "Preface to the Special Issue on intelligent distributed computing",
-          "year": 2012
         }
       ]
     },
