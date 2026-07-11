@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-10T08:53:29.481686+00:00",
+  "updated": "2026-07-11T07:28:44.833607+00:00",
   "stats": {
     "paperCount": 240,
     "hIndex": 21,
@@ -18,7 +18,7 @@
       "venue": "npj Complexity",
       "doiValue": "10.1038/s44260-026-00089-9",
       "doiUrl": "https://doi.org/10.1038/s44260-026-00089-9",
-      "citationCount": 0
+      "citationCount": null
     },
     {
       "year": "2026",
@@ -35,7 +35,7 @@
       "venue": "Applied Network Science",
       "doiValue": "10.1007/s41109-026-00799-y",
       "doiUrl": "https://doi.org/10.1007/s41109-026-00799-y",
-      "citationCount": 0
+      "citationCount": null
     },
     {
       "year": "2026",
@@ -94,7 +94,7 @@
       "venue": "PLOS One",
       "doiValue": "10.1371/journal.pone.0340109",
       "doiUrl": "https://doi.org/10.1371/journal.pone.0340109",
-      "citationCount": 0
+      "citationCount": null
     },
     {
       "year": "2026",
@@ -107,7 +107,7 @@
       "venue": "Applied Network Science",
       "doiValue": "10.1007/s41109-026-00777-4",
       "doiUrl": "https://doi.org/10.1007/s41109-026-00777-4",
-      "citationCount": 0
+      "citationCount": null
     },
     {
       "year": "2025",
@@ -181,7 +181,7 @@
       "venue": "People and Nature",
       "doiValue": "10.1002/pan3.70081",
       "doiUrl": "https://doi.org/10.1002/pan3.70081",
-      "citationCount": 3
+      "citationCount": null
     },
     {
       "year": "2025",
@@ -194,7 +194,7 @@
       "venue": "Conference Paper",
       "doiValue": "10.1145/3672608.3707717",
       "doiUrl": "https://doi.org/10.1145/3672608.3707717",
-      "citationCount": 0
+      "citationCount": null
     },
     {
       "year": "2025",
@@ -287,7 +287,7 @@
       "venue": "Environment and Planning B: Urban Analytics and City Science",
       "doiValue": "10.1177/23998083231219294",
       "doiUrl": "https://doi.org/10.1177/23998083231219294",
-      "citationCount": 19
+      "citationCount": null
     },
     {
       "year": "2024",
@@ -345,7 +345,7 @@
       "venue": "Nature Human Behaviour",
       "doiValue": "10.1038/s41562-023-01660-3",
       "doiUrl": "https://doi.org/10.1038/s41562-023-01660-3",
-      "citationCount": 58
+      "citationCount": null
     },
     {
       "year": "2023",
@@ -430,7 +430,7 @@
       "venue": "PLOS ONE",
       "doiValue": "10.1371/journal.pone.0260874",
       "doiUrl": "https://doi.org/10.1371/journal.pone.0260874",
-      "citationCount": 36
+      "citationCount": null
     },
     {
       "year": "2022",
