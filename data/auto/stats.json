@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-15T07:44:04.909165+00:00",
+  "updated": "2026-07-16T07:49:00.419220+00:00",
   "stats": {
     "paperCount": 239,
     "hIndex": 21,
@@ -119,7 +119,7 @@
       "venue": "Nature Communications",
       "doiValue": "10.1038/s41467-025-65728-6",
       "doiUrl": "https://doi.org/10.1038/s41467-025-65728-6",
-      "citationCount": 1
+      "citationCount": 2
     },
     {
       "year": "2025",
@@ -345,7 +345,7 @@
       "venue": "Nature Human Behaviour",
       "doiValue": "10.1038/s41562-023-01660-3",
       "doiUrl": "https://doi.org/10.1038/s41562-023-01660-3",
-      "citationCount": 58
+      "citationCount": 59
     },
     {
       "year": "2023",
