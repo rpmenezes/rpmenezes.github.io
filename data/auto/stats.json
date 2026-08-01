@@ -1,10 +1,10 @@
 {
-  "updated": "2026-07-31T08:24:26.737448+00:00",
+  "updated": "2026-08-01T07:54:35.910960+00:00",
   "stats": {
     "paperCount": 240,
     "hIndex": 21,
     "citationCount": 2936,
-    "influentialCitationCount": 106
+    "influentialCitationCount": 107
   },
   "publications": [
     {
@@ -345,7 +345,7 @@
       "venue": "Nature Human Behaviour",
       "doiValue": "10.1038/s41562-023-01660-3",
       "doiUrl": "https://doi.org/10.1038/s41562-023-01660-3",
-      "citationCount": 59
+      "citationCount": 60
     },
     {
       "year": "2023",
