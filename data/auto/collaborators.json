@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-09T06:32:48.330060+00:00",
+  "updated": "2026-08-10T07:01:12.713505+00:00",
   "collaborators": [
     {
       "authorId": "144373898",
@@ -2790,6 +2790,101 @@
       ]
     },
     {
+      "authorId": "2198590905",
+      "name": "D.D. Iskakov",
+      "collaborationCount": 2,
+      "firstCollabYear": 2026,
+      "lastCollabYear": 2026,
+      "sharedPapers": [
+        {
+          "paperId": "80600d25d4bd28c186816a48f33203321230d41b",
+          "title": "A Shared IPTC Topic Space for Cross-Source Topic Modelling",
+          "year": 2026
+        },
+        {
+          "paperId": "85163e355e0927e7bface7373596937a4322d0fb",
+          "title": "A Shared IPTC Topic Space for Cross-Source Topic Modelling",
+          "year": 2026
+        }
+      ]
+    },
+    {
+      "authorId": "2444869768",
+      "name": "Marco Idiat",
+      "collaborationCount": 2,
+      "firstCollabYear": 2026,
+      "lastCollabYear": 2026,
+      "sharedPapers": [
+        {
+          "paperId": "80600d25d4bd28c186816a48f33203321230d41b",
+          "title": "A Shared IPTC Topic Space for Cross-Source Topic Modelling",
+          "year": 2026
+        },
+        {
+          "paperId": "85163e355e0927e7bface7373596937a4322d0fb",
+          "title": "A Shared IPTC Topic Space for Cross-Source Topic Modelling",
+          "year": 2026
+        }
+      ]
+    },
+    {
+      "authorId": "21174450",
+      "name": "M. Vainstein",
+      "collaborationCount": 2,
+      "firstCollabYear": 2026,
+      "lastCollabYear": 2026,
+      "sharedPapers": [
+        {
+          "paperId": "80600d25d4bd28c186816a48f33203321230d41b",
+          "title": "A Shared IPTC Topic Space for Cross-Source Topic Modelling",
+          "year": 2026
+        },
+        {
+          "paperId": "85163e355e0927e7bface7373596937a4322d0fb",
+          "title": "A Shared IPTC Topic Space for Cross-Source Topic Modelling",
+          "year": 2026
+        }
+      ]
+    },
+    {
+      "authorId": "2284592789",
+      "name": "Aline Villavicencio",
+      "collaborationCount": 2,
+      "firstCollabYear": 2026,
+      "lastCollabYear": 2026,
+      "sharedPapers": [
+        {
+          "paperId": "80600d25d4bd28c186816a48f33203321230d41b",
+          "title": "A Shared IPTC Topic Space for Cross-Source Topic Modelling",
+          "year": 2026
+        },
+        {
+          "paperId": "85163e355e0927e7bface7373596937a4322d0fb",
+          "title": "A Shared IPTC Topic Space for Cross-Source Topic Modelling",
+          "year": 2026
+        }
+      ]
+    },
+    {
+      "authorId": "2323735148",
+      "name": "R. Wilkens",
+      "collaborationCount": 2,
+      "firstCollabYear": 2026,
+      "lastCollabYear": 2026,
+      "sharedPapers": [
+        {
+          "paperId": "80600d25d4bd28c186816a48f33203321230d41b",
+          "title": "A Shared IPTC Topic Space for Cross-Source Topic Modelling",
+          "year": 2026
+        },
+        {
+          "paperId": "85163e355e0927e7bface7373596937a4322d0fb",
+          "title": "A Shared IPTC Topic Space for Cross-Source Topic Modelling",
+          "year": 2026
+        }
+      ]
+    },
+    {
       "authorId": "20548123",
       "name": "Mohammad Soroya",
       "collaborationCount": 2,
@@ -3808,20 +3903,6 @@
       ]
     },
     {
-      "authorId": "2198590905",
-      "name": "D.D. Iskakov",
-      "collaborationCount": 1,
-      "firstCollabYear": 2026,
-      "lastCollabYear": 2026,
-      "sharedPapers": [
-        {
-          "paperId": "80600d25d4bd28c186816a48f33203321230d41b",
-          "title": "A Shared IPTC Topic Space for Cross-Source Topic Modelling",
-          "year": 2026
-        }
-      ]
-    },
-    {
       "authorId": "102692961",
       "name": "Sebasti'an Gonccalves",
       "collaborationCount": 1,
@@ -3836,56 +3917,14 @@
       ]
     },
     {
-      "authorId": "2444869768",
-      "name": "Marco Idiat",
+      "authorId": "113423120",
+      "name": "S. Gon\u00e7alves",
       "collaborationCount": 1,
       "firstCollabYear": 2026,
       "lastCollabYear": 2026,
       "sharedPapers": [
         {
-          "paperId": "80600d25d4bd28c186816a48f33203321230d41b",
-          "title": "A Shared IPTC Topic Space for Cross-Source Topic Modelling",
-          "year": 2026
-        }
-      ]
-    },
-    {
-      "authorId": "21174450",
-      "name": "M. Vainstein",
-      "collaborationCount": 1,
-      "firstCollabYear": 2026,
-      "lastCollabYear": 2026,
-      "sharedPapers": [
-        {
-          "paperId": "80600d25d4bd28c186816a48f33203321230d41b",
-          "title": "A Shared IPTC Topic Space for Cross-Source Topic Modelling",
-          "year": 2026
-        }
-      ]
-    },
-    {
-      "authorId": "2284592789",
-      "name": "Aline Villavicencio",
-      "collaborationCount": 1,
-      "firstCollabYear": 2026,
-      "lastCollabYear": 2026,
-      "sharedPapers": [
-        {
-          "paperId": "80600d25d4bd28c186816a48f33203321230d41b",
-          "title": "A Shared IPTC Topic Space for Cross-Source Topic Modelling",
-          "year": 2026
-        }
-      ]
-    },
-    {
-      "authorId": "2323735148",
-      "name": "R. Wilkens",
-      "collaborationCount": 1,
-      "firstCollabYear": 2026,
-      "lastCollabYear": 2026,
-      "sharedPapers": [
-        {
-          "paperId": "80600d25d4bd28c186816a48f33203321230d41b",
+          "paperId": "85163e355e0927e7bface7373596937a4322d0fb",
           "title": "A Shared IPTC Topic Space for Cross-Source Topic Modelling",
           "year": 2026
         }
@@ -5344,20 +5383,6 @@
           "paperId": "b9c741dd6fe3e0b2b1d909511c074cdffd309a88",
           "title": "Using Network Sciences to Evaluate the Brazilian Airline Network",
           "year": 2013
-        }
-      ]
-    },
-    {
-      "authorId": "1740341",
-      "name": "C. B\u01cedic\u01ce",
-      "collaborationCount": 1,
-      "firstCollabYear": 2012,
-      "lastCollabYear": 2012,
-      "sharedPapers": [
-        {
-          "paperId": "5c79b2d04798357b2777f2efdbdaaa7d681cc0cc",
-          "title": "Preface to the Special Issue on intelligent distributed computing",
-          "year": 2012
         }
       ]
     },
