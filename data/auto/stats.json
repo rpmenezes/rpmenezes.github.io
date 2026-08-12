@@ -1,10 +1,10 @@
 {
-  "updated": "2026-08-11T06:40:07.857639+00:00",
+  "updated": "2026-08-12T07:00:22.150451+00:00",
   "stats": {
     "paperCount": 240,
     "hIndex": 21,
     "citationCount": 2936,
-    "influentialCitationCount": 107
+    "influentialCitationCount": 108
   },
   "publications": [
     {
@@ -287,7 +287,7 @@
       "venue": "Environment and Planning B: Urban Analytics and City Science",
       "doiValue": "10.1177/23998083231219294",
       "doiUrl": "https://doi.org/10.1177/23998083231219294",
-      "citationCount": 19
+      "citationCount": 20
     },
     {
       "year": "2024",
