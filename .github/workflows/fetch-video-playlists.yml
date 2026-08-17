@@ -45,7 +45,7 @@ jobs:
           os.makedirs('data', exist_ok=True)
           updated = datetime.datetime.utcnow().isoformat()
 
-          # ── Guitar playlist (sort by most viewed, top 8) ──
+          # ── Guitar playlist (top 5 most viewed + top 5 most recent) ──
           guitar_items = fetch_playlist('PLL_czV5M6TkEhcd81hnsFBQ8qBLyyCpdH')
           guitar_ids = [i['snippet']['resourceId']['videoId'] for i in guitar_items]
           guitar_stats = fetch_view_counts(guitar_ids)
@@ -58,14 +58,16 @@ jobs:
                   'rawTitle': s['title'],
                   'videoId': vid,
                   'url': 'https://www.youtube.com/watch?v=' + vid,
+                  'publishedAt': s['publishedAt'],
                   'viewCount': guitar_stats.get(vid, 0),
               })
-          guitar_videos.sort(key=lambda x: x['viewCount'], reverse=True)
-          guitar_videos = guitar_videos[:8]
+
+          most_viewed = sorted(guitar_videos, key=lambda x: x['viewCount'], reverse=True)[:5]
+          most_recent = sorted(guitar_videos, key=lambda x: x['publishedAt'], reverse=True)[:5]
 
           with open('data/auto/guitar-playlist.json', 'w') as f:
-              json.dump({'videos': guitar_videos, 'updated': updated}, f, indent=2)
-          print('Guitar: saved', len(guitar_videos), 'videos')
+              json.dump({'mostViewed': most_viewed, 'mostRecent': most_recent, 'updated': updated}, f, indent=2)
+          print('Guitar: saved', len(most_viewed), 'most-viewed +', len(most_recent), 'most-recent')
 
           # ── Professional playlist (sort by newest, top 5) ──
           prof_items = fetch_playlist('PLL_czV5M6TkFiY6nctp8mBdF2Q3AmzXmd')

@@ -1677,7 +1677,8 @@ a:hover {
 /* ── Video list item layout (all three sections) ── */
 #notebooklm-list .video-list-item,
 #professional-list .video-list-item,
-#guitar-list .video-list-item {
+#guitar-viewed-list .video-list-item,
+#guitar-recent-list .video-list-item {
     display: flex;
     flex-direction: column;
     padding: 1rem 0.25rem;
@@ -1686,14 +1687,16 @@ a:hover {
 
 #notebooklm-list .video-title-link,
 #professional-list .video-title-link,
-#guitar-list .video-title-link {
+#guitar-viewed-list .video-title-link,
+#guitar-recent-list .video-title-link {
     display: block;
     flex: 1;
     min-width: 0;
 }
 
 #notebooklm-list .video-list-artist,
-#guitar-list .video-list-artist {
+#guitar-viewed-list .video-list-artist,
+#guitar-recent-list .video-list-artist {
     display: block;
     font-size: 0.85rem;
     font-weight: 300;

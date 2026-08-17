@@ -87,10 +87,16 @@
 
         <section id="off-the-clock" class="content-section section-box-gray">
             <h2>Learning to Play the Guitar</h2>
-            <p class="section-sub-italic">(8 most viewed on YouTube)</p>
             <p class="section-sub-italic">(full playlist available <a href="https://www.youtube.com/playlist?list=PLL_czV5M6TkEhcd81hnsFBQ8qBLyyCpdH" target="_blank">here</a>)</p>
             <p class="section-sub-italic"><span id="guitar-updated"></span></p>
-            <ul class="video-list" id="guitar-list">
+
+            <h3>5 Most Viewed</h3>
+            <ul class="video-list" id="guitar-viewed-list">
+                <li class="video-list-loading">Loading...</li>
+            </ul>
+
+            <h3 id="guitar-recent-head">5 Most Recent</h3>
+            <ul class="video-list" id="guitar-recent-list">
                 <li class="video-list-loading">Loading...</li>
             </ul>
         </section>
@@ -217,36 +223,56 @@
             return { artist, song };
         }
 
+        function renderGuitarVideos(videos, listEl) {
+            listEl.innerHTML = videos.map(v => {
+                const { artist, song } = parseVideoTitle(v.rawTitle);
+                const views = v.viewCount ? v.viewCount.toLocaleString('en-GB') + ' views' : '';
+                return `<li class="video-list-item">
+                    <div class="video-title-row">
+                        <a href="${v.url}" target="_blank" class="video-title-link">${song}</a>
+                        <span class="video-list-right">
+                            ${views ? `<span class="video-view-count">${views}</span>` : ''}
+                            <span class="video-list-arrow">↗&#xFE0E;</span>
+                        </span>
+                    </div>
+                    <span class="video-list-artist">${artist}</span>
+                </li>`;
+            }).join('');
+        }
+
         async function loadGuitarPlaylist() {
-            const list = document.getElementById('guitar-list');
+            const viewedList = document.getElementById('guitar-viewed-list');
+            const recentList = document.getElementById('guitar-recent-list');
+            const recentHead = document.getElementById('guitar-recent-head');
             try {
                 const res = await fetch('data/auto/guitar-playlist.json?v=' + Date.now());
                 if (!res.ok) throw new Error();
                 const data = await res.json();
-                const videos = data.videos || [];
-                if (videos.length === 0) throw new Error();
+                // New structure: { mostViewed, mostRecent }. Fall back to the old
+                // single `videos` array (view-sorted) for the most-viewed list.
+                const mostViewed = data.mostViewed || data.videos || [];
+                const mostRecent = data.mostRecent || [];
+                if (mostViewed.length === 0) throw new Error();
 
                 if (data.updated) {
                     const d = new Date(data.updated);
                     const dateStr = '(last updated: ' + d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }) + ')';
                     document.getElementById('guitar-updated').textContent = dateStr;
                 }
-                list.innerHTML = videos.map(v => {
-                    const { artist, song } = parseVideoTitle(v.rawTitle);
-                    const views = v.viewCount ? v.viewCount.toLocaleString('en-GB') + ' views' : '';
-                    return `<li class="video-list-item">
-                        <div class="video-title-row">
-                            <a href="${v.url}" target="_blank" class="video-title-link">${song}</a>
-                            <span class="video-list-right">
-                                ${views ? `<span class="video-view-count">${views}</span>` : ''}
-                                <span class="video-list-arrow">↗&#xFE0E;</span>
-                            </span>
-                        </div>
-                        <span class="video-list-artist">${artist}</span>
-                    </li>`;
-                }).join('');
+
+                renderGuitarVideos(mostViewed.slice(0, 5), viewedList);
+
+                if (mostRecent.length) {
+                    renderGuitarVideos(mostRecent.slice(0, 5), recentList);
+                } else {
+                    // Hide the "Most Recent" list until the feed carries upload dates
+                    recentHead.style.display = 'none';
+                    recentList.style.display = 'none';
+                }
             } catch(e) {
-                list.innerHTML = '<li class="video-list-loading">Unable to load videos. <a href="https://www.youtube.com/playlist?list=PLL_czV5M6TkEhcd81hnsFBQ8qBLyyCpdH" target="_blank">View playlist on YouTube</a>.</li>';
+                viewedList.innerHTML = '<li class="video-list-loading">Unable to load videos. <a href="https://www.youtube.com/playlist?list=PLL_czV5M6TkEhcd81hnsFBQ8qBLyyCpdH" target="_blank">View playlist on YouTube</a>.</li>';
+                recentHead.style.display = 'none';
+                recentList.style.display = 'none';
             }
         }
         loadGuitarPlaylist();
