@@ -1,6 +1,14 @@
 {
   "videos": [
     {
+      "rawTitle": "Parenthood Urban Mobility",
+      "description": "Title: The Parenthood Effect in Urban Mobility\nAuthors: Mariana Macedo, Ronaldo Menezes, Alessio Cardillo\nDOI: https://doi.org/10.1038/s44260-026-00089-9",
+      "videoId": "MSAp_0K8rpc",
+      "url": "https://www.youtube.com/watch?v=MSAp_0K8rpc",
+      "publishedAt": "2026-08-17T23:07:17Z",
+      "viewCount": 0
+    },
+    {
       "rawTitle": "Analysis of Cultural Funding in Brazil",
       "description": "Title: Network Analysis of Cultural Funding in Brazil: Uncovering Regional Differences and Signatures\nAuthors: Diogo Pacheco, Gustavo Moraes, Diego Pinheiro, Josemar Faustino, Marcos Oliveira, Henilton Menezes, Ronaldo Menezes\nDOI: https://doi.org/10.1007/s41109-026-00799-y",
       "videoId": "IJIXVbf93pY",
@@ -31,15 +39,7 @@
       "url": "https://www.youtube.com/watch?v=kZQUJpPN4sA",
       "publishedAt": "2026-03-04T16:26:42Z",
       "viewCount": 7
-    },
-    {
-      "rawTitle": "Brazil's Hidden Road Map",
-      "description": "Title: Not All Roads Are Created Equal: Network Science Shows Some Highways Matter More for Brazil\u2019s Connectivity\nAuthors\nAuthors: J\u00falio Taveira, Ronaldo Menezes, Fernando Buarque\nDOI: https://doi.org/10.1007/978-3-642-30947-2_33",
-      "videoId": "JDd8Ykz4YIE",
-      "url": "https://www.youtube.com/watch?v=JDd8Ykz4YIE",
-      "publishedAt": "2026-02-23T15:24:56Z",
-      "viewCount": 25
     }
   ],
-  "updated": "2026-08-17T23:01:30.490599"
+  "updated": "2026-08-17T23:13:11.380437"
 }
