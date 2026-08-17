@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Videos by Ronaldo Menezes — academic talks, presentations, and other recordings.">
     <title>Videos - Ronaldo Menezes</title>
-    <link rel="stylesheet" href="styles.css?v=5">
+    <link rel="stylesheet" href="styles.css?v=6">
 </head>
 <body>
     <!-- Navigation -->
@@ -155,18 +155,24 @@
                     const doiHtml = doi
                         ? `<span class="video-list-artist" style="display:block">DOI: <a href="${doi}" target="_blank" class="doi-link">${doi}</a></span>`
                         : '';
+                    const thumbHtml = v.videoId
+                        ? `<a href="${v.url}" target="_blank" class="video-thumb" aria-label="Watch on YouTube"><img src="https://img.youtube.com/vi/${v.videoId}/mqdefault.jpg" alt="" loading="lazy"></a>`
+                        : '';
                     return `<li class="video-list-item">
-                        <div class="video-title-row">
-                            <a href="${v.url}" target="_blank" class="video-title-link">
-                                ${title || v.rawTitle}
-                            </a>
-                            <span class="video-list-right">
-                                ${v.viewCount ? `<span class="video-view-count">${v.viewCount.toLocaleString('en-GB')} views</span>` : ''}
-                                <span class="video-list-arrow">↗&#xFE0E;</span>
-                            </span>
+                        ${thumbHtml}
+                        <div class="video-item-body">
+                            <div class="video-title-row">
+                                <a href="${v.url}" target="_blank" class="video-title-link">
+                                    ${title || v.rawTitle}
+                                </a>
+                                <span class="video-list-right">
+                                    ${v.viewCount ? `<span class="video-view-count">${v.viewCount.toLocaleString('en-GB')} views</span>` : ''}
+                                    <span class="video-list-arrow">↗&#xFE0E;</span>
+                                </span>
+                            </div>
+                            <span class="video-list-artist">${authorsHtml}</span>
+                            ${doiHtml}
                         </div>
-                        <span class="video-list-artist">${authorsHtml}</span>
-                        ${doiHtml}
                     </li>`;
                 }).join('');
             } catch(e) {
