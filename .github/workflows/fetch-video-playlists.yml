@@ -24,8 +24,10 @@ jobs:
           api_key = os.environ['YOUTUBE_API_KEY']
 
           def fetch_playlist(playlist_id, max_results=50):
+              # contentDetails carries videoPublishedAt — the true upload date,
+              # unlike snippet.publishedAt which is when the item was added.
               url = ('https://www.googleapis.com/youtube/v3/playlistItems'
-                     '?part=snippet&maxResults=' + str(max_results) +
+                     '?part=snippet,contentDetails&maxResults=' + str(max_results) +
                      '&playlistId=' + playlist_id +
                      '&key=' + api_key)
               with urllib.request.urlopen(url) as r:
@@ -52,11 +54,13 @@ jobs:
           for item in guitar_items:
               s = item['snippet']
               vid = s['resourceId']['videoId']
+              # videoPublishedAt = actual upload date; fall back to snippet date
+              uploaded = item.get('contentDetails', {}).get('videoPublishedAt') or s['publishedAt']
               guitar_videos.append({
                   'rawTitle': s['title'],
                   'videoId': vid,
                   'url': 'https://www.youtube.com/watch?v=' + vid,
-                  'publishedAt': s['publishedAt'],
+                  'publishedAt': uploaded,
                   'viewCount': guitar_stats.get(vid, 0),
               })
 
