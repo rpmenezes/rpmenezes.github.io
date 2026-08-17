@@ -1,17 +1,5 @@
 [
   {
-    "name": "Biodiversity Workshop",
-    "location": "Penryn, UK",
-    "date": "March 2026",
-    "url": null
-  },
-  {
-    "name": "University of Exeter Computer Science Roadshow",
-    "location": "Mumbai, Bengaluru, Chennai, New Delhi · India",
-    "date": "April 2026",
-    "url": null
-  },
-  {
     "name": "CompleNet 2026",
     "location": "Zaragoza, Spain",
     "date": "May 2026",
@@ -64,6 +52,24 @@
     "location": "Porto Alegre, Brazil",
     "date": "August 2026",
     "url": "https://biocomplex.github.io/Dime/"
+  },
+  {
+    "name": "European Mobility Symposium 2026",
+    "location": "Exeter, UK",
+    "date": "September 2026",
+    "url": "https://europeanmobilitysymposium.github.io/"
+  },
+  {
+    "name": "NetMob 2026",
+    "location": "Rio de Janeiro, Brazil",
+    "date": "October 2026",
+    "url": "https://netmob.org/www26/"
+  },
+  {
+    "name": "Congo Hunter-Gatherer Social Network Workshop",
+    "location": "Rome, Italy",
+    "date": "November 2026",
+    "url": null
   },
   {
     "name": "II International Symposium on One Health, One Planet (TBC)",
