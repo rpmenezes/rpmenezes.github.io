@@ -222,132 +222,255 @@
         loadRecentPubs();
     </script>
 
+    <!-- ── World-map movement hero animation ─────────────────────────── -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://unpkg.com/topojson-client@3/dist/topojson-client.min.js"></script>
     <script>
     (function() {
         const canvas = document.getElementById('anim-canvas');
         const ctx    = canvas.getContext('2d');
-        let W, H, nodes = [], links = new Map(), particles = [];
-        let fadeAlpha = 1, fadeState = 'in', frameCount = 0;
-        const N_NODES=210,MIN_DIST=26,N_PARTICLES=120,LINK_DECAY=0.016,LINK_MAX=12;
-        const BASE_SIZE=2.0,ARRIVAL_SCORE=0.18,SCORE_DECAY=0.9997,MAX_SIZE=8;
-        const SPEED_PX=4.0,DIST_LAMBDA=0.22,POP_POWER=1.6;
-        const FADE_FRAMES=60, LABEL_THRESHOLD=3.2;
-        let cycleFrames=75*60, poiData=[], poiNames=[];
-        const PARTICLE_COL='rgba(255,150,200,', TRAIL_COL='rgba(220,80,140,';
-        function linkColor(t,a){return`rgba(${Math.round(160+t*90)},${Math.round(20+t*40)},${Math.round(80+t*60)},${a})`;}
-        function nodeRGB(t){return{r:Math.round(t*20),g:Math.round(60+t*65),b:Math.round(60+t*45)};}
-        function linkKey(i,j){return i<j?`${i}-${j}`:`${j}-${i}`;}
-        function bezier(t,x0,y0,cx,cy,x1,y1){const m=1-t;return{x:m*m*x0+2*m*t*cx+t*t*x1,y:m*m*y0+2*m*t*cy+t*t*y1};}
-        function gauss(){const u=Math.random()||1e-10,v=Math.random();return Math.sqrt(-2*Math.log(u))*Math.cos(2*Math.PI*v);}
-        function resize(){const dpr=window.devicePixelRatio||1;W=canvas.offsetWidth;H=canvas.offsetHeight;canvas.width=W*dpr;canvas.height=H*dpr;ctx.scale(dpr,dpr);build();}
-        function build(){
-            const pad={x:W*0.01,y:H*0.05};
-            const nD=3+Math.floor(Math.random()*3),districts=[];
-            for(let d=0;d<nD;d++)districts.push({cx:pad.x+Math.random()*(W-2*pad.x),cy:pad.y+Math.random()*(H-2*pad.y),sigma:W*(0.06+Math.random()*0.1),weight:0.6+Math.random()*1.4});
-            const wSum=districts.reduce((s,d)=>s+d.weight,0);districts.forEach(d=>d.weight/=wSum);
-            cycleFrames=(60+Math.floor(Math.random()*31))*60;
-            if(poiData.length){const cats=[...poiData].sort(()=>Math.random()-0.5).slice(0,4);poiNames=cats.map(c=>c.pois[Math.floor(Math.random()*c.pois.length)]);}
-            nodes=[];let att=0;
-            while(nodes.length<N_NODES&&att++<N_NODES*40){
-                let rw=Math.random(),dist=districts[districts.length-1];
-                for(const d of districts){rw-=d.weight;if(rw<=0){dist=d;break;}}
-                const x=dist.cx+gauss()*dist.sigma,y=dist.cy+gauss()*dist.sigma;
-                if(x<pad.x||x>W-pad.x||y<pad.y||y>H-pad.y)continue;
-                let clash=false;for(const n of nodes)if(Math.hypot(n.x-x,n.y-y)<MIN_DIST){clash=true;break;}
-                if(clash)continue;
-                nodes.push({x,y,arrivalScore:0,arrivals:0,pulse:Math.random()*Math.PI*2,pulseSpeed:0.007+Math.random()*0.009,poiLabel:null});
-            }
-            links=new Map();particles=[];
-            for(let i=0;i<N_PARTICLES;i++)particles.push(spawnParticle(true));
-        }
-        function pickDest(si){
-            const src=nodes[si],lambda=Math.min(W,H)*DIST_LAMBDA;let sum=0;
-            const w=nodes.map((n,i)=>{if(i===si)return 0;const d=Math.hypot(n.x-src.x,n.y-src.y),pop=Math.pow(n.arrivals+1,POP_POWER),val=pop*Math.exp(-d/lambda);sum+=val;return val;});
-            let r=Math.random()*sum;for(let i=0;i<nodes.length;i++){r-=w[i];if(r<=0)return i;}return(si+1)%nodes.length;
-        }
-        function spawnParticle(rp){const si=Math.floor(Math.random()*nodes.length);return buildParticle(si,pickDest(si),rp);}
-        function buildParticle(si,di,rp){
-            const src=nodes[si],dst=nodes[di],dist=Math.hypot(dst.x-src.x,dst.y-src.y),key=linkKey(si,di);
-            let cpx,cpy;
-            if(links.has(key)){({cpx,cpy}=links.get(key));}
-            else{const mx=(src.x+dst.x)/2,my=(src.y+dst.y)/2,angle=Math.atan2(dst.y-src.y,dst.x-src.x)+Math.PI/2,bend=(Math.random()-0.5)*dist*0.28;cpx=mx+Math.cos(angle)*bend;cpy=my+Math.sin(angle)*bend;}
-            return{srcIdx:si,dstIdx:di,src,dst,cpx,cpy,duration:Math.max(40,dist/SPEED_PX),progress:rp?Math.random():0,pSize:Math.min(2.5,1.4+(dist/(W*0.8))*1.2),completed:false};
-        }
-        function onTripComplete(p){
-            const key=linkKey(p.srcIdx,p.dstIdx);
-            if(links.has(key))links.get(key).weight=Math.min(LINK_MAX,links.get(key).weight+2.2);
-            else links.set(key,{a:p.srcIdx,b:p.dstIdx,weight:2.2,cpx:p.cpx,cpy:p.cpy});
-            nodes[p.dstIdx].arrivals++;nodes[p.dstIdx].arrivalScore+=ARRIVAL_SCORE;
-        }
-        function draw(){
-            ctx.clearRect(0,0,W,H);ctx.fillStyle='#0a0e1a';ctx.fillRect(0,0,W,H);
-            const toDelete=[];
-            links.forEach((link,key)=>{
-                link.weight=Math.max(0,link.weight-LINK_DECAY);if(link.weight<0.05){toDelete.push(key);return;}
-                const a=nodes[link.a],b=nodes[link.b],t=link.weight/LINK_MAX;
-                ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.quadraticCurveTo(link.cpx,link.cpy,b.x,b.y);ctx.strokeStyle=linkColor(t,0.12+t*0.22);ctx.lineWidth=1.5+t*4.5;ctx.stroke();
-                ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.quadraticCurveTo(link.cpx,link.cpy,b.x,b.y);ctx.strokeStyle=linkColor(t,0.3+t*0.5);ctx.lineWidth=0.6+t*1.8;ctx.stroke();
+        const OCEAN  = '#0a0e1a';
+
+        // Major world cities [lon, lat] — spread across every continent so
+        // movement criss-crosses the whole globe, not just one region.
+        const CITIES = [
+            // Europe
+            { n:'London',        c:[-0.13, 51.51] },
+            { n:'Paris',         c:[2.35, 48.86] },
+            { n:'Madrid',        c:[-3.70, 40.42] },
+            { n:'Lisbon',        c:[-9.14, 38.72] },
+            { n:'Rome',          c:[12.50, 41.90] },
+            { n:'Berlin',        c:[13.40, 52.52] },
+            { n:'Zaragoza',      c:[-0.89, 41.65] },
+            { n:'Exeter',        c:[-3.53, 50.72] },
+            { n:'Münster',       c:[7.63, 51.96] },
+            { n:'Istanbul',      c:[28.98, 41.01] },
+            { n:'Moscow',        c:[37.62, 55.75] },
+            // Americas
+            { n:'New York',      c:[-74.01, 40.71] },
+            { n:'Boston',        c:[-71.06, 42.36] },
+            { n:'Chicago',       c:[-87.65, 41.85] },
+            { n:'Los Angeles',   c:[-118.24, 34.05] },
+            { n:'Mexico City',   c:[-99.13, 19.43] },
+            { n:'Bogotá',        c:[-74.07, 4.71] },
+            { n:'Lima',          c:[-77.04, -12.05] },
+            { n:'São Paulo',     c:[-46.63, -23.55] },
+            { n:'Rio de Janeiro',c:[-43.20, -22.91] },
+            { n:'Buenos Aires',  c:[-58.38, -34.60] },
+            { n:'Toronto',       c:[-79.38, 43.65] },
+            // Africa
+            { n:'Cairo',         c:[31.24, 30.04] },
+            { n:'Lagos',         c:[3.38, 6.52] },
+            { n:'Nairobi',       c:[36.82, -1.29] },
+            { n:'Cape Town',     c:[18.42, -33.92] },
+            { n:'Kigali',        c:[30.06, -1.94] },
+            // Asia
+            { n:'Dubai',         c:[55.27, 25.20] },
+            { n:'Mumbai',        c:[72.88, 19.08] },
+            { n:'Bengaluru',     c:[77.59, 12.97] },
+            { n:'Singapore',     c:[103.82, 1.35] },
+            { n:'Bangkok',       c:[100.50, 13.76] },
+            { n:'Hong Kong',     c:[114.17, 22.32] },
+            { n:'Beijing',       c:[116.41, 39.90] },
+            { n:'Seoul',         c:[126.98, 37.57] },
+            { n:'Tokyo',         c:[139.69, 35.69] },
+            // Oceania
+            { n:'Sydney',        c:[151.21, -33.87] },
+            { n:'Auckland',      c:[174.76, -36.85] }
+        ];
+
+        let W, H, dpr, proj, pathGen, mapCanvas, cityXY = [], distMax = 1;
+        let trips = [], ripples = [], worldFeat = null, worldMesh = null;
+        let started = false;
+
+        // ── colours ──
+        // short hops: teal (frequent) · long hauls: warm amber (rare)
+        const SHORT_HEAD = '64,224,208', SHORT_TRAIL = '0,180,150';
+        const LONG_HEAD  = '255,200,90', LONG_TRAIL  = '235,160,50';
+
+        function project() {
+            // Fit the WHOLE world inside the strip; dark ocean fills the letterbox.
+            proj = d3.geoEqualEarth().fitSize([W, H], { type:'Sphere' });
+            pathGen = d3.geoPath(proj);
+            cityXY = CITIES.map(city => {
+                const p = proj(city.c);
+                return { name: city.n, x: p[0], y: p[1] };
             });
-            toDelete.forEach(k=>links.delete(k));
-            nodes.forEach(node=>{
-                node.arrivalScore*=SCORE_DECAY;node.pulse+=node.pulseSpeed;
-                const pf=0.93+Math.sin(node.pulse)*0.07,size=Math.min(MAX_SIZE,BASE_SIZE+node.arrivalScore)*pf,ts=size/MAX_SIZE;
-                const grd=ctx.createRadialGradient(node.x,node.y,0,node.x,node.y,size*3.2);
-                grd.addColorStop(0,`rgba(0,125,105,${Math.min(0.45,ts*0.6)})`);grd.addColorStop(1,'rgba(0,0,0,0)');
-                ctx.fillStyle=grd;ctx.beginPath();ctx.arc(node.x,node.y,size*3.2,0,Math.PI*2);ctx.fill();
-                const{r,g,b}=nodeRGB(ts);ctx.beginPath();ctx.arc(node.x,node.y,size,0,Math.PI*2);ctx.fillStyle=`rgba(${r},${g},${b},0.92)`;ctx.fill();
-            });
-            particles.forEach((p,i)=>{
-                p.progress+=1/p.duration;
-                if(p.progress>=1){if(!p.completed){p.completed=true;onTripComplete(p);}particles[i]=spawnParticle(false);return;}
-                const t=p.progress,pos=bezier(t,p.src.x,p.src.y,p.cpx,p.cpy,p.dst.x,p.dst.y),alpha=t<0.12?t/0.12:t>0.85?(1-t)/0.15:1;
-                const qcpx=p.src.x+t*(p.cpx-p.src.x),qcpy=p.src.y+t*(p.cpy-p.src.y);
-                ctx.beginPath();ctx.moveTo(p.src.x,p.src.y);ctx.quadraticCurveTo(qcpx,qcpy,pos.x,pos.y);ctx.strokeStyle=TRAIL_COL+(alpha*0.3)+')';ctx.lineWidth=2.8;ctx.stroke();
-                ctx.beginPath();ctx.moveTo(p.src.x,p.src.y);ctx.quadraticCurveTo(qcpx,qcpy,pos.x,pos.y);ctx.strokeStyle=TRAIL_COL+(alpha*0.6)+')';ctx.lineWidth=1.0;ctx.stroke();
-                const hg=ctx.createRadialGradient(pos.x,pos.y,0,pos.x,pos.y,p.pSize*2.5);hg.addColorStop(0,PARTICLE_COL+(alpha*0.9)+')');hg.addColorStop(1,'rgba(0,0,0,0)');
-                ctx.fillStyle=hg;ctx.beginPath();ctx.arc(pos.x,pos.y,p.pSize*2.5,0,Math.PI*2);ctx.fill();
-                ctx.beginPath();ctx.arc(pos.x,pos.y,p.pSize,0,Math.PI*2);ctx.fillStyle=PARTICLE_COL+(alpha*0.95)+')';ctx.fill();
-            });
-            // POI labels — drawn last so they sit above everything
-            if(poiNames.length && fadeState==='run'){
-                const gate=10*60;
-                const globalAlpha=Math.min(1,(frameCount-gate)/(60*4));
-                if(globalAlpha>0){
-                    // Assign labels to top 4 nodes by arrivals (sticky once assigned, one per category)
-                    const labeled=nodes.filter(n=>n.poiLabel).length;
-                    if(labeled<4){
-                        const used=new Set(nodes.filter(n=>n.poiLabel).map(n=>n.poiLabel));
-                        const avail=poiNames.filter(n=>!used.has(n));
-                        nodes.filter(n=>!n.poiLabel).sort((a,b)=>b.arrivals-a.arrivals).slice(0,4-labeled).forEach((node,i)=>{if(avail[i])node.poiLabel=avail[i];});
-                    }
-                    ctx.font='bold 9.5px system-ui,sans-serif';ctx.textBaseline='middle';
-                    nodes.forEach(node=>{
-                        if(!node.poiLabel)return;
-                        const sz=Math.min(MAX_SIZE,BASE_SIZE+node.arrivalScore);
-                        ctx.fillStyle=`rgba(255,216,60,${globalAlpha*0.95})`;
-                        ctx.fillText(node.poiLabel,node.x+sz+7,node.y);
-                    });
+            // longest possible screen distance, for weighting
+            distMax = 0;
+            for (let i=0;i<cityXY.length;i++)
+                for (let j=i+1;j<cityXY.length;j++) {
+                    const d = Math.hypot(cityXY[i].x-cityXY[j].x, cityXY[i].y-cityXY[j].y);
+                    if (d>distMax) distMax = d;
                 }
-            }
-            if(fadeState==='in'){fadeAlpha=Math.max(0,fadeAlpha-1/FADE_FRAMES);if(fadeAlpha<=0){fadeState='run';frameCount=0;}}
-            else if(fadeState==='run'){if(++frameCount>=cycleFrames)fadeState='out';}
-            else if(fadeState==='out'){fadeAlpha=Math.min(1,fadeAlpha+1/FADE_FRAMES);if(fadeAlpha>=1)fadeState='reset';}
-            else if(fadeState==='reset'){build();fadeState='in';}
-            if(fadeAlpha>0){ctx.fillStyle=`rgba(10,14,26,${fadeAlpha})`;ctx.fillRect(0,0,W,H);}
+        }
+
+        // Render the static map once to an offscreen canvas for smooth redraws.
+        function buildMap() {
+            mapCanvas = document.createElement('canvas');
+            mapCanvas.width = W*dpr; mapCanvas.height = H*dpr;
+            const m = mapCanvas.getContext('2d');
+            m.scale(dpr, dpr);
+            m.fillStyle = OCEAN; m.fillRect(0,0,W,H);
+
+            // graticule
+            m.beginPath(); pathGen.context(m)(d3.geoGraticule().step([20,20])());
+            m.strokeStyle = 'rgba(120,150,200,0.05)'; m.lineWidth = 0.5; m.stroke();
+
+            // land
+            m.beginPath(); pathGen.context(m)(worldFeat);
+            m.fillStyle = '#18233c'; m.fill();
+            // country borders
+            m.beginPath(); pathGen.context(m)(worldMesh);
+            m.strokeStyle = 'rgba(120,150,200,0.14)'; m.lineWidth = 0.4; m.stroke();
+            pathGen.context(null);
+
+            // city markers
+            cityXY.forEach(c => {
+                m.beginPath(); m.arc(c.x, c.y, 1.1, 0, Math.PI*2);
+                m.fillStyle = 'rgba(120,200,190,0.45)'; m.fill();
+            });
+        }
+
+        function resize() {
+            dpr = window.devicePixelRatio || 1;
+            W = canvas.offsetWidth; H = canvas.offsetHeight;
+            if (!W || !H) return;          // hero hidden (mobile) — nothing to size
+            canvas.width = W*dpr; canvas.height = H*dpr;
+            ctx.setTransform(dpr,0,0,dpr,0,0);
+            project();
+            if (worldFeat) buildMap();
+        }
+
+        // Pick a fully random trip, weighting shorter distances higher so short
+        // hops dominate but ANY city pair is possible — including medium routes
+        // and the occasional long haul. Every draw is different.
+        function spawnTrip() {
+            if (cityXY.length < 2) return null;
+            const si = Math.floor(Math.random()*cityXY.length);
+            const src = cityXY[si];
+            const lambda = distMax * 0.26;          // decay scale → short-trip bias
+            let sum = 0;
+            const w = cityXY.map((c,i) => {
+                if (i === si) return 0;
+                const d = Math.hypot(c.x-src.x, c.y-src.y);
+                if (d < 8) return 0;
+                const val = Math.exp(-d / lambda);  // nearer = more likely
+                sum += val; return val;
+            });
+            if (sum <= 0) return null;
+            let r = Math.random()*sum, di = -1;
+            for (let i=0;i<w.length;i++){ r -= w[i]; if (r <= 0) { di = i; break; } }
+            if (di < 0) return null;
+            const dst = cityXY[di], dist = Math.hypot(dst.x-src.x, dst.y-src.y);
+            const isLong = dist > distMax * 0.42;   // transcontinental → amber
+            // control point: bend perpendicular, larger arc for longer trips
+            const mx=(src.x+dst.x)/2, my=(src.y+dst.y)/2;
+            const ang = Math.atan2(dst.y-src.y, dst.x-src.x) - Math.PI/2;
+            const bend = dist * (isLong ? 0.34 : 0.22) * (0.75 + Math.random()*0.5);
+            return {
+                src, dst,
+                cx: mx + Math.cos(ang)*bend,
+                cy: my + Math.sin(ang)*bend,
+                progress: 0,
+                duration: Math.max(60, Math.sqrt(dist) * (isLong ? 9 : 7)),
+                isLong,
+                done: false
+            };
+        }
+
+        function bez(t,x0,y0,cx,cy,x1,y1){const m=1-t;return{x:m*m*x0+2*m*t*cx+t*t*x1,y:m*m*y0+2*m*t*cy+t*t*y1};}
+
+        const MAX_TRIPS = 16, MAX_LONG = 3;
+        function maintain() {
+            if (trips.length >= MAX_TRIPS || Math.random() >= 0.16) return;
+            const t = spawnTrip();
+            if (!t) return;
+            // cap simultaneous long hauls so they stay the rare exception
+            if (t.isLong && trips.filter(x=>x.isLong).length >= MAX_LONG) return;
+            trips.push(t);
+        }
+
+        function draw() {
+            ctx.clearRect(0,0,W,H);
+            ctx.drawImage(mapCanvas, 0, 0, W, H);
+
+            maintain();
+
+            // ripples (arrival pulses)
+            ripples.forEach(r => { r.t += 1/45; });
+            ripples = ripples.filter(r => r.t < 1);
+            ripples.forEach(r => {
+                const rad = 2 + r.t*16, a = (1-r.t)*0.5;
+                ctx.beginPath(); ctx.arc(r.x, r.y, rad, 0, Math.PI*2);
+                ctx.strokeStyle = `rgba(${r.col},${a})`; ctx.lineWidth = 1.2; ctx.stroke();
+            });
+
+            trips.forEach((tp,i) => {
+                tp.progress += 1/tp.duration;
+                if (tp.progress >= 1) {
+                    if (!tp.done) {
+                        ripples.push({ x:tp.dst.x, y:tp.dst.y, t:0,
+                            col: tp.isLong ? LONG_HEAD : SHORT_HEAD });
+                        tp.done = true;
+                    }
+                    trips.splice(i,1); return;
+                }
+                const t = tp.progress;
+                const pos = bez(t, tp.src.x,tp.src.y, tp.cx,tp.cy, tp.dst.x,tp.dst.y);
+                // trail fades in at start, out at end
+                const alpha = t<0.1 ? t/0.1 : t>0.85 ? (1-t)/0.15 : 1;
+                const head = tp.isLong ? LONG_HEAD : SHORT_HEAD;
+                const trail = tp.isLong ? LONG_TRAIL : SHORT_TRAIL;
+                // partial control point so the drawn trail follows the curve
+                const qx = tp.src.x + t*(tp.cx-tp.src.x), qy = tp.src.y + t*(tp.cy-tp.src.y);
+
+                ctx.beginPath(); ctx.moveTo(tp.src.x, tp.src.y);
+                ctx.quadraticCurveTo(qx, qy, pos.x, pos.y);
+                ctx.strokeStyle = `rgba(${trail},${alpha*0.22})`;
+                ctx.lineWidth = tp.isLong ? 2.6 : 1.8; ctx.stroke();
+
+                ctx.beginPath(); ctx.moveTo(tp.src.x, tp.src.y);
+                ctx.quadraticCurveTo(qx, qy, pos.x, pos.y);
+                ctx.strokeStyle = `rgba(${trail},${alpha*0.55})`;
+                ctx.lineWidth = tp.isLong ? 1.1 : 0.8; ctx.stroke();
+
+                // comet head glow
+                const gsz = tp.isLong ? 5 : 3.4;
+                const g = ctx.createRadialGradient(pos.x,pos.y,0,pos.x,pos.y,gsz);
+                g.addColorStop(0, `rgba(${head},${alpha*0.95})`);
+                g.addColorStop(1, `rgba(${head},0)`);
+                ctx.fillStyle = g; ctx.beginPath();
+                ctx.arc(pos.x,pos.y,gsz,0,Math.PI*2); ctx.fill();
+                ctx.beginPath(); ctx.arc(pos.x,pos.y, tp.isLong?1.6:1.1, 0, Math.PI*2);
+                ctx.fillStyle = `rgba(255,255,255,${alpha*0.9})`; ctx.fill();
+            });
+
             requestAnimationFrame(draw);
         }
-        fetch('data/manual/poi-categories.json').then(r=>r.json()).then(d=>{
-            poiData=d;
-            // If animation already started before fetch completed, pick names now
-            if(!poiNames.length && poiData.length){
-                const cats=[...poiData].sort(()=>Math.random()-0.5).slice(0,4);
-                poiNames=cats.map(c=>c.pois[Math.floor(Math.random()*c.pois.length)]);
-            }
-        }).catch(()=>{});
-        if (window.innerWidth > 768) {
-            window.addEventListener('resize', resize);
-            resize(); draw();
+
+        function start() {
+            if (started || !W || !H || !worldFeat) return;   // wait for size + data
+            started = true;
+            // seed a few trips
+            for (let i=0;i<8;i++){ const t=spawnTrip(); if(t){t.progress=Math.random()*0.6; trips.push(t);} }
+            draw();
         }
+
+        // Always load the map data. Drawing is gated on the hero's real size
+        // (it is display:none under 768px). A ResizeObserver reliably fires once
+        // the strip has dimensions and on every subsequent resize.
+        d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json')
+            .then(world => {
+                worldFeat = topojson.feature(world, world.objects.countries);
+                worldMesh = topojson.mesh(world, world.objects.countries, (a,b)=>a!==b);
+                resize();
+                start();
+            }).catch(()=>{});
+
+        const hero = document.getElementById('animHero');
+        const ro = new ResizeObserver(() => { resize(); start(); });
+        ro.observe(hero);
     })();
     </script>
 
