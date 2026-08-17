@@ -1703,14 +1703,17 @@ a:hover {
     color: #555;
 }
 
-/* ── Thumbnail layout for NotebookLM presentations ── */
-#notebooklm-list .video-list-item {
+/* ── Thumbnail layout (all video sections) ── */
+#notebooklm-list .video-list-item,
+#professional-list .video-list-item,
+#guitar-viewed-list .video-list-item,
+#guitar-recent-list .video-list-item {
     flex-direction: row;
     align-items: flex-start;
     gap: 0.9rem;
 }
 
-#notebooklm-list .video-thumb {
+.video-thumb {
     flex-shrink: 0;
     display: block;
     width: 120px;
@@ -1719,7 +1722,7 @@ a:hover {
     line-height: 0;
 }
 
-#notebooklm-list .video-thumb img {
+.video-thumb img {
     width: 100%;
     height: auto;
     aspect-ratio: 16 / 9;
@@ -1728,11 +1731,11 @@ a:hover {
     transition: opacity 0.2s ease;
 }
 
-#notebooklm-list .video-thumb:hover img {
+.video-thumb:hover img {
     opacity: 0.82;
 }
 
-#notebooklm-list .video-item-body {
+.video-item-body {
     flex: 1;
     min-width: 0;
     display: flex;
@@ -1741,7 +1744,7 @@ a:hover {
 }
 
 @media (max-width: 480px) {
-    #notebooklm-list .video-thumb {
+    .video-thumb {
         width: 92px;
     }
 }

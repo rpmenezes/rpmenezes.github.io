@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Videos by Ronaldo Menezes — academic talks, presentations, and other recordings.">
     <title>Videos - Ronaldo Menezes</title>
-    <link rel="stylesheet" href="styles.css?v=6">
+    <link rel="stylesheet" href="styles.css?v=7">
 </head>
 <body>
     <!-- Navigation -->
@@ -198,14 +198,20 @@
                 }
                 list.innerHTML = videos.map(v => {
                     const views = v.viewCount ? v.viewCount.toLocaleString('en-GB') + ' views' : '';
+                    const thumbHtml = v.videoId
+                        ? `<a href="${v.url}" target="_blank" class="video-thumb" aria-label="Watch on YouTube"><img src="https://img.youtube.com/vi/${v.videoId}/mqdefault.jpg" alt="" loading="lazy"></a>`
+                        : '';
                     return `
                     <li class="video-list-item">
-                        <div class="video-title-row">
-                            <a href="${v.url}" target="_blank" class="video-title-link">${v.rawTitle}</a>
-                            <span class="video-list-right">
-                                ${views ? `<span class="video-view-count">${views}</span>` : ''}
-                                <span class="video-list-arrow">↗&#xFE0E;</span>
-                            </span>
+                        ${thumbHtml}
+                        <div class="video-item-body">
+                            <div class="video-title-row">
+                                <a href="${v.url}" target="_blank" class="video-title-link">${v.rawTitle}</a>
+                                <span class="video-list-right">
+                                    ${views ? `<span class="video-view-count">${views}</span>` : ''}
+                                    <span class="video-list-arrow">↗&#xFE0E;</span>
+                                </span>
+                            </div>
                         </div>
                     </li>`}).join('');
             } catch(e) {
@@ -233,15 +239,21 @@
             listEl.innerHTML = videos.map(v => {
                 const { artist, song } = parseVideoTitle(v.rawTitle);
                 const views = v.viewCount ? v.viewCount.toLocaleString('en-GB') + ' views' : '';
+                const thumbHtml = v.videoId
+                    ? `<a href="${v.url}" target="_blank" class="video-thumb" aria-label="Watch on YouTube"><img src="https://img.youtube.com/vi/${v.videoId}/mqdefault.jpg" alt="" loading="lazy"></a>`
+                    : '';
                 return `<li class="video-list-item">
-                    <div class="video-title-row">
-                        <a href="${v.url}" target="_blank" class="video-title-link">${song}</a>
-                        <span class="video-list-right">
-                            ${views ? `<span class="video-view-count">${views}</span>` : ''}
-                            <span class="video-list-arrow">↗&#xFE0E;</span>
-                        </span>
+                    ${thumbHtml}
+                    <div class="video-item-body">
+                        <div class="video-title-row">
+                            <a href="${v.url}" target="_blank" class="video-title-link">${song}</a>
+                            <span class="video-list-right">
+                                ${views ? `<span class="video-view-count">${views}</span>` : ''}
+                                <span class="video-list-arrow">↗&#xFE0E;</span>
+                            </span>
+                        </div>
+                        <span class="video-list-artist">${artist}</span>
                     </div>
-                    <span class="video-list-artist">${artist}</span>
                 </li>`;
             }).join('');
         }
