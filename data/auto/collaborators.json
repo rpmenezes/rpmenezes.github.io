@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-24T06:29:15.757513+00:00",
+  "updated": "2026-08-25T06:20:59.844152+00:00",
   "collaborators": [
     {
       "authorId": "144373898",
@@ -442,6 +442,85 @@
       ]
     },
     {
+      "authorId": "1802808",
+      "name": "R. Tolksdorf",
+      "collaborationCount": 14,
+      "firstCollabYear": 2001,
+      "lastCollabYear": 2008,
+      "sharedPapers": [
+        {
+          "paperId": "8ad38dc4f07a8ef58de0518fc1edfade193cbbf3",
+          "title": "On the performance of swarm-based tuple organization in LINDA systems",
+          "year": 2008
+        },
+        {
+          "paperId": "2448487b2b07179629dbcedfe85a61dfda851e53",
+          "title": "Using Ant's Brood Sorting to Increase Fault Tolerance in Linda's Tuple Distribution Mechanism",
+          "year": 2007
+        },
+        {
+          "paperId": "5937739eec2e5aea12a10595296ebf2c2cfc6444",
+          "title": "Self-organized over-clustering avoidance in tuple-space systems",
+          "year": 2007
+        },
+        {
+          "paperId": "5a354ac1eed9efdde24a66aa87a84e3df93525ab",
+          "title": "On the Problem of Over-clustering in Tuple-based Coordination Systems",
+          "year": 2007
+        },
+        {
+          "paperId": "c4c189f4074e322c083f59c1a3d6fa53a2e7a907",
+          "title": "Coordinating Knowledge in Pervasive Environments",
+          "year": 2007
+        },
+        {
+          "paperId": "f15954907f7b8ef407def94bb4e79ff5d242ddf2",
+          "title": "A Self-organizing Approach to Tuple Distribution in Large-Scale Tuple-Space Systems",
+          "year": 2007
+        },
+        {
+          "paperId": "4ab74b9a0bd8baeedb841909b199ba9b1180fa36",
+          "title": "Case studies for self-organization in computer science",
+          "year": 2006
+        },
+        {
+          "paperId": "1e9a07b6bd39c0adfa8183b34c7b2101e9c84b84",
+          "title": "On the implementation of SwarmLinda",
+          "year": 2004
+        },
+        {
+          "paperId": "7c75425716bc170be30a3a65493831e6e3169e98",
+          "title": "On the Implementation of SwarmLinda ? A Linda System Based on Swarm Intelligence (Extended Version)",
+          "year": 2004
+        },
+        {
+          "paperId": "e78531ca467da89255bc9299e74a731bd4bad0d0",
+          "title": "Adaptiveness in Linda-Based Coordination Models",
+          "year": 2003
+        },
+        {
+          "paperId": "f543a4a7b24ab4c56d9d93092d98aea3f334220d",
+          "title": "Using Swarm Intelligence in Linda Systems",
+          "year": 2003
+        },
+        {
+          "paperId": "f798ad993005df2e6ebc11206928718e52e2ec55",
+          "title": "A new approach to scalable Linda-systems based on swarms",
+          "year": 2003
+        },
+        {
+          "paperId": "8187169ed477b76e659b9299ff39003671424dce",
+          "title": "Scalability in Linda-like Coordination Systems",
+          "year": 2001
+        },
+        {
+          "paperId": "0e0fe5b8db567250f7895d2a602960e6903a594a",
+          "title": "Scholarship Repository @ Florida Tech Scholarship Repository @ Florida Tech",
+          "year": null
+        }
+      ]
+    },
+    {
       "authorId": "2275393511",
       "name": "M. Cadeiras",
       "collaborationCount": 13,
@@ -512,80 +591,6 @@
           "paperId": "e9f6ee9331bd39d327e7d9d1b7ea28e800a6d953",
           "title": "The Social Structure of Organ Transplantation in the United States",
           "year": 2012
-        }
-      ]
-    },
-    {
-      "authorId": "1802808",
-      "name": "R. Tolksdorf",
-      "collaborationCount": 13,
-      "firstCollabYear": 2001,
-      "lastCollabYear": 2008,
-      "sharedPapers": [
-        {
-          "paperId": "8ad38dc4f07a8ef58de0518fc1edfade193cbbf3",
-          "title": "On the performance of swarm-based tuple organization in LINDA systems",
-          "year": 2008
-        },
-        {
-          "paperId": "2448487b2b07179629dbcedfe85a61dfda851e53",
-          "title": "Using Ant's Brood Sorting to Increase Fault Tolerance in Linda's Tuple Distribution Mechanism",
-          "year": 2007
-        },
-        {
-          "paperId": "5937739eec2e5aea12a10595296ebf2c2cfc6444",
-          "title": "Self-organized over-clustering avoidance in tuple-space systems",
-          "year": 2007
-        },
-        {
-          "paperId": "5a354ac1eed9efdde24a66aa87a84e3df93525ab",
-          "title": "On the Problem of Over-clustering in Tuple-based Coordination Systems",
-          "year": 2007
-        },
-        {
-          "paperId": "c4c189f4074e322c083f59c1a3d6fa53a2e7a907",
-          "title": "Coordinating Knowledge in Pervasive Environments",
-          "year": 2007
-        },
-        {
-          "paperId": "f15954907f7b8ef407def94bb4e79ff5d242ddf2",
-          "title": "A Self-organizing Approach to Tuple Distribution in Large-Scale Tuple-Space Systems",
-          "year": 2007
-        },
-        {
-          "paperId": "4ab74b9a0bd8baeedb841909b199ba9b1180fa36",
-          "title": "Case studies for self-organization in computer science",
-          "year": 2006
-        },
-        {
-          "paperId": "1e9a07b6bd39c0adfa8183b34c7b2101e9c84b84",
-          "title": "On the implementation of SwarmLinda",
-          "year": 2004
-        },
-        {
-          "paperId": "7c75425716bc170be30a3a65493831e6e3169e98",
-          "title": "On the Implementation of SwarmLinda ? A Linda System Based on Swarm Intelligence (Extended Version)",
-          "year": 2004
-        },
-        {
-          "paperId": "e78531ca467da89255bc9299e74a731bd4bad0d0",
-          "title": "Adaptiveness in Linda-Based Coordination Models",
-          "year": 2003
-        },
-        {
-          "paperId": "f543a4a7b24ab4c56d9d93092d98aea3f334220d",
-          "title": "Using Swarm Intelligence in Linda Systems",
-          "year": 2003
-        },
-        {
-          "paperId": "f798ad993005df2e6ebc11206928718e52e2ec55",
-          "title": "A new approach to scalable Linda-systems based on swarms",
-          "year": 2003
-        },
-        {
-          "paperId": "8187169ed477b76e659b9299ff39003671424dce",
-          "title": "Scalability in Linda-like Coordination Systems",
-          "year": 2001
         }
       ]
     },
