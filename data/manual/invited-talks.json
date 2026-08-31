@@ -1,5 +1,10 @@
 [
   {
+    "date": "July 2026",
+    "title": "Finding the 'hidden' dimensions of inequalities",
+    "venue": "Enredando 2026, Viçosa, Minas Gerais, Brazil"
+  },
+  {
     "date": "September 2025",
     "title": "Recipe/Food Networks as Windows into Inequality: A Call for Computational Analysis of Eating Behaviours",
     "venue": "First International Workshop of Scientific and Computational Gastronomy. Parma, Italy."
@@ -13,15 +18,5 @@
     "date": "November 2024",
     "title": "Random Thoughts about Causality and Mobility",
     "venue": "European Mobility Symposium. Pisa, Italy."
-  },
-  {
-    "date": "July 2023",
-    "title": "Uncovering the Differences and Similarities between Physical and Virtual Mobility",
-    "venue": "Lipari School of Complex Systems. Italy."
-  },
-  {
-    "date": "August 2023",
-    "title": "Gender Inequality in Scientific Production",
-    "venue": "LANET. Cusco, Peru."
   }
 ]
