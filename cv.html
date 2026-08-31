@@ -166,43 +166,7 @@
 
         <section class="content-section section-box-gray">
             <h2><img src="icons/cv/invited.png" alt="Invited Talks" class="cv-section-icon">Selected Invited Talks</h2>
-            <div class="cv-list">
-                <div class="cv-item">
-                    <div class="cv-meta">
-                        <span class="cv-year">September 2025</span>
-                        <span class="cv-institution">Recipe/Food Networks as Windows into Inequality: A Call for Computational Analysis of Eating Behaviours</span>
-                    </div>
-                    <div class="cv-detail">First International Workshop of Scientific and Computational Gastronomy. Parma, Italy.</div>
-                </div>
-                <div class="cv-item">
-                    <div class="cv-meta">
-                        <span class="cv-year">August 2025</span>
-                        <span class="cv-institution">Violence, City Size and Geographical Isolation in African Cities</span>
-                    </div>
-                    <div class="cv-detail">LANET. Punta del Este, Uruguay.</div>
-                </div>
-                <div class="cv-item">
-                    <div class="cv-meta">
-                        <span class="cv-year">November 2024</span>
-                        <span class="cv-institution">Random Thoughts about Causality and Mobility</span>
-                    </div>
-                    <div class="cv-detail">European Mobility Symposium. Pisa, Italy.</div>
-                </div>
-                <div class="cv-item">
-                    <div class="cv-meta">
-                        <span class="cv-year">July 2023</span>
-                        <span class="cv-institution">Uncovering the Differences and Similarities between Physical and Virtual Mobility</span>
-                    </div>
-                    <div class="cv-detail">Lipari School of Complex Systems. Italy.</div>
-                </div>
-                <div class="cv-item">
-                    <div class="cv-meta">
-                        <span class="cv-year">August 2023</span>
-                        <span class="cv-institution">Gender Inequality in Scientific Production</span>
-                    </div>
-                    <div class="cv-detail">LANET. Cusco, Peru.</div>
-                </div>
-            </div>
+            <div class="cv-list" id="invited-talks-list"></div>
         </section>
 
         <section class="content-section">
@@ -227,6 +191,26 @@
                 toggle.setAttribute('aria-expanded', false);
             });
         });
+    </script>
+
+    <script>
+        // Load Selected Invited Talks from JSON (edit data/manual/invited-talks.json)
+        fetch('data/manual/invited-talks.json?v=' + Date.now())
+            .then(r => r.json())
+            .then(talks => {
+                const container = document.getElementById('invited-talks-list');
+                const esc = s => String(s == null ? '' : s)
+                    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+                container.innerHTML = talks.map(t => `
+                    <div class="cv-item">
+                        <div class="cv-meta">
+                            <span class="cv-year">${esc(t.date)}</span>
+                            <span class="cv-institution">${esc(t.title)}</span>
+                        </div>
+                        <div class="cv-detail">${esc(t.venue)}</div>
+                    </div>`).join('');
+            })
+            .catch(() => {});
     </script>
 
     <script>
