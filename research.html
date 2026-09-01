@@ -6,7 +6,7 @@
     <meta name="description" content="Research by Ronaldo Menezes — network science, complex systems, human mobility, urban inequality and computational modelling. Publications and collaboration network.">
     <title>Research - Ronaldo Menezes</title>
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="stylesheet" href="styles.css?v=7">
+    <link rel="stylesheet" href="styles.css?v=8">
     <script type="text/javascript" src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script>
     <script async src="https://badge.dimensions.ai/badge.js" charset="utf-8"></script>
     <script src="https://d3js.org/d3.v7.min.js"></script>
@@ -259,6 +259,7 @@
                 <div class="stat-item"><span class="stat-value">—</span><span class="stat-label">h-index</span></div>
                 <div class="stat-item"><span class="stat-value">—</span><span class="stat-label">Citations</span></div>
                 <div class="stat-item"><span class="stat-value">—</span><span class="stat-label">Highly Influential Citations</span></div>
+                <div class="stat-item"><span class="stat-value">—</span><span class="stat-label">Erdős Number</span></div>
             </div>
             <div class="citation-spark-wrap">
                 <div class="citation-spark" id="citation-spark"></div>
@@ -367,6 +368,18 @@
                 if (!res.ok) throw new Error('No data file yet');
                 const data = await res.json();
 
+                // --- Erdős number (manual, rarely changes) — optional ---
+                let erdos = null;
+                try {
+                    const eRes = await fetch('data/manual/erdos.json?v=' + Date.now());
+                    if (eRes.ok) erdos = (await eRes.json()).number;
+                } catch (e) {}
+                const erdosItem = (erdos != null) ? `
+                    <div class="stat-item">
+                        <span class="stat-value">${erdos}</span>
+                        <span class="stat-label">Erdős Number</span>
+                    </div>` : '';
+
                 // --- Stats ---
                 const s = data.stats || {};
                 document.getElementById('stats-container').innerHTML = `
@@ -385,7 +398,7 @@
                     <div class="stat-item">
                         <span class="stat-value">${s.influentialCitationCount?.toLocaleString() ?? '—'}</span>
                         <span class="stat-label">Highly Influential Citations</span>
-                    </div>`;
+                    </div>${erdosItem}`;
 
                 // --- Publications ---
                 const pubs = data.publications || [];
@@ -469,7 +482,8 @@
                     <div class="stat-item"><span class="stat-value">—</span><span class="stat-label">Publications</span></div>
                     <div class="stat-item"><span class="stat-value">—</span><span class="stat-label">h-index</span></div>
                     <div class="stat-item"><span class="stat-value">—</span><span class="stat-label">Citations</span></div>
-                    <div class="stat-item"><span class="stat-value">—</span><span class="stat-label">Highly Influential Citations</span></div>`;
+                    <div class="stat-item"><span class="stat-value">—</span><span class="stat-label">Highly Influential Citations</span></div>
+                    <div class="stat-item"><span class="stat-value">—</span><span class="stat-label">Erdős Number</span></div>`;
                 document.getElementById('publications-container').innerHTML =
                     '<p class="publications-note">Publications unavailable. Visit <a href="https://scholar.google.com/citations?user=eHej2g8AAAAJ&hl=en" target="_blank">Google Scholar</a> or <a href="https://orcid.org/0000-0002-6479-6429" target="_blank">ORCID</a>.</p>';
             }
