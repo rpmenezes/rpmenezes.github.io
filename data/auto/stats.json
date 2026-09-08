@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-07T10:46:54.466922+00:00",
+  "updated": "2026-09-08T10:07:17.941657+00:00",
   "stats": {
     "paperCount": 241,
     "hIndex": 21,
@@ -107,7 +107,7 @@
       "venue": "Applied Network Science",
       "doiValue": "10.1007/s41109-026-00777-4",
       "doiUrl": "https://doi.org/10.1007/s41109-026-00777-4",
-      "citationCount": 0
+      "citationCount": 1
     },
     {
       "year": "2025",
