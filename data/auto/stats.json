@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-14T11:00:12.424597+00:00",
+  "updated": "2026-09-15T10:30:26.562586+00:00",
   "stats": {
     "paperCount": 241,
     "hIndex": 21,
@@ -18,7 +18,7 @@
       "venue": "npj Complexity",
       "doiValue": "10.1038/s44260-026-00089-9",
       "doiUrl": "https://doi.org/10.1038/s44260-026-00089-9",
-      "citationCount": 0
+      "citationCount": 1
     },
     {
       "year": "2026",
@@ -119,7 +119,7 @@
       "venue": "Nature Communications",
       "doiValue": "10.1038/s41467-025-65728-6",
       "doiUrl": "https://doi.org/10.1038/s41467-025-65728-6",
-      "citationCount": 2
+      "citationCount": 3
     },
     {
       "year": "2025",
@@ -329,7 +329,7 @@
       "venue": "EPJ Data Science",
       "doiValue": "10.1140/epjds/s13688-023-00411-8",
       "doiUrl": "https://doi.org/10.1140/epjds/s13688-023-00411-8",
-      "citationCount": 4
+      "citationCount": 5
     },
     {
       "year": "2023",
@@ -345,7 +345,7 @@
       "venue": "Nature Human Behaviour",
       "doiValue": "10.1038/s41562-023-01660-3",
       "doiUrl": "https://doi.org/10.1038/s41562-023-01660-3",
-      "citationCount": 63
+      "citationCount": 64
     },
     {
       "year": "2023",
@@ -415,7 +415,7 @@
       "venue": "Nature Communications",
       "doiValue": "10.1038/s41467-022-29592-y",
       "doiUrl": "https://doi.org/10.1038/s41467-022-29592-y",
-      "citationCount": 27
+      "citationCount": 28
     },
     {
       "year": "2022",
@@ -430,7 +430,7 @@
       "venue": "PLOS ONE",
       "doiValue": "10.1371/journal.pone.0260874",
       "doiUrl": "https://doi.org/10.1371/journal.pone.0260874",
-      "citationCount": 38
+      "citationCount": 39
     },
     {
       "year": "2022",
