@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-18T10:06:01.229157+00:00",
+  "updated": "2026-09-19T09:47:05.969761+00:00",
   "collaborators": [
     {
       "authorId": "2337874088",
@@ -14,7 +14,7 @@
           "year": 2026
         },
         {
-          "paperId": "c1fc2157a18010efbd5e8cf3f7ff327da725ca46",
+          "paperId": "7255c3f687365536aced17cb978cf82d5f1d7699",
           "title": "Systematic comparison of gender inequality in scientific rankings across disciplines",
           "year": 2025
         },
@@ -232,7 +232,7 @@
           "year": 2025
         },
         {
-          "paperId": "c1fc2157a18010efbd5e8cf3f7ff327da725ca46",
+          "paperId": "7255c3f687365536aced17cb978cf82d5f1d7699",
           "title": "Systematic comparison of gender inequality in scientific rankings across disciplines",
           "year": 2025
         },
@@ -2939,6 +2939,25 @@
       ]
     },
     {
+      "authorId": "2341538191",
+      "name": "Ana Mar\u00eda Jaramillo",
+      "collaborationCount": 2,
+      "firstCollabYear": 2021,
+      "lastCollabYear": 2025,
+      "sharedPapers": [
+        {
+          "paperId": "7255c3f687365536aced17cb978cf82d5f1d7699",
+          "title": "Systematic comparison of gender inequality in scientific rankings across disciplines",
+          "year": 2025
+        },
+        {
+          "paperId": "b676b14bf3eb1ea17c669f7f0ec2e1deedf760f7",
+          "title": "Reaching to the Top: the Gender effect in Highly-Ranked academics in Computer Science",
+          "year": 2021
+        }
+      ]
+    },
+    {
       "authorId": "2186095280",
       "name": "Rafael Prieto-Curiel",
       "collaborationCount": 2,
@@ -2954,25 +2973,6 @@
           "paperId": "0a0a21c063440e452008fa952c6fc6f4c5516c3d",
           "title": "Geographical Isolation as a Driver of Political Violence in African Cities",
           "year": 2024
-        }
-      ]
-    },
-    {
-      "authorId": "2341538191",
-      "name": "Ana Mar\u00eda Jaramillo",
-      "collaborationCount": 2,
-      "firstCollabYear": 2021,
-      "lastCollabYear": 2025,
-      "sharedPapers": [
-        {
-          "paperId": "c1fc2157a18010efbd5e8cf3f7ff327da725ca46",
-          "title": "Systematic comparison of gender inequality in scientific rankings across disciplines",
-          "year": 2025
-        },
-        {
-          "paperId": "b676b14bf3eb1ea17c669f7f0ec2e1deedf760f7",
-          "title": "Reaching to the Top: the Gender effect in Highly-Ranked academics in Computer Science",
-          "year": 2021
         }
       ]
     },
@@ -4297,6 +4297,20 @@
       ]
     },
     {
+      "authorId": "2337795037",
+      "name": "Fariba Karimi",
+      "collaborationCount": 1,
+      "firstCollabYear": 2025,
+      "lastCollabYear": 2025,
+      "sharedPapers": [
+        {
+          "paperId": "7255c3f687365536aced17cb978cf82d5f1d7699",
+          "title": "Systematic comparison of gender inequality in scientific rankings across disciplines",
+          "year": 2025
+        }
+      ]
+    },
+    {
       "authorId": "2348475019",
       "name": "G. Machado",
       "collaborationCount": 1,
@@ -4320,20 +4334,6 @@
         {
           "paperId": "b5828154839a33e2fef8f06cff91975a10644e4e",
           "title": "Super-Linear Growth and Rising Inequality in Online Social Communities: Insights from Reddit",
-          "year": 2025
-        }
-      ]
-    },
-    {
-      "authorId": "2337795037",
-      "name": "Fariba Karimi",
-      "collaborationCount": 1,
-      "firstCollabYear": 2025,
-      "lastCollabYear": 2025,
-      "sharedPapers": [
-        {
-          "paperId": "c1fc2157a18010efbd5e8cf3f7ff327da725ca46",
-          "title": "Systematic comparison of gender inequality in scientific rankings across disciplines",
           "year": 2025
         }
       ]
