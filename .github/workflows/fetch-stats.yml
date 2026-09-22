@@ -91,6 +91,15 @@ jobs:
               print("ERROR: Core stats missing — aborting to preserve last good stats.json")
               raise SystemExit(1)
 
+          # Preserve the last good publications array so a transient ORCID/S2
+          # failure during enrichment can fall back to it instead of wiping it.
+          prev_pubs = []
+          try:
+              with open('data/auto/stats.json') as f:
+                  prev_pubs = json.load(f).get('publications', []) or []
+          except Exception:
+              prev_pubs = []
+
           output = {
               'updated': datetime.now(timezone.utc).isoformat(),
               'stats': {
@@ -99,7 +108,8 @@ jobs:
                   'citationCount': s2.get('citationCount'),
                   'influentialCitationCount': influential,
               },
-              'recentWorks': recent
+              'recentWorks': recent,
+              '_prevPublications': prev_pubs
           }
 
           os.makedirs('data', exist_ok=True)
@@ -191,13 +201,22 @@ jobs:
               })
               time.sleep(0.3)
 
-          data['publications'] = enriched
+          prev_pubs = data.pop('_prevPublications', []) or []
+
+          # Guard: if enrichment produced nothing (transient ORCID/S2 failure)
+          # but we had publications before, keep the last good array rather than
+          # wiping the homepage highlights.
+          if not enriched and prev_pubs:
+              print(f"Enrichment empty — preserving {len(prev_pubs)} previous publications")
+              data['publications'] = prev_pubs
+          else:
+              data['publications'] = enriched
           del data['recentWorks']
 
           with open('data/auto/stats.json', 'w') as f:
               json.dump(data, f, indent=2)
 
-          print(f"Enriched {len(enriched)} publications")
+          print(f"Enriched {len(enriched)} publications; wrote {len(data['publications'])}")
           EOF
 
       - name: Build collaborator network data
