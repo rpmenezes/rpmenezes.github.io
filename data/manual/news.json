@@ -1,12 +1,6 @@
 [
   {
     "title": "Paper Accepted",
-    "text": "New paper accepted at the Applied Network Science Journal. Network Analysis of Cultural Funding in Brazil: Uncovering Regional Differences and Signatures. <a href=\"highlights/s41109-026-00799-y.html\">See Highlight</a>",
-    "url": null,
-    "date": "May 2026"
-  },
-  {
-    "title": "Paper Accepted",
     "text": "New paper accepted at the npj Complexity. The Parenthood Effect in Urban Mobility",
     "url": null,
     "date": "June 2026"
@@ -16,5 +10,12 @@
     "text": "Joao Aparicio from University of Lisbon will be visiting us in September 2026. He will explore the topic of network robustness around in the context of urban environments.",
     "url": "https://scholar.google.com/citations?user=HOcvuhMAAAAJ&hl=en",
     "date": "June 2026"
+  },
+  {
+    "title": "Visitor",
+    "text": "Mariana Macedo from Constructor University, Germany will be visiting us in September 2026. She will be working on submission of papers and proposals during the week of September 21st",
+    "url": "https://scholar.google.com/citations?user=1tGv4IIAAAAJ&hl=en",
+    "date": "June 2026"
   }
+
 ]
