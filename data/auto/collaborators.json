@@ -1,10 +1,10 @@
 {
-  "updated": "2026-09-25T10:37:58.621826+00:00",
+  "updated": "2026-09-26T10:20:53.728458+00:00",
   "collaborators": [
     {
       "authorId": "2337874088",
       "name": "Marcos Oliveira",
-      "collaborationCount": 20,
+      "collaborationCount": 19,
       "firstCollabYear": 2012,
       "lastCollabYear": 2026,
       "sharedPapers": [
@@ -92,11 +92,6 @@
           "paperId": "32e512f792d1fc0547cc0e3f2144a6ccc8d047a6",
           "title": "Towards a network-based approach to analyze particle swarm optimizers",
           "year": 2014
-        },
-        {
-          "paperId": "ae37bef92f89075806c25a7df01174ce07e9c6f0",
-          "title": "Assessing Particle Swarm Optimizers Using Network Science Metrics",
-          "year": 2013
         },
         {
           "paperId": "8c5b933c3170ea055ea41a1830895d63051d7004",
@@ -206,184 +201,6 @@
           "paperId": "8d1904f7d13805b98849ce55edbd22e068c58d4f",
           "title": "A data science approach for quantifying spatio-temporal effects to graft failures in organ transplantation",
           "year": 2016
-        }
-      ]
-    },
-    {
-      "authorId": "2338828830",
-      "name": "Mariana Macedo",
-      "collaborationCount": 16,
-      "firstCollabYear": 2017,
-      "lastCollabYear": 2026,
-      "sharedPapers": [
-        {
-          "paperId": "a696cda45bb4f92aa181125c50fe3468cca319c9",
-          "title": "The hierarchical organization of urban social overlap: How shared social spaces diverge from physical mobility",
-          "year": 2026
-        },
-        {
-          "paperId": "1360a9021976e2af72b2f3733d8547c122a946a1",
-          "title": "Vector fields as a framework for modelling the mobility of commodities",
-          "year": 2025
-        },
-        {
-          "paperId": "5070065d69e4bffb742382a791481b237ac4089a",
-          "title": "The parenthood effect in urban mobility",
-          "year": 2025
-        },
-        {
-          "paperId": "7255c3f687365536aced17cb978cf82d5f1d7699",
-          "title": "Systematic comparison of gender inequality in scientific rankings across disciplines",
-          "year": 2025
-        },
-        {
-          "paperId": "46c92ab82eeeea206d64d453f8c0ecac777cd384",
-          "title": "Fishing for interactions: a network science approach to modeling fish school search",
-          "year": 2021
-        },
-        {
-          "paperId": "6dd16c7c8c3297ebb3c1dd1dafbfc9e55e6af9f1",
-          "title": "Modelling the Social Interactions in Grey Wolf Optimizer",
-          "year": 2021
-        },
-        {
-          "paperId": "d83cd307197e31bd6736e610eb6649f3d3d19273",
-          "title": "Differences in the spatial landscape of urban mobility: Gender and socioeconomic perspectives",
-          "year": 2021
-        },
-        {
-          "paperId": "eed73ca6be04f99e772df9d2db81f8a091ad5594",
-          "title": "Breast cancer diagnosis using thermal image analysis: A data-driven approach based on swarm intelligence and supervised learning for optimized feature selection",
-          "year": 2021
-        },
-        {
-          "paperId": "3e460237cc828b5c7f3142d6d081de6093ca1b05",
-          "title": "Uncovering the social interaction network in swarm intelligence algorithms",
-          "year": 2020
-        },
-        {
-          "paperId": "46a0c762a0c6d583db1752e9ddf572f4ce532b6c",
-          "title": "Gender Patterns of Human Mobility in Colombia: Reexamining Ravenstein's Laws of Migration",
-          "year": 2019
-        },
-        {
-          "paperId": "b484b7ff1f5e33e98fa064429707c728603ac17f",
-          "title": "Characterizing the Social Interactions in the Artificial Bee Colony Algorithm",
-          "year": 2019
-        },
-        {
-          "paperId": "feb436931fcd475a764b03592247c91739c8982e",
-          "title": "Modelling the Social Interactions in Ant Colony Optimization",
-          "year": 2019
-        },
-        {
-          "paperId": "0c30921ede73d0c6612c5e7af78ef04783eac4e5",
-          "title": "Uncovering the Social Interaction in Swarm Intelligence with Network Science",
-          "year": 2018
-        },
-        {
-          "paperId": "17384b4d3eb3df0eabe7ce0b3433b31c19fd13fa",
-          "title": "Unveiling Swarm Intelligence with Network Science - the Metaphor Explained",
-          "year": 2018
-        },
-        {
-          "paperId": "fa4b6ab08bee2cb950ac19516e7a5c50c234e4cb",
-          "title": "Improved Multi-Objective Binary Fish School for Feature Selection",
-          "year": 2018
-        },
-        {
-          "paperId": "70e1d348dc858f3197445e98318cbc272e70ce5d",
-          "title": "Better exploration-exploitation pace, better swarm: Examining the social interactions",
-          "year": 2017
-        }
-      ]
-    },
-    {
-      "authorId": "1732553",
-      "name": "C. J. A. B. Filho",
-      "collaborationCount": 16,
-      "firstCollabYear": 2012,
-      "lastCollabYear": 2022,
-      "sharedPapers": [
-        {
-          "paperId": "ec3afe317d6f773dcc5b9393e8e3397ab35a9ff4",
-          "title": "Beyond exploitation: Measuring the impact of local search in swarm-based memetic algorithms through the interactions of individuals in the population",
-          "year": 2022
-        },
-        {
-          "paperId": "46c92ab82eeeea206d64d453f8c0ecac777cd384",
-          "title": "Fishing for interactions: a network science approach to modeling fish school search",
-          "year": 2021
-        },
-        {
-          "paperId": "6dd16c7c8c3297ebb3c1dd1dafbfc9e55e6af9f1",
-          "title": "Modelling the Social Interactions in Grey Wolf Optimizer",
-          "year": 2021
-        },
-        {
-          "paperId": "eed73ca6be04f99e772df9d2db81f8a091ad5594",
-          "title": "Breast cancer diagnosis using thermal image analysis: A data-driven approach based on swarm intelligence and supervised learning for optimized feature selection",
-          "year": 2021
-        },
-        {
-          "paperId": "3e460237cc828b5c7f3142d6d081de6093ca1b05",
-          "title": "Uncovering the social interaction network in swarm intelligence algorithms",
-          "year": 2020
-        },
-        {
-          "paperId": "b484b7ff1f5e33e98fa064429707c728603ac17f",
-          "title": "Characterizing the Social Interactions in the Artificial Bee Colony Algorithm",
-          "year": 2019
-        },
-        {
-          "paperId": "feb436931fcd475a764b03592247c91739c8982e",
-          "title": "Modelling the Social Interactions in Ant Colony Optimization",
-          "year": 2019
-        },
-        {
-          "paperId": "17384b4d3eb3df0eabe7ce0b3433b31c19fd13fa",
-          "title": "Unveiling Swarm Intelligence with Network Science - the Metaphor Explained",
-          "year": 2018
-        },
-        {
-          "paperId": "661de606324379e3c596bf51414743528263a758",
-          "title": "Characterization of Users by Using Hourly and Daily Spatio-Temporal Patterns Extracted from GPS Trajectories",
-          "year": 2018
-        },
-        {
-          "paperId": "fa4b6ab08bee2cb950ac19516e7a5c50c234e4cb",
-          "title": "Improved Multi-Objective Binary Fish School for Feature Selection",
-          "year": 2018
-        },
-        {
-          "paperId": "70e1d348dc858f3197445e98318cbc272e70ce5d",
-          "title": "Better exploration-exploitation pace, better swarm: Examining the social interactions",
-          "year": 2017
-        },
-        {
-          "paperId": "4a4bf82f6152d81a83a695fd7e063248f8d42e83",
-          "title": "Communication Diversity in Particle Swarm Optimizers",
-          "year": 2016
-        },
-        {
-          "paperId": "84c919514d4749d53e46f12e4881bf1a9aa260ad",
-          "title": "Using network science to assess particle swarm optimizers",
-          "year": 2015
-        },
-        {
-          "paperId": "32e512f792d1fc0547cc0e3f2144a6ccc8d047a6",
-          "title": "Towards a network-based approach to analyze particle swarm optimizers",
-          "year": 2014
-        },
-        {
-          "paperId": "ae37bef92f89075806c25a7df01174ce07e9c6f0",
-          "title": "Assessing Particle Swarm Optimizers Using Network Science Metrics",
-          "year": 2013
-        },
-        {
-          "paperId": "8c5b933c3170ea055ea41a1830895d63051d7004",
-          "title": "Using Network Science to Define a Dynamic Communication Topology for Particle Swarm Optimizers",
-          "year": 2012
         }
       ]
     },
@@ -685,6 +502,75 @@
           "paperId": "43d633d88cfb9284a2a0bf8b9f31fa3c26da2fa7",
           "title": "Using Interactions in the Quantification of Media Bias",
           "year": 2014
+        }
+      ]
+    },
+    {
+      "authorId": "143815258",
+      "name": "Mariana Macedo",
+      "collaborationCount": 12,
+      "firstCollabYear": 2017,
+      "lastCollabYear": 2021,
+      "sharedPapers": [
+        {
+          "paperId": "46c92ab82eeeea206d64d453f8c0ecac777cd384",
+          "title": "Fishing for interactions: a network science approach to modeling fish school search",
+          "year": 2021
+        },
+        {
+          "paperId": "6dd16c7c8c3297ebb3c1dd1dafbfc9e55e6af9f1",
+          "title": "Modelling the Social Interactions in Grey Wolf Optimizer",
+          "year": 2021
+        },
+        {
+          "paperId": "d83cd307197e31bd6736e610eb6649f3d3d19273",
+          "title": "Differences in the spatial landscape of urban mobility: Gender and socioeconomic perspectives",
+          "year": 2021
+        },
+        {
+          "paperId": "eed73ca6be04f99e772df9d2db81f8a091ad5594",
+          "title": "Breast cancer diagnosis using thermal image analysis: A data-driven approach based on swarm intelligence and supervised learning for optimized feature selection",
+          "year": 2021
+        },
+        {
+          "paperId": "3e460237cc828b5c7f3142d6d081de6093ca1b05",
+          "title": "Uncovering the social interaction network in swarm intelligence algorithms",
+          "year": 2020
+        },
+        {
+          "paperId": "46a0c762a0c6d583db1752e9ddf572f4ce532b6c",
+          "title": "Gender Patterns of Human Mobility in Colombia: Reexamining Ravenstein's Laws of Migration",
+          "year": 2019
+        },
+        {
+          "paperId": "b484b7ff1f5e33e98fa064429707c728603ac17f",
+          "title": "Characterizing the Social Interactions in the Artificial Bee Colony Algorithm",
+          "year": 2019
+        },
+        {
+          "paperId": "feb436931fcd475a764b03592247c91739c8982e",
+          "title": "Modelling the Social Interactions in Ant Colony Optimization",
+          "year": 2019
+        },
+        {
+          "paperId": "0c30921ede73d0c6612c5e7af78ef04783eac4e5",
+          "title": "Uncovering the Social Interaction in Swarm Intelligence with Network Science",
+          "year": 2018
+        },
+        {
+          "paperId": "17384b4d3eb3df0eabe7ce0b3433b31c19fd13fa",
+          "title": "Unveiling Swarm Intelligence with Network Science - the Metaphor Explained",
+          "year": 2018
+        },
+        {
+          "paperId": "fa4b6ab08bee2cb950ac19516e7a5c50c234e4cb",
+          "title": "Improved Multi-Objective Binary Fish School for Feature Selection",
+          "year": 2018
+        },
+        {
+          "paperId": "70e1d348dc858f3197445e98318cbc272e70ce5d",
+          "title": "Better exploration-exploitation pace, better swarm: Examining the social interactions",
+          "year": 2017
         }
       ]
     },
@@ -1165,50 +1051,6 @@
       ]
     },
     {
-      "authorId": "6727411",
-      "name": "Fernando Buarque de Lima-Neto",
-      "collaborationCount": 7,
-      "firstCollabYear": 2010,
-      "lastCollabYear": 2017,
-      "sharedPapers": [
-        {
-          "paperId": "b4a1050579f9ce901f45df408ddef020f532a298",
-          "title": "Sensing language relationships from social media",
-          "year": 2017
-        },
-        {
-          "paperId": "479128700e92c0b392cd19f40292c1cee4fbb17e",
-          "title": "Characterization of Football Supporters from Twitter Conversations",
-          "year": 2016
-        },
-        {
-          "paperId": "e5c5d1cd82f0cb7cc8cb63c61d8a2e6abefd22e3",
-          "title": "Returners and Explorers Dichotomy in Web Browsing Behavior - A Human Mobility Approach",
-          "year": 2016
-        },
-        {
-          "paperId": "21ae4df2de7add91e551cc394c8370fabf945134",
-          "title": "The effect of recency to human mobility",
-          "year": 2015
-        },
-        {
-          "paperId": "e95026e57fef8e20f1cc85436de597d5e4f7d3b7",
-          "title": "Football Conversations: What Twitter Reveals about the 2014 World Cup",
-          "year": 2015
-        },
-        {
-          "paperId": "6fabb45c05d346f115a28906a2c87d6eaa34c803",
-          "title": "Understanding History Through Networks: The Brazil Case Study",
-          "year": 2013
-        },
-        {
-          "paperId": "45fa843265bc42eb3ca74a646b1c27b2658f60cf",
-          "title": "Hybrid and evolutionary Agent-Based Social Simulations using L\u00e9vy flight as randomization method",
-          "year": 2010
-        }
-      ]
-    },
-    {
       "authorId": "101062391",
       "name": "Basim Mahmood",
       "collaborationCount": 7,
@@ -1253,6 +1095,45 @@
       ]
     },
     {
+      "authorId": "2284590143",
+      "name": "Hugo Barbosa",
+      "collaborationCount": 6,
+      "firstCollabYear": 2015,
+      "lastCollabYear": 2024,
+      "sharedPapers": [
+        {
+          "paperId": "0bb1635525e4820bcf361042ff89d1e4956f4dd9",
+          "title": "A data-driven supervised machine learning approach to estimating global ambient air pollution concentrations with associated prediction intervals",
+          "year": 2024
+        },
+        {
+          "paperId": "55c91b968dc113c82aca8fccffe213342c4bf182",
+          "title": "Dynamic predictability and activity-location contexts in human mobility",
+          "year": 2024
+        },
+        {
+          "paperId": "cb5f9580d40e2ae5935f563ed90adc3b55ba6a1b",
+          "title": "The role of transport systems in housing insecurity: a mobility-based analysis",
+          "year": 2024
+        },
+        {
+          "paperId": "221c62651b68d76a2751e34ba845e67d2339a3e9",
+          "title": "Transport and Mobility Segregation in Urban Spaces",
+          "year": 2023
+        },
+        {
+          "paperId": "e5c5d1cd82f0cb7cc8cb63c61d8a2e6abefd22e3",
+          "title": "Returners and Explorers Dichotomy in Web Browsing Behavior - A Human Mobility Approach",
+          "year": 2016
+        },
+        {
+          "paperId": "21ae4df2de7add91e551cc394c8370fabf945134",
+          "title": "The effect of recency to human mobility",
+          "year": 2015
+        }
+      ]
+    },
+    {
       "authorId": "2168755958",
       "name": "Nandini Iyer",
       "collaborationCount": 6,
@@ -1288,6 +1169,45 @@
           "paperId": "6d129c35f032cc6480a8f774a1f3dd45a96c4724",
           "title": "Characterizing the Dynamics of Academic Affiliations: A Network Science Approach",
           "year": 2020
+        }
+      ]
+    },
+    {
+      "authorId": "1732553",
+      "name": "C. J. A. Bastos",
+      "collaborationCount": 6,
+      "firstCollabYear": 2012,
+      "lastCollabYear": 2022,
+      "sharedPapers": [
+        {
+          "paperId": "ec3afe317d6f773dcc5b9393e8e3397ab35a9ff4",
+          "title": "Beyond exploitation: Measuring the impact of local search in swarm-based memetic algorithms through the interactions of individuals in the population",
+          "year": 2022
+        },
+        {
+          "paperId": "eed73ca6be04f99e772df9d2db81f8a091ad5594",
+          "title": "Breast cancer diagnosis using thermal image analysis: A data-driven approach based on swarm intelligence and supervised learning for optimized feature selection",
+          "year": 2021
+        },
+        {
+          "paperId": "17384b4d3eb3df0eabe7ce0b3433b31c19fd13fa",
+          "title": "Unveiling Swarm Intelligence with Network Science - the Metaphor Explained",
+          "year": 2018
+        },
+        {
+          "paperId": "661de606324379e3c596bf51414743528263a758",
+          "title": "Characterization of Users by Using Hourly and Daily Spatio-Temporal Patterns Extracted from GPS Trajectories",
+          "year": 2018
+        },
+        {
+          "paperId": "fa4b6ab08bee2cb950ac19516e7a5c50c234e4cb",
+          "title": "Improved Multi-Objective Binary Fish School for Feature Selection",
+          "year": 2018
+        },
+        {
+          "paperId": "8c5b933c3170ea055ea41a1830895d63051d7004",
+          "title": "Using Network Science to Define a Dynamic Communication Topology for Particle Swarm Optimizers",
+          "year": 2012
         }
       ]
     },
@@ -1366,45 +1286,6 @@
           "paperId": "a1b72969a80db755149010f40041e798edd896dd",
           "title": "Have ReSpecT for LogOp",
           "year": 2002
-        }
-      ]
-    },
-    {
-      "authorId": "3056429",
-      "name": "Hugo Serrano Barbosa Filho",
-      "collaborationCount": 6,
-      "firstCollabYear": 2013,
-      "lastCollabYear": 2016,
-      "sharedPapers": [
-        {
-          "paperId": "e5c5d1cd82f0cb7cc8cb63c61d8a2e6abefd22e3",
-          "title": "Returners and Explorers Dichotomy in Web Browsing Behavior - A Human Mobility Approach",
-          "year": 2016
-        },
-        {
-          "paperId": "21ae4df2de7add91e551cc394c8370fabf945134",
-          "title": "The effect of recency to human mobility",
-          "year": 2015
-        },
-        {
-          "paperId": "6fabb45c05d346f115a28906a2c87d6eaa34c803",
-          "title": "Understanding History Through Networks: The Brazil Case Study",
-          "year": 2013
-        },
-        {
-          "paperId": "96de7fca6f5d66382e8df457680bb282881917dc",
-          "title": "From Criminal Spheres of Familiarity to Crime Networks",
-          "year": 2015
-        },
-        {
-          "paperId": "d44d6c476c28aea48f90dec575e90b3ad4e0437a",
-          "title": "The Spatial Structure of Crime in Urban Environments",
-          "year": 2014
-        },
-        {
-          "paperId": "83d74481432c26db1b72426b4ca8a6d37b134a76",
-          "title": "Strategies, Political Position, and Electoral Performance of Brazilian Political Parties",
-          "year": 2013
         }
       ]
     },
@@ -1754,40 +1635,6 @@
       ]
     },
     {
-      "authorId": "1880804",
-      "name": "Sascha Ossowski",
-      "collaborationCount": 5,
-      "firstCollabYear": 2004,
-      "lastCollabYear": 2007,
-      "sharedPapers": [
-        {
-          "paperId": "59affe698851c6d3482bb9745df100346b362702",
-          "title": "THE 2007 ACM SIGAPP SYMPOSIUM ON APPLIED COMPUTING",
-          "year": 2007
-        },
-        {
-          "paperId": "8fb21e734fb3e028f6f4e8533e5ba1384e21ae03",
-          "title": "On coordination and its significance to distributed and multi\u2010agent systems",
-          "year": 2006
-        },
-        {
-          "paperId": "96ee3ed4387271a641b9d2931b1adb3554e661ab",
-          "title": "Special Issue: Coordination Models and Systems: Editorials",
-          "year": 2006
-        },
-        {
-          "paperId": "b6a12f3659618c79d562b4702c41297c15087b60",
-          "title": "Special Issue: Coordination Models and Systems",
-          "year": 2006
-        },
-        {
-          "paperId": "85ae93739c19f69b9f42eb3817bea526eb2448a2",
-          "title": "Session details: Coordination models, languages and applications (CM)",
-          "year": 2004
-        }
-      ]
-    },
-    {
       "authorId": "2061208618",
       "name": "Clodomir Santana",
       "collaborationCount": 4,
@@ -1817,31 +1664,31 @@
       ]
     },
     {
-      "authorId": "2284590143",
-      "name": "Hugo Barbosa",
+      "authorId": "2338828830",
+      "name": "Mariana Macedo",
       "collaborationCount": 4,
-      "firstCollabYear": 2023,
-      "lastCollabYear": 2024,
+      "firstCollabYear": 2025,
+      "lastCollabYear": 2026,
       "sharedPapers": [
         {
-          "paperId": "0bb1635525e4820bcf361042ff89d1e4956f4dd9",
-          "title": "A data-driven supervised machine learning approach to estimating global ambient air pollution concentrations with associated prediction intervals",
-          "year": 2024
+          "paperId": "a696cda45bb4f92aa181125c50fe3468cca319c9",
+          "title": "The hierarchical organization of urban social overlap: How shared social spaces diverge from physical mobility",
+          "year": 2026
         },
         {
-          "paperId": "55c91b968dc113c82aca8fccffe213342c4bf182",
-          "title": "Dynamic predictability and activity-location contexts in human mobility",
-          "year": 2024
+          "paperId": "1360a9021976e2af72b2f3733d8547c122a946a1",
+          "title": "Vector fields as a framework for modelling the mobility of commodities",
+          "year": 2025
         },
         {
-          "paperId": "cb5f9580d40e2ae5935f563ed90adc3b55ba6a1b",
-          "title": "The role of transport systems in housing insecurity: a mobility-based analysis",
-          "year": 2024
+          "paperId": "5070065d69e4bffb742382a791481b237ac4089a",
+          "title": "The parenthood effect in urban mobility",
+          "year": 2025
         },
         {
-          "paperId": "221c62651b68d76a2751e34ba845e67d2339a3e9",
-          "title": "Transport and Mobility Segregation in Urban Spaces",
-          "year": 2023
+          "paperId": "7255c3f687365536aced17cb978cf82d5f1d7699",
+          "title": "Systematic comparison of gender inequality in scientific rankings across disciplines",
+          "year": 2025
         }
       ]
     },
@@ -1871,6 +1718,35 @@
           "paperId": "9e4925a5a072612a5bbc15a6d5dba79d2f1c6e0b",
           "title": "Characterization of written languages using structural features from common corpora",
           "year": 2017
+        }
+      ]
+    },
+    {
+      "authorId": "1796102",
+      "name": "H. Cherifi",
+      "collaborationCount": 4,
+      "firstCollabYear": 2005,
+      "lastCollabYear": 2016,
+      "sharedPapers": [
+        {
+          "paperId": "28d97e855ce30b086402699d74e04f6237140584",
+          "title": "Complex Networks VII - Proceedings of the 7th Workshop on Complex Networks, CompleNet 2016, Dijon, France, March 23-25, 2016",
+          "year": 2016
+        },
+        {
+          "paperId": "7d019f6bafd5e0751e602c4c2ea591b7c3d64456",
+          "title": "Editorial",
+          "year": 2016
+        },
+        {
+          "paperId": "26b67c8d51d1737a9e2bb10b90f6063e46067581",
+          "title": "Editorial",
+          "year": 2005
+        },
+        {
+          "paperId": "775f3380f354fc206b1b31b000297fac14a2bdef",
+          "title": "Editorial",
+          "year": 2016
         }
       ]
     },
@@ -2016,6 +1892,35 @@
           "paperId": "f384b73eb7512b6ffc558b0acb4757bd2d763124",
           "title": "On the Idea of Using Nature-Inspired Metaphors to Improve Software Testing",
           "year": 2006
+        }
+      ]
+    },
+    {
+      "authorId": "1880804",
+      "name": "Sascha Ossowski",
+      "collaborationCount": 4,
+      "firstCollabYear": 2004,
+      "lastCollabYear": 2006,
+      "sharedPapers": [
+        {
+          "paperId": "8fb21e734fb3e028f6f4e8533e5ba1384e21ae03",
+          "title": "On coordination and its significance to distributed and multi\u2010agent systems",
+          "year": 2006
+        },
+        {
+          "paperId": "96ee3ed4387271a641b9d2931b1adb3554e661ab",
+          "title": "Special Issue: Coordination Models and Systems: Editorials",
+          "year": 2006
+        },
+        {
+          "paperId": "b6a12f3659618c79d562b4702c41297c15087b60",
+          "title": "Special Issue: Coordination Models and Systems",
+          "year": 2006
+        },
+        {
+          "paperId": "85ae93739c19f69b9f42eb3817bea526eb2448a2",
+          "title": "Session details: Coordination models, languages and applications (CM)",
+          "year": 2004
         }
       ]
     },
@@ -2289,30 +2194,6 @@
       ]
     },
     {
-      "authorId": "1796102",
-      "name": "H. Cherifi",
-      "collaborationCount": 3,
-      "firstCollabYear": 2005,
-      "lastCollabYear": 2016,
-      "sharedPapers": [
-        {
-          "paperId": "28d97e855ce30b086402699d74e04f6237140584",
-          "title": "Complex Networks VII - Proceedings of the 7th Workshop on Complex Networks, CompleNet 2016, Dijon, France, March 23-25, 2016",
-          "year": 2016
-        },
-        {
-          "paperId": "7d019f6bafd5e0751e602c4c2ea591b7c3d64456",
-          "title": "Editorial",
-          "year": 2016
-        },
-        {
-          "paperId": "26b67c8d51d1737a9e2bb10b90f6063e46067581",
-          "title": "Editorial",
-          "year": 2005
-        }
-      ]
-    },
-    {
       "authorId": "2064242725",
       "name": "Daniel Romero",
       "collaborationCount": 3,
@@ -2385,30 +2266,6 @@
       ]
     },
     {
-      "authorId": "2433207",
-      "name": "Tobin Yehle",
-      "collaborationCount": 3,
-      "firstCollabYear": 2014,
-      "lastCollabYear": 2015,
-      "sharedPapers": [
-        {
-          "paperId": "96de7fca6f5d66382e8df457680bb282881917dc",
-          "title": "From Criminal Spheres of Familiarity to Crime Networks",
-          "year": 2015
-        },
-        {
-          "paperId": "d44d6c476c28aea48f90dec575e90b3ad4e0437a",
-          "title": "The Spatial Structure of Crime in Urban Environments",
-          "year": 2014
-        },
-        {
-          "paperId": "f64054e85fa80052d1528f503d8f581c6b0262eb",
-          "title": "Uncovering Criminal Networks From Crime Locations",
-          "year": 2014
-        }
-      ]
-    },
-    {
       "authorId": "2113329215",
       "name": "Sarah White",
       "collaborationCount": 3,
@@ -2429,30 +2286,6 @@
           "paperId": "f64054e85fa80052d1528f503d8f581c6b0262eb",
           "title": "Uncovering Criminal Networks From Crime Locations",
           "year": 2014
-        }
-      ]
-    },
-    {
-      "authorId": "1734017",
-      "name": "M. Silaghi",
-      "collaborationCount": 3,
-      "firstCollabYear": 2007,
-      "lastCollabYear": 2014,
-      "sharedPapers": [
-        {
-          "paperId": "c6fc1a2a42c09fda9e14f3bafdcb4743f3aea828",
-          "title": "Negative Implications of a Power-Law Distribution: A Study on Networks of Scientific Reviewers",
-          "year": 2014
-        },
-        {
-          "paperId": "5277adef1bb921ec92583803ed0477088ea180a1",
-          "title": "A Recommender System for Youtube Based on its Network of Reviewers",
-          "year": 2010
-        },
-        {
-          "paperId": "c420e449431efb612400394121d0a22e91f9675d",
-          "title": "Intelligent Systems at Florida Tech",
-          "year": 2007
         }
       ]
     },
@@ -3281,25 +3114,6 @@
       ]
     },
     {
-      "authorId": "2107767431",
-      "name": "Jaeyoung Choi",
-      "collaborationCount": 2,
-      "firstCollabYear": 2007,
-      "lastCollabYear": 2019,
-      "sharedPapers": [
-        {
-          "paperId": "3d68695b3cd656302a2dc9669abf09accedd532b",
-          "title": "A Data-Driven Framework for Monitoring and Improving Organ Donation Awareness among Minorities Using Optimal Social Network Intervention",
-          "year": 2019
-        },
-        {
-          "paperId": "59affe698851c6d3482bb9745df100346b362702",
-          "title": "THE 2007 ACM SIGAPP SYMPOSIUM ON APPLIED COMPUTING",
-          "year": 2007
-        }
-      ]
-    },
-    {
       "authorId": "29895739",
       "name": "Halley Fede",
       "collaborationCount": 2,
@@ -3376,40 +3190,21 @@
       ]
     },
     {
-      "authorId": "1403809579",
-      "name": "Julia Poncela-Casasnovas",
+      "authorId": "6727411",
+      "name": "Fernando Buarque de Lima-Neto",
       "collaborationCount": 2,
-      "firstCollabYear": 2014,
+      "firstCollabYear": 2015,
       "lastCollabYear": 2016,
       "sharedPapers": [
         {
-          "paperId": "3df6cc20278968ae1f9d1e62c66e719bd50f9968",
-          "title": "Complex Networks V: Proceedings of the 5th Workshop on Complex Networks CompleNet 2014",
+          "paperId": "e5c5d1cd82f0cb7cc8cb63c61d8a2e6abefd22e3",
+          "title": "Returners and Explorers Dichotomy in Web Browsing Behavior - A Human Mobility Approach",
           "year": 2016
         },
         {
-          "paperId": "51274b4cdc51ed9dc557634a50e4aae77e70d0ef",
-          "title": "Social system as complex networks",
-          "year": 2014
-        }
-      ]
-    },
-    {
-      "authorId": "1403789320",
-      "name": "Fernando B. Lima-Neto",
-      "collaborationCount": 2,
-      "firstCollabYear": 2014,
-      "lastCollabYear": 2015,
-      "sharedPapers": [
-        {
-          "paperId": "70ea714e0010f6084a38a0e9ec91b013fad8a9e4",
-          "title": "The E\ufb00ect of Recency to Human Mobility \u2013 Supporting Information \u2013",
+          "paperId": "e95026e57fef8e20f1cc85436de597d5e4f7d3b7",
+          "title": "Football Conversations: What Twitter Reveals about the 2014 World Cup",
           "year": 2015
-        },
-        {
-          "paperId": "43d633d88cfb9284a2a0bf8b9f31fa3c26da2fa7",
-          "title": "Using Interactions in the Quantification of Media Bias",
-          "year": 2014
         }
       ]
     },
@@ -3448,6 +3243,63 @@
           "paperId": "5277adef1bb921ec92583803ed0477088ea180a1",
           "title": "A Recommender System for Youtube Based on its Network of Reviewers",
           "year": 2010
+        }
+      ]
+    },
+    {
+      "authorId": "1734017",
+      "name": "M. Silaghi",
+      "collaborationCount": 2,
+      "firstCollabYear": 2010,
+      "lastCollabYear": 2014,
+      "sharedPapers": [
+        {
+          "paperId": "c6fc1a2a42c09fda9e14f3bafdcb4743f3aea828",
+          "title": "Negative Implications of a Power-Law Distribution: A Study on Networks of Scientific Reviewers",
+          "year": 2014
+        },
+        {
+          "paperId": "5277adef1bb921ec92583803ed0477088ea180a1",
+          "title": "A Recommender System for Youtube Based on its Network of Reviewers",
+          "year": 2010
+        }
+      ]
+    },
+    {
+      "authorId": "2433207",
+      "name": "Tobin Yehle",
+      "collaborationCount": 2,
+      "firstCollabYear": 2014,
+      "lastCollabYear": 2014,
+      "sharedPapers": [
+        {
+          "paperId": "d44d6c476c28aea48f90dec575e90b3ad4e0437a",
+          "title": "The Spatial Structure of Crime in Urban Environments",
+          "year": 2014
+        },
+        {
+          "paperId": "f64054e85fa80052d1528f503d8f581c6b0262eb",
+          "title": "Uncovering Criminal Networks From Crime Locations",
+          "year": 2014
+        }
+      ]
+    },
+    {
+      "authorId": "2062989009",
+      "name": "Hugo Serrano",
+      "collaborationCount": 2,
+      "firstCollabYear": 2014,
+      "lastCollabYear": 2014,
+      "sharedPapers": [
+        {
+          "paperId": "d44d6c476c28aea48f90dec575e90b3ad4e0437a",
+          "title": "The Spatial Structure of Crime in Urban Environments",
+          "year": 2014
+        },
+        {
+          "paperId": "f64054e85fa80052d1528f503d8f581c6b0262eb",
+          "title": "Uncovering Criminal Networks From Crime Locations",
+          "year": 2014
         }
       ]
     },
@@ -3623,6 +3475,25 @@
       ]
     },
     {
+      "authorId": "2065363625",
+      "name": "M. C. Andrade",
+      "collaborationCount": 2,
+      "firstCollabYear": 2007,
+      "lastCollabYear": 2008,
+      "sharedPapers": [
+        {
+          "paperId": "7cc2cd7125ac87de4e8c0d58f11055da9f9f86c3",
+          "title": "APPLIED COMPUTING 2008 The 23 rd Annual ACM Symposium on Applied Computing PROCEEDINGS OF THE 2008 ACM SYMPOSIUM ON APPLIED COMPUTING Fortaleza, Cear\u00e1, Brazil",
+          "year": 2008
+        },
+        {
+          "paperId": "59affe698851c6d3482bb9745df100346b362702",
+          "title": "THE 2007 ACM SIGAPP SYMPOSIUM ON APPLIED COMPUTING",
+          "year": 2007
+        }
+      ]
+    },
+    {
       "authorId": "3307781",
       "name": "Jiman Hong",
       "collaborationCount": 2,
@@ -3644,6 +3515,25 @@
     {
       "authorId": "144413942",
       "name": "Sung Y. Shin",
+      "collaborationCount": 2,
+      "firstCollabYear": 2007,
+      "lastCollabYear": 2008,
+      "sharedPapers": [
+        {
+          "paperId": "7cc2cd7125ac87de4e8c0d58f11055da9f9f86c3",
+          "title": "APPLIED COMPUTING 2008 The 23 rd Annual ACM Symposium on Applied Computing PROCEEDINGS OF THE 2008 ACM SYMPOSIUM ON APPLIED COMPUTING Fortaleza, Cear\u00e1, Brazil",
+          "year": 2008
+        },
+        {
+          "paperId": "59affe698851c6d3482bb9745df100346b362702",
+          "title": "THE 2007 ACM SIGAPP SYMPOSIUM ON APPLIED COMPUTING",
+          "year": 2007
+        }
+      ]
+    },
+    {
+      "authorId": "2194984104",
+      "name": "J. M. Machado",
       "collaborationCount": 2,
       "firstCollabYear": 2007,
       "lastCollabYear": 2008,
@@ -4368,7 +4258,7 @@
     },
     {
       "authorId": "2285936471",
-      "name": "Fernando Buarque de Lima Neto",
+      "name": "Fernando Buarque de Lima",
       "collaborationCount": 1,
       "firstCollabYear": 2024,
       "lastCollabYear": 2024,
@@ -4577,6 +4467,20 @@
       ]
     },
     {
+      "authorId": "2107767431",
+      "name": "J. Choi",
+      "collaborationCount": 1,
+      "firstCollabYear": 2019,
+      "lastCollabYear": 2019,
+      "sharedPapers": [
+        {
+          "paperId": "3d68695b3cd656302a2dc9669abf09accedd532b",
+          "title": "A Data-Driven Framework for Monitoring and Improving Organ Donation Awareness among Minorities Using Optimal Social Network Intervention",
+          "year": 2019
+        }
+      ]
+    },
+    {
       "authorId": "52090123",
       "name": "John Anthony Bowllan",
       "collaborationCount": 1,
@@ -4704,7 +4608,7 @@
     },
     {
       "authorId": "1709042",
-      "name": "Hujun Yin",
+      "name": "Hu-Jun Yin",
       "collaborationCount": 1,
       "firstCollabYear": 2019,
       "lastCollabYear": 2019,
@@ -5039,6 +4943,20 @@
       ]
     },
     {
+      "authorId": "1403809579",
+      "name": "Julia Poncela-Casasnovas",
+      "collaborationCount": 1,
+      "firstCollabYear": 2016,
+      "lastCollabYear": 2016,
+      "sharedPapers": [
+        {
+          "paperId": "3df6cc20278968ae1f9d1e62c66e719bd50f9968",
+          "title": "Complex Networks V: Proceedings of the 5th Workshop on Complex Networks CompleNet 2014",
+          "year": 2016
+        }
+      ]
+    },
+    {
       "authorId": "2055873130",
       "name": "Bruno Andrade",
       "collaborationCount": 1,
@@ -5068,7 +4986,7 @@
     },
     {
       "authorId": "2536066",
-      "name": "V. Albuquerque",
+      "name": "V. H. C. de Albuquerque",
       "collaborationCount": 1,
       "firstCollabYear": 2016,
       "lastCollabYear": 2016,
@@ -5263,6 +5181,20 @@
       ]
     },
     {
+      "authorId": "1403789320",
+      "name": "Fernando B. Lima-Neto",
+      "collaborationCount": 1,
+      "firstCollabYear": 2014,
+      "lastCollabYear": 2014,
+      "sharedPapers": [
+        {
+          "paperId": "43d633d88cfb9284a2a0bf8b9f31fa3c26da2fa7",
+          "title": "Using Interactions in the Quantification of Media Bias",
+          "year": 2014
+        }
+      ]
+    },
+    {
       "authorId": "47756093",
       "name": "J. Mendes",
       "collaborationCount": 1,
@@ -5333,20 +5265,6 @@
       ]
     },
     {
-      "authorId": "2062989009",
-      "name": "Hugo Serrano",
-      "collaborationCount": 1,
-      "firstCollabYear": 2014,
-      "lastCollabYear": 2014,
-      "sharedPapers": [
-        {
-          "paperId": "f64054e85fa80052d1528f503d8f581c6b0262eb",
-          "title": "Uncovering Criminal Networks From Crime Locations",
-          "year": 2014
-        }
-      ]
-    },
-    {
       "authorId": "2639697",
       "name": "Jigar Brahmbhatt",
       "collaborationCount": 1,
@@ -5356,6 +5274,20 @@
         {
           "paperId": "0b4a4c089cd6b4ee3f3aeb13d5287b0a007a49fe",
           "title": "On the relation between tourism and trade: A network experiment",
+          "year": 2013
+        }
+      ]
+    },
+    {
+      "authorId": "2068501161",
+      "name": "Hugo Serrano Barbosa Filho",
+      "collaborationCount": 1,
+      "firstCollabYear": 2013,
+      "lastCollabYear": 2013,
+      "sharedPapers": [
+        {
+          "paperId": "83d74481432c26db1b72426b4ca8a6d37b134a76",
+          "title": "Strategies, Political Position, and Electoral Performance of Brazilian Political Parties",
           "year": 2013
         }
       ]
@@ -5473,8 +5405,8 @@
       ]
     },
     {
-      "authorId": "144177893",
-      "name": "M. \u00c1lvares",
+      "authorId": "2503093397",
+      "name": "Fernando B. Lima",
       "collaborationCount": 1,
       "firstCollabYear": 2010,
       "lastCollabYear": 2010,
@@ -5613,22 +5545,8 @@
       ]
     },
     {
-      "authorId": "2397866389",
-      "name": "F. F. Rodrigues",
-      "collaborationCount": 1,
-      "firstCollabYear": 2008,
-      "lastCollabYear": 2008,
-      "sharedPapers": [
-        {
-          "paperId": "7cc2cd7125ac87de4e8c0d58f11055da9f9f86c3",
-          "title": "APPLIED COMPUTING 2008 The 23 rd Annual ACM Symposium on Applied Computing PROCEEDINGS OF THE 2008 ACM SYMPOSIUM ON APPLIED COMPUTING Fortaleza, Cear\u00e1, Brazil",
-          "year": 2008
-        }
-      ]
-    },
-    {
-      "authorId": "2065363625",
-      "name": "M. C. Andrade",
+      "authorId": "2503011409",
+      "name": "Fernando Rodrigues",
       "collaborationCount": 1,
       "firstCollabYear": 2008,
       "lastCollabYear": 2008,
@@ -5643,20 +5561,6 @@
     {
       "authorId": "2280971",
       "name": "N. Mendon\u00e7a",
-      "collaborationCount": 1,
-      "firstCollabYear": 2008,
-      "lastCollabYear": 2008,
-      "sharedPapers": [
-        {
-          "paperId": "7cc2cd7125ac87de4e8c0d58f11055da9f9f86c3",
-          "title": "APPLIED COMPUTING 2008 The 23 rd Annual ACM Symposium on Applied Computing PROCEEDINGS OF THE 2008 ACM SYMPOSIUM ON APPLIED COMPUTING Fortaleza, Cear\u00e1, Brazil",
-          "year": 2008
-        }
-      ]
-    },
-    {
-      "authorId": "2194984104",
-      "name": "J. M. Machado",
       "collaborationCount": 1,
       "firstCollabYear": 2008,
       "lastCollabYear": 2008,
@@ -5706,62 +5610,6 @@
         {
           "paperId": "535529be1115f37d7eafa55b5c6b1eba862c9ad4",
           "title": "Using Ant's Alarm Pheromone to Improve Software Testing Automation",
-          "year": 2007
-        }
-      ]
-    },
-    {
-      "authorId": "145348862",
-      "name": "Tei-Wei Kuo",
-      "collaborationCount": 1,
-      "firstCollabYear": 2007,
-      "lastCollabYear": 2007,
-      "sharedPapers": [
-        {
-          "paperId": "59affe698851c6d3482bb9745df100346b362702",
-          "title": "THE 2007 ACM SIGAPP SYMPOSIUM ON APPLIED COMPUTING",
-          "year": 2007
-        }
-      ]
-    },
-    {
-      "authorId": "2079691",
-      "name": "S. Jhang",
-      "collaborationCount": 1,
-      "firstCollabYear": 2007,
-      "lastCollabYear": 2007,
-      "sharedPapers": [
-        {
-          "paperId": "59affe698851c6d3482bb9745df100346b362702",
-          "title": "THE 2007 ACM SIGAPP SYMPOSIUM ON APPLIED COMPUTING",
-          "year": 2007
-        }
-      ]
-    },
-    {
-      "authorId": "2109452573",
-      "name": "Yookun Cho",
-      "collaborationCount": 1,
-      "firstCollabYear": 2007,
-      "lastCollabYear": 2007,
-      "sharedPapers": [
-        {
-          "paperId": "59affe698851c6d3482bb9745df100346b362702",
-          "title": "THE 2007 ACM SIGAPP SYMPOSIUM ON APPLIED COMPUTING",
-          "year": 2007
-        }
-      ]
-    },
-    {
-      "authorId": "11142143",
-      "name": "Y. Koo",
-      "collaborationCount": 1,
-      "firstCollabYear": 2007,
-      "lastCollabYear": 2007,
-      "sharedPapers": [
-        {
-          "paperId": "59affe698851c6d3482bb9745df100346b362702",
-          "title": "THE 2007 ACM SIGAPP SYMPOSIUM ON APPLIED COMPUTING",
           "year": 2007
         }
       ]
