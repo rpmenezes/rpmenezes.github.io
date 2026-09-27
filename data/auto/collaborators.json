@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-26T10:20:53.728458+00:00",
+  "updated": "2026-09-27T10:52:39.035345+00:00",
   "collaborators": [
     {
       "authorId": "2337874088",
@@ -963,6 +963,50 @@
       ]
     },
     {
+      "authorId": "2284590143",
+      "name": "Hugo Barbosa",
+      "collaborationCount": 7,
+      "firstCollabYear": 2013,
+      "lastCollabYear": 2024,
+      "sharedPapers": [
+        {
+          "paperId": "0bb1635525e4820bcf361042ff89d1e4956f4dd9",
+          "title": "A data-driven supervised machine learning approach to estimating global ambient air pollution concentrations with associated prediction intervals",
+          "year": 2024
+        },
+        {
+          "paperId": "55c91b968dc113c82aca8fccffe213342c4bf182",
+          "title": "Dynamic predictability and activity-location contexts in human mobility",
+          "year": 2024
+        },
+        {
+          "paperId": "cb5f9580d40e2ae5935f563ed90adc3b55ba6a1b",
+          "title": "The role of transport systems in housing insecurity: a mobility-based analysis",
+          "year": 2024
+        },
+        {
+          "paperId": "221c62651b68d76a2751e34ba845e67d2339a3e9",
+          "title": "Transport and Mobility Segregation in Urban Spaces",
+          "year": 2023
+        },
+        {
+          "paperId": "e5c5d1cd82f0cb7cc8cb63c61d8a2e6abefd22e3",
+          "title": "Returners and Explorers Dichotomy in Web Browsing Behavior - A Human Mobility Approach",
+          "year": 2016
+        },
+        {
+          "paperId": "21ae4df2de7add91e551cc394c8370fabf945134",
+          "title": "The effect of recency to human mobility",
+          "year": 2015
+        },
+        {
+          "paperId": "83d74481432c26db1b72426b4ca8a6d37b134a76",
+          "title": "Strategies, Political Position, and Electoral Performance of Brazilian Political Parties",
+          "year": 2013
+        }
+      ]
+    },
+    {
       "authorId": "46184306",
       "name": "S. M. M. Seyednezhad",
       "collaborationCount": 7,
@@ -1091,45 +1135,6 @@
           "paperId": "26985359cbf37edab4c3fc598dbf0c1cb0a3257b",
           "title": "United states congress relations according to liberal and conservative newspapers",
           "year": 2013
-        }
-      ]
-    },
-    {
-      "authorId": "2284590143",
-      "name": "Hugo Barbosa",
-      "collaborationCount": 6,
-      "firstCollabYear": 2015,
-      "lastCollabYear": 2024,
-      "sharedPapers": [
-        {
-          "paperId": "0bb1635525e4820bcf361042ff89d1e4956f4dd9",
-          "title": "A data-driven supervised machine learning approach to estimating global ambient air pollution concentrations with associated prediction intervals",
-          "year": 2024
-        },
-        {
-          "paperId": "55c91b968dc113c82aca8fccffe213342c4bf182",
-          "title": "Dynamic predictability and activity-location contexts in human mobility",
-          "year": 2024
-        },
-        {
-          "paperId": "cb5f9580d40e2ae5935f563ed90adc3b55ba6a1b",
-          "title": "The role of transport systems in housing insecurity: a mobility-based analysis",
-          "year": 2024
-        },
-        {
-          "paperId": "221c62651b68d76a2751e34ba845e67d2339a3e9",
-          "title": "Transport and Mobility Segregation in Urban Spaces",
-          "year": 2023
-        },
-        {
-          "paperId": "e5c5d1cd82f0cb7cc8cb63c61d8a2e6abefd22e3",
-          "title": "Returners and Explorers Dichotomy in Web Browsing Behavior - A Human Mobility Approach",
-          "year": 2016
-        },
-        {
-          "paperId": "21ae4df2de7add91e551cc394c8370fabf945134",
-          "title": "The effect of recency to human mobility",
-          "year": 2015
         }
       ]
     },
@@ -5274,20 +5279,6 @@
         {
           "paperId": "0b4a4c089cd6b4ee3f3aeb13d5287b0a007a49fe",
           "title": "On the relation between tourism and trade: A network experiment",
-          "year": 2013
-        }
-      ]
-    },
-    {
-      "authorId": "2068501161",
-      "name": "Hugo Serrano Barbosa Filho",
-      "collaborationCount": 1,
-      "firstCollabYear": 2013,
-      "lastCollabYear": 2013,
-      "sharedPapers": [
-        {
-          "paperId": "83d74481432c26db1b72426b4ca8a6d37b134a76",
-          "title": "Strategies, Political Position, and Electoral Performance of Brazilian Political Parties",
           "year": 2013
         }
       ]
