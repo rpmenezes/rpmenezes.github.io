@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-28T12:03:48.568602+00:00",
+  "updated": "2026-09-29T11:38:09.670624+00:00",
   "collaborators": [
     {
       "authorId": "2337874088",
@@ -2295,6 +2295,30 @@
       ]
     },
     {
+      "authorId": "1734017",
+      "name": "M. Silaghi",
+      "collaborationCount": 3,
+      "firstCollabYear": 2007,
+      "lastCollabYear": 2014,
+      "sharedPapers": [
+        {
+          "paperId": "c6fc1a2a42c09fda9e14f3bafdcb4743f3aea828",
+          "title": "Negative Implications of a Power-Law Distribution: A Study on Networks of Scientific Reviewers",
+          "year": 2014
+        },
+        {
+          "paperId": "5277adef1bb921ec92583803ed0477088ea180a1",
+          "title": "A Recommender System for Youtube Based on its Network of Reviewers",
+          "year": 2010
+        },
+        {
+          "paperId": "c420e449431efb612400394121d0a22e91f9675d",
+          "title": "Intelligent Systems at Florida Tech",
+          "year": 2007
+        }
+      ]
+    },
+    {
       "authorId": "1715670",
       "name": "M. Mamei",
       "collaborationCount": 3,
@@ -3235,25 +3259,6 @@
     {
       "authorId": "46819524",
       "name": "S. Qin",
-      "collaborationCount": 2,
-      "firstCollabYear": 2010,
-      "lastCollabYear": 2014,
-      "sharedPapers": [
-        {
-          "paperId": "c6fc1a2a42c09fda9e14f3bafdcb4743f3aea828",
-          "title": "Negative Implications of a Power-Law Distribution: A Study on Networks of Scientific Reviewers",
-          "year": 2014
-        },
-        {
-          "paperId": "5277adef1bb921ec92583803ed0477088ea180a1",
-          "title": "A Recommender System for Youtube Based on its Network of Reviewers",
-          "year": 2010
-        }
-      ]
-    },
-    {
-      "authorId": "1734017",
-      "name": "M. Silaghi",
       "collaborationCount": 2,
       "firstCollabYear": 2010,
       "lastCollabYear": 2014,
