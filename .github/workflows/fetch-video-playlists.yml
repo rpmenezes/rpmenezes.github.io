@@ -56,6 +56,14 @@ jobs:
                       counts[v['id']] = int(v['statistics'].get('viewCount', 0))
               return counts
 
+          # Deleted or private videos linger in a playlist but are dropped by the
+          # public videos endpoint (so their id never appears in `stats`) and the
+          # playlistItems endpoint returns a placeholder title for them. Filter
+          # both out so they never reach the site.
+          UNAVAILABLE_TITLES = {'Deleted video', 'Private video'}
+          def is_available(vid, title, stats):
+              return vid in stats and title not in UNAVAILABLE_TITLES
+
           os.makedirs('data', exist_ok=True)
           updated = datetime.datetime.utcnow().isoformat()
 
@@ -68,6 +76,8 @@ jobs:
           for item in guitar_items:
               s = item['snippet']
               vid = s['resourceId']['videoId']
+              if not is_available(vid, s['title'], guitar_stats):
+                  continue
               # videoPublishedAt = actual upload date; fall back to snippet date
               uploaded = item.get('contentDetails', {}).get('videoPublishedAt') or s['publishedAt']
               guitar_videos.append({
@@ -94,6 +104,8 @@ jobs:
           for item in prof_items:
               s = item['snippet']
               vid = s['resourceId']['videoId']
+              if not is_available(vid, s['title'], prof_stats):
+                  continue
               prof_videos.append({
                   'rawTitle': s['title'],
                   'videoId': vid,
@@ -119,6 +131,8 @@ jobs:
           for item in notebooklm_items:
               s = item['snippet']
               vid = s['resourceId']['videoId']
+              if not is_available(vid, s['title'], notebooklm_stats):
+                  continue
               notebooklm_videos.append({
                   'rawTitle': s['title'],
                   'description': s.get('description', ''),

@@ -122,6 +122,14 @@
         });
     </script>
     <script>
+        // Defensive filter: never render videos YouTube reports as deleted/
+        // private (placeholder titles) or that lack a videoId. Shared by every
+        // playlist loader below.
+        function isAvailable(v) {
+            return v && v.videoId
+                && ['Deleted video', 'Private video'].indexOf((v.rawTitle || '').trim()) === -1;
+        }
+
         function parseNotebookLMDescription(description) {
             const titleMatch = description.match(/Title:\s*(.+?)(?=\s*Authors:|$)/s);
             const authorsMatch = description.match(/Authors:\s*(.+?)(?=\s*DOI:|$)/s);
@@ -140,7 +148,7 @@
                 const res = await fetch('data/auto/notebooklm-playlist.json?v=' + Date.now());
                 if (!res.ok) throw new Error();
                 const data = await res.json();
-                const videos = data.videos || [];
+                const videos = (data.videos || []).filter(isAvailable);
                 if (videos.length === 0) throw new Error();
 
                 if (data.updated) {
@@ -189,7 +197,7 @@
                 const res = await fetch('data/auto/professional-playlist.json?v=' + Date.now());
                 if (!res.ok) throw new Error();
                 const data = await res.json();
-                const videos = data.videos || [];
+                const videos = (data.videos || []).filter(isAvailable);
                 if (videos.length === 0) throw new Error();
 
                 if (data.updated) {
@@ -269,8 +277,8 @@
                 const data = await res.json();
                 // New structure: { mostViewed, mostRecent }. Fall back to the old
                 // single `videos` array (view-sorted) for the most-viewed list.
-                const mostViewed = data.mostViewed || data.videos || [];
-                const mostRecent = data.mostRecent || [];
+                const mostViewed = (data.mostViewed || data.videos || []).filter(isAvailable);
+                const mostRecent = (data.mostRecent || []).filter(isAvailable);
                 if (mostViewed.length === 0) throw new Error();
 
                 if (data.updated) {
