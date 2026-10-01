@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-30T11:25:26.763789+00:00",
+  "updated": "2026-10-01T11:52:36.893027+00:00",
   "collaborators": [
     {
       "authorId": "2337874088",
@@ -3542,6 +3542,25 @@
       ]
     },
     {
+      "authorId": "2280971",
+      "name": "Nabor C. Mendon\u00e7a",
+      "collaborationCount": 2,
+      "firstCollabYear": 2007,
+      "lastCollabYear": 2008,
+      "sharedPapers": [
+        {
+          "paperId": "7cc2cd7125ac87de4e8c0d58f11055da9f9f86c3",
+          "title": "APPLIED COMPUTING 2008 The 23 rd Annual ACM Symposium on Applied Computing PROCEEDINGS OF THE 2008 ACM SYMPOSIUM ON APPLIED COMPUTING Fortaleza, Cear\u00e1, Brazil",
+          "year": 2008
+        },
+        {
+          "paperId": "59affe698851c6d3482bb9745df100346b362702",
+          "title": "THE 2007 ACM SIGAPP SYMPOSIUM ON APPLIED COMPUTING",
+          "year": 2007
+        }
+      ]
+    },
+    {
       "authorId": "2194984104",
       "name": "J. M. Machado",
       "collaborationCount": 2,
@@ -5543,20 +5562,6 @@
     {
       "authorId": "2503011409",
       "name": "Fernando Rodrigues",
-      "collaborationCount": 1,
-      "firstCollabYear": 2008,
-      "lastCollabYear": 2008,
-      "sharedPapers": [
-        {
-          "paperId": "7cc2cd7125ac87de4e8c0d58f11055da9f9f86c3",
-          "title": "APPLIED COMPUTING 2008 The 23 rd Annual ACM Symposium on Applied Computing PROCEEDINGS OF THE 2008 ACM SYMPOSIUM ON APPLIED COMPUTING Fortaleza, Cear\u00e1, Brazil",
-          "year": 2008
-        }
-      ]
-    },
-    {
-      "authorId": "2280971",
-      "name": "N. Mendon\u00e7a",
       "collaborationCount": 1,
       "firstCollabYear": 2008,
       "lastCollabYear": 2008,
