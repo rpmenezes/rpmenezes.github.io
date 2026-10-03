@@ -61,9 +61,12 @@
 
     <main class="container">
         <section class="hero">
-            <div class="hero-content">
-                <h1>Curriculum Vitae</h1>
-                <div class="title-divider"></div>
+            <div class="hero-row">
+                <div class="hero-content">
+                    <h1>Curriculum Vitae</h1>
+                    <div class="title-divider"></div>
+                </div>
+                <div class="hero-anim" aria-hidden="true"><canvas></canvas></div>
             </div>
         </section>
 
@@ -229,5 +232,7 @@
             fadeEls.forEach(el => observer.observe(el));
         }, 50);
     </script>
+    <script src="js/hero-runner.js"></script>
+    <script src="js/hero-network.js"></script>
 </body>
 </html>
