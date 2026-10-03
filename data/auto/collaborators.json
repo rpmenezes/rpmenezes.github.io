@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-02T11:25:17.637006+00:00",
+  "updated": "2026-10-03T10:43:09.100150+00:00",
   "collaborators": [
     {
       "authorId": "2337874088",
@@ -1698,6 +1698,35 @@
       ]
     },
     {
+      "authorId": "1895372",
+      "name": "Alexandre Evsukoff",
+      "collaborationCount": 4,
+      "firstCollabYear": 2015,
+      "lastCollabYear": 2021,
+      "sharedPapers": [
+        {
+          "paperId": "e21df088c702fbe45c5a04f444cf5866d81bc30a",
+          "title": "Contrasting social and non-social sources of predictability in human mobility",
+          "year": 2021
+        },
+        {
+          "paperId": "e5c5d1cd82f0cb7cc8cb63c61d8a2e6abefd22e3",
+          "title": "Returners and Explorers Dichotomy in Web Browsing Behavior - A Human Mobility Approach",
+          "year": 2016
+        },
+        {
+          "paperId": "21ae4df2de7add91e551cc394c8370fabf945134",
+          "title": "The effect of recency to human mobility",
+          "year": 2015
+        },
+        {
+          "paperId": "7fe4a0e3112fe77139ab076bb16bb40de3affed2",
+          "title": "The effect of recency to human mobility",
+          "year": 2015
+        }
+      ]
+    },
+    {
       "authorId": "29791804",
       "name": "Younis Al Rozz",
       "collaborationCount": 4,
@@ -2242,30 +2271,6 @@
         {
           "paperId": "e8ac93ee85829a0c2d487c0212dddc254d8f2e35",
           "title": "The Minority Game: Sharing Limited Resources in a Competitive World",
-          "year": 2015
-        }
-      ]
-    },
-    {
-      "authorId": "1895372",
-      "name": "Alexandre Evsukoff",
-      "collaborationCount": 3,
-      "firstCollabYear": 2015,
-      "lastCollabYear": 2016,
-      "sharedPapers": [
-        {
-          "paperId": "e5c5d1cd82f0cb7cc8cb63c61d8a2e6abefd22e3",
-          "title": "Returners and Explorers Dichotomy in Web Browsing Behavior - A Human Mobility Approach",
-          "year": 2016
-        },
-        {
-          "paperId": "21ae4df2de7add91e551cc394c8370fabf945134",
-          "title": "The effect of recency to human mobility",
-          "year": 2015
-        },
-        {
-          "paperId": "7fe4a0e3112fe77139ab076bb16bb40de3affed2",
-          "title": "The effect of recency to human mobility",
           "year": 2015
         }
       ]
