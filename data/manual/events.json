@@ -1,47 +1,5 @@
 [
   {
-    "name": "CompleNet 2026",
-    "location": "Zaragoza, Spain",
-    "date": "May 2026",
-    "url": "https://complenet.weeblysite.com/"
-  },
-  {
-    "name": "NetSci 2026",
-    "location": "Boston, USA",
-    "date": "June 2026",
-    "url": "https://www.netsci2026.com/"
-  },
-  {
-    "name": "Innovation and Technology Forum (Online)",
-    "location": "Crateús, Brazil",
-    "date": "June 2026",
-    "url": null
-  },
-  {
-    "name": "Environmental Intelligence / Exeter Food",
-    "location": "Penryn, UK",
-    "date": "June 2026",
-    "url": null
-  },
-  {
-    "name": "Constructor University",
-    "location": "Bremen, Germany",
-    "date": "June 2026",
-    "url": null
-  },
-  {
-    "name": "Centre for Data Science and Complexity, University of Münster",
-    "location": "Münster, Germany",
-    "date": "June 2026",
-    "url": null
-  },
-  {
-    "name": "Medical Informatics and Graph-based Systems, University of Siegen",
-    "location": "Siegen, Germany",
-    "date": "June 2026",
-    "url": null
-  },
-  {
     "name": "Enredando 2026",
     "location": "Viçosa, Brazil",
     "date": "July 2026",
@@ -70,5 +28,17 @@
     "location": "Rome, Italy",
     "date": "November 2026",
     "url": null
+  },
+  {
+    "name": "CompleNet 2027",
+    "location": "Rochester, USA",
+    "date": "March 2027",
+    "url": "https://complenet.github.io/"
+  },
+  {
+    "name": "LANET 2027",
+    "location": "Porto Alegre, Brazil",
+    "date": "July 2027",
+    "url": "https://lanetconference.github.io/"
   }
 ]
