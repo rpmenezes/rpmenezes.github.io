@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-06T12:15:49.337304+00:00",
+  "updated": "2026-10-07T12:06:55.075889+00:00",
   "collaborators": [
     {
       "authorId": "2337874088",
@@ -4221,6 +4221,20 @@
       ]
     },
     {
+      "authorId": "2141260751",
+      "name": "Melanie Oyarzun",
+      "collaborationCount": 1,
+      "firstCollabYear": 2025,
+      "lastCollabYear": 2025,
+      "sharedPapers": [
+        {
+          "paperId": "7255c3f687365536aced17cb978cf82d5f1d7699",
+          "title": "Systematic comparison of gender inequality in scientific rankings across disciplines",
+          "year": 2025
+        }
+      ]
+    },
+    {
       "authorId": "2337795037",
       "name": "Fariba Karimi",
       "collaborationCount": 1,
@@ -4362,7 +4376,7 @@
     },
     {
       "authorId": "1481115956",
-      "name": "Jean Fernando Passold",
+      "name": "J. Passold",
       "collaborationCount": 1,
       "firstCollabYear": 2024,
       "lastCollabYear": 2024,
