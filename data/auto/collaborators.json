@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-07T12:06:55.075889+00:00",
+  "updated": "2026-10-08T12:17:36.926087+00:00",
   "collaborators": [
     {
       "authorId": "2337874088",
@@ -646,7 +646,7 @@
     {
       "authorId": "1728548",
       "name": "Mirko Viroli",
-      "collaborationCount": 11,
+      "collaborationCount": 12,
       "firstCollabYear": 2002,
       "lastCollabYear": 2012,
       "sharedPapers": [
@@ -678,6 +678,11 @@
         {
           "paperId": "5937739eec2e5aea12a10595296ebf2c2cfc6444",
           "title": "Self-organized over-clustering avoidance in tuple-space systems",
+          "year": 2007
+        },
+        {
+          "paperId": "59affe698851c6d3482bb9745df100346b362702",
+          "title": "THE 2007 ACM SIGAPP SYMPOSIUM ON APPLIED COMPUTING",
           "year": 2007
         },
         {
@@ -2940,7 +2945,7 @@
     },
     {
       "authorId": "31954599",
-      "name": "Zexun Chen",
+      "name": "Ze-Xun Chen",
       "collaborationCount": 2,
       "firstCollabYear": 2021,
       "lastCollabYear": 2022,
