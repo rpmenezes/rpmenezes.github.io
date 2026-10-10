@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Share card</title>
+    <!--
+        Draws the 1200×630 link-preview card for one paper highlight.
+        Not linked from the site: tools/share_cards.py opens it in headless
+        Chrome with the paper's details in the URL hash and screenshots it to
+        highlights/cards/<slug>.png.
+    -->
+    <style>html, body { margin: 0; background: #fff; } canvas { display: block; }</style>
+</head>
+<body>
+<canvas id="card" width="1200" height="630"></canvas>
+<script>
+(function () {
+    const GREEN = '#007D69', INK = '#003C3C', GREY = '#666', LIGHT = '#999';
+    const FONT = '"Helvetica Neue", Helvetica, Arial, sans-serif';
+    const W = 1200, H = 630, PAD = 64, LEFT_W = 760, FULL_W = W - 2 * PAD;
+
+    // Paper details arrive as base64url-encoded JSON in the hash.
+    const b64 = location.hash.slice(1).replace(/-/g, '+').replace(/_/g, '/');
+    const paper = JSON.parse(new TextDecoder().decode(Uint8Array.from(atob(b64), c => c.charCodeAt(0))));
+
+    const ctx = document.getElementById('card').getContext('2d');
+    const spacing = px => { if ('letterSpacing' in ctx) ctx.letterSpacing = px + 'px'; };
+
+    function wrap(text, maxW) {
+        const lines = [];
+        let line = '';
+        for (const w of text.split(' ')) {
+            const test = line ? line + ' ' + w : w;
+            if (ctx.measureText(test).width > maxW && line) { lines.push(line); line = w; }
+            else line = test;
+        }
+        if (line) lines.push(line);
+        return lines;
+    }
+
+    // More than four authors become four names plus "et al." — the first four,
+    // or the first three, "…" and the site owner when he is further down.
+    function authorUnits(authors, me) {
+        let shown = authors, etAl = false;
+        if (authors.length > 4) {
+            const at = authors.indexOf(me);
+            shown = at >= 4 ? authors.slice(0, 3).concat(['…', me]) : authors.slice(0, 4);
+            etAl = true;
+        }
+        const units = shown.map(a => [{ text: a, green: a === me, muted: a === '…' }]);
+        units.forEach((u, i) => { if (i < units.length - 1) u.push({ text: '  ·  ', muted: true }); });
+        if (etAl) units[units.length - 1].push({ text: ' et al.', muted: true });
+        return units;
+    }
+
+    function layoutUnits(units, maxW) {
+        const lines = [[]];
+        let w = 0;
+        for (const u of units) {
+            const uw = u.reduce((s, t) => s + ctx.measureText(t.text).width, 0);
+            if (w + uw > maxW && w > 0) { lines.push([]); w = 0; }
+            lines[lines.length - 1].push(...u);
+            w += uw;
+        }
+        return lines;
+    }
+
+    // Seeded RNG so each paper gets its own but stable network motif.
+    function rng(seed) {
+        let h = 1779033703;
+        for (let i = 0; i < seed.length; i++) h = Math.imul(h ^ seed.charCodeAt(i), 3432918353);
+        return () => { h = Math.imul(h ^ (h >>> 16), 2246822507); h = Math.imul(h ^ (h >>> 13), 3266489909);
+                       return ((h ^= h >>> 16) >>> 0) / 4294967296; };
+    }
+
+    function drawMotif() {
+        const rand = rng(paper.slug), pts = [];
+        const x0 = 860, y0 = 40, w = 290, h = 300;
+        for (let tries = 0; pts.length < 11 && tries < 2000; tries++) {
+            const p = { x: x0 + rand() * w, y: y0 + rand() * h, r: 3 + rand() * 5 };
+            if (pts.every(o => Math.hypot(o.x - p.x, o.y - p.y) > 58)) pts.push(p);
+        }
+        ctx.strokeStyle = 'rgba(0,125,105,0.18)'; ctx.lineWidth = 2;
+        pts.forEach((a, i) => {
+            pts.map((b, j) => [j, Math.hypot(a.x - b.x, a.y - b.y)]).filter(([j]) => j !== i)
+                .sort((p, q) => p[1] - q[1]).slice(0, 2)
+                .forEach(([j]) => { ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(pts[j].x, pts[j].y); ctx.stroke(); });
+        });
+        for (const p of pts) {
+            ctx.beginPath(); ctx.arc(p.x, p.y, p.r + 6, 0, Math.PI * 2);
+            ctx.fillStyle = 'rgba(0,125,105,0.08)'; ctx.fill();
+            ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+            ctx.fillStyle = 'rgba(0,125,105,0.55)'; ctx.fill();
+        }
+    }
+
+    ctx.fillStyle = '#fff'; ctx.fillRect(0, 0, W, H);
+    ctx.textBaseline = 'alphabetic';
+    drawMotif();
+
+    // Kicker: one line within the left column, shrinking if needed
+    let y = 92, ks = 19;
+    const kicker = (paper.meta || 'Research highlight').toUpperCase();
+    spacing(2.5);
+    do { ctx.font = '400 ' + ks + 'px ' + FONT; } while (ctx.measureText(kicker).width > LEFT_W && --ks > 12);
+    ctx.fillStyle = GREEN; ctx.fillText(kicker, PAD, y);
+    spacing(0);
+
+    // Title, authors and journal must end above the key numbers.
+    const limit = paper.stats.length ? 425 : 520;
+    const units = authorUnits(paper.authors, paper.me);
+    let size = 52, title, authorLines, journalLines;
+    for (; size >= 28; size -= 2) {
+        ctx.font = '300 ' + size + 'px ' + FONT; title = wrap(paper.title, LEFT_W);
+        ctx.font = '300 24px ' + FONT; authorLines = layoutUnits(units, LEFT_W).slice(0, 2);
+        ctx.font = '300 19px ' + FONT; journalLines = wrap(paper.journal, LEFT_W).slice(0, 2);
+        const h = size * 1.4 + title.length * size * 1.15 + 50
+                + (authorLines.length - 1) * 32 + 36 + (journalLines.length - 1) * 26;
+        if (title.length <= 4 && y + h <= limit) break;
+    }
+    size = Math.max(size, 28);
+
+    ctx.font = '300 ' + size + 'px ' + FONT;
+    y += size * 1.4;
+    ctx.fillStyle = INK;
+    for (const l of title) { ctx.fillText(l, PAD, y); y += size * 1.15; }
+
+    y += 4;
+    ctx.fillStyle = '#111'; ctx.fillRect(PAD, y, 48, 2);
+    y += 46;
+
+    ctx.font = '300 24px ' + FONT;
+    authorLines.forEach((ln, i) => {
+        let x = PAD;
+        for (const t of ln) {
+            ctx.fillStyle = t.green ? GREEN : t.muted ? LIGHT : '#444';
+            ctx.fillText(t.text, x, y);
+            x += ctx.measureText(t.text).width;
+        }
+        if (i < authorLines.length - 1) y += 32;
+    });
+
+    y += 36;
+    ctx.fillStyle = GREY; ctx.font = '300 19px ' + FONT;
+    for (const l of journalLines) { ctx.fillText(l, PAD, y); y += 26; }
+
+    // Key numbers across the full width, one shared size so they line up
+    if (paper.stats.length) {
+        const colW = FULL_W / paper.stats.length, top = 505;
+        ctx.fillStyle = 'rgba(0,125,105,0.25)'; ctx.fillRect(PAD, 452, FULL_W, 1);
+        let vs = 44;
+        const widest = () => Math.max(...paper.stats.map(s => ctx.measureText(s.value).width));
+        do { ctx.font = '300 ' + vs + 'px ' + FONT; } while (widest() > colW - 18 && (vs -= 2) > 24);
+        paper.stats.forEach((st, i) => {
+            const cx = PAD + i * colW;
+            ctx.fillStyle = GREEN; ctx.font = '300 ' + vs + 'px ' + FONT;
+            ctx.fillText(st.value, cx, top);
+            ctx.fillStyle = LIGHT; ctx.font = '400 13px ' + FONT;
+            spacing(1.2);
+            wrap(st.label.toUpperCase(), colW - 20).slice(0, 2)
+                .forEach((l, j) => ctx.fillText(l, cx, top + 26 + j * 18));
+            spacing(0);
+        });
+    }
+
+    // Footer band: monogram, name, site
+    const fy = H - 64;
+    ctx.fillStyle = GREEN; ctx.fillRect(0, fy, W, 64);
+    ctx.fillStyle = '#fff';
+    ctx.beginPath();
+    ctx.roundRect ? ctx.roundRect(PAD, fy + 14, 36, 36, 7) : ctx.rect(PAD, fy + 14, 36, 36);
+    ctx.fill();
+    ctx.fillStyle = GREEN; ctx.font = '600 17px Georgia, "Times New Roman", serif';
+    ctx.textAlign = 'center'; ctx.fillText('RM', PAD + 18, fy + 38); ctx.textAlign = 'left';
+    ctx.fillStyle = '#fff'; ctx.font = '400 20px ' + FONT;
+    ctx.fillText('Ronaldo Menezes', PAD + 52, fy + 39);
+    const nameW = ctx.measureText('Ronaldo Menezes').width;
+    ctx.font = '300 17px ' + FONT; ctx.fillStyle = 'rgba(255,255,255,0.8)';
+    ctx.fillText('Professor of Data and Network Science', PAD + 52 + nameW + 16, fy + 39);
+    ctx.textAlign = 'right'; ctx.font = '300 18px ' + FONT; ctx.fillStyle = '#fff';
+    ctx.fillText('rpmenezes.github.io', W - PAD, fy + 39);
+    ctx.textAlign = 'left';
+
+    document.title = 'ready';
+})();
+</script>
+</body>
+</html>
