@@ -40,5 +40,11 @@
     "location": "Porto Alegre, Brazil",
     "date": "July 2027",
     "url": "https://lanetconference.github.io/"
-  }
+  },
+  {
+    "name": "Encontro Nacional de Modelagem Computacional (in Portuguese)",
+    "location": "Salvador, Brazil",
+    "date": "October 2027",
+    "url": null
+  }    
 ]
