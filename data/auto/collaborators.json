@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-15T10:23:54.548351+00:00",
+  "updated": "2026-10-16T10:11:14.219251+00:00",
   "collaborators": [
     {
       "authorId": "2337874088",
@@ -1339,6 +1339,40 @@
       ]
     },
     {
+      "authorId": "2338828830",
+      "name": "Mariana Macedo",
+      "collaborationCount": 5,
+      "firstCollabYear": 2025,
+      "lastCollabYear": 2026,
+      "sharedPapers": [
+        {
+          "paperId": "a696cda45bb4f92aa181125c50fe3468cca319c9",
+          "title": "The hierarchical organization of urban social overlap: How shared social spaces diverge from physical mobility",
+          "year": 2026
+        },
+        {
+          "paperId": "1360a9021976e2af72b2f3733d8547c122a946a1",
+          "title": "Vector fields as a framework for modelling the mobility of commodities",
+          "year": 2025
+        },
+        {
+          "paperId": "5070065d69e4bffb742382a791481b237ac4089a",
+          "title": "The parenthood effect in urban mobility",
+          "year": 2025
+        },
+        {
+          "paperId": "7255c3f687365536aced17cb978cf82d5f1d7699",
+          "title": "Systematic comparison of gender inequality in scientific rankings across disciplines",
+          "year": 2025
+        },
+        {
+          "paperId": "8d63e62a3a0979d7ed064b55108e252bf4874591",
+          "title": "the manuscript: Vector fields as a framework for modelling the mobility of commodities",
+          "year": null
+        }
+      ]
+    },
+    {
       "authorId": "1742738",
       "name": "Pramod Divakarmurthy",
       "collaborationCount": 5,
@@ -1674,35 +1708,6 @@
       ]
     },
     {
-      "authorId": "2338828830",
-      "name": "Mariana Macedo",
-      "collaborationCount": 4,
-      "firstCollabYear": 2025,
-      "lastCollabYear": 2026,
-      "sharedPapers": [
-        {
-          "paperId": "a696cda45bb4f92aa181125c50fe3468cca319c9",
-          "title": "The hierarchical organization of urban social overlap: How shared social spaces diverge from physical mobility",
-          "year": 2026
-        },
-        {
-          "paperId": "1360a9021976e2af72b2f3733d8547c122a946a1",
-          "title": "Vector fields as a framework for modelling the mobility of commodities",
-          "year": 2025
-        },
-        {
-          "paperId": "5070065d69e4bffb742382a791481b237ac4089a",
-          "title": "The parenthood effect in urban mobility",
-          "year": 2025
-        },
-        {
-          "paperId": "7255c3f687365536aced17cb978cf82d5f1d7699",
-          "title": "Systematic comparison of gender inequality in scientific rankings across disciplines",
-          "year": 2025
-        }
-      ]
-    },
-    {
       "authorId": "1895372",
       "name": "Alexandre Evsukoff",
       "collaborationCount": 4,
@@ -1948,11 +1953,11 @@
         },
         {
           "paperId": "96ee3ed4387271a641b9d2931b1adb3554e661ab",
-          "title": "Special Issue: Coordination Models and Systems: Editorials",
+          "title": "On coordination and its significance to distributed and multi-agent systems: Research Articles",
           "year": 2006
         },
         {
-          "paperId": "b6a12f3659618c79d562b4702c41297c15087b60",
+          "paperId": "ac8bc5b17c9e8bd1cbd7c9f4f7e9385521d66ab7",
           "title": "Special Issue: Coordination Models and Systems",
           "year": 2006
         },
@@ -1960,35 +1965,6 @@
           "paperId": "85ae93739c19f69b9f42eb3817bea526eb2448a2",
           "title": "Session details: Coordination models, languages and applications (CM)",
           "year": 2004
-        }
-      ]
-    },
-    {
-      "authorId": "1689442",
-      "name": "G. Bella",
-      "collaborationCount": 4,
-      "firstCollabYear": 2002,
-      "lastCollabYear": 2004,
-      "sharedPapers": [
-        {
-          "paperId": "9c242a99a56439be2ed241a3b71ecda378fbf7b5",
-          "title": "Special Issue: Computer Security: Editorials",
-          "year": 2004
-        },
-        {
-          "paperId": "a3a6e09abe93f14cd3b34f63eaddc5da750161be",
-          "title": "Special Issue: Computer Security",
-          "year": 2004
-        },
-        {
-          "paperId": "0bb27bbf6c812049ab7b63afeb3c735f2ba3d706",
-          "title": "Editorial Message: special track on computer security",
-          "year": 2002
-        },
-        {
-          "paperId": "44e0aa5696a6a4f1d542c95056e1df37b3324e99",
-          "title": "Session details: Computer security",
-          "year": 2002
         }
       ]
     },
@@ -2545,6 +2521,30 @@
       ]
     },
     {
+      "authorId": "1689442",
+      "name": "G. Bella",
+      "collaborationCount": 3,
+      "firstCollabYear": 2002,
+      "lastCollabYear": 2004,
+      "sharedPapers": [
+        {
+          "paperId": "2ff2738b11ca18d031ef5d9fa0cae36a9c313d42",
+          "title": "Special Issue: Computer Security",
+          "year": 2004
+        },
+        {
+          "paperId": "0bb27bbf6c812049ab7b63afeb3c735f2ba3d706",
+          "title": "Editorial Message: special track on computer security",
+          "year": 2002
+        },
+        {
+          "paperId": "44e0aa5696a6a4f1d542c95056e1df37b3324e99",
+          "title": "Session details: Computer security",
+          "year": 2002
+        }
+      ]
+    },
+    {
       "authorId": "2336740238",
       "name": "J. Taveira",
       "collaborationCount": 2,
@@ -2788,6 +2788,44 @@
           "paperId": "85163e355e0927e7bface7373596937a4322d0fb",
           "title": "A Shared IPTC Topic Space for Cross-Source Topic Modelling",
           "year": 2026
+        }
+      ]
+    },
+    {
+      "authorId": "2365036635",
+      "name": "Sima Farokhnejad",
+      "collaborationCount": 2,
+      "firstCollabYear": 2025,
+      "lastCollabYear": 2025,
+      "sharedPapers": [
+        {
+          "paperId": "1360a9021976e2af72b2f3733d8547c122a946a1",
+          "title": "Vector fields as a framework for modelling the mobility of commodities",
+          "year": 2025
+        },
+        {
+          "paperId": "8d63e62a3a0979d7ed064b55108e252bf4874591",
+          "title": "the manuscript: Vector fields as a framework for modelling the mobility of commodities",
+          "year": null
+        }
+      ]
+    },
+    {
+      "authorId": "2479341974",
+      "name": "A. D. da Mata",
+      "collaborationCount": 2,
+      "firstCollabYear": 2025,
+      "lastCollabYear": 2025,
+      "sharedPapers": [
+        {
+          "paperId": "1360a9021976e2af72b2f3733d8547c122a946a1",
+          "title": "Vector fields as a framework for modelling the mobility of commodities",
+          "year": 2025
+        },
+        {
+          "paperId": "8d63e62a3a0979d7ed064b55108e252bf4874591",
+          "title": "the manuscript: Vector fields as a framework for modelling the mobility of commodities",
+          "year": null
         }
       ]
     },
@@ -3876,34 +3914,6 @@
       ]
     },
     {
-      "authorId": "2365036635",
-      "name": "Sima Farokhnejad",
-      "collaborationCount": 1,
-      "firstCollabYear": 2025,
-      "lastCollabYear": 2025,
-      "sharedPapers": [
-        {
-          "paperId": "1360a9021976e2af72b2f3733d8547c122a946a1",
-          "title": "Vector fields as a framework for modelling the mobility of commodities",
-          "year": 2025
-        }
-      ]
-    },
-    {
-      "authorId": "4658875",
-      "name": "A. S. Mata",
-      "collaborationCount": 1,
-      "firstCollabYear": 2025,
-      "lastCollabYear": 2025,
-      "sharedPapers": [
-        {
-          "paperId": "1360a9021976e2af72b2f3733d8547c122a946a1",
-          "title": "Vector fields as a framework for modelling the mobility of commodities",
-          "year": 2025
-        }
-      ]
-    },
-    {
       "authorId": "1651194273",
       "name": "Khaoula el Mekkaoui",
       "collaborationCount": 1,
@@ -4100,8 +4110,8 @@
       ]
     },
     {
-      "authorId": "2314376637",
-      "name": "Frederico Leite Richardson",
+      "authorId": "121010563",
+      "name": "F. Richardson",
       "collaborationCount": 1,
       "firstCollabYear": 2025,
       "lastCollabYear": 2025,
@@ -5822,14 +5832,14 @@
       ]
     },
     {
-      "authorId": "2305844033",
-      "name": "Alessandro Ricci",
+      "authorId": "144464279",
+      "name": "A. Ricci",
       "collaborationCount": 1,
       "firstCollabYear": 2002,
       "lastCollabYear": 2002,
       "sharedPapers": [
         {
-          "paperId": "f1e25c15813bdf29220976c89c3a85c01e22e0f0",
+          "paperId": "c33266f039d26d793d7b3215eea8e56ad7caf914",
           "title": "Special track on coordination models, languages and applications",
           "year": 2002
         }

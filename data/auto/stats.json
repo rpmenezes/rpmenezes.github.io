@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-15T10:23:25.034334+00:00",
+  "updated": "2026-10-16T10:10:46.647396+00:00",
   "stats": {
     "paperCount": 244,
     "hIndex": 22,
@@ -35,7 +35,7 @@
       "venue": "Applied Network Science",
       "doiValue": "10.1007/s41109-026-00799-y",
       "doiUrl": "https://doi.org/10.1007/s41109-026-00799-y",
-      "citationCount": 0
+      "citationCount": null
     },
     {
       "year": "2026",
@@ -65,7 +65,7 @@
       "venue": "Computers in Biology and Medicine",
       "doiValue": "10.1016/j.compbiomed.2026.111599",
       "doiUrl": "https://doi.org/10.1016/j.compbiomed.2026.111599",
-      "citationCount": 1
+      "citationCount": null
     },
     {
       "year": "2026",
@@ -329,7 +329,7 @@
       "venue": "EPJ Data Science",
       "doiValue": "10.1140/epjds/s13688-023-00411-8",
       "doiUrl": "https://doi.org/10.1140/epjds/s13688-023-00411-8",
-      "citationCount": 5
+      "citationCount": 6
     },
     {
       "year": "2023",
