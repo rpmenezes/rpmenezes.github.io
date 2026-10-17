@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-16T10:10:46.647396+00:00",
+  "updated": "2026-10-17T09:45:39.318466+00:00",
   "stats": {
     "paperCount": 244,
     "hIndex": 22,
@@ -18,7 +18,7 @@
       "venue": "npj Complexity",
       "doiValue": "10.1038/s44260-026-00089-9",
       "doiUrl": "https://doi.org/10.1038/s44260-026-00089-9",
-      "citationCount": 1
+      "citationCount": null
     },
     {
       "year": "2026",
@@ -35,7 +35,7 @@
       "venue": "Applied Network Science",
       "doiValue": "10.1007/s41109-026-00799-y",
       "doiUrl": "https://doi.org/10.1007/s41109-026-00799-y",
-      "citationCount": null
+      "citationCount": 0
     },
     {
       "year": "2026",
@@ -65,7 +65,7 @@
       "venue": "Computers in Biology and Medicine",
       "doiValue": "10.1016/j.compbiomed.2026.111599",
       "doiUrl": "https://doi.org/10.1016/j.compbiomed.2026.111599",
-      "citationCount": null
+      "citationCount": 1
     },
     {
       "year": "2026",
@@ -209,7 +209,7 @@
       "venue": "Environmental Data Science",
       "doiValue": "10.1017/eds.2025.9",
       "doiUrl": "https://doi.org/10.1017/eds.2025.9",
-      "citationCount": 6
+      "citationCount": null
     },
     {
       "year": "2025",
@@ -345,7 +345,7 @@
       "venue": "Nature Human Behaviour",
       "doiValue": "10.1038/s41562-023-01660-3",
       "doiUrl": "https://doi.org/10.1038/s41562-023-01660-3",
-      "citationCount": 69
+      "citationCount": 70
     },
     {
       "year": "2023",
@@ -430,7 +430,7 @@
       "venue": "PLOS ONE",
       "doiValue": "10.1371/journal.pone.0260874",
       "doiUrl": "https://doi.org/10.1371/journal.pone.0260874",
-      "citationCount": 40
+      "citationCount": null
     },
     {
       "year": "2022",
