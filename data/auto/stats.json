@@ -1,10 +1,10 @@
 {
-  "updated": "2026-10-17T09:45:39.318466+00:00",
+  "updated": "2026-10-18T09:58:09.539630+00:00",
   "stats": {
     "paperCount": 244,
     "hIndex": 22,
     "citationCount": 3085,
-    "influentialCitationCount": 109
+    "influentialCitationCount": 110
   },
   "publications": [
     {
@@ -35,7 +35,7 @@
       "venue": "Applied Network Science",
       "doiValue": "10.1007/s41109-026-00799-y",
       "doiUrl": "https://doi.org/10.1007/s41109-026-00799-y",
-      "citationCount": 0
+      "citationCount": null
     },
     {
       "year": "2026",
@@ -80,7 +80,7 @@
       "venue": "Computational Urban Science",
       "doiValue": "10.1007/s43762-026-00252-x",
       "doiUrl": "https://doi.org/10.1007/s43762-026-00252-x",
-      "citationCount": 1
+      "citationCount": null
     },
     {
       "year": "2026",
@@ -94,7 +94,7 @@
       "venue": "PLOS One",
       "doiValue": "10.1371/journal.pone.0340109",
       "doiUrl": "https://doi.org/10.1371/journal.pone.0340109",
-      "citationCount": 1
+      "citationCount": null
     },
     {
       "year": "2026",
@@ -107,7 +107,7 @@
       "venue": "Applied Network Science",
       "doiValue": "10.1007/s41109-026-00777-4",
       "doiUrl": "https://doi.org/10.1007/s41109-026-00777-4",
-      "citationCount": 1
+      "citationCount": null
     },
     {
       "year": "2025",
@@ -167,7 +167,7 @@
       "venue": "Royal Society Open Science",
       "doiValue": "10.1098/rsos.241288",
       "doiUrl": "https://doi.org/10.1098/rsos.241288",
-      "citationCount": 6
+      "citationCount": null
     },
     {
       "year": "2025",
@@ -209,7 +209,7 @@
       "venue": "Environmental Data Science",
       "doiValue": "10.1017/eds.2025.9",
       "doiUrl": "https://doi.org/10.1017/eds.2025.9",
-      "citationCount": null
+      "citationCount": 6
     },
     {
       "year": "2025",
@@ -287,7 +287,7 @@
       "venue": "Environment and Planning B: Urban Analytics and City Science",
       "doiValue": "10.1177/23998083231219294",
       "doiUrl": "https://doi.org/10.1177/23998083231219294",
-      "citationCount": 23
+      "citationCount": null
     },
     {
       "year": "2024",
@@ -430,7 +430,7 @@
       "venue": "PLOS ONE",
       "doiValue": "10.1371/journal.pone.0260874",
       "doiUrl": "https://doi.org/10.1371/journal.pone.0260874",
-      "citationCount": null
+      "citationCount": 40
     },
     {
       "year": "2022",

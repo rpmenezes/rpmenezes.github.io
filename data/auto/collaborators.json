@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-17T09:46:14.068410+00:00",
+  "updated": "2026-10-18T09:58:31.201920+00:00",
   "collaborators": [
     {
       "authorId": "2337874088",
@@ -729,7 +729,7 @@
     },
     {
       "authorId": "1728548",
-      "name": "Mirko Viroli",
+      "name": "M. Viroli",
       "collaborationCount": 12,
       "firstCollabYear": 2002,
       "lastCollabYear": 2012,
@@ -1995,35 +1995,6 @@
       ]
     },
     {
-      "authorId": "1880804",
-      "name": "Sascha Ossowski",
-      "collaborationCount": 4,
-      "firstCollabYear": 2004,
-      "lastCollabYear": 2006,
-      "sharedPapers": [
-        {
-          "paperId": "8fb21e734fb3e028f6f4e8533e5ba1384e21ae03",
-          "title": "On coordination and its significance to distributed and multi\u2010agent systems",
-          "year": 2006
-        },
-        {
-          "paperId": "96ee3ed4387271a641b9d2931b1adb3554e661ab",
-          "title": "On coordination and its significance to distributed and multi-agent systems: Research Articles",
-          "year": 2006
-        },
-        {
-          "paperId": "ac8bc5b17c9e8bd1cbd7c9f4f7e9385521d66ab7",
-          "title": "Special Issue: Coordination Models and Systems",
-          "year": 2006
-        },
-        {
-          "paperId": "85ae93739c19f69b9f42eb3817bea526eb2448a2",
-          "title": "Session details: Coordination models, languages and applications (CM)",
-          "year": 2004
-        }
-      ]
-    },
-    {
       "authorId": "1753630062",
       "name": "Bibandhan Poudyal",
       "collaborationCount": 3,
@@ -2548,6 +2519,30 @@
           "paperId": "f384b73eb7512b6ffc558b0acb4757bd2d763124",
           "title": "On the Idea of Using Nature-Inspired Metaphors to Improve Software Testing",
           "year": 2006
+        }
+      ]
+    },
+    {
+      "authorId": "1880804",
+      "name": "Sascha Ossowski",
+      "collaborationCount": 3,
+      "firstCollabYear": 2004,
+      "lastCollabYear": 2006,
+      "sharedPapers": [
+        {
+          "paperId": "8fb21e734fb3e028f6f4e8533e5ba1384e21ae03",
+          "title": "On coordination and its significance to distributed and multi\u2010agent systems",
+          "year": 2006
+        },
+        {
+          "paperId": "ac8bc5b17c9e8bd1cbd7c9f4f7e9385521d66ab7",
+          "title": "Special Issue: Coordination Models and Systems",
+          "year": 2006
+        },
+        {
+          "paperId": "85ae93739c19f69b9f42eb3817bea526eb2448a2",
+          "title": "Session details: Coordination models, languages and applications (CM)",
+          "year": 2004
         }
       ]
     },
@@ -3341,25 +3336,6 @@
       ]
     },
     {
-      "authorId": "47907758",
-      "name": "Mario C. Deng",
-      "collaborationCount": 2,
-      "firstCollabYear": 2013,
-      "lastCollabYear": 2014,
-      "sharedPapers": [
-        {
-          "paperId": "429ab0117ab3401c7adb68913bf3785c95ec149e",
-          "title": "Abstract 18386: Using Social Media as a Method of Increasing Organ Donation",
-          "year": 2014
-        },
-        {
-          "paperId": "120ee5d1bb461841e935e5e74d613f49c46b1ad1",
-          "title": "The United States Heart and Lung Transplant \u201cSocial\u201d Network. Insights from the UNOS Database",
-          "year": 2013
-        }
-      ]
-    },
-    {
       "authorId": "46819524",
       "name": "S. Qin",
       "collaborationCount": 2,
@@ -3571,6 +3547,25 @@
     {
       "authorId": "2111013",
       "name": "M. Palakal",
+      "collaborationCount": 2,
+      "firstCollabYear": 2007,
+      "lastCollabYear": 2008,
+      "sharedPapers": [
+        {
+          "paperId": "7cc2cd7125ac87de4e8c0d58f11055da9f9f86c3",
+          "title": "APPLIED COMPUTING 2008 The 23 rd Annual ACM Symposium on Applied Computing PROCEEDINGS OF THE 2008 ACM SYMPOSIUM ON APPLIED COMPUTING Fortaleza, Cear\u00e1, Brazil",
+          "year": 2008
+        },
+        {
+          "paperId": "59affe698851c6d3482bb9745df100346b362702",
+          "title": "THE 2007 ACM SIGAPP SYMPOSIUM ON APPLIED COMPUTING",
+          "year": 2007
+        }
+      ]
+    },
+    {
+      "authorId": "147402100",
+      "name": "Maria Andr\u00e9ia",
       "collaborationCount": 2,
       "firstCollabYear": 2007,
       "lastCollabYear": 2008,
@@ -5299,6 +5294,20 @@
       ]
     },
     {
+      "authorId": "47907758",
+      "name": "Mario C. Deng",
+      "collaborationCount": 1,
+      "firstCollabYear": 2014,
+      "lastCollabYear": 2014,
+      "sharedPapers": [
+        {
+          "paperId": "429ab0117ab3401c7adb68913bf3785c95ec149e",
+          "title": "Abstract 18386: Using Social Media as a Method of Increasing Organ Donation",
+          "year": 2014
+        }
+      ]
+    },
+    {
       "authorId": "41202874",
       "name": "D. Rose",
       "collaborationCount": 1,
@@ -5411,6 +5420,20 @@
       ]
     },
     {
+      "authorId": "3666961",
+      "name": "Mario C. Deng",
+      "collaborationCount": 1,
+      "firstCollabYear": 2013,
+      "lastCollabYear": 2013,
+      "sharedPapers": [
+        {
+          "paperId": "120ee5d1bb461841e935e5e74d613f49c46b1ad1",
+          "title": "The United States Heart and Lung Transplant \u201cSocial\u201d Network. Insights from the UNOS Database",
+          "year": 2013
+        }
+      ]
+    },
+    {
       "authorId": "9459288",
       "name": "R. R. Martins",
       "collaborationCount": 1,
@@ -5449,20 +5472,6 @@
           "paperId": "b9c741dd6fe3e0b2b1d909511c074cdffd309a88",
           "title": "Using Network Sciences to Evaluate the Brazilian Airline Network",
           "year": 2013
-        }
-      ]
-    },
-    {
-      "authorId": "1740341",
-      "name": "C. B\u01cedic\u01ce",
-      "collaborationCount": 1,
-      "firstCollabYear": 2012,
-      "lastCollabYear": 2012,
-      "sharedPapers": [
-        {
-          "paperId": "5c79b2d04798357b2777f2efdbdaaa7d681cc0cc",
-          "title": "Preface to the Special Issue on intelligent distributed computing",
-          "year": 2012
         }
       ]
     },
@@ -5658,20 +5667,6 @@
         {
           "paperId": "758359094a3a11956f95d213f39ff5c2234e7ac4",
           "title": "Autonomous algorithms for terrain coverage metrics, classification and evaluation",
-          "year": 2008
-        }
-      ]
-    },
-    {
-      "authorId": "147402100",
-      "name": "M. Andr\u00e9ia",
-      "collaborationCount": 1,
-      "firstCollabYear": 2008,
-      "lastCollabYear": 2008,
-      "sharedPapers": [
-        {
-          "paperId": "7cc2cd7125ac87de4e8c0d58f11055da9f9f86c3",
-          "title": "APPLIED COMPUTING 2008 The 23 rd Annual ACM Symposium on Applied Computing PROCEEDINGS OF THE 2008 ACM SYMPOSIUM ON APPLIED COMPUTING Fortaleza, Cear\u00e1, Brazil",
           "year": 2008
         }
       ]
