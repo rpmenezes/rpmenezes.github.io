@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-18T09:58:31.201920+00:00",
+  "updated": "2026-10-19T11:21:09.809072+00:00",
   "collaborators": [
     {
       "authorId": "2337874088",
@@ -1995,6 +1995,64 @@
       ]
     },
     {
+      "authorId": "1880804",
+      "name": "Sascha Ossowski",
+      "collaborationCount": 4,
+      "firstCollabYear": 2004,
+      "lastCollabYear": 2006,
+      "sharedPapers": [
+        {
+          "paperId": "8fb21e734fb3e028f6f4e8533e5ba1384e21ae03",
+          "title": "On coordination and its significance to distributed and multi\u2010agent systems",
+          "year": 2006
+        },
+        {
+          "paperId": "ac8bc5b17c9e8bd1cbd7c9f4f7e9385521d66ab7",
+          "title": "Special Issue: Coordination Models and Systems",
+          "year": 2006
+        },
+        {
+          "paperId": "c75258d5b5eaf8a952ec17b1de3facfde1ed7ae5",
+          "title": "Session details: Coordination models, languages and applications (CM): poster paper",
+          "year": 2005
+        },
+        {
+          "paperId": "b9a8586be2e9f86f92a56bcc43b83c0946cdd635",
+          "title": "Session details: Coordination models, languages and applications (CM)",
+          "year": 2004
+        }
+      ]
+    },
+    {
+      "authorId": "1689442",
+      "name": "G. Bella",
+      "collaborationCount": 4,
+      "firstCollabYear": 2002,
+      "lastCollabYear": 2004,
+      "sharedPapers": [
+        {
+          "paperId": "a3a6e09abe93f14cd3b34f63eaddc5da750161be",
+          "title": "Special Issue: Computer Security",
+          "year": 2004
+        },
+        {
+          "paperId": "5ba46c1c9f6d18442476ed729f02c6971810c943",
+          "title": "Session details: Computer security",
+          "year": 2003
+        },
+        {
+          "paperId": "0bb27bbf6c812049ab7b63afeb3c735f2ba3d706",
+          "title": "Editorial Message: special track on computer security",
+          "year": 2002
+        },
+        {
+          "paperId": "44e0aa5696a6a4f1d542c95056e1df37b3324e99",
+          "title": "Session details: Computer security",
+          "year": 2002
+        }
+      ]
+    },
+    {
       "authorId": "1753630062",
       "name": "Bibandhan Poudyal",
       "collaborationCount": 3,
@@ -2523,30 +2581,6 @@
       ]
     },
     {
-      "authorId": "1880804",
-      "name": "Sascha Ossowski",
-      "collaborationCount": 3,
-      "firstCollabYear": 2004,
-      "lastCollabYear": 2006,
-      "sharedPapers": [
-        {
-          "paperId": "8fb21e734fb3e028f6f4e8533e5ba1384e21ae03",
-          "title": "On coordination and its significance to distributed and multi\u2010agent systems",
-          "year": 2006
-        },
-        {
-          "paperId": "ac8bc5b17c9e8bd1cbd7c9f4f7e9385521d66ab7",
-          "title": "Special Issue: Coordination Models and Systems",
-          "year": 2006
-        },
-        {
-          "paperId": "85ae93739c19f69b9f42eb3817bea526eb2448a2",
-          "title": "Session details: Coordination models, languages and applications (CM)",
-          "year": 2004
-        }
-      ]
-    },
-    {
       "authorId": "2052436971",
       "name": "Jim Snyder",
       "collaborationCount": 3,
@@ -2566,30 +2600,6 @@
         {
           "paperId": "8954ed5569544f7606021efcc8786a125ad95285",
           "title": "Using Logical Operators as an Extended Coordination Mechanism in Linda",
-          "year": 2002
-        }
-      ]
-    },
-    {
-      "authorId": "1689442",
-      "name": "G. Bella",
-      "collaborationCount": 3,
-      "firstCollabYear": 2002,
-      "lastCollabYear": 2004,
-      "sharedPapers": [
-        {
-          "paperId": "2ff2738b11ca18d031ef5d9fa0cae36a9c313d42",
-          "title": "Special Issue: Computer Security",
-          "year": 2004
-        },
-        {
-          "paperId": "0bb27bbf6c812049ab7b63afeb3c735f2ba3d706",
-          "title": "Editorial Message: special track on computer security",
-          "year": 2002
-        },
-        {
-          "paperId": "44e0aa5696a6a4f1d542c95056e1df37b3324e99",
-          "title": "Session details: Computer security",
           "year": 2002
         }
       ]
@@ -3716,6 +3726,25 @@
       ]
     },
     {
+      "authorId": "2514317947",
+      "name": "Alesandro Ricci",
+      "collaborationCount": 2,
+      "firstCollabYear": 2002,
+      "lastCollabYear": 2006,
+      "sharedPapers": [
+        {
+          "paperId": "85ae93739c19f69b9f42eb3817bea526eb2448a2",
+          "title": "Session details: Coordination models, languages and applications (CM)",
+          "year": 2006
+        },
+        {
+          "paperId": "c33266f039d26d793d7b3215eea8e56ad7caf914",
+          "title": "Special track on coordination models, languages and applications",
+          "year": 2002
+        }
+      ]
+    },
+    {
       "authorId": "33689829",
       "name": "A. Charles",
       "collaborationCount": 2,
@@ -4272,7 +4301,7 @@
       ]
     },
     {
-      "authorId": "2238286807",
+      "authorId": "50499034",
       "name": "S. Willcock",
       "collaborationCount": 1,
       "firstCollabYear": 2025,
@@ -5891,20 +5920,6 @@
         {
           "paperId": "9b5c33eab54a8414940b15e146b1b62002c5727f",
           "title": "A Coordination Architecture for Distributed Autonomous Control Systems",
-          "year": 2002
-        }
-      ]
-    },
-    {
-      "authorId": "144464279",
-      "name": "A. Ricci",
-      "collaborationCount": 1,
-      "firstCollabYear": 2002,
-      "lastCollabYear": 2002,
-      "sharedPapers": [
-        {
-          "paperId": "c33266f039d26d793d7b3215eea8e56ad7caf914",
-          "title": "Special track on coordination models, languages and applications",
           "year": 2002
         }
       ]

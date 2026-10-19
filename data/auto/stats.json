@@ -1,10 +1,10 @@
 {
-  "updated": "2026-10-18T09:58:09.539630+00:00",
+  "updated": "2026-10-19T11:20:44.027211+00:00",
   "stats": {
     "paperCount": 244,
     "hIndex": 22,
     "citationCount": 3085,
-    "influentialCitationCount": 110
+    "influentialCitationCount": 123
   },
   "publications": [
     {
@@ -18,7 +18,7 @@
       "venue": "npj Complexity",
       "doiValue": "10.1038/s44260-026-00089-9",
       "doiUrl": "https://doi.org/10.1038/s44260-026-00089-9",
-      "citationCount": null
+      "citationCount": 1
     },
     {
       "year": "2026",
@@ -65,7 +65,7 @@
       "venue": "Computers in Biology and Medicine",
       "doiValue": "10.1016/j.compbiomed.2026.111599",
       "doiUrl": "https://doi.org/10.1016/j.compbiomed.2026.111599",
-      "citationCount": 1
+      "citationCount": null
     },
     {
       "year": "2026",
@@ -80,7 +80,7 @@
       "venue": "Computational Urban Science",
       "doiValue": "10.1007/s43762-026-00252-x",
       "doiUrl": "https://doi.org/10.1007/s43762-026-00252-x",
-      "citationCount": null
+      "citationCount": 1
     },
     {
       "year": "2026",
@@ -94,7 +94,7 @@
       "venue": "PLOS One",
       "doiValue": "10.1371/journal.pone.0340109",
       "doiUrl": "https://doi.org/10.1371/journal.pone.0340109",
-      "citationCount": null
+      "citationCount": 1
     },
     {
       "year": "2026",
@@ -287,7 +287,7 @@
       "venue": "Environment and Planning B: Urban Analytics and City Science",
       "doiValue": "10.1177/23998083231219294",
       "doiUrl": "https://doi.org/10.1177/23998083231219294",
-      "citationCount": null
+      "citationCount": 23
     },
     {
       "year": "2024",
