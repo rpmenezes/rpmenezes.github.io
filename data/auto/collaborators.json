@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-19T11:21:09.809072+00:00",
+  "updated": "2026-10-20T10:30:28.542301+00:00",
   "collaborators": [
     {
       "authorId": "2337874088",
@@ -1734,6 +1734,40 @@
       ]
     },
     {
+      "authorId": "1689442",
+      "name": "G. Bella",
+      "collaborationCount": 5,
+      "firstCollabYear": 2002,
+      "lastCollabYear": 2004,
+      "sharedPapers": [
+        {
+          "paperId": "9c242a99a56439be2ed241a3b71ecda378fbf7b5",
+          "title": "Identification and authentication of integrated circuits: Research Articles",
+          "year": 2004
+        },
+        {
+          "paperId": "a3a6e09abe93f14cd3b34f63eaddc5da750161be",
+          "title": "Special Issue: Computer Security",
+          "year": 2004
+        },
+        {
+          "paperId": "5ba46c1c9f6d18442476ed729f02c6971810c943",
+          "title": "Session details: Computer security",
+          "year": 2003
+        },
+        {
+          "paperId": "0bb27bbf6c812049ab7b63afeb3c735f2ba3d706",
+          "title": "Editorial Message: special track on computer security",
+          "year": 2002
+        },
+        {
+          "paperId": "44e0aa5696a6a4f1d542c95056e1df37b3324e99",
+          "title": "Session details: Computer security",
+          "year": 2002
+        }
+      ]
+    },
+    {
       "authorId": "2061208618",
       "name": "Clodomir Santana",
       "collaborationCount": 4,
@@ -2020,35 +2054,6 @@
           "paperId": "b9a8586be2e9f86f92a56bcc43b83c0946cdd635",
           "title": "Session details: Coordination models, languages and applications (CM)",
           "year": 2004
-        }
-      ]
-    },
-    {
-      "authorId": "1689442",
-      "name": "G. Bella",
-      "collaborationCount": 4,
-      "firstCollabYear": 2002,
-      "lastCollabYear": 2004,
-      "sharedPapers": [
-        {
-          "paperId": "a3a6e09abe93f14cd3b34f63eaddc5da750161be",
-          "title": "Special Issue: Computer Security",
-          "year": 2004
-        },
-        {
-          "paperId": "5ba46c1c9f6d18442476ed729f02c6971810c943",
-          "title": "Session details: Computer security",
-          "year": 2003
-        },
-        {
-          "paperId": "0bb27bbf6c812049ab7b63afeb3c735f2ba3d706",
-          "title": "Editorial Message: special track on computer security",
-          "year": 2002
-        },
-        {
-          "paperId": "44e0aa5696a6a4f1d542c95056e1df37b3324e99",
-          "title": "Session details: Computer security",
-          "year": 2002
         }
       ]
     },
@@ -5128,7 +5133,7 @@
     },
     {
       "authorId": "2536066",
-      "name": "V. Albuquerque",
+      "name": "V. H. C. de Albuquerque",
       "collaborationCount": 1,
       "firstCollabYear": 2016,
       "lastCollabYear": 2016,
