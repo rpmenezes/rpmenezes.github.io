@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-21T10:39:17.816237+00:00",
+  "updated": "2026-10-22T10:42:22.748580+00:00",
   "collaborators": [
     {
       "authorId": "2337874088",
@@ -1189,50 +1189,6 @@
       ]
     },
     {
-      "authorId": "101062391",
-      "name": "Basim Mahmood",
-      "collaborationCount": 7,
-      "firstCollabYear": 2013,
-      "lastCollabYear": 2017,
-      "sharedPapers": [
-        {
-          "paperId": "d384502fbbd4712165ef1c9d1dc62e328bfce6f0",
-          "title": "On the effect of human mobility to the design of metropolitan mobile opportunistic networks of sensors",
-          "year": 2017
-        },
-        {
-          "paperId": "31b6eaba54998091dd453e08e15d807d4bf638bd",
-          "title": "A Social-based Strategy for Memory Management in Sensor Networks",
-          "year": 2016
-        },
-        {
-          "paperId": "79d042f51c740a253a862d34034eaff11bd49bcd",
-          "title": "The Role of Human Relations and Interactions in Designing Memory-Related Models for Sensor Networks",
-          "year": 2016
-        },
-        {
-          "paperId": "2a0362262611e0cf42c3a288dc59ff9ba1033688",
-          "title": "Estimating memory requirements in wireless sensor networks using social tie strengths",
-          "year": 2015
-        },
-        {
-          "paperId": "61cdf2c6ab3750ae1d23eff2fe6076c5c23ad551",
-          "title": "Social-based Forwarding of Messages in Sensor Networks",
-          "year": 2015
-        },
-        {
-          "paperId": "a9179363b5435ed5dadafe1dce48c57b18e7e736",
-          "title": "Social-Driven Information Dissemination for Mobile Wireless Sensor Networks",
-          "year": 2015
-        },
-        {
-          "paperId": "26985359cbf37edab4c3fc598dbf0c1cb0a3257b",
-          "title": "United states congress relations according to liberal and conservative newspapers",
-          "year": 2013
-        }
-      ]
-    },
-    {
       "authorId": "2168755958",
       "name": "Nandini Iyer",
       "collaborationCount": 6,
@@ -1346,6 +1302,45 @@
           "paperId": "dd50714d10d44c923e6da663e7f2056e61427790",
           "title": "Measuring a Category-Based Blogosphere",
           "year": 2012
+        }
+      ]
+    },
+    {
+      "authorId": "101062391",
+      "name": "Basim Mahmood",
+      "collaborationCount": 6,
+      "firstCollabYear": 2015,
+      "lastCollabYear": 2017,
+      "sharedPapers": [
+        {
+          "paperId": "d384502fbbd4712165ef1c9d1dc62e328bfce6f0",
+          "title": "On the effect of human mobility to the design of metropolitan mobile opportunistic networks of sensors",
+          "year": 2017
+        },
+        {
+          "paperId": "31b6eaba54998091dd453e08e15d807d4bf638bd",
+          "title": "A Social-based Strategy for Memory Management in Sensor Networks",
+          "year": 2016
+        },
+        {
+          "paperId": "79d042f51c740a253a862d34034eaff11bd49bcd",
+          "title": "The Role of Human Relations and Interactions in Designing Memory-Related Models for Sensor Networks",
+          "year": 2016
+        },
+        {
+          "paperId": "2a0362262611e0cf42c3a288dc59ff9ba1033688",
+          "title": "Estimating memory requirements in wireless sensor networks using social tie strengths",
+          "year": 2015
+        },
+        {
+          "paperId": "61cdf2c6ab3750ae1d23eff2fe6076c5c23ad551",
+          "title": "Social-based Forwarding of Messages in Sensor Networks",
+          "year": 2015
+        },
+        {
+          "paperId": "a9179363b5435ed5dadafe1dce48c57b18e7e736",
+          "title": "Social-Driven Information Dissemination for Mobile Wireless Sensor Networks",
+          "year": 2015
         }
       ]
     },
@@ -5463,6 +5458,20 @@
         {
           "paperId": "120ee5d1bb461841e935e5e74d613f49c46b1ad1",
           "title": "The United States Heart and Lung Transplant \u201cSocial\u201d Network. Insights from the UNOS Database",
+          "year": 2013
+        }
+      ]
+    },
+    {
+      "authorId": "2327037271",
+      "name": "Basim Mahmood",
+      "collaborationCount": 1,
+      "firstCollabYear": 2013,
+      "lastCollabYear": 2013,
+      "sharedPapers": [
+        {
+          "paperId": "26985359cbf37edab4c3fc598dbf0c1cb0a3257b",
+          "title": "United states congress relations according to liberal and conservative newspapers",
           "year": 2013
         }
       ]
