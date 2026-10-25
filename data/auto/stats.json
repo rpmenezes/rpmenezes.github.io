@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-24T09:51:41.048483+00:00",
+  "updated": "2026-10-25T10:13:44.807595+00:00",
   "stats": {
     "paperCount": 247,
     "hIndex": 23,
@@ -18,7 +18,7 @@
       "venue": "npj Complexity",
       "doiValue": "10.1038/s44260-026-00089-9",
       "doiUrl": "https://doi.org/10.1038/s44260-026-00089-9",
-      "citationCount": 1
+      "citationCount": null
     },
     {
       "year": "2026",
@@ -35,7 +35,7 @@
       "venue": "Applied Network Science",
       "doiValue": "10.1007/s41109-026-00799-y",
       "doiUrl": "https://doi.org/10.1007/s41109-026-00799-y",
-      "citationCount": 0
+      "citationCount": null
     },
     {
       "year": "2026",
@@ -65,7 +65,7 @@
       "venue": "Computers in Biology and Medicine",
       "doiValue": "10.1016/j.compbiomed.2026.111599",
       "doiUrl": "https://doi.org/10.1016/j.compbiomed.2026.111599",
-      "citationCount": 1
+      "citationCount": null
     },
     {
       "year": "2026",
@@ -80,7 +80,7 @@
       "venue": "Computational Urban Science",
       "doiValue": "10.1007/s43762-026-00252-x",
       "doiUrl": "https://doi.org/10.1007/s43762-026-00252-x",
-      "citationCount": 1
+      "citationCount": null
     },
     {
       "year": "2026",
@@ -107,7 +107,7 @@
       "venue": "Applied Network Science",
       "doiValue": "10.1007/s41109-026-00777-4",
       "doiUrl": "https://doi.org/10.1007/s41109-026-00777-4",
-      "citationCount": 1
+      "citationCount": null
     },
     {
       "year": "2025",
@@ -119,7 +119,7 @@
       "venue": "Nature Communications",
       "doiValue": "10.1038/s41467-025-65728-6",
       "doiUrl": "https://doi.org/10.1038/s41467-025-65728-6",
-      "citationCount": 3
+      "citationCount": null
     },
     {
       "year": "2025",
@@ -154,7 +154,7 @@
       "venue": "The Journal of Precision Medicine: Health and Disease",
       "doiValue": "10.1016/j.premed.2025.100015",
       "doiUrl": "https://doi.org/10.1016/j.premed.2025.100015",
-      "citationCount": 1
+      "citationCount": null
     },
     {
       "year": "2025",
@@ -167,7 +167,7 @@
       "venue": "Royal Society Open Science",
       "doiValue": "10.1098/rsos.241288",
       "doiUrl": "https://doi.org/10.1098/rsos.241288",
-      "citationCount": 6
+      "citationCount": null
     },
     {
       "year": "2025",
@@ -194,7 +194,7 @@
       "venue": "Conference Paper",
       "doiValue": "10.1145/3672608.3707717",
       "doiUrl": "https://doi.org/10.1145/3672608.3707717",
-      "citationCount": 0
+      "citationCount": null
     },
     {
       "year": "2025",
@@ -209,7 +209,7 @@
       "venue": "Environmental Data Science",
       "doiValue": "10.1017/eds.2025.9",
       "doiUrl": "https://doi.org/10.1017/eds.2025.9",
-      "citationCount": 6
+      "citationCount": null
     },
     {
       "year": "2025",
@@ -329,7 +329,7 @@
       "venue": "EPJ Data Science",
       "doiValue": "10.1140/epjds/s13688-023-00411-8",
       "doiUrl": "https://doi.org/10.1140/epjds/s13688-023-00411-8",
-      "citationCount": 6
+      "citationCount": null
     },
     {
       "year": "2023",
@@ -345,7 +345,7 @@
       "venue": "Nature Human Behaviour",
       "doiValue": "10.1038/s41562-023-01660-3",
       "doiUrl": "https://doi.org/10.1038/s41562-023-01660-3",
-      "citationCount": 70
+      "citationCount": null
     },
     {
       "year": "2023",
@@ -415,7 +415,7 @@
       "venue": "Nature Communications",
       "doiValue": "10.1038/s41467-022-29592-y",
       "doiUrl": "https://doi.org/10.1038/s41467-022-29592-y",
-      "citationCount": 28
+      "citationCount": null
     },
     {
       "year": "2022",
@@ -430,7 +430,7 @@
       "venue": "PLOS ONE",
       "doiValue": "10.1371/journal.pone.0260874",
       "doiUrl": "https://doi.org/10.1371/journal.pone.0260874",
-      "citationCount": 40
+      "citationCount": null
     },
     {
       "year": "2022",
