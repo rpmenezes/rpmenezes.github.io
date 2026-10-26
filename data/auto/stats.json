@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-25T10:13:44.807595+00:00",
+  "updated": "2026-10-26T11:37:21.802545+00:00",
   "stats": {
     "paperCount": 247,
     "hIndex": 23,
@@ -18,7 +18,7 @@
       "venue": "npj Complexity",
       "doiValue": "10.1038/s44260-026-00089-9",
       "doiUrl": "https://doi.org/10.1038/s44260-026-00089-9",
-      "citationCount": null
+      "citationCount": 1
     },
     {
       "year": "2026",
@@ -35,7 +35,7 @@
       "venue": "Applied Network Science",
       "doiValue": "10.1007/s41109-026-00799-y",
       "doiUrl": "https://doi.org/10.1007/s41109-026-00799-y",
-      "citationCount": null
+      "citationCount": 0
     },
     {
       "year": "2026",
@@ -80,7 +80,7 @@
       "venue": "Computational Urban Science",
       "doiValue": "10.1007/s43762-026-00252-x",
       "doiUrl": "https://doi.org/10.1007/s43762-026-00252-x",
-      "citationCount": null
+      "citationCount": 1
     },
     {
       "year": "2026",
@@ -154,7 +154,7 @@
       "venue": "The Journal of Precision Medicine: Health and Disease",
       "doiValue": "10.1016/j.premed.2025.100015",
       "doiUrl": "https://doi.org/10.1016/j.premed.2025.100015",
-      "citationCount": null
+      "citationCount": 1
     },
     {
       "year": "2025",
@@ -167,7 +167,7 @@
       "venue": "Royal Society Open Science",
       "doiValue": "10.1098/rsos.241288",
       "doiUrl": "https://doi.org/10.1098/rsos.241288",
-      "citationCount": null
+      "citationCount": 6
     },
     {
       "year": "2025",
@@ -194,7 +194,7 @@
       "venue": "Conference Paper",
       "doiValue": "10.1145/3672608.3707717",
       "doiUrl": "https://doi.org/10.1145/3672608.3707717",
-      "citationCount": null
+      "citationCount": 0
     },
     {
       "year": "2025",
@@ -209,7 +209,7 @@
       "venue": "Environmental Data Science",
       "doiValue": "10.1017/eds.2025.9",
       "doiUrl": "https://doi.org/10.1017/eds.2025.9",
-      "citationCount": null
+      "citationCount": 6
     },
     {
       "year": "2025",
@@ -302,7 +302,7 @@
       "venue": "PLOS ONE",
       "doiValue": "10.1371/journal.pone.0306516",
       "doiUrl": "https://doi.org/10.1371/journal.pone.0306516",
-      "citationCount": 2
+      "citationCount": null
     },
     {
       "year": "2024",
