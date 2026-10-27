@@ -8,6 +8,7 @@ on:
 jobs:
   fetch-playlists:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     permissions:
       contents: write
     steps:
@@ -23,19 +24,30 @@ jobs:
 
           api_key = os.environ['YOUTUBE_API_KEY']
 
+          RETRYABLE_403 = {'rateLimitExceeded', 'userRateLimitExceeded'}
+
           def get_json(url, tries=4):
-              # The YouTube API intermittently returns 5xx; retry with backoff.
+              # The YouTube API intermittently returns 5xx or short-term rate
+              # limits; retry those with backoff. Other errors fail immediately
+              # with YouTube's own reason (e.g. quotaExceeded) in the message.
               for attempt in range(tries):
                   try:
-                      with urllib.request.urlopen(url, timeout=30) as r:
+                      with urllib.request.urlopen(url, timeout=20) as r:
                           return json.loads(r.read())
                   except urllib.error.HTTPError as e:
-                      if e.code < 500 or attempt == tries - 1:
-                          raise
+                      try:
+                          err = json.loads(e.read()).get('error', {})
+                          reason = (err.get('errors') or [{}])[0].get('reason', '')
+                          detail = reason + ': ' + err.get('message', '')
+                      except Exception:
+                          reason, detail = '', ''
+                      retryable = e.code >= 500 or (e.code == 403 and reason in RETRYABLE_403)
+                      if not retryable or attempt == tries - 1:
+                          raise RuntimeError(f'HTTP {e.code} {detail}'.strip()) from None
                   except urllib.error.URLError:
                       if attempt == tries - 1:
                           raise
-                  time.sleep(5 * 2 ** attempt)
+                  time.sleep(3 * 2 ** attempt)
 
           def fetch_playlist(playlist_id):
               # Page through the ENTIRE playlist (API returns max 50 per page).
