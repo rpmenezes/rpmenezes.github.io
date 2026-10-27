@@ -18,10 +18,24 @@ jobs:
         env:
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
         run: |
-          python3 - << EOF
-          import urllib.request, json, os, datetime
+          python3 - << 'EOF'
+          import urllib.request, urllib.error, json, os, sys, time, datetime
 
           api_key = os.environ['YOUTUBE_API_KEY']
+
+          def get_json(url, tries=4):
+              # The YouTube API intermittently returns 5xx; retry with backoff.
+              for attempt in range(tries):
+                  try:
+                      with urllib.request.urlopen(url, timeout=30) as r:
+                          return json.loads(r.read())
+                  except urllib.error.HTTPError as e:
+                      if e.code < 500 or attempt == tries - 1:
+                          raise
+                  except urllib.error.URLError:
+                      if attempt == tries - 1:
+                          raise
+                  time.sleep(5 * 2 ** attempt)
 
           def fetch_playlist(playlist_id):
               # Page through the ENTIRE playlist (API returns max 50 per page).
@@ -34,8 +48,7 @@ jobs:
                          '&playlistId=' + playlist_id +
                          (('&pageToken=' + page_token) if page_token else '') +
                          '&key=' + api_key)
-                  with urllib.request.urlopen(url) as r:
-                      data = json.loads(r.read())
+                  data = get_json(url)
                   items.extend(data.get('items', []))
                   page_token = data.get('nextPageToken')
                   if not page_token:
@@ -50,14 +63,13 @@ jobs:
                   url = ('https://www.googleapis.com/youtube/v3/videos'
                          '?part=statistics&id=' + ','.join(chunk) +
                          '&key=' + api_key)
-                  with urllib.request.urlopen(url) as r:
-                      data = json.loads(r.read())
+                  data = get_json(url)
                   for v in data.get('items', []):
                       counts[v['id']] = int(v['statistics'].get('viewCount', 0))
               return counts
 
           # Deleted or private videos linger in a playlist but are dropped by the
-          # public videos endpoint (so their id never appears in `stats`) and the
+          # public videos endpoint (so their id never appears in stats) and the
           # playlistItems endpoint returns a placeholder title for them. Filter
           # both out so they never reach the site.
           UNAVAILABLE_TITLES = {'Deleted video', 'Private video'}
@@ -65,90 +77,105 @@ jobs:
               return vid in stats and title not in UNAVAILABLE_TITLES
 
           os.makedirs('data', exist_ok=True)
-          updated = datetime.datetime.utcnow().isoformat()
+          updated = datetime.datetime.now(datetime.timezone.utc).replace(tzinfo=None).isoformat()
 
           # ── Guitar playlist (top 5 most viewed + top 5 most recent) ──
-          guitar_items = fetch_playlist('PLL_czV5M6TkEhcd81hnsFBQ8qBLyyCpdH')
-          guitar_ids = [i['snippet']['resourceId']['videoId'] for i in guitar_items]
-          guitar_stats = fetch_view_counts(guitar_ids)
+          def update_guitar():
+              guitar_items = fetch_playlist('PLL_czV5M6TkEhcd81hnsFBQ8qBLyyCpdH')
+              guitar_ids = [i['snippet']['resourceId']['videoId'] for i in guitar_items]
+              guitar_stats = fetch_view_counts(guitar_ids)
 
-          guitar_videos = []
-          for item in guitar_items:
-              s = item['snippet']
-              vid = s['resourceId']['videoId']
-              if not is_available(vid, s['title'], guitar_stats):
-                  continue
-              # videoPublishedAt = actual upload date; fall back to snippet date
-              uploaded = item.get('contentDetails', {}).get('videoPublishedAt') or s['publishedAt']
-              guitar_videos.append({
-                  'rawTitle': s['title'],
-                  'videoId': vid,
-                  'url': 'https://www.youtube.com/watch?v=' + vid,
-                  'publishedAt': uploaded,
-                  'viewCount': guitar_stats.get(vid, 0),
-              })
+              guitar_videos = []
+              for item in guitar_items:
+                  s = item['snippet']
+                  vid = s['resourceId']['videoId']
+                  if not is_available(vid, s['title'], guitar_stats):
+                      continue
+                  # videoPublishedAt = actual upload date; fall back to snippet date
+                  uploaded = item.get('contentDetails', {}).get('videoPublishedAt') or s['publishedAt']
+                  guitar_videos.append({
+                      'rawTitle': s['title'],
+                      'videoId': vid,
+                      'url': 'https://www.youtube.com/watch?v=' + vid,
+                      'publishedAt': uploaded,
+                      'viewCount': guitar_stats.get(vid, 0),
+                  })
 
-          most_viewed = sorted(guitar_videos, key=lambda x: x['viewCount'], reverse=True)[:5]
-          most_recent = sorted(guitar_videos, key=lambda x: x['publishedAt'], reverse=True)[:5]
+              most_viewed = sorted(guitar_videos, key=lambda x: x['viewCount'], reverse=True)[:5]
+              most_recent = sorted(guitar_videos, key=lambda x: x['publishedAt'], reverse=True)[:5]
 
-          with open('data/auto/guitar-playlist.json', 'w') as f:
-              json.dump({'mostViewed': most_viewed, 'mostRecent': most_recent, 'updated': updated}, f, indent=2)
-          print('Guitar: saved', len(most_viewed), 'most-viewed +', len(most_recent), 'most-recent')
+              with open('data/auto/guitar-playlist.json', 'w') as f:
+                  json.dump({'mostViewed': most_viewed, 'mostRecent': most_recent, 'updated': updated}, f, indent=2)
+              print('Guitar: saved', len(most_viewed), 'most-viewed +', len(most_recent), 'most-recent')
 
           # ── Professional playlist (sort by newest, top 5) ──
-          prof_items = fetch_playlist('PLL_czV5M6TkFiY6nctp8mBdF2Q3AmzXmd')
-          prof_ids = [i['snippet']['resourceId']['videoId'] for i in prof_items]
-          prof_stats = fetch_view_counts(prof_ids)
+          def update_professional():
+              prof_items = fetch_playlist('PLL_czV5M6TkFiY6nctp8mBdF2Q3AmzXmd')
+              prof_ids = [i['snippet']['resourceId']['videoId'] for i in prof_items]
+              prof_stats = fetch_view_counts(prof_ids)
 
-          prof_videos = []
-          for item in prof_items:
-              s = item['snippet']
-              vid = s['resourceId']['videoId']
-              if not is_available(vid, s['title'], prof_stats):
-                  continue
-              prof_videos.append({
-                  'rawTitle': s['title'],
-                  'videoId': vid,
-                  'url': 'https://www.youtube.com/watch?v=' + vid,
-                  'publishedAt': s['publishedAt'],
-                  'viewCount': prof_stats.get(vid, 0),
-              })
-          prof_videos.sort(key=lambda x: x['publishedAt'], reverse=True)
-          prof_videos = prof_videos[:5]
+              prof_videos = []
+              for item in prof_items:
+                  s = item['snippet']
+                  vid = s['resourceId']['videoId']
+                  if not is_available(vid, s['title'], prof_stats):
+                      continue
+                  prof_videos.append({
+                      'rawTitle': s['title'],
+                      'videoId': vid,
+                      'url': 'https://www.youtube.com/watch?v=' + vid,
+                      'publishedAt': s['publishedAt'],
+                      'viewCount': prof_stats.get(vid, 0),
+                  })
+              prof_videos.sort(key=lambda x: x['publishedAt'], reverse=True)
+              prof_videos = prof_videos[:5]
 
-          with open('data/auto/professional-playlist.json', 'w') as f:
-              json.dump({'videos': prof_videos, 'updated': updated}, f, indent=2)
-          print('Professional: saved', len(prof_videos), 'videos')
-          for v in prof_videos:
-              print(' ', v['publishedAt'][:10], v['rawTitle'])
+              with open('data/auto/professional-playlist.json', 'w') as f:
+                  json.dump({'videos': prof_videos, 'updated': updated}, f, indent=2)
+              print('Professional: saved', len(prof_videos), 'videos')
+              for v in prof_videos:
+                  print(' ', v['publishedAt'][:10], v['rawTitle'])
 
           # ── NotebookLM playlist (sort by newest, top 5) ──
-          notebooklm_items = fetch_playlist('PLL_czV5M6TkH6dYjYANrN2pi8lnbiD5-H')
-          notebooklm_ids = [i['snippet']['resourceId']['videoId'] for i in notebooklm_items]
-          notebooklm_stats = fetch_view_counts(notebooklm_ids)
+          def update_notebooklm():
+              notebooklm_items = fetch_playlist('PLL_czV5M6TkH6dYjYANrN2pi8lnbiD5-H')
+              notebooklm_ids = [i['snippet']['resourceId']['videoId'] for i in notebooklm_items]
+              notebooklm_stats = fetch_view_counts(notebooklm_ids)
 
-          notebooklm_videos = []
-          for item in notebooklm_items:
-              s = item['snippet']
-              vid = s['resourceId']['videoId']
-              if not is_available(vid, s['title'], notebooklm_stats):
-                  continue
-              notebooklm_videos.append({
-                  'rawTitle': s['title'],
-                  'description': s.get('description', ''),
-                  'videoId': vid,
-                  'url': 'https://www.youtube.com/watch?v=' + vid,
-                  'publishedAt': s['publishedAt'],
-                  'viewCount': notebooklm_stats.get(vid, 0),
-              })
-          notebooklm_videos.sort(key=lambda x: x['publishedAt'], reverse=True)
-          notebooklm_videos = notebooklm_videos[:5]
+              notebooklm_videos = []
+              for item in notebooklm_items:
+                  s = item['snippet']
+                  vid = s['resourceId']['videoId']
+                  if not is_available(vid, s['title'], notebooklm_stats):
+                      continue
+                  notebooklm_videos.append({
+                      'rawTitle': s['title'],
+                      'description': s.get('description', ''),
+                      'videoId': vid,
+                      'url': 'https://www.youtube.com/watch?v=' + vid,
+                      'publishedAt': s['publishedAt'],
+                      'viewCount': notebooklm_stats.get(vid, 0),
+                  })
+              notebooklm_videos.sort(key=lambda x: x['publishedAt'], reverse=True)
+              notebooklm_videos = notebooklm_videos[:5]
 
-          with open('data/auto/notebooklm-playlist.json', 'w') as f:
-              json.dump({'videos': notebooklm_videos, 'updated': updated}, f, indent=2)
-          print('NotebookLM: saved', len(notebooklm_videos), 'videos')
-          for v in notebooklm_videos:
-              print(' ', v['publishedAt'][:10], v['rawTitle'])
+              with open('data/auto/notebooklm-playlist.json', 'w') as f:
+                  json.dump({'videos': notebooklm_videos, 'updated': updated}, f, indent=2)
+              print('NotebookLM: saved', len(notebooklm_videos), 'videos')
+              for v in notebooklm_videos:
+                  print(' ', v['publishedAt'][:10], v['rawTitle'])
+
+          # Each playlist is independent: if one fails, keep its existing JSON and
+          # still update the others. Fail the job only if every playlist failed.
+          failed = []
+          for fn in (update_guitar, update_professional, update_notebooklm):
+              try:
+                  fn()
+              except Exception as e:
+                  print(f'::warning::{fn.__name__} failed, keeping previous data: {e}')
+                  failed.append(fn.__name__)
+          if len(failed) == 3:
+              sys.exit(1)
           EOF
 
       - name: Commit and push
