@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-26T11:37:42.751580+00:00",
+  "updated": "2026-10-27T11:06:22.357153+00:00",
   "collaborators": [
     {
       "authorId": "2337874088",
@@ -5100,7 +5100,7 @@
     },
     {
       "authorId": "2055873130",
-      "name": "Bruno Andrade",
+      "name": "B. Andrade",
       "collaborationCount": 1,
       "firstCollabYear": 2016,
       "lastCollabYear": 2016,
@@ -5716,7 +5716,7 @@
     },
     {
       "authorId": "2503011409",
-      "name": "Fernando Rodrigues",
+      "name": "F. Rodrigues",
       "collaborationCount": 1,
       "firstCollabYear": 2008,
       "lastCollabYear": 2008,
@@ -5743,8 +5743,8 @@
       ]
     },
     {
-      "authorId": "145494152",
-      "name": "M. Barros",
+      "authorId": "2506617057",
+      "name": "Marcelo Barros",
       "collaborationCount": 1,
       "firstCollabYear": 2007,
       "lastCollabYear": 2007,
@@ -5850,34 +5850,6 @@
         {
           "paperId": "6a94360a192b5c099c8f00e1cb87a5491a971c2d",
           "title": "The role of social structures in mobile ad-hoc networks",
-          "year": 2005
-        }
-      ]
-    },
-    {
-      "authorId": "2087636",
-      "name": "R. Krummenacher",
-      "collaborationCount": 1,
-      "firstCollabYear": 2005,
-      "lastCollabYear": 2005,
-      "sharedPapers": [
-        {
-          "paperId": "86ef9bcb99bc7b12a8680d19f455419ce774edb7",
-          "title": "Guest Editorial",
-          "year": 2005
-        }
-      ]
-    },
-    {
-      "authorId": "2927032",
-      "name": "E. Simperl",
-      "collaborationCount": 1,
-      "firstCollabYear": 2005,
-      "lastCollabYear": 2005,
-      "sharedPapers": [
-        {
-          "paperId": "86ef9bcb99bc7b12a8680d19f455419ce774edb7",
-          "title": "Guest Editorial",
           "year": 2005
         }
       ]
