@@ -138,6 +138,55 @@
             </div>
         </section>
 
+        <!-- Join / visit the group -->
+        <style>
+            .join { margin: 1rem 0 2.5rem; padding: 1.6rem 1.8rem; border: 1px solid #e8e8e8; border-left: 3px solid #007D69; }
+            .join h2 { font-size: 1.5rem; font-weight: 300; color: #007D69; letter-spacing: 0.02em; margin-bottom: 0.6rem; }
+            .join > p { color: #444; font-weight: 300; line-height: 1.7; max-width: 62rem; }
+            .join-types { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.2rem 2rem; margin: 1.4rem 0; }
+            .join-types h3 { font-size: 1rem; font-weight: 400; color: #111; margin-bottom: 0.3rem; }
+            .join-types p { font-size: 0.9rem; color: #666; font-weight: 300; line-height: 1.6; }
+            .join-ask { font-size: 0.95rem; color: #444; font-weight: 300; line-height: 1.7; }
+            .join-ask ol { margin: 0.4rem 0 0 1.2rem; }
+            .join-ask li { margin-bottom: 0.2rem; }
+            .join-ask code { font-family: inherit; background: #f0f7f5; color: #007D69; padding: 0 0.35rem; }
+            .join-actions { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 1.4rem; }
+            @media (max-width: 600px) { .join { padding: 1.3rem 1.1rem; } }
+        </style>
+        <section class="join" id="join">
+            <h2>Join or Visit the Group</h2>
+            <p>I am always happy to hear from people who want to work on network science, mobility science, complex systems and related areas, and who share an interest in using data to understand and reduce inequalities.</p>
+            <div class="join-types">
+                <div>
+                    <h3>PhD students</h3>
+                    <p>Prospective students interested in a PhD at the University of Exeter under my supervision.</p>
+                </div>
+                <div>
+                    <h3>Visiting PhD students</h3>
+                    <p>Students enrolled elsewhere who would like to spend a few weeks or months working with us.</p>
+                </div>
+                <div>
+                    <h3>Visiting researchers</h3>
+                    <p>Postdocs and academics interested in collaborating, from short visits to sabbaticals.</p>
+                </div>
+            </div>
+            <div class="join-ask">
+                To help me reply meaningfully, please include:
+                <ol>
+                    <li>Which of my research areas or papers interest you, and why.</li>
+                    <li>A short idea you would like to explore (a paragraph is enough).</li>
+                    <li>Your CV.</li>
+                    <li>How the PhD or visit would be funded (e.g. a scholarship, fellowship or your home institution).</li>
+                </ol>
+                Please start your email subject with <code>[PhD]</code> or <code>[Visiting]</code>.
+            </div>
+            <div class="join-actions">
+                <a class="btn-primary" data-eu="r.menezes" data-ed="exeter.ac.uk" href="#"
+                   onclick="this.href='mailto:'+this.dataset.eu+'@'+this.dataset.ed">Get in touch</a>
+                <a class="btn-outline" href="research.html">Explore my research</a>
+            </div>
+        </section>
+
         <!-- Placeholder for recent updates or highlights -->
         <section class="highlights" style="margin:2rem 0 1rem;">
             <h2>Recent Updates</h2>
