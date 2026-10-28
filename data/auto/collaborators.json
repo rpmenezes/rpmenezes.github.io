@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-27T11:06:22.357153+00:00",
+  "updated": "2026-10-28T11:42:24.475887+00:00",
   "collaborators": [
     {
       "authorId": "2337874088",
@@ -1661,6 +1661,40 @@
       ]
     },
     {
+      "authorId": "1880804",
+      "name": "Sascha Ossowski",
+      "collaborationCount": 5,
+      "firstCollabYear": 2004,
+      "lastCollabYear": 2011,
+      "sharedPapers": [
+        {
+          "paperId": "2ccaad576d9955228667662a0498950358ba03bc",
+          "title": "Acknowledgement",
+          "year": 2011
+        },
+        {
+          "paperId": "8fb21e734fb3e028f6f4e8533e5ba1384e21ae03",
+          "title": "On coordination and its significance to distributed and multi\u2010agent systems",
+          "year": 2006
+        },
+        {
+          "paperId": "ac8bc5b17c9e8bd1cbd7c9f4f7e9385521d66ab7",
+          "title": "Special Issue: Coordination Models and Systems",
+          "year": 2006
+        },
+        {
+          "paperId": "c75258d5b5eaf8a952ec17b1de3facfde1ed7ae5",
+          "title": "Session details: Coordination models, languages and applications (CM): poster paper",
+          "year": 2005
+        },
+        {
+          "paperId": "b9a8586be2e9f86f92a56bcc43b83c0946cdd635",
+          "title": "Session details: Coordination models, languages and applications (CM)",
+          "year": 2004
+        }
+      ]
+    },
+    {
       "authorId": "1766601",
       "name": "Vasco Furtado",
       "collaborationCount": 5,
@@ -1937,6 +1971,35 @@
       ]
     },
     {
+      "authorId": "1734017",
+      "name": "M. Silaghi",
+      "collaborationCount": 4,
+      "firstCollabYear": 2007,
+      "lastCollabYear": 2014,
+      "sharedPapers": [
+        {
+          "paperId": "c6fc1a2a42c09fda9e14f3bafdcb4743f3aea828",
+          "title": "Negative Implications of a Power-Law Distribution: A Study on Networks of Scientific Reviewers",
+          "year": 2014
+        },
+        {
+          "paperId": "2ccaad576d9955228667662a0498950358ba03bc",
+          "title": "Acknowledgement",
+          "year": 2011
+        },
+        {
+          "paperId": "5277adef1bb921ec92583803ed0477088ea180a1",
+          "title": "A Recommender System for Youtube Based on its Network of Reviewers",
+          "year": 2010
+        },
+        {
+          "paperId": "c420e449431efb612400394121d0a22e91f9675d",
+          "title": "Intelligent Systems at Florida Tech",
+          "year": 2007
+        }
+      ]
+    },
+    {
       "authorId": "1885782",
       "name": "Srividhya Venugopal",
       "collaborationCount": 4,
@@ -2020,35 +2083,6 @@
           "paperId": "f384b73eb7512b6ffc558b0acb4757bd2d763124",
           "title": "On the Idea of Using Nature-Inspired Metaphors to Improve Software Testing",
           "year": 2006
-        }
-      ]
-    },
-    {
-      "authorId": "1880804",
-      "name": "Sascha Ossowski",
-      "collaborationCount": 4,
-      "firstCollabYear": 2004,
-      "lastCollabYear": 2006,
-      "sharedPapers": [
-        {
-          "paperId": "8fb21e734fb3e028f6f4e8533e5ba1384e21ae03",
-          "title": "On coordination and its significance to distributed and multi\u2010agent systems",
-          "year": 2006
-        },
-        {
-          "paperId": "ac8bc5b17c9e8bd1cbd7c9f4f7e9385521d66ab7",
-          "title": "Special Issue: Coordination Models and Systems",
-          "year": 2006
-        },
-        {
-          "paperId": "c75258d5b5eaf8a952ec17b1de3facfde1ed7ae5",
-          "title": "Session details: Coordination models, languages and applications (CM): poster paper",
-          "year": 2005
-        },
-        {
-          "paperId": "b9a8586be2e9f86f92a56bcc43b83c0946cdd635",
-          "title": "Session details: Coordination models, languages and applications (CM)",
-          "year": 2004
         }
       ]
     },
@@ -2361,30 +2395,6 @@
           "paperId": "f64054e85fa80052d1528f503d8f581c6b0262eb",
           "title": "Uncovering Criminal Networks From Crime Locations",
           "year": 2014
-        }
-      ]
-    },
-    {
-      "authorId": "1734017",
-      "name": "M. Silaghi",
-      "collaborationCount": 3,
-      "firstCollabYear": 2007,
-      "lastCollabYear": 2014,
-      "sharedPapers": [
-        {
-          "paperId": "c6fc1a2a42c09fda9e14f3bafdcb4743f3aea828",
-          "title": "Negative Implications of a Power-Law Distribution: A Study on Networks of Scientific Reviewers",
-          "year": 2014
-        },
-        {
-          "paperId": "5277adef1bb921ec92583803ed0477088ea180a1",
-          "title": "A Recommender System for Youtube Based on its Network of Reviewers",
-          "year": 2010
-        },
-        {
-          "paperId": "c420e449431efb612400394121d0a22e91f9675d",
-          "title": "Intelligent Systems at Florida Tech",
-          "year": 2007
         }
       ]
     },
@@ -3460,6 +3470,25 @@
       ]
     },
     {
+      "authorId": "144994905",
+      "name": "D. Mitra",
+      "collaborationCount": 2,
+      "firstCollabYear": 2007,
+      "lastCollabYear": 2011,
+      "sharedPapers": [
+        {
+          "paperId": "2ccaad576d9955228667662a0498950358ba03bc",
+          "title": "Acknowledgement",
+          "year": 2011
+        },
+        {
+          "paperId": "c420e449431efb612400394121d0a22e91f9675d",
+          "title": "Intelligent Systems at Florida Tech",
+          "year": 2007
+        }
+      ]
+    },
+    {
       "authorId": "1762951",
       "name": "Charith Gunaratna",
       "collaborationCount": 2,
@@ -3726,8 +3755,8 @@
       ]
     },
     {
-      "authorId": "2514317947",
-      "name": "Alesandro Ricci",
+      "authorId": "144464279",
+      "name": "A. Ricci",
       "collaborationCount": 2,
       "firstCollabYear": 2002,
       "lastCollabYear": 2006,
@@ -3979,8 +4008,8 @@
       ]
     },
     {
-      "authorId": "113423120",
-      "name": "S. Gon\u00e7alves",
+      "authorId": "2053986883",
+      "name": "Sebastian Gon\u00e7alves",
       "collaborationCount": 1,
       "firstCollabYear": 2026,
       "lastCollabYear": 2026,
@@ -5519,6 +5548,244 @@
       ]
     },
     {
+      "authorId": "144275863",
+      "name": "Q. Bai",
+      "collaborationCount": 1,
+      "firstCollabYear": 2011,
+      "lastCollabYear": 2011,
+      "sharedPapers": [
+        {
+          "paperId": "2ccaad576d9955228667662a0498950358ba03bc",
+          "title": "Acknowledgement",
+          "year": 2011
+        }
+      ]
+    },
+    {
+      "authorId": "2514706484",
+      "name": "Magnus Boman",
+      "collaborationCount": 1,
+      "firstCollabYear": 2011,
+      "lastCollabYear": 2011,
+      "sharedPapers": [
+        {
+          "paperId": "2ccaad576d9955228667662a0498950358ba03bc",
+          "title": "Acknowledgement",
+          "year": 2011
+        }
+      ]
+    },
+    {
+      "authorId": "2148761004",
+      "name": "Long-Bing Cao",
+      "collaborationCount": 1,
+      "firstCollabYear": 2011,
+      "lastCollabYear": 2011,
+      "sharedPapers": [
+        {
+          "paperId": "2ccaad576d9955228667662a0498950358ba03bc",
+          "title": "Acknowledgement",
+          "year": 2011
+        }
+      ]
+    },
+    {
+      "authorId": "144987337",
+      "name": "S. Fatima",
+      "collaborationCount": 1,
+      "firstCollabYear": 2011,
+      "lastCollabYear": 2011,
+      "sharedPapers": [
+        {
+          "paperId": "2ccaad576d9955228667662a0498950358ba03bc",
+          "title": "Acknowledgement",
+          "year": 2011
+        }
+      ]
+    },
+    {
+      "authorId": "2519958621",
+      "name": "Ming Gao",
+      "collaborationCount": 1,
+      "firstCollabYear": 2011,
+      "lastCollabYear": 2011,
+      "sharedPapers": [
+        {
+          "paperId": "2ccaad576d9955228667662a0498950358ba03bc",
+          "title": "Acknowledgement",
+          "year": 2011
+        }
+      ]
+    },
+    {
+      "authorId": "153086065",
+      "name": "Mohand-Sa\u00efd Hacid",
+      "collaborationCount": 1,
+      "firstCollabYear": 2011,
+      "lastCollabYear": 2011,
+      "sharedPapers": [
+        {
+          "paperId": "2ccaad576d9955228667662a0498950358ba03bc",
+          "title": "Acknowledgement",
+          "year": 2011
+        }
+      ]
+    },
+    {
+      "authorId": "2520021394",
+      "name": "Adele Howe",
+      "collaborationCount": 1,
+      "firstCollabYear": 2011,
+      "lastCollabYear": 2011,
+      "sharedPapers": [
+        {
+          "paperId": "2ccaad576d9955228667662a0498950358ba03bc",
+          "title": "Acknowledgement",
+          "year": 2011
+        }
+      ]
+    },
+    {
+      "authorId": "1751181",
+      "name": "T. Moyaux",
+      "collaborationCount": 1,
+      "firstCollabYear": 2011,
+      "lastCollabYear": 2011,
+      "sharedPapers": [
+        {
+          "paperId": "2ccaad576d9955228667662a0498950358ba03bc",
+          "title": "Acknowledgement",
+          "year": 2011
+        }
+      ]
+    },
+    {
+      "authorId": "2072556136",
+      "name": "N. Nguyen",
+      "collaborationCount": 1,
+      "firstCollabYear": 2011,
+      "lastCollabYear": 2011,
+      "sharedPapers": [
+        {
+          "paperId": "2ccaad576d9955228667662a0498950358ba03bc",
+          "title": "Acknowledgement",
+          "year": 2011
+        }
+      ]
+    },
+    {
+      "authorId": "80389832",
+      "name": "Ana Paiva",
+      "collaborationCount": 1,
+      "firstCollabYear": 2011,
+      "lastCollabYear": 2011,
+      "sharedPapers": [
+        {
+          "paperId": "2ccaad576d9955228667662a0498950358ba03bc",
+          "title": "Acknowledgement",
+          "year": 2011
+        }
+      ]
+    },
+    {
+      "authorId": "2520435565",
+      "name": "S. Pal",
+      "collaborationCount": 1,
+      "firstCollabYear": 2011,
+      "lastCollabYear": 2011,
+      "sharedPapers": [
+        {
+          "paperId": "2ccaad576d9955228667662a0498950358ba03bc",
+          "title": "Acknowledgement",
+          "year": 2011
+        }
+      ]
+    },
+    {
+      "authorId": "2184985",
+      "name": "Hong-Jun Qiu",
+      "collaborationCount": 1,
+      "firstCollabYear": 2011,
+      "lastCollabYear": 2011,
+      "sharedPapers": [
+        {
+          "paperId": "2ccaad576d9955228667662a0498950358ba03bc",
+          "title": "Acknowledgement",
+          "year": 2011
+        }
+      ]
+    },
+    {
+      "authorId": "2507466871",
+      "name": "Jun Shen",
+      "collaborationCount": 1,
+      "firstCollabYear": 2011,
+      "lastCollabYear": 2011,
+      "sharedPapers": [
+        {
+          "paperId": "2ccaad576d9955228667662a0498950358ba03bc",
+          "title": "Acknowledgement",
+          "year": 2011
+        }
+      ]
+    },
+    {
+      "authorId": "2494554393",
+      "name": "Qiang Shen",
+      "collaborationCount": 1,
+      "firstCollabYear": 2011,
+      "lastCollabYear": 2011,
+      "sharedPapers": [
+        {
+          "paperId": "2ccaad576d9955228667662a0498950358ba03bc",
+          "title": "Acknowledgement",
+          "year": 2011
+        }
+      ]
+    },
+    {
+      "authorId": "2854616",
+      "name": "Ben-Yun Shi",
+      "collaborationCount": 1,
+      "firstCollabYear": 2011,
+      "lastCollabYear": 2011,
+      "sharedPapers": [
+        {
+          "paperId": "2ccaad576d9955228667662a0498950358ba03bc",
+          "title": "Acknowledgement",
+          "year": 2011
+        }
+      ]
+    },
+    {
+      "authorId": "2923064",
+      "name": "Y. Shu",
+      "collaborationCount": 1,
+      "firstCollabYear": 2011,
+      "lastCollabYear": 2011,
+      "sharedPapers": [
+        {
+          "paperId": "2ccaad576d9955228667662a0498950358ba03bc",
+          "title": "Acknowledgement",
+          "year": 2011
+        }
+      ]
+    },
+    {
+      "authorId": "1747560",
+      "name": "Guandong Xu",
+      "collaborationCount": 1,
+      "firstCollabYear": 2011,
+      "lastCollabYear": 2011,
+      "sharedPapers": [
+        {
+          "paperId": "2ccaad576d9955228667662a0498950358ba03bc",
+          "title": "Acknowledgement",
+          "year": 2011
+        }
+      ]
+    },
+    {
       "authorId": "9263491",
       "name": "D. Kular",
       "collaborationCount": 1,
@@ -5773,20 +6040,6 @@
     {
       "authorId": "2053161205",
       "name": "Philip K. Chan",
-      "collaborationCount": 1,
-      "firstCollabYear": 2007,
-      "lastCollabYear": 2007,
-      "sharedPapers": [
-        {
-          "paperId": "c420e449431efb612400394121d0a22e91f9675d",
-          "title": "Intelligent Systems at Florida Tech",
-          "year": 2007
-        }
-      ]
-    },
-    {
-      "authorId": "144994905",
-      "name": "D. Mitra",
       "collaborationCount": 1,
       "firstCollabYear": 2007,
       "lastCollabYear": 2007,
