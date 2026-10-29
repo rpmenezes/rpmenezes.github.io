@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-28T11:42:24.475887+00:00",
+  "updated": "2026-10-29T11:50:52.572584+00:00",
   "collaborators": [
     {
       "authorId": "2337874088",
@@ -3826,7 +3826,7 @@
       ]
     },
     {
-      "authorId": "2415771909",
+      "authorId": "2481791239",
       "name": "G. Moraes",
       "collaborationCount": 1,
       "firstCollabYear": 2026,
@@ -4877,7 +4877,7 @@
     },
     {
       "authorId": "3461182",
-      "name": "E. Ara\u00fajo",
+      "name": "E. F. de Mello Ara\u00fajo",
       "collaborationCount": 1,
       "firstCollabYear": 2018,
       "lastCollabYear": 2018,
@@ -5128,7 +5128,7 @@
       ]
     },
     {
-      "authorId": "2055873130",
+      "authorId": "38861123",
       "name": "B. Andrade",
       "collaborationCount": 1,
       "firstCollabYear": 2016,
@@ -5548,8 +5548,50 @@
       ]
     },
     {
+      "authorId": "1769712",
+      "name": "Anupriya Ankolekar",
+      "collaborationCount": 1,
+      "firstCollabYear": 2011,
+      "lastCollabYear": 2011,
+      "sharedPapers": [
+        {
+          "paperId": "2ccaad576d9955228667662a0498950358ba03bc",
+          "title": "Acknowledgement",
+          "year": 2011
+        }
+      ]
+    },
+    {
       "authorId": "144275863",
       "name": "Q. Bai",
+      "collaborationCount": 1,
+      "firstCollabYear": 2011,
+      "lastCollabYear": 2011,
+      "sharedPapers": [
+        {
+          "paperId": "2ccaad576d9955228667662a0498950358ba03bc",
+          "title": "Acknowledgement",
+          "year": 2011
+        }
+      ]
+    },
+    {
+      "authorId": "2065264769",
+      "name": "Michel Beigbeder",
+      "collaborationCount": 1,
+      "firstCollabYear": 2011,
+      "lastCollabYear": 2011,
+      "sharedPapers": [
+        {
+          "paperId": "2ccaad576d9955228667662a0498950358ba03bc",
+          "title": "Acknowledgement",
+          "year": 2011
+        }
+      ]
+    },
+    {
+      "authorId": "1718172",
+      "name": "G. Boella",
       "collaborationCount": 1,
       "firstCollabYear": 2011,
       "lastCollabYear": 2011,
@@ -5590,6 +5632,76 @@
       ]
     },
     {
+      "authorId": "98078081",
+      "name": "K. Cetnarowicz",
+      "collaborationCount": 1,
+      "firstCollabYear": 2011,
+      "lastCollabYear": 2011,
+      "sharedPapers": [
+        {
+          "paperId": "2ccaad576d9955228667662a0498950358ba03bc",
+          "title": "Acknowledgement",
+          "year": 2011
+        }
+      ]
+    },
+    {
+      "authorId": "1688598",
+      "name": "L. Cholvy",
+      "collaborationCount": 1,
+      "firstCollabYear": 2011,
+      "lastCollabYear": 2011,
+      "sharedPapers": [
+        {
+          "paperId": "2ccaad576d9955228667662a0498950358ba03bc",
+          "title": "Acknowledgement",
+          "year": 2011
+        }
+      ]
+    },
+    {
+      "authorId": "116417028",
+      "name": "Mircea Diaconescu",
+      "collaborationCount": 1,
+      "firstCollabYear": 2011,
+      "lastCollabYear": 2011,
+      "sharedPapers": [
+        {
+          "paperId": "2ccaad576d9955228667662a0498950358ba03bc",
+          "title": "Acknowledgement",
+          "year": 2011
+        }
+      ]
+    },
+    {
+      "authorId": "79774420",
+      "name": "F. Dignum",
+      "collaborationCount": 1,
+      "firstCollabYear": 2011,
+      "lastCollabYear": 2011,
+      "sharedPapers": [
+        {
+          "paperId": "2ccaad576d9955228667662a0498950358ba03bc",
+          "title": "Acknowledgement",
+          "year": 2011
+        }
+      ]
+    },
+    {
+      "authorId": "1706986",
+      "name": "Maria Fasli",
+      "collaborationCount": 1,
+      "firstCollabYear": 2011,
+      "lastCollabYear": 2011,
+      "sharedPapers": [
+        {
+          "paperId": "2ccaad576d9955228667662a0498950358ba03bc",
+          "title": "Acknowledgement",
+          "year": 2011
+        }
+      ]
+    },
+    {
       "authorId": "144987337",
       "name": "S. Fatima",
       "collaborationCount": 1,
@@ -5604,8 +5716,78 @@
       ]
     },
     {
+      "authorId": "1705291",
+      "name": "Valeria Fionda",
+      "collaborationCount": 1,
+      "firstCollabYear": 2011,
+      "lastCollabYear": 2011,
+      "sharedPapers": [
+        {
+          "paperId": "2ccaad576d9955228667662a0498950358ba03bc",
+          "title": "Acknowledgement",
+          "year": 2011
+        }
+      ]
+    },
+    {
+      "authorId": "2072101740",
+      "name": "A. M. Gadomski",
+      "collaborationCount": 1,
+      "firstCollabYear": 2011,
+      "lastCollabYear": 2011,
+      "sharedPapers": [
+        {
+          "paperId": "2ccaad576d9955228667662a0498950358ba03bc",
+          "title": "Acknowledgement",
+          "year": 2011
+        }
+      ]
+    },
+    {
+      "authorId": "46778930",
+      "name": "Matja\u017e Gams",
+      "collaborationCount": 1,
+      "firstCollabYear": 2011,
+      "lastCollabYear": 2011,
+      "sharedPapers": [
+        {
+          "paperId": "2ccaad576d9955228667662a0498950358ba03bc",
+          "title": "Acknowledgement",
+          "year": 2011
+        }
+      ]
+    },
+    {
       "authorId": "2519958621",
       "name": "Ming Gao",
+      "collaborationCount": 1,
+      "firstCollabYear": 2011,
+      "lastCollabYear": 2011,
+      "sharedPapers": [
+        {
+          "paperId": "2ccaad576d9955228667662a0498950358ba03bc",
+          "title": "Acknowledgement",
+          "year": 2011
+        }
+      ]
+    },
+    {
+      "authorId": "47033143",
+      "name": "Serge Garlatti",
+      "collaborationCount": 1,
+      "firstCollabYear": 2011,
+      "lastCollabYear": 2011,
+      "sharedPapers": [
+        {
+          "paperId": "2ccaad576d9955228667662a0498950358ba03bc",
+          "title": "Acknowledgement",
+          "year": 2011
+        }
+      ]
+    },
+    {
+      "authorId": "2072490676",
+      "name": "Joseph Giampapa",
       "collaborationCount": 1,
       "firstCollabYear": 2011,
       "lastCollabYear": 2011,
@@ -5646,6 +5828,76 @@
       ]
     },
     {
+      "authorId": "2324687189",
+      "name": "Xiao-Hua Hu",
+      "collaborationCount": 1,
+      "firstCollabYear": 2011,
+      "lastCollabYear": 2011,
+      "sharedPapers": [
+        {
+          "paperId": "2ccaad576d9955228667662a0498950358ba03bc",
+          "title": "Acknowledgement",
+          "year": 2011
+        }
+      ]
+    },
+    {
+      "authorId": "34791094",
+      "name": "Satoshi Kurihara",
+      "collaborationCount": 1,
+      "firstCollabYear": 2011,
+      "lastCollabYear": 2011,
+      "sharedPapers": [
+        {
+          "paperId": "2ccaad576d9955228667662a0498950358ba03bc",
+          "title": "Acknowledgement",
+          "year": 2011
+        }
+      ]
+    },
+    {
+      "authorId": "9386004",
+      "name": "Ioan Alfred Letia",
+      "collaborationCount": 1,
+      "firstCollabYear": 2011,
+      "lastCollabYear": 2011,
+      "sharedPapers": [
+        {
+          "paperId": "2ccaad576d9955228667662a0498950358ba03bc",
+          "title": "Acknowledgement",
+          "year": 2011
+        }
+      ]
+    },
+    {
+      "authorId": "1715165",
+      "name": "A. Lomuscio",
+      "collaborationCount": 1,
+      "firstCollabYear": 2011,
+      "lastCollabYear": 2011,
+      "sharedPapers": [
+        {
+          "paperId": "2ccaad576d9955228667662a0498950358ba03bc",
+          "title": "Acknowledgement",
+          "year": 2011
+        }
+      ]
+    },
+    {
+      "authorId": "2137365699",
+      "name": "S. Mendoza",
+      "collaborationCount": 1,
+      "firstCollabYear": 2011,
+      "lastCollabYear": 2011,
+      "sharedPapers": [
+        {
+          "paperId": "2ccaad576d9955228667662a0498950358ba03bc",
+          "title": "Acknowledgement",
+          "year": 2011
+        }
+      ]
+    },
+    {
       "authorId": "1751181",
       "name": "T. Moyaux",
       "collaborationCount": 1,
@@ -5674,6 +5926,34 @@
       ]
     },
     {
+      "authorId": "2519294938",
+      "name": "Eug\u00e9nio Oliveira",
+      "collaborationCount": 1,
+      "firstCollabYear": 2011,
+      "lastCollabYear": 2011,
+      "sharedPapers": [
+        {
+          "paperId": "2ccaad576d9955228667662a0498950358ba03bc",
+          "title": "Acknowledgement",
+          "year": 2011
+        }
+      ]
+    },
+    {
+      "authorId": "2064368",
+      "name": "T. \u00d6ren",
+      "collaborationCount": 1,
+      "firstCollabYear": 2011,
+      "lastCollabYear": 2011,
+      "sharedPapers": [
+        {
+          "paperId": "2ccaad576d9955228667662a0498950358ba03bc",
+          "title": "Acknowledgement",
+          "year": 2011
+        }
+      ]
+    },
+    {
       "authorId": "80389832",
       "name": "Ana Paiva",
       "collaborationCount": 1,
@@ -5690,6 +5970,20 @@
     {
       "authorId": "2520435565",
       "name": "S. Pal",
+      "collaborationCount": 1,
+      "firstCollabYear": 2011,
+      "lastCollabYear": 2011,
+      "sharedPapers": [
+        {
+          "paperId": "2ccaad576d9955228667662a0498950358ba03bc",
+          "title": "Acknowledgement",
+          "year": 2011
+        }
+      ]
+    },
+    {
+      "authorId": "1781361",
+      "name": "Loris Penserini",
       "collaborationCount": 1,
       "firstCollabYear": 2011,
       "lastCollabYear": 2011,
@@ -5744,6 +6038,20 @@
       ]
     },
     {
+      "authorId": "144506018",
+      "name": "Zhi-Qi Shen",
+      "collaborationCount": 1,
+      "firstCollabYear": 2011,
+      "lastCollabYear": 2011,
+      "sharedPapers": [
+        {
+          "paperId": "2ccaad576d9955228667662a0498950358ba03bc",
+          "title": "Acknowledgement",
+          "year": 2011
+        }
+      ]
+    },
+    {
       "authorId": "2854616",
       "name": "Ben-Yun Shi",
       "collaborationCount": 1,
@@ -5772,8 +6080,120 @@
       ]
     },
     {
+      "authorId": "1760683",
+      "name": "D. Talia",
+      "collaborationCount": 1,
+      "firstCollabYear": 2011,
+      "lastCollabYear": 2011,
+      "sharedPapers": [
+        {
+          "paperId": "2ccaad576d9955228667662a0498950358ba03bc",
+          "title": "Acknowledgement",
+          "year": 2011
+        }
+      ]
+    },
+    {
+      "authorId": "9216519",
+      "name": "G. Tsihrintzis",
+      "collaborationCount": 1,
+      "firstCollabYear": 2011,
+      "lastCollabYear": 2011,
+      "sharedPapers": [
+        {
+          "paperId": "2ccaad576d9955228667662a0498950358ba03bc",
+          "title": "Acknowledgement",
+          "year": 2011
+        }
+      ]
+    },
+    {
+      "authorId": "1747034",
+      "name": "A. Vasilakos",
+      "collaborationCount": 1,
+      "firstCollabYear": 2011,
+      "lastCollabYear": 2011,
+      "sharedPapers": [
+        {
+          "paperId": "2ccaad576d9955228667662a0498950358ba03bc",
+          "title": "Acknowledgement",
+          "year": 2011
+        }
+      ]
+    },
+    {
+      "authorId": "144022392",
+      "name": "Gerd Wagner",
+      "collaborationCount": 1,
+      "firstCollabYear": 2011,
+      "lastCollabYear": 2011,
+      "sharedPapers": [
+        {
+          "paperId": "2ccaad576d9955228667662a0498950358ba03bc",
+          "title": "Acknowledgement",
+          "year": 2011
+        }
+      ]
+    },
+    {
+      "authorId": "145325013",
+      "name": "S. Weng",
+      "collaborationCount": 1,
+      "firstCollabYear": 2011,
+      "lastCollabYear": 2011,
+      "sharedPapers": [
+        {
+          "paperId": "2ccaad576d9955228667662a0498950358ba03bc",
+          "title": "Acknowledgement",
+          "year": 2011
+        }
+      ]
+    },
+    {
       "authorId": "1747560",
       "name": "Guandong Xu",
+      "collaborationCount": 1,
+      "firstCollabYear": 2011,
+      "lastCollabYear": 2011,
+      "sharedPapers": [
+        {
+          "paperId": "2ccaad576d9955228667662a0498950358ba03bc",
+          "title": "Acknowledgement",
+          "year": 2011
+        }
+      ]
+    },
+    {
+      "authorId": "1698696",
+      "name": "Yi-Yu Yao",
+      "collaborationCount": 1,
+      "firstCollabYear": 2011,
+      "lastCollabYear": 2011,
+      "sharedPapers": [
+        {
+          "paperId": "2ccaad576d9955228667662a0498950358ba03bc",
+          "title": "Acknowledgement",
+          "year": 2011
+        }
+      ]
+    },
+    {
+      "authorId": "34994053",
+      "name": "Min-Jie Zhang",
+      "collaborationCount": 1,
+      "firstCollabYear": 2011,
+      "lastCollabYear": 2011,
+      "sharedPapers": [
+        {
+          "paperId": "2ccaad576d9955228667662a0498950358ba03bc",
+          "title": "Acknowledgement",
+          "year": 2011
+        }
+      ]
+    },
+    {
+      "authorId": "1757723",
+      "name": "E. Zumpano",
       "collaborationCount": 1,
       "firstCollabYear": 2011,
       "lastCollabYear": 2011,
