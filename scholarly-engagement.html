@@ -37,6 +37,7 @@
                         <ul class="dropdown-menu">
                             <li><a href="#editorial">Editorial and Advisory Roles</a></li>
                             <li><a href="#students">Supervision</a></li>
+                            <li><a href="#alumni">Alumni</a></li>
                             <li><a href="#collaborators">Selected Collaborators</a></li>
                         </ul>
                     </li>
@@ -81,6 +82,13 @@
         <section id="students" class="content-section">
             <h2>Supervision</h2>
             <div class="collaborators-grid" id="supervision-grid">
+                <p style="color:#999;font-weight:300;font-size:0.9rem;">Loading…</p>
+            </div>
+        </section>
+
+        <section id="alumni" class="content-section">
+            <h2>Alumni</h2>
+            <div class="collaborators-grid" id="alumni-grid">
                 <p style="color:#999;font-weight:300;font-size:0.9rem;">Loading…</p>
             </div>
         </section>
@@ -151,21 +159,27 @@
             .then(items => {
                 const lastName = name => name.trim().split(/\s+/).pop().toLowerCase();
                 items.sort((a, b) => lastName(a.name).localeCompare(lastName(b.name)));
-                const grid = document.getElementById('supervision-grid');
-                grid.innerHTML = items.map(item => {
-                    const nameHtml = item.url
-                        ? `<a href="${item.url}" target="_blank">${item.name}</a>`
-                        : item.name;
-                    const location = [item.affiliation, item.country].filter(Boolean).join(', ');
-                    return `<div class="collaborator-item">
-                        <span class="collaborator-name">${nameHtml}</span>
-                        ${location ? `<span class="collaborator-affiliation">${location}</span>` : ''}
-                    </div>`;
-                }).join('');
+                // "current": true marks people supervised now; everyone else is an alumnus.
+                const render = (id, list) => {
+                    document.getElementById(id).innerHTML = list.map(item => {
+                        const nameHtml = item.url
+                            ? `<a href="${item.url}" target="_blank">${item.name}</a>`
+                            : item.name;
+                        const location = [item.affiliation, item.country].filter(Boolean).join(', ');
+                        return `<div class="collaborator-item">
+                            <span class="collaborator-name">${nameHtml}</span>
+                            ${location ? `<span class="collaborator-affiliation">${location}</span>` : ''}
+                        </div>`;
+                    }).join('');
+                };
+                render('supervision-grid', items.filter(i => i.current));
+                render('alumni-grid', items.filter(i => !i.current));
             })
             .catch(() => {
-                document.getElementById('supervision-grid').innerHTML =
-                    '<p style="color:#999;font-weight:300;font-size:0.9rem;">Unable to load supervision data.</p>';
+                ['supervision-grid', 'alumni-grid'].forEach(id => {
+                    document.getElementById(id).innerHTML =
+                        '<p style="color:#999;font-weight:300;font-size:0.9rem;">Unable to load supervision data.</p>';
+                });
             });
     </script>
     <script>

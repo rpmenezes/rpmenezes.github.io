@@ -1,4 +1,6 @@
 [
+  { "name": "Elham Helmi",            "affiliation": "University of Exeter",                 "country": "UK",          "url": null, "current": true },
+  { "name": "Xing Chen",              "affiliation": "University of Exeter, UK & University of Queensland", "country": "Australia", "url": null, "current": true },
   { "name": "Younis Al-Rozz",         "affiliation": "Northern Technical University",        "country": "Iraq",        "url": "https://staff.ntu.edu.iq/younis.alrozz" },
   { "name": "Firas Aswad",            "affiliation": "University of Mosul",                  "country": "Iraq",        "url": null },
   { "name": "Hugo Barbosa",           "affiliation": "University of Exeter",                 "country": "UK",          "url": "https://hsbarbosa.github.io/" },
@@ -18,7 +20,7 @@
   { "name": "Harith Hamoodat",        "affiliation": "Northern Technical University",        "country": "Iraq",        "url": null },
   { "name": "Nandini Iyer",           "affiliation": "Northeastern University London",       "country": "UK",          "url": null },
   { "name": "Ana Maria Jaramillo",    "affiliation": "Complexity Science Hub",               "country": "Austria",     "url": null },
-  { "name": "Andina Lerma",           "affiliation": "University of Pernambuco",             "country": "Brazil",      "url": null },
+  { "name": "Andina Lerma",           "affiliation": "University of Pernambuco",             "country": "Brazil",      "url": null, "current": true },
   { "name": "Mariana Macedo",         "affiliation": "Constructor University",               "country": "Germany",     "url": "https://marianagmmacedo.github.io/" },
   { "name": "Guilherme Machado",      "affiliation": "University of Aveiro",                 "country": "Portugal",    "url": null },
   { "name": "Basim Mahmood",          "affiliation": "University of Mosul",                  "country": "Iraq",        "url": null },
@@ -32,7 +34,7 @@
   { "name": "Dillon Rose",            "affiliation": "Microsoft",                            "country": "USA",         "url": null },
   { "name": "Priya Saha",             "affiliation": "Franklin Templeton Investments",       "country": "USA",         "url": null },
   { "name": "Clodomir Santana",       "affiliation": "University of California Davis",       "country": "USA",         "url": null },
-  { "name": "Andrew Schendl",         "affiliation": "Bangor University",                    "country": "Wales",       "url": null },
+  { "name": "Andrew Schendl",         "affiliation": "Bangor University",                    "country": "Wales",       "url": null, "current": true },
   { "name": "Mahdi Seyednezhad",      "affiliation": "Abbvie",                               "country": "USA",         "url": null },
   { "name": "Julio Taveira",          "affiliation": "University of Pernambuco",             "country": "Brazil",      "url": null },
   { "name": "Marcello Tomasini",      "affiliation": "Yelp",                                 "country": "USA",         "url": null },
@@ -40,5 +42,5 @@
   { "name": "Srividhya Venugopal",    "affiliation": null,                                  "country": "India",       "url": null },
   { "name": "Sascia Virruso",         "affiliation": "Università di Bologna",                "country": "Italy",       "url": null },
   { "name": "Kesann Walrond-McClean", "affiliation": "Google",                               "country": "USA",         "url": null },
-  { "name": "Yuchen Zhou",            "affiliation": "University of Exeter",                 "country": "UK",          "url": null }
+  { "name": "Yuchen Zhou",            "affiliation": "University of Exeter",                 "country": "UK",          "url": null, "current": true }
 ]
