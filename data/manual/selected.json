@@ -49,5 +49,11 @@
   { "name": "Pu Wang",                       "affiliation": "Central South University",                          "country": "China",     "url": null },
   { "name": "Alan Wood",                     "affiliation": "University of York",                                "country": "UK",        "url": null },
   { "name": "Franco Zambonelli",             "affiliation": "Università di Modena e Reggio Emilia",              "country": "Italy",     "url": "https://www.agentgroup.unimore.it/Zambonelli/" },
-  { "name": "Vinko Zlatic",                  "affiliation": "Institute Rudjer Boskovic",                         "country": "Croatia",   "url": null }
+  { "name": "Vinko Zlatic",                  "affiliation": "Institute Rudjer Boskovic",                         "country": "Croatia",   "url": null },
+  { "name": "Charlotte James",               "affiliation": "University of Bristol",                             "country": "UK",       "url": null },
+  { "name": "Hywel T. P. Williams",          "affiliation": "University of Exeter",                              "country": "UK",       "url": null },
+  { "name": "Antonio R. R. Papa",            "affiliation": "Observatório Nacional",                             "country": "Brazil",   "url": null },
+  { "name": "André L. V. Coelho",            "affiliation": "Universidade de Fortaleza",                         "country": "Brazil",   "url": null },
+  { "name": "Simon Willcock",                "affiliation": "Rothamsted Research & Bangor University",           "country": "UK",       "url": null },
+  { "name": "James M. Bullock",              "affiliation": "UK Centre for Ecology & Hydrology",                 "country": "UK",       "url": null }
 ]
