@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-29T11:50:52.572584+00:00",
+  "updated": "2026-10-30T11:42:55.325793+00:00",
   "collaborators": [
     {
       "authorId": "2337874088",
@@ -960,6 +960,55 @@
           "paperId": "207d014d7064ced8f3fbff5385283b2a0b448125",
           "title": "ADAGA - ADaptive AGgregation Algorithm for Sensor Networks",
           "year": 2006
+        }
+      ]
+    },
+    {
+      "authorId": "2202786502",
+      "name": "Fernando Buarque de Lima-Neto",
+      "collaborationCount": 8,
+      "firstCollabYear": 2013,
+      "lastCollabYear": 2017,
+      "sharedPapers": [
+        {
+          "paperId": "b4a1050579f9ce901f45df408ddef020f532a298",
+          "title": "Sensing language relationships from social media",
+          "year": 2017
+        },
+        {
+          "paperId": "479128700e92c0b392cd19f40292c1cee4fbb17e",
+          "title": "Characterization of Football Supporters from Twitter Conversations",
+          "year": 2016
+        },
+        {
+          "paperId": "21ae4df2de7add91e551cc394c8370fabf945134",
+          "title": "The effect of recency to human mobility",
+          "year": 2015
+        },
+        {
+          "paperId": "70ea714e0010f6084a38a0e9ec91b013fad8a9e4",
+          "title": "The E\ufb00ect of Recency to Human Mobility \u2013 Supporting Information \u2013",
+          "year": 2015
+        },
+        {
+          "paperId": "7fe4a0e3112fe77139ab076bb16bb40de3affed2",
+          "title": "The effect of recency to human mobility",
+          "year": 2015
+        },
+        {
+          "paperId": "6fabb45c05d346f115a28906a2c87d6eaa34c803",
+          "title": "Understanding History Through Networks: The Brazil Case Study",
+          "year": 2013
+        },
+        {
+          "paperId": "e5c5d1cd82f0cb7cc8cb63c61d8a2e6abefd22e3",
+          "title": "Returners and Explorers Dichotomy in Web Browsing Behavior - A Human Mobility Approach",
+          "year": 2016
+        },
+        {
+          "paperId": "e95026e57fef8e20f1cc85436de597d5e4f7d3b7",
+          "title": "Football Conversations: What Twitter Reveals about the 2014 World Cup",
+          "year": 2015
         }
       ]
     },
@@ -2616,7 +2665,7 @@
     },
     {
       "authorId": "2336740238",
-      "name": "J. Taveira",
+      "name": "J. C. Taveira",
       "collaborationCount": 2,
       "firstCollabYear": 2024,
       "lastCollabYear": 2026,
@@ -3337,25 +3386,6 @@
       ]
     },
     {
-      "authorId": "6727411",
-      "name": "Fernando Buarque de Lima-Neto",
-      "collaborationCount": 2,
-      "firstCollabYear": 2015,
-      "lastCollabYear": 2016,
-      "sharedPapers": [
-        {
-          "paperId": "e5c5d1cd82f0cb7cc8cb63c61d8a2e6abefd22e3",
-          "title": "Returners and Explorers Dichotomy in Web Browsing Behavior - A Human Mobility Approach",
-          "year": 2016
-        },
-        {
-          "paperId": "e95026e57fef8e20f1cc85436de597d5e4f7d3b7",
-          "title": "Football Conversations: What Twitter Reveals about the 2014 World Cup",
-          "year": 2015
-        }
-      ]
-    },
-    {
       "authorId": "46819524",
       "name": "S. Qin",
       "collaborationCount": 2,
@@ -3470,6 +3500,63 @@
       ]
     },
     {
+      "authorId": "2072101740",
+      "name": "A. M. Gadomski",
+      "collaborationCount": 2,
+      "firstCollabYear": 2006,
+      "lastCollabYear": 2011,
+      "sharedPapers": [
+        {
+          "paperId": "2ccaad576d9955228667662a0498950358ba03bc",
+          "title": "Acknowledgement",
+          "year": 2011
+        },
+        {
+          "paperId": "a0c1063c9d229f35cb86660361bd66e4dcdda676",
+          "title": "Acknowledgement",
+          "year": 2006
+        }
+      ]
+    },
+    {
+      "authorId": "153086065",
+      "name": "Mohand-Sa\u00efd Hacid",
+      "collaborationCount": 2,
+      "firstCollabYear": 2006,
+      "lastCollabYear": 2011,
+      "sharedPapers": [
+        {
+          "paperId": "2ccaad576d9955228667662a0498950358ba03bc",
+          "title": "Acknowledgement",
+          "year": 2011
+        },
+        {
+          "paperId": "a0c1063c9d229f35cb86660361bd66e4dcdda676",
+          "title": "Acknowledgement",
+          "year": 2006
+        }
+      ]
+    },
+    {
+      "authorId": "9386004",
+      "name": "Ioan Alfred Letia",
+      "collaborationCount": 2,
+      "firstCollabYear": 2006,
+      "lastCollabYear": 2011,
+      "sharedPapers": [
+        {
+          "paperId": "2ccaad576d9955228667662a0498950358ba03bc",
+          "title": "Acknowledgement",
+          "year": 2011
+        },
+        {
+          "paperId": "a0c1063c9d229f35cb86660361bd66e4dcdda676",
+          "title": "Acknowledgement",
+          "year": 2006
+        }
+      ]
+    },
+    {
       "authorId": "144994905",
       "name": "D. Mitra",
       "collaborationCount": 2,
@@ -3485,6 +3572,44 @@
           "paperId": "c420e449431efb612400394121d0a22e91f9675d",
           "title": "Intelligent Systems at Florida Tech",
           "year": 2007
+        }
+      ]
+    },
+    {
+      "authorId": "2520435565",
+      "name": "Sankar K. Pal",
+      "collaborationCount": 2,
+      "firstCollabYear": 2006,
+      "lastCollabYear": 2011,
+      "sharedPapers": [
+        {
+          "paperId": "2ccaad576d9955228667662a0498950358ba03bc",
+          "title": "Acknowledgement",
+          "year": 2011
+        },
+        {
+          "paperId": "a0c1063c9d229f35cb86660361bd66e4dcdda676",
+          "title": "Acknowledgement",
+          "year": 2006
+        }
+      ]
+    },
+    {
+      "authorId": "145325013",
+      "name": "S. Weng",
+      "collaborationCount": 2,
+      "firstCollabYear": 2006,
+      "lastCollabYear": 2011,
+      "sharedPapers": [
+        {
+          "paperId": "2ccaad576d9955228667662a0498950358ba03bc",
+          "title": "Acknowledgement",
+          "year": 2011
+        },
+        {
+          "paperId": "a0c1063c9d229f35cb86660361bd66e4dcdda676",
+          "title": "Acknowledgement",
+          "year": 2006
         }
       ]
     },
@@ -4512,7 +4637,7 @@
       ]
     },
     {
-      "authorId": "2136140048",
+      "authorId": "2973242",
       "name": "H. Siqueira",
       "collaborationCount": 1,
       "firstCollabYear": 2021,
@@ -5254,20 +5379,6 @@
       ]
     },
     {
-      "authorId": "2202786502",
-      "name": "Fernando B de Lima-Neto",
-      "collaborationCount": 1,
-      "firstCollabYear": 2015,
-      "lastCollabYear": 2015,
-      "sharedPapers": [
-        {
-          "paperId": "7fe4a0e3112fe77139ab076bb16bb40de3affed2",
-          "title": "The effect of recency to human mobility",
-          "year": 2015
-        }
-      ]
-    },
-    {
       "authorId": "3313647",
       "name": "L. G. Moyano",
       "collaborationCount": 1,
@@ -5646,6 +5757,20 @@
       ]
     },
     {
+      "authorId": "2522323389",
+      "name": "L. Chen",
+      "collaborationCount": 1,
+      "firstCollabYear": 2011,
+      "lastCollabYear": 2011,
+      "sharedPapers": [
+        {
+          "paperId": "2ccaad576d9955228667662a0498950358ba03bc",
+          "title": "Acknowledgement",
+          "year": 2011
+        }
+      ]
+    },
+    {
       "authorId": "1688598",
       "name": "L. Cholvy",
       "collaborationCount": 1,
@@ -5730,20 +5855,6 @@
       ]
     },
     {
-      "authorId": "2072101740",
-      "name": "A. M. Gadomski",
-      "collaborationCount": 1,
-      "firstCollabYear": 2011,
-      "lastCollabYear": 2011,
-      "sharedPapers": [
-        {
-          "paperId": "2ccaad576d9955228667662a0498950358ba03bc",
-          "title": "Acknowledgement",
-          "year": 2011
-        }
-      ]
-    },
-    {
       "authorId": "46778930",
       "name": "Matja\u017e Gams",
       "collaborationCount": 1,
@@ -5800,8 +5911,8 @@
       ]
     },
     {
-      "authorId": "153086065",
-      "name": "Mohand-Sa\u00efd Hacid",
+      "authorId": "2520021394",
+      "name": "Adele Howe",
       "collaborationCount": 1,
       "firstCollabYear": 2011,
       "lastCollabYear": 2011,
@@ -5814,8 +5925,8 @@
       ]
     },
     {
-      "authorId": "2520021394",
-      "name": "Adele Howe",
+      "authorId": "2488477059",
+      "name": "Jian-Lun Hu",
       "collaborationCount": 1,
       "firstCollabYear": 2011,
       "lastCollabYear": 2011,
@@ -5856,8 +5967,22 @@
       ]
     },
     {
-      "authorId": "9386004",
-      "name": "Ioan Alfred Letia",
+      "authorId": "2524346227",
+      "name": "J. M. Lee",
+      "collaborationCount": 1,
+      "firstCollabYear": 2011,
+      "lastCollabYear": 2011,
+      "sharedPapers": [
+        {
+          "paperId": "2ccaad576d9955228667662a0498950358ba03bc",
+          "title": "Acknowledgement",
+          "year": 2011
+        }
+      ]
+    },
+    {
+      "authorId": "35761977",
+      "name": "Ji-Ming Liu",
       "collaborationCount": 1,
       "firstCollabYear": 2011,
       "lastCollabYear": 2011,
@@ -5956,20 +6081,6 @@
     {
       "authorId": "80389832",
       "name": "Ana Paiva",
-      "collaborationCount": 1,
-      "firstCollabYear": 2011,
-      "lastCollabYear": 2011,
-      "sharedPapers": [
-        {
-          "paperId": "2ccaad576d9955228667662a0498950358ba03bc",
-          "title": "Acknowledgement",
-          "year": 2011
-        }
-      ]
-    },
-    {
-      "authorId": "2520435565",
-      "name": "S. Pal",
       "collaborationCount": 1,
       "firstCollabYear": 2011,
       "lastCollabYear": 2011,
@@ -6136,8 +6247,8 @@
       ]
     },
     {
-      "authorId": "145325013",
-      "name": "S. Weng",
+      "authorId": "2489414875",
+      "name": "Huan-Niu Wang",
       "collaborationCount": 1,
       "firstCollabYear": 2011,
       "lastCollabYear": 2011,
@@ -6482,6 +6593,832 @@
           "paperId": "c4c189f4074e322c083f59c1a3d6fa53a2e7a907",
           "title": "Coordinating Knowledge in Pervasive Environments",
           "year": 2007
+        }
+      ]
+    },
+    {
+      "authorId": "1854500",
+      "name": "R. Akerkar",
+      "collaborationCount": 1,
+      "firstCollabYear": 2006,
+      "lastCollabYear": 2006,
+      "sharedPapers": [
+        {
+          "paperId": "a0c1063c9d229f35cb86660361bd66e4dcdda676",
+          "title": "Acknowledgement",
+          "year": 2006
+        }
+      ]
+    },
+    {
+      "authorId": "2058890669",
+      "name": "Bernd Amann",
+      "collaborationCount": 1,
+      "firstCollabYear": 2006,
+      "lastCollabYear": 2006,
+      "sharedPapers": [
+        {
+          "paperId": "a0c1063c9d229f35cb86660361bd66e4dcdda676",
+          "title": "Acknowledgement",
+          "year": 2006
+        }
+      ]
+    },
+    {
+      "authorId": "134358848",
+      "name": "M. Barley",
+      "collaborationCount": 1,
+      "firstCollabYear": 2006,
+      "lastCollabYear": 2006,
+      "sharedPapers": [
+        {
+          "paperId": "a0c1063c9d229f35cb86660361bd66e4dcdda676",
+          "title": "Acknowledgement",
+          "year": 2006
+        }
+      ]
+    },
+    {
+      "authorId": "2058760071",
+      "name": "Olivier Boissier",
+      "collaborationCount": 1,
+      "firstCollabYear": 2006,
+      "lastCollabYear": 2006,
+      "sharedPapers": [
+        {
+          "paperId": "a0c1063c9d229f35cb86660361bd66e4dcdda676",
+          "title": "Acknowledgement",
+          "year": 2006
+        }
+      ]
+    },
+    {
+      "authorId": "2523340609",
+      "name": "Hans-Dieter Burkhard",
+      "collaborationCount": 1,
+      "firstCollabYear": 2006,
+      "lastCollabYear": 2006,
+      "sharedPapers": [
+        {
+          "paperId": "a0c1063c9d229f35cb86660361bd66e4dcdda676",
+          "title": "Acknowledgement",
+          "year": 2006
+        }
+      ]
+    },
+    {
+      "authorId": "2361230668",
+      "name": "Cory J. Butz",
+      "collaborationCount": 1,
+      "firstCollabYear": 2006,
+      "lastCollabYear": 2006,
+      "sharedPapers": [
+        {
+          "paperId": "a0c1063c9d229f35cb86660361bd66e4dcdda676",
+          "title": "Acknowledgement",
+          "year": 2006
+        }
+      ]
+    },
+    {
+      "authorId": "1721847",
+      "name": "A. Byde",
+      "collaborationCount": 1,
+      "firstCollabYear": 2006,
+      "lastCollabYear": 2006,
+      "sharedPapers": [
+        {
+          "paperId": "a0c1063c9d229f35cb86660361bd66e4dcdda676",
+          "title": "Acknowledgement",
+          "year": 2006
+        }
+      ]
+    },
+    {
+      "authorId": "1399443272",
+      "name": "B. Chaib-draa",
+      "collaborationCount": 1,
+      "firstCollabYear": 2006,
+      "lastCollabYear": 2006,
+      "sharedPapers": [
+        {
+          "paperId": "a0c1063c9d229f35cb86660361bd66e4dcdda676",
+          "title": "Acknowledgement",
+          "year": 2006
+        }
+      ]
+    },
+    {
+      "authorId": "3072167",
+      "name": "Nigel Collier",
+      "collaborationCount": 1,
+      "firstCollabYear": 2006,
+      "lastCollabYear": 2006,
+      "sharedPapers": [
+        {
+          "paperId": "a0c1063c9d229f35cb86660361bd66e4dcdda676",
+          "title": "Acknowledgement",
+          "year": 2006
+        }
+      ]
+    },
+    {
+      "authorId": "1852193",
+      "name": "M. Cossentino",
+      "collaborationCount": 1,
+      "firstCollabYear": 2006,
+      "lastCollabYear": 2006,
+      "sharedPapers": [
+        {
+          "paperId": "a0c1063c9d229f35cb86660361bd66e4dcdda676",
+          "title": "Acknowledgement",
+          "year": 2006
+        }
+      ]
+    },
+    {
+      "authorId": "2078581309",
+      "name": "Alexis Drogoul",
+      "collaborationCount": 1,
+      "firstCollabYear": 2006,
+      "lastCollabYear": 2006,
+      "sharedPapers": [
+        {
+          "paperId": "a0c1063c9d229f35cb86660361bd66e4dcdda676",
+          "title": "Acknowledgement",
+          "year": 2006
+        }
+      ]
+    },
+    {
+      "authorId": "2064584345",
+      "name": "Edmund H. Durfee",
+      "collaborationCount": 1,
+      "firstCollabYear": 2006,
+      "lastCollabYear": 2006,
+      "sharedPapers": [
+        {
+          "paperId": "a0c1063c9d229f35cb86660361bd66e4dcdda676",
+          "title": "Acknowledgement",
+          "year": 2006
+        }
+      ]
+    },
+    {
+      "authorId": "2064941599",
+      "name": "Georg Gottlob",
+      "collaborationCount": 1,
+      "firstCollabYear": 2006,
+      "lastCollabYear": 2006,
+      "sharedPapers": [
+        {
+          "paperId": "a0c1063c9d229f35cb86660361bd66e4dcdda676",
+          "title": "Acknowledgement",
+          "year": 2006
+        }
+      ]
+    },
+    {
+      "authorId": "2054300309",
+      "name": "Pilar Herrero",
+      "collaborationCount": 1,
+      "firstCollabYear": 2006,
+      "lastCollabYear": 2006,
+      "sharedPapers": [
+        {
+          "paperId": "a0c1063c9d229f35cb86660361bd66e4dcdda676",
+          "title": "Acknowledgement",
+          "year": 2006
+        }
+      ]
+    },
+    {
+      "authorId": "153481005",
+      "name": "M. Herzog",
+      "collaborationCount": 1,
+      "firstCollabYear": 2006,
+      "lastCollabYear": 2006,
+      "sharedPapers": [
+        {
+          "paperId": "a0c1063c9d229f35cb86660361bd66e4dcdda676",
+          "title": "Acknowledgement",
+          "year": 2006
+        }
+      ]
+    },
+    {
+      "authorId": "1706100",
+      "name": "W. van der Hoek",
+      "collaborationCount": 1,
+      "firstCollabYear": 2006,
+      "lastCollabYear": 2006,
+      "sharedPapers": [
+        {
+          "paperId": "a0c1063c9d229f35cb86660361bd66e4dcdda676",
+          "title": "Acknowledgement",
+          "year": 2006
+        }
+      ]
+    },
+    {
+      "authorId": "2390072931",
+      "name": "Chun-Nan Hsu",
+      "collaborationCount": 1,
+      "firstCollabYear": 2006,
+      "lastCollabYear": 2006,
+      "sharedPapers": [
+        {
+          "paperId": "a0c1063c9d229f35cb86660361bd66e4dcdda676",
+          "title": "Acknowledgement",
+          "year": 2006
+        }
+      ]
+    },
+    {
+      "authorId": "1944586",
+      "name": "J. Humble",
+      "collaborationCount": 1,
+      "firstCollabYear": 2006,
+      "lastCollabYear": 2006,
+      "sharedPapers": [
+        {
+          "paperId": "a0c1063c9d229f35cb86660361bd66e4dcdda676",
+          "title": "Acknowledgement",
+          "year": 2006
+        }
+      ]
+    },
+    {
+      "authorId": "2520608251",
+      "name": "Patrick C. K. Hung",
+      "collaborationCount": 1,
+      "firstCollabYear": 2006,
+      "lastCollabYear": 2006,
+      "sharedPapers": [
+        {
+          "paperId": "a0c1063c9d229f35cb86660361bd66e4dcdda676",
+          "title": "Acknowledgement",
+          "year": 2006
+        }
+      ]
+    },
+    {
+      "authorId": "145175747",
+      "name": "D. Kalles",
+      "collaborationCount": 1,
+      "firstCollabYear": 2006,
+      "lastCollabYear": 2006,
+      "sharedPapers": [
+        {
+          "paperId": "a0c1063c9d229f35cb86660361bd66e4dcdda676",
+          "title": "Acknowledgement",
+          "year": 2006
+        }
+      ]
+    },
+    {
+      "authorId": "1721327",
+      "name": "J. Kephart",
+      "collaborationCount": 1,
+      "firstCollabYear": 2006,
+      "lastCollabYear": 2006,
+      "sharedPapers": [
+        {
+          "paperId": "a0c1063c9d229f35cb86660361bd66e4dcdda676",
+          "title": "Acknowledgement",
+          "year": 2006
+        }
+      ]
+    },
+    {
+      "authorId": "1798357",
+      "name": "M. Klusch",
+      "collaborationCount": 1,
+      "firstCollabYear": 2006,
+      "lastCollabYear": 2006,
+      "sharedPapers": [
+        {
+          "paperId": "a0c1063c9d229f35cb86660361bd66e4dcdda676",
+          "title": "Acknowledgement",
+          "year": 2006
+        }
+      ]
+    },
+    {
+      "authorId": "2053121053",
+      "name": "Michael Koch",
+      "collaborationCount": 1,
+      "firstCollabYear": 2006,
+      "lastCollabYear": 2006,
+      "sharedPapers": [
+        {
+          "paperId": "a0c1063c9d229f35cb86660361bd66e4dcdda676",
+          "title": "Acknowledgement",
+          "year": 2006
+        }
+      ]
+    },
+    {
+      "authorId": "1734673",
+      "name": "Kazuhiro Kuwabara",
+      "collaborationCount": 1,
+      "firstCollabYear": 2006,
+      "lastCollabYear": 2006,
+      "sharedPapers": [
+        {
+          "paperId": "a0c1063c9d229f35cb86660361bd66e4dcdda676",
+          "title": "Acknowledgement",
+          "year": 2006
+        }
+      ]
+    },
+    {
+      "authorId": "2522953972",
+      "name": "Raymond Yiu Keung Lau",
+      "collaborationCount": 1,
+      "firstCollabYear": 2006,
+      "lastCollabYear": 2006,
+      "sharedPapers": [
+        {
+          "paperId": "a0c1063c9d229f35cb86660361bd66e4dcdda676",
+          "title": "Acknowledgement",
+          "year": 2006
+        }
+      ]
+    },
+    {
+      "authorId": "2504085821",
+      "name": "Hua-Yang Li",
+      "collaborationCount": 1,
+      "firstCollabYear": 2006,
+      "lastCollabYear": 2006,
+      "sharedPapers": [
+        {
+          "paperId": "a0c1063c9d229f35cb86660361bd66e4dcdda676",
+          "title": "Acknowledgement",
+          "year": 2006
+        }
+      ]
+    },
+    {
+      "authorId": "2133353708",
+      "name": "Juan-Zi Li",
+      "collaborationCount": 1,
+      "firstCollabYear": 2006,
+      "lastCollabYear": 2006,
+      "sharedPapers": [
+        {
+          "paperId": "a0c1063c9d229f35cb86660361bd66e4dcdda676",
+          "title": "Acknowledgement",
+          "year": 2006
+        }
+      ]
+    },
+    {
+      "authorId": "2479154606",
+      "name": "Xue-Long Li",
+      "collaborationCount": 1,
+      "firstCollabYear": 2006,
+      "lastCollabYear": 2006,
+      "sharedPapers": [
+        {
+          "paperId": "a0c1063c9d229f35cb86660361bd66e4dcdda676",
+          "title": "Acknowledgement",
+          "year": 2006
+        }
+      ]
+    },
+    {
+      "authorId": "2479702920",
+      "name": "Y. Li",
+      "collaborationCount": 1,
+      "firstCollabYear": 2006,
+      "lastCollabYear": 2006,
+      "sharedPapers": [
+        {
+          "paperId": "a0c1063c9d229f35cb86660361bd66e4dcdda676",
+          "title": "Acknowledgement",
+          "year": 2006
+        }
+      ]
+    },
+    {
+      "authorId": "2486703702",
+      "name": "Pawan Lingras",
+      "collaborationCount": 1,
+      "firstCollabYear": 2006,
+      "lastCollabYear": 2006,
+      "sharedPapers": [
+        {
+          "paperId": "a0c1063c9d229f35cb86660361bd66e4dcdda676",
+          "title": "Acknowledgement",
+          "year": 2006
+        }
+      ]
+    },
+    {
+      "authorId": "2462538153",
+      "name": "Chao-Lin Liu",
+      "collaborationCount": 1,
+      "firstCollabYear": 2006,
+      "lastCollabYear": 2006,
+      "sharedPapers": [
+        {
+          "paperId": "a0c1063c9d229f35cb86660361bd66e4dcdda676",
+          "title": "Acknowledgement",
+          "year": 2006
+        }
+      ]
+    },
+    {
+      "authorId": "2265945014",
+      "name": "Ji-Ming Liu",
+      "collaborationCount": 1,
+      "firstCollabYear": 2006,
+      "lastCollabYear": 2006,
+      "sharedPapers": [
+        {
+          "paperId": "a0c1063c9d229f35cb86660361bd66e4dcdda676",
+          "title": "Acknowledgement",
+          "year": 2006
+        }
+      ]
+    },
+    {
+      "authorId": "2481891012",
+      "name": "B. L\u00f3pez",
+      "collaborationCount": 1,
+      "firstCollabYear": 2006,
+      "lastCollabYear": 2006,
+      "sharedPapers": [
+        {
+          "paperId": "a0c1063c9d229f35cb86660361bd66e4dcdda676",
+          "title": "Acknowledgement",
+          "year": 2006
+        }
+      ]
+    },
+    {
+      "authorId": "40863117",
+      "name": "Nicol\u00e1s Mar\u00edn",
+      "collaborationCount": 1,
+      "firstCollabYear": 2006,
+      "lastCollabYear": 2006,
+      "sharedPapers": [
+        {
+          "paperId": "a0c1063c9d229f35cb86660361bd66e4dcdda676",
+          "title": "Acknowledgement",
+          "year": 2006
+        }
+      ]
+    },
+    {
+      "authorId": "2499443583",
+      "name": "E. Mill\u00e1n",
+      "collaborationCount": 1,
+      "firstCollabYear": 2006,
+      "lastCollabYear": 2006,
+      "sharedPapers": [
+        {
+          "paperId": "a0c1063c9d229f35cb86660361bd66e4dcdda676",
+          "title": "Acknowledgement",
+          "year": 2006
+        }
+      ]
+    },
+    {
+      "authorId": "34572361",
+      "name": "Atsuyoshi Nakamura",
+      "collaborationCount": 1,
+      "firstCollabYear": 2006,
+      "lastCollabYear": 2006,
+      "sharedPapers": [
+        {
+          "paperId": "a0c1063c9d229f35cb86660361bd66e4dcdda676",
+          "title": "Acknowledgement",
+          "year": 2006
+        }
+      ]
+    },
+    {
+      "authorId": "2492019475",
+      "name": "Ichiro Osawa",
+      "collaborationCount": 1,
+      "firstCollabYear": 2006,
+      "lastCollabYear": 2006,
+      "sharedPapers": [
+        {
+          "paperId": "a0c1063c9d229f35cb86660361bd66e4dcdda676",
+          "title": "Acknowledgement",
+          "year": 2006
+        }
+      ]
+    },
+    {
+      "authorId": "98616639",
+      "name": "H. Van Dyke Parunak",
+      "collaborationCount": 1,
+      "firstCollabYear": 2006,
+      "lastCollabYear": 2006,
+      "sharedPapers": [
+        {
+          "paperId": "a0c1063c9d229f35cb86660361bd66e4dcdda676",
+          "title": "Acknowledgement",
+          "year": 2006
+        }
+      ]
+    },
+    {
+      "authorId": "143870560",
+      "name": "B. Prasad",
+      "collaborationCount": 1,
+      "firstCollabYear": 2006,
+      "lastCollabYear": 2006,
+      "sharedPapers": [
+        {
+          "paperId": "a0c1063c9d229f35cb86660361bd66e4dcdda676",
+          "title": "Acknowledgement",
+          "year": 2006
+        }
+      ]
+    },
+    {
+      "authorId": "2237781074",
+      "name": "Zbigniew W. Ras",
+      "collaborationCount": 1,
+      "firstCollabYear": 2006,
+      "lastCollabYear": 2006,
+      "sharedPapers": [
+        {
+          "paperId": "a0c1063c9d229f35cb86660361bd66e4dcdda676",
+          "title": "Acknowledgement",
+          "year": 2006
+        }
+      ]
+    },
+    {
+      "authorId": "48907835",
+      "name": "Javier Segovia",
+      "collaborationCount": 1,
+      "firstCollabYear": 2006,
+      "lastCollabYear": 2006,
+      "sharedPapers": [
+        {
+          "paperId": "a0c1063c9d229f35cb86660361bd66e4dcdda676",
+          "title": "Acknowledgement",
+          "year": 2006
+        }
+      ]
+    },
+    {
+      "authorId": "2496334454",
+      "name": "Ga Shen",
+      "collaborationCount": 1,
+      "firstCollabYear": 2006,
+      "lastCollabYear": 2006,
+      "sharedPapers": [
+        {
+          "paperId": "a0c1063c9d229f35cb86660361bd66e4dcdda676",
+          "title": "Acknowledgement",
+          "year": 2006
+        }
+      ]
+    },
+    {
+      "authorId": "2520918782",
+      "name": "Zhong-Zhi Shi",
+      "collaborationCount": 1,
+      "firstCollabYear": 2006,
+      "lastCollabYear": 2006,
+      "sharedPapers": [
+        {
+          "paperId": "a0c1063c9d229f35cb86660361bd66e4dcdda676",
+          "title": "Acknowledgement",
+          "year": 2006
+        }
+      ]
+    },
+    {
+      "authorId": "1681000",
+      "name": "Arul Siromoney",
+      "collaborationCount": 1,
+      "firstCollabYear": 2006,
+      "lastCollabYear": 2006,
+      "sharedPapers": [
+        {
+          "paperId": "a0c1063c9d229f35cb86660361bd66e4dcdda676",
+          "title": "Acknowledgement",
+          "year": 2006
+        }
+      ]
+    },
+    {
+      "authorId": "1690503",
+      "name": "Einoshin Suzuki",
+      "collaborationCount": 1,
+      "firstCollabYear": 2006,
+      "lastCollabYear": 2006,
+      "sharedPapers": [
+        {
+          "paperId": "a0c1063c9d229f35cb86660361bd66e4dcdda676",
+          "title": "Acknowledgement",
+          "year": 2006
+        }
+      ]
+    },
+    {
+      "authorId": "2522675313",
+      "name": "Pang-Ning Tan",
+      "collaborationCount": 1,
+      "firstCollabYear": 2006,
+      "lastCollabYear": 2006,
+      "sharedPapers": [
+        {
+          "paperId": "a0c1063c9d229f35cb86660361bd66e4dcdda676",
+          "title": "Acknowledgement",
+          "year": 2006
+        }
+      ]
+    },
+    {
+      "authorId": "1782351",
+      "name": "M. Vincini",
+      "collaborationCount": 1,
+      "firstCollabYear": 2006,
+      "lastCollabYear": 2006,
+      "sharedPapers": [
+        {
+          "paperId": "a0c1063c9d229f35cb86660361bd66e4dcdda676",
+          "title": "Acknowledgement",
+          "year": 2006
+        }
+      ]
+    },
+    {
+      "authorId": "2523189708",
+      "name": "R. Wallace",
+      "collaborationCount": 1,
+      "firstCollabYear": 2006,
+      "lastCollabYear": 2006,
+      "sharedPapers": [
+        {
+          "paperId": "a0c1063c9d229f35cb86660361bd66e4dcdda676",
+          "title": "Acknowledgement",
+          "year": 2006
+        }
+      ]
+    },
+    {
+      "authorId": "1752021",
+      "name": "K. Wiese",
+      "collaborationCount": 1,
+      "firstCollabYear": 2006,
+      "lastCollabYear": 2006,
+      "sharedPapers": [
+        {
+          "paperId": "a0c1063c9d229f35cb86660361bd66e4dcdda676",
+          "title": "Acknowledgement",
+          "year": 2006
+        }
+      ]
+    },
+    {
+      "authorId": "2109556979",
+      "name": "Zong-Huan Wu",
+      "collaborationCount": 1,
+      "firstCollabYear": 2006,
+      "lastCollabYear": 2006,
+      "sharedPapers": [
+        {
+          "paperId": "a0c1063c9d229f35cb86660361bd66e4dcdda676",
+          "title": "Acknowledgement",
+          "year": 2006
+        }
+      ]
+    },
+    {
+      "authorId": "2469610882",
+      "name": "Q. Yang",
+      "collaborationCount": 1,
+      "firstCollabYear": 2006,
+      "lastCollabYear": 2006,
+      "sharedPapers": [
+        {
+          "paperId": "a0c1063c9d229f35cb86660361bd66e4dcdda676",
+          "title": "Acknowledgement",
+          "year": 2006
+        }
+      ]
+    },
+    {
+      "authorId": "3251154",
+      "name": "Jing-Tao Yao",
+      "collaborationCount": 1,
+      "firstCollabYear": 2006,
+      "lastCollabYear": 2006,
+      "sharedPapers": [
+        {
+          "paperId": "a0c1063c9d229f35cb86660361bd66e4dcdda676",
+          "title": "Acknowledgement",
+          "year": 2006
+        }
+      ]
+    },
+    {
+      "authorId": "144204102",
+      "name": "John Yen",
+      "collaborationCount": 1,
+      "firstCollabYear": 2006,
+      "lastCollabYear": 2006,
+      "sharedPapers": [
+        {
+          "paperId": "a0c1063c9d229f35cb86660361bd66e4dcdda676",
+          "title": "Acknowledgement",
+          "year": 2006
+        }
+      ]
+    },
+    {
+      "authorId": "2238399711",
+      "name": "J. Yu",
+      "collaborationCount": 1,
+      "firstCollabYear": 2006,
+      "lastCollabYear": 2006,
+      "sharedPapers": [
+        {
+          "paperId": "a0c1063c9d229f35cb86660361bd66e4dcdda676",
+          "title": "Acknowledgement",
+          "year": 2006
+        }
+      ]
+    },
+    {
+      "authorId": "32076894",
+      "name": "Cheng-Qi Zhang",
+      "collaborationCount": 1,
+      "firstCollabYear": 2006,
+      "lastCollabYear": 2006,
+      "sharedPapers": [
+        {
+          "paperId": "a0c1063c9d229f35cb86660361bd66e4dcdda676",
+          "title": "Acknowledgement",
+          "year": 2006
+        }
+      ]
+    },
+    {
+      "authorId": "2524293980",
+      "name": "Weihai Zhang",
+      "collaborationCount": 1,
+      "firstCollabYear": 2006,
+      "lastCollabYear": 2006,
+      "sharedPapers": [
+        {
+          "paperId": "a0c1063c9d229f35cb86660361bd66e4dcdda676",
+          "title": "Acknowledgement",
+          "year": 2006
+        }
+      ]
+    },
+    {
+      "authorId": "2510550740",
+      "name": "Xiao-Long Zhang",
+      "collaborationCount": 1,
+      "firstCollabYear": 2006,
+      "lastCollabYear": 2006,
+      "sharedPapers": [
+        {
+          "paperId": "a0c1063c9d229f35cb86660361bd66e4dcdda676",
+          "title": "Acknowledgement",
+          "year": 2006
+        }
+      ]
+    },
+    {
+      "authorId": "2524427149",
+      "name": "Y. Zhang",
+      "collaborationCount": 1,
+      "firstCollabYear": 2006,
+      "lastCollabYear": 2006,
+      "sharedPapers": [
+        {
+          "paperId": "a0c1063c9d229f35cb86660361bd66e4dcdda676",
+          "title": "Acknowledgement",
+          "year": 2006
+        }
+      ]
+    },
+    {
+      "authorId": "1783402",
+      "name": "W. Ziarko",
+      "collaborationCount": 1,
+      "firstCollabYear": 2006,
+      "lastCollabYear": 2006,
+      "sharedPapers": [
+        {
+          "paperId": "a0c1063c9d229f35cb86660361bd66e4dcdda676",
+          "title": "Acknowledgement",
+          "year": 2006
         }
       ]
     },
