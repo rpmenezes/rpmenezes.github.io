@@ -1,10 +1,10 @@
 {
-  "updated": "2026-11-03T13:04:29.276969+00:00",
+  "updated": "2026-11-04T13:22:06.006756+00:00",
   "stats": {
-    "paperCount": 246,
+    "paperCount": 247,
     "hIndex": 23,
-    "citationCount": 3220,
-    "influentialCitationCount": 126
+    "citationCount": 3259,
+    "influentialCitationCount": 0
   },
   "publications": [
     {
@@ -80,7 +80,7 @@
       "venue": "Computational Urban Science",
       "doiValue": "10.1007/s43762-026-00252-x",
       "doiUrl": "https://doi.org/10.1007/s43762-026-00252-x",
-      "citationCount": 1
+      "citationCount": null
     },
     {
       "year": "2026",
@@ -107,7 +107,7 @@
       "venue": "Applied Network Science",
       "doiValue": "10.1007/s41109-026-00777-4",
       "doiUrl": "https://doi.org/10.1007/s41109-026-00777-4",
-      "citationCount": null
+      "citationCount": 2
     },
     {
       "year": "2025",
@@ -167,7 +167,7 @@
       "venue": "Royal Society Open Science",
       "doiValue": "10.1098/rsos.241288",
       "doiUrl": "https://doi.org/10.1098/rsos.241288",
-      "citationCount": null
+      "citationCount": 6
     },
     {
       "year": "2025",
@@ -209,7 +209,7 @@
       "venue": "Environmental Data Science",
       "doiValue": "10.1017/eds.2025.9",
       "doiUrl": "https://doi.org/10.1017/eds.2025.9",
-      "citationCount": 7
+      "citationCount": null
     },
     {
       "year": "2025",
@@ -345,7 +345,7 @@
       "venue": "Nature Human Behaviour",
       "doiValue": "10.1038/s41562-023-01660-3",
       "doiUrl": "https://doi.org/10.1038/s41562-023-01660-3",
-      "citationCount": 71
+      "citationCount": null
     },
     {
       "year": "2023",
