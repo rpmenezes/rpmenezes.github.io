@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-09T14:25:39.654765+00:00",
+  "updated": "2026-11-10T13:49:06.609878+00:00",
   "collaborators": [
     {
       "authorId": "2337874088",
@@ -3380,6 +3380,25 @@
       ]
     },
     {
+      "authorId": "47907758",
+      "name": "Mario C. Deng",
+      "collaborationCount": 2,
+      "firstCollabYear": 2013,
+      "lastCollabYear": 2014,
+      "sharedPapers": [
+        {
+          "paperId": "429ab0117ab3401c7adb68913bf3785c95ec149e",
+          "title": "Abstract 18386: Using Social Media as a Method of Increasing Organ Donation",
+          "year": 2014
+        },
+        {
+          "paperId": "120ee5d1bb461841e935e5e74d613f49c46b1ad1",
+          "title": "The United States Heart and Lung Transplant \u201cSocial\u201d Network. Insights from the UNOS Database",
+          "year": 2013
+        }
+      ]
+    },
+    {
       "authorId": "46819524",
       "name": "S. Qin",
       "collaborationCount": 2,
@@ -4884,7 +4903,7 @@
     },
     {
       "authorId": "151192851",
-      "name": "R. Rodrigues",
+      "name": "Rodrigo L. Rodrigues",
       "collaborationCount": 1,
       "firstCollabYear": 2019,
       "lastCollabYear": 2019,
@@ -4996,7 +5015,7 @@
     },
     {
       "authorId": "3461182",
-      "name": "E. F. de Mello Ara\u00fajo",
+      "name": "E. Ara\u00fajo",
       "collaborationCount": 1,
       "firstCollabYear": 2018,
       "lastCollabYear": 2018,
@@ -5457,20 +5476,6 @@
       ]
     },
     {
-      "authorId": "47907758",
-      "name": "Mario C. Deng",
-      "collaborationCount": 1,
-      "firstCollabYear": 2014,
-      "lastCollabYear": 2014,
-      "sharedPapers": [
-        {
-          "paperId": "429ab0117ab3401c7adb68913bf3785c95ec149e",
-          "title": "Abstract 18386: Using Social Media as a Method of Increasing Organ Donation",
-          "year": 2014
-        }
-      ]
-    },
-    {
       "authorId": "41202874",
       "name": "D. Rose",
       "collaborationCount": 1,
@@ -5578,20 +5583,6 @@
         {
           "paperId": "0b4a4c089cd6b4ee3f3aeb13d5287b0a007a49fe",
           "title": "On the relation between tourism and trade: A network experiment",
-          "year": 2013
-        }
-      ]
-    },
-    {
-      "authorId": "3666961",
-      "name": "Mario C. Deng",
-      "collaborationCount": 1,
-      "firstCollabYear": 2013,
-      "lastCollabYear": 2013,
-      "sharedPapers": [
-        {
-          "paperId": "120ee5d1bb461841e935e5e74d613f49c46b1ad1",
-          "title": "The United States Heart and Lung Transplant \u201cSocial\u201d Network. Insights from the UNOS Database",
           "year": 2013
         }
       ]
@@ -5920,7 +5911,7 @@
     },
     {
       "authorId": "2520021394",
-      "name": "Adele Howe",
+      "name": "A. Howe",
       "collaborationCount": 1,
       "firstCollabYear": 2011,
       "lastCollabYear": 2011,
@@ -6522,7 +6513,7 @@
     },
     {
       "authorId": "2503011409",
-      "name": "F. Rodrigues",
+      "name": "Fernando Rodrigues",
       "collaborationCount": 1,
       "firstCollabYear": 2008,
       "lastCollabYear": 2008,
