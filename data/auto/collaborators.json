@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-10T13:49:06.609878+00:00",
+  "updated": "2026-11-11T13:00:26.360091+00:00",
   "collaborators": [
     {
       "authorId": "2337874088",
@@ -959,6 +959,55 @@
       ]
     },
     {
+      "authorId": "2202786502",
+      "name": "Fernando Buarque de Lima-Neto",
+      "collaborationCount": 8,
+      "firstCollabYear": 2010,
+      "lastCollabYear": 2017,
+      "sharedPapers": [
+        {
+          "paperId": "b4a1050579f9ce901f45df408ddef020f532a298",
+          "title": "Sensing language relationships from social media",
+          "year": 2017
+        },
+        {
+          "paperId": "479128700e92c0b392cd19f40292c1cee4fbb17e",
+          "title": "Characterization of Football Supporters from Twitter Conversations",
+          "year": 2016
+        },
+        {
+          "paperId": "70ea714e0010f6084a38a0e9ec91b013fad8a9e4",
+          "title": "The E\ufb00ect of Recency to Human Mobility \u2013 Supporting Information \u2013",
+          "year": 2015
+        },
+        {
+          "paperId": "7fe4a0e3112fe77139ab076bb16bb40de3affed2",
+          "title": "The effect of recency to human mobility",
+          "year": 2015
+        },
+        {
+          "paperId": "6fabb45c05d346f115a28906a2c87d6eaa34c803",
+          "title": "Understanding History Through Networks: The Brazil Case Study",
+          "year": 2013
+        },
+        {
+          "paperId": "e5c5d1cd82f0cb7cc8cb63c61d8a2e6abefd22e3",
+          "title": "Returners and Explorers Dichotomy in Web Browsing Behavior - A Human Mobility Approach",
+          "year": 2016
+        },
+        {
+          "paperId": "e95026e57fef8e20f1cc85436de597d5e4f7d3b7",
+          "title": "Football Conversations: What Twitter Reveals about the 2014 World Cup",
+          "year": 2015
+        },
+        {
+          "paperId": "45fa843265bc42eb3ca74a646b1c27b2658f60cf",
+          "title": "Hybrid and evolutionary Agent-Based Social Simulations using L\u00e9vy flight as randomization method",
+          "year": 2010
+        }
+      ]
+    },
+    {
       "authorId": "144244421",
       "name": "Alan Wood",
       "collaborationCount": 8,
@@ -1136,50 +1185,6 @@
           "paperId": "f64054e85fa80052d1528f503d8f581c6b0262eb",
           "title": "Uncovering Criminal Networks From Crime Locations",
           "year": 2014
-        }
-      ]
-    },
-    {
-      "authorId": "2202786502",
-      "name": "Fernando Buarque de Lima-Neto",
-      "collaborationCount": 7,
-      "firstCollabYear": 2013,
-      "lastCollabYear": 2017,
-      "sharedPapers": [
-        {
-          "paperId": "b4a1050579f9ce901f45df408ddef020f532a298",
-          "title": "Sensing language relationships from social media",
-          "year": 2017
-        },
-        {
-          "paperId": "479128700e92c0b392cd19f40292c1cee4fbb17e",
-          "title": "Characterization of Football Supporters from Twitter Conversations",
-          "year": 2016
-        },
-        {
-          "paperId": "70ea714e0010f6084a38a0e9ec91b013fad8a9e4",
-          "title": "The E\ufb00ect of Recency to Human Mobility \u2013 Supporting Information \u2013",
-          "year": 2015
-        },
-        {
-          "paperId": "7fe4a0e3112fe77139ab076bb16bb40de3affed2",
-          "title": "The effect of recency to human mobility",
-          "year": 2015
-        },
-        {
-          "paperId": "6fabb45c05d346f115a28906a2c87d6eaa34c803",
-          "title": "Understanding History Through Networks: The Brazil Case Study",
-          "year": 2013
-        },
-        {
-          "paperId": "e5c5d1cd82f0cb7cc8cb63c61d8a2e6abefd22e3",
-          "title": "Returners and Explorers Dichotomy in Web Browsing Behavior - A Human Mobility Approach",
-          "year": 2016
-        },
-        {
-          "paperId": "e95026e57fef8e20f1cc85436de597d5e4f7d3b7",
-          "title": "Football Conversations: What Twitter Reveals about the 2014 World Cup",
-          "year": 2015
         }
       ]
     },
@@ -3286,7 +3291,7 @@
     },
     {
       "authorId": "12075437",
-      "name": "Gene Lim",
+      "name": "Ge-Ne Lim",
       "collaborationCount": 2,
       "firstCollabYear": 2014,
       "lastCollabYear": 2019,
@@ -4707,7 +4712,7 @@
     },
     {
       "authorId": "144900299",
-      "name": "M. Santana",
+      "name": "Ma\u00edra Santana",
       "collaborationCount": 1,
       "firstCollabYear": 2021,
       "lastCollabYear": 2021,
@@ -6386,20 +6391,6 @@
       ]
     },
     {
-      "authorId": "2503093397",
-      "name": "Fernando B. Lima",
-      "collaborationCount": 1,
-      "firstCollabYear": 2010,
-      "lastCollabYear": 2010,
-      "sharedPapers": [
-        {
-          "paperId": "45fa843265bc42eb3ca74a646b1c27b2658f60cf",
-          "title": "Hybrid and evolutionary Agent-Based Social Simulations using L\u00e9vy flight as randomization method",
-          "year": 2010
-        }
-      ]
-    },
-    {
       "authorId": "2200276523",
       "name": "Mamei Marco",
       "collaborationCount": 1,
@@ -6933,7 +6924,7 @@
     },
     {
       "authorId": "2522953972",
-      "name": "Raymond Yiu Keung Lau",
+      "name": "R. Lau",
       "collaborationCount": 1,
       "firstCollabYear": 2006,
       "lastCollabYear": 2006,
