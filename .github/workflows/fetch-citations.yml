@@ -1,0 +1,72 @@
+name: Fetch Citations by Year
+
+on:
+  schedule:
+    - cron: '0 5 * * 1'  # Weekly, Mondays at 5am UTC
+  workflow_dispatch:       # Allow manual trigger
+
+jobs:
+  fetch-citations:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Fetch Google Scholar citations per year (via SerpAPI)
+        env:
+          SERPAPI_KEY: ${{ secrets.SERPAPI_KEY }}
+        run: |
+          python3 - << 'EOF'
+          import urllib.request, urllib.error, urllib.parse, json, os, sys, time
+
+          AUTHOR_ID = 'eHej2g8AAAAJ'
+          FIRST_YEAR = 2017
+          PATH = 'data/manual/citations-by-year.json'
+
+          url = 'https://serpapi.com/search.json?' + urllib.parse.urlencode({
+              'engine': 'google_scholar_author', 'author_id': AUTHOR_ID,
+              'hl': 'en', 'api_key': os.environ['SERPAPI_KEY']})
+
+          # One call per run; retry transient failures. Each attempt counts
+          # against the SerpAPI quota only if it succeeds.
+          data = None
+          for attempt in range(3):
+              try:
+                  with urllib.request.urlopen(url, timeout=60) as r:
+                      data = json.loads(r.read())
+                  break
+              except (urllib.error.URLError, TimeoutError) as e:
+                  print(f'Attempt {attempt + 1} failed: {e}')
+                  time.sleep(10 * (attempt + 1))
+
+          # Any failure keeps the existing file rather than blanking the chart.
+          if not data or data.get('error'):
+              print('::warning::SerpAPI fetch failed, keeping previous data:',
+                    (data or {}).get('error', 'no response'))
+              sys.exit(0)
+          graph = data.get('cited_by', {}).get('graph', [])
+          rows = [{'year': int(g['year']), 'citations': int(g['citations'])}
+                  for g in graph if int(g.get('year', 0)) >= FIRST_YEAR]
+          rows.sort(key=lambda x: x['year'])
+          if len(rows) < 5:
+              print('::warning::Unexpectedly few years returned, keeping previous data:', rows)
+              sys.exit(0)
+
+          with open(PATH, 'w') as f:
+              f.write('[\n' + ',\n'.join(
+                  '  { "year": %d, "citations": %d }' % (r['year'], r['citations']) for r in rows) + '\n]\n')
+          for r in rows:
+              print(r['year'], r['citations'])
+          EOF
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/manual/citations-by-year.json
+          git diff --staged --quiet || git commit -m "Update citations by year [$(date -u +%Y-%m-%d)]"
+          git pull --rebase
+          git push
