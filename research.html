@@ -504,7 +504,7 @@
 
             const CHART_H = 90;
 
-            fetch('data/manual/citations-by-year.json?v=' + Date.now())
+            fetch('data/auto/citations-by-year.json?v=' + Date.now())
                 .then(r => r.json())
                 .then(data => {
                     const max = Math.max(...data.map(d => d.citations));
