@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-12T14:01:38.829577+00:00",
+  "updated": "2026-11-13T13:28:30.368740+00:00",
   "collaborators": [
     {
       "authorId": "2337874088",
@@ -2029,6 +2029,35 @@
       ]
     },
     {
+      "authorId": "1715670",
+      "name": "Marco Mamei",
+      "collaborationCount": 4,
+      "firstCollabYear": 2006,
+      "lastCollabYear": 2013,
+      "sharedPapers": [
+        {
+          "paperId": "3fa66573d763d127b0478452d0e6e6704dd170d2",
+          "title": "Preface to the Special section on Self-Organizing Coordination",
+          "year": 2013
+        },
+        {
+          "paperId": "d68b916ffab994cc6d93c4c48f64e1b52e9c12ad",
+          "title": "WITHDRAWN: Preface to the Special issue on Self-Organizing Coordination",
+          "year": 2013
+        },
+        {
+          "paperId": "4ab74b9a0bd8baeedb841909b199ba9b1180fa36",
+          "title": "Case studies for self-organization in computer science",
+          "year": 2006
+        },
+        {
+          "paperId": "9631b8932094c338c77c1cfb807a260c184db31d",
+          "title": "Session details: Self-organizing complex systems track",
+          "year": 2010
+        }
+      ]
+    },
+    {
       "authorId": "35238725",
       "name": "Andr\u00e9 L. V. Coelho",
       "collaborationCount": 4,
@@ -2443,30 +2472,6 @@
           "paperId": "f64054e85fa80052d1528f503d8f581c6b0262eb",
           "title": "Uncovering Criminal Networks From Crime Locations",
           "year": 2014
-        }
-      ]
-    },
-    {
-      "authorId": "1715670",
-      "name": "M. Mamei",
-      "collaborationCount": 3,
-      "firstCollabYear": 2006,
-      "lastCollabYear": 2013,
-      "sharedPapers": [
-        {
-          "paperId": "3fa66573d763d127b0478452d0e6e6704dd170d2",
-          "title": "Preface to the Special section on Self-Organizing Coordination",
-          "year": 2013
-        },
-        {
-          "paperId": "d68b916ffab994cc6d93c4c48f64e1b52e9c12ad",
-          "title": "WITHDRAWN: Preface to the Special issue on Self-Organizing Coordination",
-          "year": 2013
-        },
-        {
-          "paperId": "4ab74b9a0bd8baeedb841909b199ba9b1180fa36",
-          "title": "Case studies for self-organization in computer science",
-          "year": 2006
         }
       ]
     },
@@ -6391,20 +6396,6 @@
       ]
     },
     {
-      "authorId": "2200276523",
-      "name": "Mamei Marco",
-      "collaborationCount": 1,
-      "firstCollabYear": 2010,
-      "lastCollabYear": 2010,
-      "sharedPapers": [
-        {
-          "paperId": "9631b8932094c338c77c1cfb807a260c184db31d",
-          "title": "Session details: Self-organizing complex systems track",
-          "year": 2010
-        }
-      ]
-    },
-    {
       "authorId": "144813437",
       "name": "Ricardo Perrone",
       "collaborationCount": 1,
@@ -7091,8 +7082,8 @@
       ]
     },
     {
-      "authorId": "2492019475",
-      "name": "Ichiro Osawa",
+      "authorId": "1793768",
+      "name": "I. Osawa",
       "collaborationCount": 1,
       "firstCollabYear": 2006,
       "lastCollabYear": 2006,
