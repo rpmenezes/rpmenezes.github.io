@@ -36,7 +36,7 @@
     const style = document.createElement('style');
     style.textContent =
         '.share-group { display:inline-flex; align-items:center; gap:0.6rem; flex-wrap:wrap; }' +
-        '.share-label { font-size:0.8rem; font-weight:300; color:#999; letter-spacing:0.04em; }' +
+        '.share-label { font-size:0.8rem; font-weight:300; color:#707070; letter-spacing:0.04em; }' +
         '.share-btn { display:inline-flex; align-items:center; justify-content:center;' +
         ' box-sizing:border-box; width:2.875rem; height:2.875rem; padding:0; }' +
         '.share-btn img { width:16px; height:16px; object-fit:contain; transition:filter 0.2s ease; }' +
