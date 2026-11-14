@@ -15,7 +15,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v5
 
-      - name: Fetch Google Scholar citations per year (via SerpAPI)
+      - name: Fetch Google Scholar citations (via SerpAPI)
         env:
           SERPAPI_KEY: ${{ secrets.SERPAPI_KEY }}
         run: |
@@ -25,6 +25,7 @@ jobs:
           AUTHOR_ID = 'eHej2g8AAAAJ'
           FIRST_YEAR = 2017
           PATH = 'data/auto/citations-by-year.json'
+          STATS_PATH = 'data/auto/scholar-stats.json'
 
           url = 'https://serpapi.com/search.json?' + urllib.parse.urlencode({
               'engine': 'google_scholar_author', 'author_id': AUTHOR_ID,
@@ -47,6 +48,20 @@ jobs:
               print('::warning::SerpAPI fetch failed, keeping previous data:',
                     (data or {}).get('error', 'no response'))
               sys.exit(0)
+          # Profile totals (all time): citations, h-index, i10-index. The table
+          # is a list of one-key dicts, e.g. [{'citations': {'all': .., ...}}, ...].
+          table = {k: v for row in data.get('cited_by', {}).get('table', []) for k, v in row.items()}
+          try:
+              stats = {'citationCount': int(table['citations']['all']),
+                       'hIndex': int(table['h_index']['all']),
+                       'i10Index': int(table['i10_index']['all'])}
+              with open(STATS_PATH, 'w') as f:
+                  json.dump(stats, f, indent=2)
+                  f.write('\n')
+              print('Totals:', stats)
+          except (KeyError, TypeError, ValueError) as e:
+              print('::warning::Scholar totals missing, keeping previous data:', e)
+
           graph = data.get('cited_by', {}).get('graph', [])
           rows = [{'year': int(g['year']), 'citations': int(g['citations'])}
                   for g in graph if int(g.get('year', 0)) >= FIRST_YEAR]
@@ -66,7 +81,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/auto/citations-by-year.json
-          git diff --staged --quiet || git commit -m "Update citations by year [$(date -u +%Y-%m-%d)]"
+          git add data/auto/citations-by-year.json data/auto/scholar-stats.json
+          git diff --staged --quiet || git commit -m "Update Google Scholar citations [$(date -u +%Y-%m-%d)]"
           git pull --rebase
           git push

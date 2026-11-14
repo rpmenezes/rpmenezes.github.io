@@ -2,7 +2,7 @@ name: Fetch Academic Stats
 
 on:
   schedule:
-    - cron: '0 6 * * *'
+    - cron: '0 6 * * 1'  # Weekly, Mondays at 6am UTC (an hour after Fetch Citations)
   workflow_dispatch:
 
 jobs:

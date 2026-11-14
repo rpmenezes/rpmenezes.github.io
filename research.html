@@ -257,10 +257,15 @@
 
         <section id="stats" class="content-section section-box-green">
             <h2>Summary of Statistics</h2>
-            <p class="publications-note">Live data from <a href="https://www.semanticscholar.org/author/R.-Menezes/145351935" target="_blank">Semantic Scholar</a>, updated automatically.<br><span id="stats-updated"></span></p>
+            <p class="publications-note">h-index, i10-index and citations from <a href="https://scholar.google.com/citations?user=eHej2g8AAAAJ&hl=en" target="_blank">Google Scholar</a>; publications and highly influential citations from <a href="https://www.semanticscholar.org/author/R.-Menezes/145351935" target="_blank">Semantic Scholar</a>. Updated automatically.<br><span id="stats-updated"></span></p>
+            <style>
+                /* Six stats in one row on wide screens (the shared grid default is five). */
+                @media (min-width: 901px) { #stats-container { grid-template-columns: repeat(6, 1fr); } }
+            </style>
             <div id="stats-container" class="stats-grid">
                 <div class="stat-item"><span class="stat-value">—</span><span class="stat-label">Publications</span></div>
                 <div class="stat-item"><span class="stat-value">—</span><span class="stat-label">h-index</span></div>
+                <div class="stat-item"><span class="stat-value">—</span><span class="stat-label">i10-index</span></div>
                 <div class="stat-item"><span class="stat-value">—</span><span class="stat-label">Citations</span></div>
                 <div class="stat-item"><span class="stat-value">—</span><span class="stat-label">Highly Influential Citations</span></div>
                 <div class="stat-item"><span class="stat-value">—</span><span class="stat-label">Erdős Number</span></div>
@@ -365,7 +370,7 @@
         });
     </script>
     <script>
-        // Load all data from locally cached stats.json (updated daily by GitHub Actions)
+        // Load all data from locally cached stats.json (updated weekly by GitHub Actions)
         async function loadAcademicData() {
             try {
                 const res = await fetch('data/auto/stats.json?v=' + Date.now());
@@ -385,7 +390,13 @@
                     </div>` : '';
 
                 // --- Stats ---
-                const s = data.stats || {};
+                // h-index, i10-index and citations come from Google Scholar
+                // (weekly, via SerpAPI); fall back to Semantic Scholar if missing.
+                const s = { ...(data.stats || {}) };
+                try {
+                    const gRes = await fetch('data/auto/scholar-stats.json?v=' + Date.now());
+                    if (gRes.ok) Object.assign(s, await gRes.json());
+                } catch (e) {}
                 document.getElementById('stats-container').innerHTML = `
                     <div class="stat-item">
                         <span class="stat-value">${s.paperCount?.toLocaleString() ?? '—'}</span>
@@ -394,6 +405,10 @@
                     <div class="stat-item">
                         <span class="stat-value">${s.hIndex ?? '—'}</span>
                         <span class="stat-label">h-index</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">${s.i10Index ?? '—'}</span>
+                        <span class="stat-label">i10-index</span>
                     </div>
                     <div class="stat-item">
                         <span class="stat-value">${s.citationCount?.toLocaleString() ?? '—'}</span>
@@ -485,6 +500,7 @@
                 document.getElementById('stats-container').innerHTML = `
                     <div class="stat-item"><span class="stat-value">—</span><span class="stat-label">Publications</span></div>
                     <div class="stat-item"><span class="stat-value">—</span><span class="stat-label">h-index</span></div>
+                    <div class="stat-item"><span class="stat-value">—</span><span class="stat-label">i10-index</span></div>
                     <div class="stat-item"><span class="stat-value">—</span><span class="stat-label">Citations</span></div>
                     <div class="stat-item"><span class="stat-value">—</span><span class="stat-label">Highly Influential Citations</span></div>
                     <div class="stat-item"><span class="stat-value">—</span><span class="stat-label">Erdős Number</span></div>`;
