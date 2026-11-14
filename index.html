@@ -6,7 +6,7 @@
     <meta name="description" content="Ronaldo Menezes — Professor of Data and Network Science at the University of Exeter. Research in network science, complex systems, human mobility and urban inequality.">
     <title>Ronaldo Menezes — Professor of Data and Network Science</title>
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="stylesheet" href="styles.css?v=11">
+    <link rel="stylesheet" href="styles.css?v=12">
     <style>
         .anim-hero {
             position: relative;
@@ -308,7 +308,8 @@
 
         let W, H, dpr, proj, pathGen, mapCanvas, cityXY = [], distMax = 1;
         let trips = [], ripples = [], worldFeat = null, worldMesh = null;
-        let started = false;
+        let started = false, visible = true, last = performance.now();
+        const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
         // ── colours ──
         // short hops: teal (frequent) · long hauls: warm amber (rare)
@@ -409,8 +410,9 @@
         function bez(t,x0,y0,cx,cy,x1,y1){const m=1-t;return{x:m*m*x0+2*m*t*cx+t*t*x1,y:m*m*y0+2*m*t*cy+t*t*y1};}
 
         const MAX_TRIPS = 16, MAX_LONG = 3;
-        function maintain() {
-            if (trips.length >= MAX_TRIPS || Math.random() >= 0.16) return;
+        // k = elapsed time in 60fps frames, so speed is the same on any refresh rate.
+        function maintain(k) {
+            if (trips.length >= MAX_TRIPS || Math.random() >= 1 - Math.pow(0.84, k)) return;
             const t = spawnTrip();
             if (!t) return;
             // cap simultaneous long hauls so they stay the rare exception
@@ -418,14 +420,14 @@
             trips.push(t);
         }
 
-        function draw() {
+        function render(k) {
             ctx.clearRect(0,0,W,H);
             ctx.drawImage(mapCanvas, 0, 0, W, H);
 
-            maintain();
+            maintain(k);
 
             // ripples (arrival pulses)
-            ripples.forEach(r => { r.t += 1/45; });
+            ripples.forEach(r => { r.t += k/45; });
             ripples = ripples.filter(r => r.t < 1);
             ripples.forEach(r => {
                 const rad = 2 + r.t*16, a = (1-r.t)*0.5;
@@ -433,15 +435,15 @@
                 ctx.strokeStyle = `rgba(${r.col},${a})`; ctx.lineWidth = 1.2; ctx.stroke();
             });
 
-            trips.forEach((tp,i) => {
-                tp.progress += 1/tp.duration;
+            trips.forEach(tp => {
+                tp.progress += k/tp.duration;
                 if (tp.progress >= 1) {
                     if (!tp.done) {
                         ripples.push({ x:tp.dst.x, y:tp.dst.y, t:0,
                             col: tp.isLong ? LONG_HEAD : SHORT_HEAD });
                         tp.done = true;
                     }
-                    trips.splice(i,1); return;
+                    return;
                 }
                 const t = tp.progress;
                 const pos = bez(t, tp.src.x,tp.src.y, tp.cx,tp.cy, tp.dst.x,tp.dst.y);
@@ -472,16 +474,28 @@
                 ctx.beginPath(); ctx.arc(pos.x,pos.y, tp.isLong?1.6:1.1, 0, Math.PI*2);
                 ctx.fillStyle = `rgba(255,255,255,${alpha*0.9})`; ctx.fill();
             });
+            trips = trips.filter(tp => !tp.done);
+        }
 
-            requestAnimationFrame(draw);
+        function frame(ts) {
+            const k = Math.max(0, Math.min(ts - last, 100)) / 16.67;
+            last = ts;
+            if (visible) render(k);           // paused while scrolled out of view
+            requestAnimationFrame(frame);
+        }
+
+        function seedTrips() {
+            trips = []; ripples = [];
+            for (let i=0;i<(reduce ? 12 : 8);i++){ const t=spawnTrip(); if(t){t.progress=0.2+Math.random()*0.6; trips.push(t);} }
         }
 
         function start() {
-            if (started || !W || !H || !worldFeat) return;   // wait for size + data
+            if (!W || !H || !worldFeat) return;   // wait for size + data
+            if (reduce) { seedTrips(); render(0); return; }   // still frame, redrawn on resize
+            if (started) return;
             started = true;
-            // seed a few trips
-            for (let i=0;i<8;i++){ const t=spawnTrip(); if(t){t.progress=Math.random()*0.6; trips.push(t);} }
-            draw();
+            seedTrips();
+            requestAnimationFrame(frame);
         }
 
         // Always load the map data. Drawing is gated on the hero's real size
@@ -498,6 +512,7 @@
         const hero = document.getElementById('animHero');
         const ro = new ResizeObserver(() => { resize(); start(); });
         ro.observe(hero);
+        new IntersectionObserver(es => { visible = es[0].isIntersecting; }).observe(hero);
     })();
     </script>
 

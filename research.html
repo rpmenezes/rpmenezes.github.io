@@ -6,7 +6,7 @@
     <meta name="description" content="Research by Ronaldo Menezes — network science, complex systems, human mobility, urban inequality and computational modelling. Publications and collaboration network.">
     <title>Research - Ronaldo Menezes</title>
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="stylesheet" href="styles.css?v=11">
+    <link rel="stylesheet" href="styles.css?v=12">
     <script type="text/javascript" src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script>
     <script async src="https://badge.dimensions.ai/badge.js" charset="utf-8"></script>
     <script src="https://d3js.org/d3.v7.min.js"></script>
@@ -839,6 +839,13 @@
                     .attr('x2', d => d.target.x).attr('y2', d => d.target.y);
                 node.attr('transform', d => `translate(${d.x},${d.y})`);
             });
+
+            /* Reduce motion: settle the layout up front and show it already in place */
+            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                simulation.stop();
+                simulation.tick(300);
+                simulation.on('tick')();
+            }
         }
 
         /* ── Stats bar ──────────────────────────────── */

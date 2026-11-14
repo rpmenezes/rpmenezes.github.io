@@ -2239,3 +2239,13 @@ a:hover {
     .post-nav { flex-direction: column; }
     .post-nav-item.right { text-align: left; }
 }
+/* Respect the visitor's "reduce motion" setting: entrance effects finish
+   instantly and looping pulses stop. Canvas heroes handle this in JS. */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
