@@ -113,7 +113,7 @@
         }, 50);
     </script>
     <script>
-        fetch('data/manual/editorial.json?v=' + Date.now())
+        fetch('data/manual/editorial.json')
             .then(r => r.json())
             .then(items => {
                 const list = document.getElementById('editorial-list');
@@ -130,7 +130,7 @@
             });
     </script>
     <script>
-        fetch('data/manual/supervision.json?v=' + Date.now())
+        fetch('data/manual/supervision.json')
             .then(r => r.json())
             .then(items => {
                 const lastName = name => name.trim().split(/\s+/).pop().toLowerCase();
@@ -159,7 +159,7 @@
             });
     </script>
     <script>
-        fetch('data/manual/selected.json?v=' + Date.now())
+        fetch('data/manual/selected.json')
             .then(r => r.json())
             .then(items => {
                 const lastName = name => name.trim().split(/\s+/).pop().toLowerCase();

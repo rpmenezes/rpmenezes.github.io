@@ -214,8 +214,8 @@
             const list = document.getElementById('recent-pubs');
             try {
                 const [statsRes, manifestRes] = await Promise.all([
-                    fetch('data/auto/stats.json?v=' + Date.now()),
-                    fetch('highlights/manifest.json?v=' + Date.now())
+                    fetch('data/auto/stats.json'),
+                    fetch('highlights/manifest.json')
                 ]);
                 if (!statsRes.ok || !manifestRes.ok) throw new Error();
                 const data = await statsRes.json();
@@ -503,7 +503,7 @@
 
     <script>
         // Load events from JSON and render as timeline
-        fetch('data/manual/events.json?v=' + Date.now())
+        fetch('data/manual/events.json')
             .then(r => r.json())
             .then(events => {
                 const container = document.getElementById('events-list');
@@ -562,7 +562,7 @@
             })
             .catch(() => {});
         // Load news from JSON
-        fetch('data/manual/news.json?v=' + Date.now())
+        fetch('data/manual/news.json')
             .then(r => r.json())
             .then(items => {
                 const ul = document.getElementById('news-list');

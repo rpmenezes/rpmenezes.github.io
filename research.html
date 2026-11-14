@@ -346,14 +346,14 @@
         // Load all data from locally cached stats.json (updated weekly by GitHub Actions)
         async function loadAcademicData() {
             try {
-                const res = await fetch('data/auto/stats.json?v=' + Date.now());
+                const res = await fetch('data/auto/stats.json');
                 if (!res.ok) throw new Error('No data file yet');
                 const data = await res.json();
 
                 // --- Erdős number (manual, rarely changes) — optional ---
                 let erdos = null;
                 try {
-                    const eRes = await fetch('data/manual/erdos.json?v=' + Date.now());
+                    const eRes = await fetch('data/manual/erdos.json');
                     if (eRes.ok) erdos = (await eRes.json()).number;
                 } catch (e) {}
                 const erdosItem = (erdos != null) ? `
@@ -367,7 +367,7 @@
                 // (weekly, via SerpAPI); fall back to Semantic Scholar if missing.
                 const s = { ...(data.stats || {}) };
                 try {
-                    const gRes = await fetch('data/auto/scholar-stats.json?v=' + Date.now());
+                    const gRes = await fetch('data/auto/scholar-stats.json');
                     if (gRes.ok) Object.assign(s, await gRes.json());
                 } catch (e) {}
                 document.getElementById('stats-container').innerHTML = `
@@ -493,7 +493,7 @@
 
             const CHART_H = 90;
 
-            fetch('data/auto/citations-by-year.json?v=' + Date.now())
+            fetch('data/auto/citations-by-year.json')
                 .then(r => r.json())
                 .then(data => {
                     const max = Math.max(...data.map(d => d.citations));
@@ -528,7 +528,7 @@
     </script>
     <script>
         // Load research interests from JSON
-        fetch('data/manual/interests.json?v=' + Date.now())
+        fetch('data/manual/interests.json')
             .then(r => r.json())
             .then(interests => {
                 const container = document.getElementById('interests-container');
@@ -877,7 +877,7 @@
             const topNSel   = document.getElementById('top-n-select');
 
             try {
-                const res = await fetch('data/auto/collaborators.json?v=' + Date.now());
+                const res = await fetch('data/auto/collaborators.json');
                 if (!res.ok) throw new Error('not found');
                 const data = await res.json();
 

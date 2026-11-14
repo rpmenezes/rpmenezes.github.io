@@ -219,7 +219,7 @@
         // Fetch publication count from stats.json
         async function loadBioPubCount() {
             try {
-                const res = await fetch('data/auto/stats.json?v=' + Date.now());
+                const res = await fetch('data/auto/stats.json');
                 const data = await res.json();
                 const count = data.stats?.paperCount || data.publications?.length || null;
                 if (count) document.getElementById('bio-pub-count').textContent = 'over ' + count;
@@ -239,7 +239,7 @@
         const W = 960, H = 500;
         Promise.all([
             d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json'),
-            d3.json('data/manual/countries.json?v=' + Date.now())
+            d3.json('data/manual/countries.json')
         ]).then(([world, userCountries]) => {
 
             const been     = new Set();

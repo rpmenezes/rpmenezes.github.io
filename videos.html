@@ -125,7 +125,7 @@
         async function loadNotebookLMPlaylist() {
             const list = document.getElementById('notebooklm-list');
             try {
-                const res = await fetch('data/auto/notebooklm-playlist.json?v=' + Date.now());
+                const res = await fetch('data/auto/notebooklm-playlist.json');
                 if (!res.ok) throw new Error();
                 const data = await res.json();
                 const videos = (data.videos || []).filter(isAvailable);
@@ -174,7 +174,7 @@
         async function loadProfessionalPlaylist() {
             const list = document.getElementById('professional-list');
             try {
-                const res = await fetch('data/auto/professional-playlist.json?v=' + Date.now());
+                const res = await fetch('data/auto/professional-playlist.json');
                 if (!res.ok) throw new Error();
                 const data = await res.json();
                 const videos = (data.videos || []).filter(isAvailable);
@@ -252,7 +252,7 @@
             const recentList = document.getElementById('guitar-recent-list');
             const recentHead = document.getElementById('guitar-recent-head');
             try {
-                const res = await fetch('data/auto/guitar-playlist.json?v=' + Date.now());
+                const res = await fetch('data/auto/guitar-playlist.json');
                 if (!res.ok) throw new Error();
                 const data = await res.json();
                 // New structure: { mostViewed, mostRecent }. Fall back to the old

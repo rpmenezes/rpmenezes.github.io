@@ -176,7 +176,7 @@
 
     <script>
         // Load Selected Invited Talks from JSON (edit data/manual/invited-talks.json)
-        fetch('data/manual/invited-talks.json?v=' + Date.now())
+        fetch('data/manual/invited-talks.json')
             .then(r => r.json())
             .then(talks => {
                 const container = document.getElementById('invited-talks-list');
