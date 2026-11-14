@@ -50,10 +50,20 @@ jobs:
 
       - name: Fetch ORCID publications
         run: |
-          curl -s "https://pub.orcid.org/v3.0/0000-0002-6479-6429/works" \
-            -H "Accept: application/json" \
-            -o /tmp/orcid_works.json
-          echo "ORCID works fetched"
+          # Retry until the response is valid JSON with a works list; a failed
+          # fetch would otherwise leave an empty/error body for the build step.
+          for i in 1 2 3 4 5; do
+            echo "Attempt $i..."
+            curl -s --max-time 60 "https://pub.orcid.org/v3.0/0000-0002-6479-6429/works" \
+              -H "Accept: application/json" \
+              -o /tmp/orcid_works.json
+            if python3 -c "import json,sys; sys.exit(0 if json.load(open('/tmp/orcid_works.json')).get('group') else 1)" 2>/dev/null; then
+              echo "ORCID works fetched"
+              break
+            fi
+            echo "ORCID response not usable, retrying..."
+            sleep 30
+          done
 
       - name: Build combined stats JSON
         run: |

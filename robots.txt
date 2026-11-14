@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://rpmenezes.github.io/sitemap.xml

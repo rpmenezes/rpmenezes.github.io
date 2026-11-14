@@ -1,0 +1,4 @@
+# GitHub Pages build settings. The site is plain HTML; this only keeps
+# internal files off the published site.
+exclude:
+  - tools
