@@ -12,11 +12,17 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0   # full history, to date each page by when it was added
 
       - name: Generate manifest.json
         run: |
-          slugs=$(find highlights -maxdepth 1 -name "*.html" | sort | sed 's|highlights/||; s|\.html||' | jq -R . | jq -s .)
-          echo "$slugs" > highlights/manifest.json
+          # Newest highlight first: order pages by the commit that first added them.
+          for f in highlights/*.html; do
+            added=$(git log --diff-filter=A --follow --format=%at -1 -- "$f")
+            echo "${added:-$(date +%s)} $(basename "$f" .html)"
+          done | sort -rn | cut -d' ' -f2 | jq -R . | jq -s . > highlights/manifest.json
+          cat highlights/manifest.json
 
       - name: Commit manifest
         run: |

@@ -22,41 +22,8 @@
                     <span></span>
                     <span></span>
                 </button>
-                <ul class="nav-menu">
-                    <li><a href="index.html" class="nav-link">Home</a></li>
-                    <li class="nav-item-dropdown">
-                        <a href="research.html" class="nav-link">Research</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="research.html#research-interests">Interests</a></li>
-                            <li><a href="research.html#publications">Publications</a></li>
-                            <li><a href="research.html#network">Collaboration Network</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item-dropdown">
-                        <a href="scholarly-engagement.html" class="nav-link">Scholarly Engagement</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="scholarly-engagement.html#editorial">Editorial and Advisory Roles</a></li>
-                            <li><a href="scholarly-engagement.html#students">Supervision</a></li>
-                            <li><a href="scholarly-engagement.html#alumni">Alumni</a></li>
-                            <li><a href="scholarly-engagement.html#collaborators">Selected Collaborators</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item-dropdown">
-                        <a href="about.html" class="nav-link active">About Me</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="about.html#biography">Biography</a></li>
-                            <li><a href="about.html#about-me">About Me</a></li>
-                            <li><a href="about.html#passions">Passions</a></li>
-                            <li><a href="about.html#favourites">Favourites</a></li>
-                            <li><a href="about.html#visited-places">Visited Places</a></li>
-                            <li><a href="about.html#motto">Personal Motto</a></li>
-                            <li><a href="about.html#contact">Contact and Social Media</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="videos.html" class="nav-link">Videos</a></li>
-                    <li><a href="cv.html" class="nav-link">CV</a></li>
-                    <li><a href="blog/blog.html" class="nav-link nav-link-btn">Blog</a></li>
-                </ul>
+                <ul class="nav-menu" data-site-nav></ul>
+                <script src="js/site.js"></script>
             </div>
         </nav>
     </header>
@@ -222,7 +189,7 @@
     </main>
 
     <footer>
-        <p>&copy; 2026 Ronaldo Menezes | University of Exeter | Department of Computer Science</p>
+        <p>&copy; <span class="copy-year">2026</span> Ronaldo Menezes | University of Exeter | Department of Computer Science</p>
     </footer>
 
     <script>
@@ -261,19 +228,10 @@
         const svg = d3.select('#travel-map-svg');
         const tip = document.getElementById('travel-map-tooltip');
         const W = 960, H = 500;
-        let allNames = {};
-
         Promise.all([
             d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json'),
-            d3.json('data/manual/countries.json?v=' + Date.now()),
-            fetch('https://restcountries.com/v3.1/all?fields=name,ccn3').then(r => r.json()).catch(() => [])
-        ]).then(([world, userCountries, restCountries]) => {
-
-            restCountries.forEach(c => {
-                const id = parseInt(c.ccn3, 10);
-                if (id) allNames[id] = c.name.common;
-            });
-            if (!allNames[10]) allNames[10] = 'Antarctica';
+            d3.json('data/manual/countries.json?v=' + Date.now())
+        ]).then(([world, userCountries]) => {
 
             const been     = new Set();
             const wantToGo = new Set();
@@ -309,7 +267,8 @@
                 .attr('opacity', 0)
                 .on('mousemove', function(event, d) {
                     const id   = +d.id;
-                    const name = allNames[id] || '';
+                    // Country names ship with the world-atlas map data itself
+                    const name = (d.properties && d.properties.name) || '';
                     if (!name) return;
                     const cat = been.has(id) ? ' <span style="color:#007D69;font-style:italic;">· Been</span>'
                               : wantToGo.has(id) ? ' <span style="color:#007D69;font-style:italic;">· Want to Go</span>' : '';
