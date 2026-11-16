@@ -2,5 +2,10 @@
   "_note": "Names for the collaboration network that automatic matching gets wrong. Key: the name as Semantic Scholar shows it (or its author ID). Value: the name to show. Entries that end up with the same name are merged into one person.",
   "M. Oliveira-Junior": "Marcos Oliveira",
   "C. Bastos-Filho": "Carmelo Bastos-Filho",
-  "C. J. A. Bastos": "Carmelo Bastos-Filho"
+  "C. J. A. Bastos": "Carmelo Bastos-Filho",
+  "F. Buarque": "Fernando Buarque",
+  "Fernando Buarque de Lima": "Fernando Buarque",
+  "F. B. de Lima-Neto": "Fernando Buarque",
+  "Fernando Buarque de Lima-Neto": "Fernando Buarque",
+  "Fernando B. Lima-Neto": "Fernando Buarque"
 }
