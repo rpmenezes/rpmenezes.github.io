@@ -11,183 +11,52 @@
     <script async src="https://badge.dimensions.ai/badge.js" charset="utf-8"></script>
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <style>
-        /* Network page — page-specific styles only */
+        /* Collaboration network — page-specific styles only */
+        #network [hidden] { display: none !important; }
+        .cn-bar { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; margin-bottom: 1rem; font-size: 0.85rem; font-weight: 300; color: #666; }
+        .cn-tabs { display: inline-flex; border: 1px solid #007D69; border-radius: 2px; overflow: hidden; }
+        .cn-tabs button { border: none; background: #fff; color: #007D69; font: inherit; font-size: 0.85rem; padding: 0.35rem 1rem; cursor: pointer; }
+        .cn-tabs button + button { border-left: 1px solid #007D69; }
+        .cn-tabs button[aria-pressed="true"] { background: #007D69; color: #fff; }
+        .cn-controls { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; }
+        .cn-controls label { display: flex; align-items: center; gap: 0.5rem; }
+        .cn-controls select { border: 1px solid #ccc; border-radius: 2px; padding: 0.3rem 0.5rem; font: inherit; font-size: 0.85rem; color: #111; background: #fff; cursor: pointer; }
+        .cn-controls select:focus { outline: none; border-color: #007D69; }
+        .cn-stats { display: flex; flex-wrap: wrap; gap: 1rem 2.5rem; margin-bottom: 1rem; }
+        .cn-stats b { display: block; font-size: 1.5rem; font-weight: 300; color: #007D69; line-height: 1; }
+        .cn-stats span { display: block; font-size: 0.72rem; color: #707070; text-transform: uppercase; letter-spacing: 0.07em; margin-top: 0.3rem; }
 
-        .network-intro {
-            font-size: 0.92rem;
-            color: #555;
-            margin-bottom: 1.5rem;
-            max-width: 680px;
-            line-height: 1.7;
-        }
-        .network-intro a { color: #007D69; text-decoration: none; }
-        .network-intro a:hover { opacity: 0.7; }
+        .cn-area { position: relative; width: 100%; border: 1px solid #ddd; background: #fff; user-select: none; }
+        #cn-rings { height: 600px; overflow: hidden; }
+        #cn-lanes { overflow-x: auto; }
+        .cn-area svg { display: block; }
+        #cn-rings svg { width: 100%; height: 100%; }
+        .cn-msg { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 0.88rem; color: #707070; text-align: center; padding: 1rem; }
 
-        /* Controls bar */
-        .network-controls-bar {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-bottom: 1rem;
-        }
-        .network-stats-inline {
-            display: flex;
-            gap: 2.5rem;
-            align-items: flex-end;
-        }
-        .net-stat-value {
-            display: block;
-            font-size: 1.5rem;
-            font-weight: 300;
-            color: #007D69;
-            line-height: 1;
-        }
-        .net-stat-label {
-            display: block;
-            font-size: 0.72rem;
-            color: #707070;
-            text-transform: uppercase;
-            letter-spacing: 0.07em;
-            margin-top: 0.3rem;
-        }
-        .network-select-wrapper {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.85rem;
-            font-weight: 300;
-            color: #666;
-        }
-        .network-select-wrapper select {
-            border: 1px solid #ccc;
-            border-radius: 2px;
-            padding: 0.3rem 0.5rem;
-            font-size: 0.85rem;
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            font-weight: 300;
-            color: #111;
-            background: #fff;
-            cursor: pointer;
-        }
-        .network-select-wrapper select:focus {
-            outline: none;
-            border-color: #007D69;
-        }
-
-        /* Graph canvas */
-        .network-graph-area {
-            position: relative;
-            width: 100%;
-            height: 600px;
-            background: #ffffff;
-            border: 1px solid #ddd;
-            overflow: hidden;
-            user-select: none;
-        }
-        #network-svg {
-            width: 100%;
-            height: 100%;
-            display: block;
-        }
-
-        /* Overlay states */
-        .graph-overlay {
-            position: absolute;
-            inset: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            gap: 0.75rem;
-        }
-        .graph-overlay-icon {
-            font-size: 2rem;
-            color: #ccc;
-            line-height: 1;
-        }
-        .graph-overlay-msg {
-            font-size: 0.88rem;
-            color: #707070;
-            text-align: center;
-            max-width: 320px;
-            line-height: 1.7;
-        }
-        .graph-overlay-code {
-            font-family: 'Courier New', monospace;
-            font-size: 0.78rem;
-            color: #707070;
-            background: #f5f5f5;
-            border: 1px solid #ddd;
-            padding: 0.5rem 1rem;
-            border-radius: 3px;
-        }
-
-        /* Tooltip */
-        .network-tooltip {
-            position: fixed;
-            background: #ffffff;
-            border: 1px solid #111;
-            padding: 0.7rem 0.9rem;
-            font-size: 0.82rem;
-            font-weight: 300;
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            pointer-events: none;
-            z-index: 2000;
-            min-width: 160px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.12);
-        }
-        .tt-name {
-            font-weight: 400;
-            font-size: 0.88rem;
-            color: #111;
-            margin-bottom: 0.35rem;
-        }
+        .cn-tip { position: fixed; background: #fff; border: 1px solid #111; padding: 0.7rem 0.9rem; font-size: 0.82rem; font-weight: 300; pointer-events: none; z-index: 2000; min-width: 160px; box-shadow: 0 3px 10px rgba(0,0,0,0.12); display: none; }
+        .tt-name { font-weight: 400; font-size: 0.88rem; color: #111; margin-bottom: 0.35rem; }
         .tt-row { color: #666; line-height: 1.9; }
         .tt-accent { color: #007D69; font-weight: 400; }
+        .tt-hint { color: #707070; font-size: 0.75rem; }
 
-        /* Legend */
-        .network-legend {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1.5rem;
-            align-items: center;
-            padding: 0.75rem 0 0;
-            margin-top: 0.5rem;
-            border-top: 1px solid #eee;
-            font-size: 0.78rem;
-            font-weight: 300;
-            color: #707070;
-        }
-        .legend-item {
-            display: flex;
-            align-items: center;
-            gap: 0.45rem;
-        }
-        .lg-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            flex-shrink: 0;
-        }
-        .lg-dot-center { background: #F0884A; border: 2px solid #C86820; }
-        .lg-dot-collab-dark  { background: #004a3f; }
-        .lg-dot-collab-light { background: #7dd4c4; border: 1px solid #bbb; }
-        .lg-line {
-            width: 22px;
-            height: 1.5px;
-            flex-shrink: 0;
-        }
-        .lg-line-ego  { background: rgba(0,125,105,0.55); }
-        .lg-line-c2c  { background: rgba(0,0,0,0.20); }
-        .lg-updated   { margin-left: auto; font-size: 0.72rem; color: #707070; }
+        .cn-legend { display: flex; flex-wrap: wrap; gap: 0.8rem 1.5rem; align-items: center; padding-top: 0.75rem; margin-top: 0.5rem; border-top: 1px solid #eee; font-size: 0.78rem; font-weight: 300; color: #707070; }
+        .cn-legend i { display: inline-block; width: 12px; height: 12px; border-radius: 50%; vertical-align: -2px; margin-right: 0.4rem; }
+        .cn-updated { margin-left: auto; font-size: 0.72rem; }
+
+        .cn-papers { display: none; position: relative; margin-top: 1rem; border: 1px solid #ddd; border-left: 3px solid #007D69; padding: 1rem 1.2rem; }
+        .cn-papers h3 { font-size: 1rem; font-weight: 400; margin: 0 0 0.6rem; padding-right: 2rem; }
+        .cn-papers h3 span { color: #707070; font-weight: 300; font-size: 0.85rem; }
+        .cn-papers ul { list-style: none; padding: 0; margin: 0; max-height: 260px; overflow-y: auto; }
+        .cn-papers li { font-size: 0.85rem; font-weight: 300; line-height: 1.5; padding: 0.3rem 0; border-top: 1px solid #f0f0f0; display: flex; gap: 0.8rem; }
+        .cn-papers li a { color: #111; text-decoration: none; }
+        .cn-papers li a:hover { color: #007D69; }
+        .cn-yr { color: #007D69; min-width: 2.6rem; }
+        .cn-close { position: absolute; top: 0.5rem; right: 0.7rem; border: none; background: none; font-size: 1.3rem; color: #707070; cursor: pointer; }
 
         @media (max-width: 700px) {
-            .network-graph-area    { height: 440px; }
-            .network-stats-inline  { gap: 1.5rem; }
-            .network-controls-bar  { flex-direction: column; align-items: flex-start; }
-            .lg-updated            { margin-left: 0; }
+            #cn-rings { height: 440px; }
+            .cn-stats { gap: 1rem 1.5rem; }
+            .cn-updated { margin-left: 0; }
         }
     </style>
     <!-- og-meta:start (generated by .github/scripts/site_meta.py) -->
@@ -264,63 +133,56 @@
 
         <section id="network" class="content-section">
             <h2>Collaboration Network</h2>
-            <!-- Controls bar -->
-            <div class="network-controls-bar">
-                <div class="network-stats-inline" id="network-stats"></div>
-                <div class="network-select-wrapper">
-                    <label for="top-n-select">Show top</label>
-                    <select id="top-n-select">
-                        <option value="30">30</option>
-                        <option value="50" selected>50</option>
-                        <option value="75">75</option>
-                        <option value="100">100</option>
-                        <option value="0">All</option>
-                    </select>
-                    <span>collaborators</span>
+            <div class="cn-bar">
+                <div class="cn-tabs" role="group" aria-label="Collaboration view">
+                    <button type="button" data-view="rings" aria-pressed="true">Network</button>
+                    <button type="button" data-view="lanes" aria-pressed="false">Timeline</button>
+                </div>
+                <div class="cn-controls" data-for="rings">
+                    <label>Show top
+                        <select id="cn-rings-n">
+                            <option value="30">30</option>
+                            <option value="50" selected>50</option>
+                            <option value="75">75</option>
+                            <option value="100">100</option>
+                            <option value="0">All</option>
+                        </select> collaborators</label>
+                </div>
+                <div class="cn-controls" data-for="lanes" hidden>
+                    <label>Show top
+                        <select id="cn-lanes-n">
+                            <option value="20">20</option>
+                            <option value="30" selected>30</option>
+                            <option value="50">50</option>
+                        </select> collaborators</label>
+                    <label>Sort by
+                        <select id="cn-lanes-sort">
+                            <option value="count">Most papers</option>
+                            <option value="first">First collaboration</option>
+                            <option value="last">Most recent</option>
+                        </select></label>
                 </div>
             </div>
+            <div class="cn-stats" id="cn-stats"></div>
 
-            <!-- Graph canvas -->
-            <div class="network-graph-area" id="network-container">
-                <div class="graph-overlay" id="graph-loading">
-                    <div class="graph-overlay-icon">◌</div>
-                    <div class="graph-overlay-msg">Loading collaboration data…</div>
-                </div>
-                <div class="graph-overlay" id="graph-no-data" style="display:none">
-                    <div class="graph-overlay-icon">⬡</div>
-                    <div class="graph-overlay-msg">
-                        Collaboration network data is not yet available.<br>
-                        Please check back soon.
-                    </div>
-                </div>
-                <svg id="network-svg" style="display:none"></svg>
+            <div class="cn-area" id="cn-rings" data-view="rings">
+                <div class="cn-msg" id="cn-msg">Loading collaboration data…</div>
+                <svg aria-label="Collaborators arranged in rings by the decade the collaboration began"></svg>
+            </div>
+            <div class="cn-area" id="cn-lanes" data-view="lanes" hidden>
+                <svg aria-label="Timeline of joint papers with each collaborator"></svg>
             </div>
 
-            <!-- Tooltip -->
-            <div class="network-tooltip" id="network-tooltip" style="display:none"></div>
-
-            <!-- Legend -->
-            <div class="network-legend" id="network-legend" style="display:none">
-                <div class="legend-item">
-                    <div class="lg-dot lg-dot-center"></div>
-                    <span>Ronaldo Menezes</span>
-                </div>
-                <div class="legend-item">
-                    <div class="lg-dot lg-dot-collab-dark"></div>
-                    <div class="lg-dot lg-dot-collab-light"></div>
-                    <span>Collaborator — size = shared papers · colour = recency (lighter = more recent)</span>
-                </div>
-                <div class="legend-item">
-                    <div class="lg-line lg-line-ego"></div>
-                    <span>Co-authorship with Ronaldo</span>
-                </div>
-                <div class="legend-item">
-                    <div class="lg-line lg-line-c2c"></div>
-                    <span>Collaborator–collaborator link (2+ shared papers)</span>
-                </div>
-                <span><span aria-hidden="true">🖱</span> Drag · Scroll to zoom · Hover for details</span>
-                <span class="lg-updated" id="lg-updated"></span>
+            <div class="cn-legend">
+                <span data-for="rings"><i style="background:#F0884A"></i>Ronaldo Menezes</span>
+                <span data-for="rings"><i style="background:#007D69"></i>Collaborator: size = shared papers, darker = more recent</span>
+                <span data-for="rings">Rings = decade of first paper together · Hover for links</span>
+                <span data-for="lanes" hidden><i style="background:#007D69"></i>Year with shared papers (size = number that year)</span>
+                <span>Click a collaborator for your shared papers</span>
+                <span class="cn-updated" id="cn-updated"></span>
             </div>
+            <div class="cn-papers" id="cn-papers" aria-live="polite"></div>
+            <div class="cn-tip" id="cn-tip"></div>
         </section>
     </main>
 
@@ -596,330 +458,232 @@
             fadeEls.forEach(el => observer.observe(el));
         }, 50);
     </script>
-    <!-- D3 Collaboration Network -->
+    <!-- Collaboration network: "Network" (rings by decade) and "Timeline" (one row per collaborator) -->
     <script>
-        /* ═══════════════════════════════════════════════
-           Collaboration Network  —  D3 v7 force-directed
-           Data source: data/auto/collaborators.json (GitHub Actions)
-           Node size  : collaborationCount (shared papers with Ronaldo)
-           Edges      : ego (Ronaldo ↔ collab) + c2c (collab ↔ collab, ≥2 shared)
-        ═══════════════════════════════════════════════ */
+    (() => {
+        const NOW = new Date().getFullYear();
+        const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const section = document.getElementById('network');
+        const tip = document.getElementById('cn-tip');
+        document.body.appendChild(tip);   /* fixed positioning must not sit inside the fading section */
+        let all = [], view = 'rings';
 
-        const RONALDO_ID = '145351935';
-        let   simulation = null;
-        let   allCollabs = [];
+        /* ── Shared helpers ─────────────────────────── */
+        const decadeOf = c => Math.floor(c.firstCollabYear / 10) * 10;
+        const years = c => c.firstCollabYear === c.lastCollabYear ? `${c.firstCollabYear}` : `${c.firstCollabYear}–${c.lastCollabYear}`;
+        const surname = n => n.trim().split(/\s+/).pop();
+        const topN = (sel) => { const n = parseInt(sel.value, 10); return n === 0 ? all : all.slice(0, n); };
+        const esc = s => String(s).replace(/[&<>"]/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[ch]));
 
-        /* ── Utilities ──────────────────────────────── */
+        function showTip(e, c, extra) {
+            tip.innerHTML = `<div class="tt-name">${esc(c.name)}</div>` +
+                `<div class="tt-row"><span class="tt-accent">${c.collaborationCount}</span> shared paper${c.collaborationCount !== 1 ? 's' : ''}</div>` +
+                `<div class="tt-row">Active: ${years(c)}</div>` + (extra || '') +
+                `<div class="tt-row tt-hint">Click for papers</div>`;
+            tip.style.display = 'block';
+            moveTip(e);
+        }
+        function moveTip(e) {
+            const w = tip.offsetWidth;
+            tip.style.left = (e.clientX + 14 + w > window.innerWidth ? e.clientX - w - 14 : e.clientX + 14) + 'px';
+            tip.style.top = (e.clientY - 10) + 'px';
+        }
+        const hideTip = () => { tip.style.display = 'none'; };
 
-        function clamp(v, lo, hi) { return Math.max(lo, Math.min(hi, v)); }
-
-        function truncate(name, max) {
-            if (!name) return '';
-            const first = name.trim().split(/\s+/)[0] || '';
-            return first.length > max ? first.slice(0, max - 1) + '…' : first;
+        function showPapers(c) {
+            const panel = document.getElementById('cn-papers');
+            const papers = [...(c.sharedPapers || [])].sort((a, b) => (b.year || 0) - (a.year || 0));
+            panel.innerHTML = `<button class="cn-close" aria-label="Close">×</button>` +
+                `<h3>${esc(c.name)} <span>· ${c.collaborationCount} shared paper${c.collaborationCount !== 1 ? 's' : ''} · ${years(c)}</span></h3>` +
+                '<ul>' + papers.map(p => `<li><span class="cn-yr">${p.year || ''}</span>` +
+                    `<a href="https://www.semanticscholar.org/paper/${encodeURIComponent(p.paperId)}" target="_blank" rel="noopener">${esc(p.title)}</a></li>`).join('') + '</ul>';
+            panel.style.display = 'block';
+            panel.querySelector('.cn-close').onclick = () => { panel.style.display = 'none'; };
+            panel.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'nearest' });
         }
 
-        function initials(name) {
-            if (!name) return '?';
-            const parts = name.trim().split(/\s+/);
-            const first = parts[0]?.[0] || '';
-            const last  = parts.length > 1 ? (parts[parts.length - 1]?.[0] || '') : '';
-            return (first + last).toUpperCase();
-        }
-
-        /* ── Build nodes + links from collaborator list ─ */
-
-        function buildGraphData(collaborators) {
-            const nodes = [
-                {
-                    id: RONALDO_ID,
-                    name: 'Ronaldo Menezes',
-                    isCenter: true,
-                    collaborationCount: collaborators.length
-                },
-                ...collaborators.map(c => ({
-                    id: c.authorId,
-                    name: c.name,
-                    isCenter: false,
-                    collaborationCount: c.collaborationCount,
-                    firstCollabYear: c.firstCollabYear,
-                    lastCollabYear:  c.lastCollabYear
-                }))
-            ];
-
-            /* Ego edges: Ronaldo ↔ every collaborator */
-            const links = collaborators.map(c => ({
-                source: RONALDO_ID,
-                target: c.authorId,
-                weight: c.collaborationCount,
-                isEgo:  true
-            }));
-
-            /* Pre-build paper-id Sets for each collaborator */
-            const paperSets = collaborators.map(c =>
-                new Set((c.sharedPapers || []).map(p => p.paperId))
-            );
-
-            /* Collaborator ↔ collaborator edges (≥ 2 shared papers) */
-            for (let i = 0; i < collaborators.length; i++) {
-                for (let j = i + 1; j < collaborators.length; j++) {
-                    let shared = 0;
-                    paperSets[j].forEach(pid => { if (paperSets[i].has(pid)) shared++; });
-                    if (shared >= 2) {
-                        links.push({
-                            source: collaborators[i].authorId,
-                            target: collaborators[j].authorId,
-                            weight: shared,
-                            isEgo:  false
-                        });
-                    }
+        /* Pairs of collaborators who share at least one paper */
+        function pairLinks(list) {
+            const links = [];
+            for (let i = 0; i < list.length; i++) {
+                for (let j = i + 1; j < list.length; j++) {
+                    let n = 0;
+                    list[j].papers.forEach(pid => { if (list[i].papers.has(pid)) n++; });
+                    if (n) links.push({ source: list[i], target: list[j], weight: n });
                 }
             }
-
-            return { nodes, links };
+            return links;
         }
 
-        /* ── Render the D3 graph ────────────────────── */
+        function setStats(items) {
+            document.getElementById('cn-stats').innerHTML =
+                items.map(([v, l]) => `<div><b>${v}</b><span>${l}</span></div>`).join('');
+        }
 
-        function renderNetwork(collaborators) {
-            const container = document.getElementById('network-container');
-            const svgEl     = document.getElementById('network-svg');
-            const tooltip   = document.getElementById('network-tooltip');
-            const W = container.clientWidth;
-            const H = container.clientHeight;
+        /* ── View 1: rings by decade ────────────────── */
+        function drawRings() {
+            const area = document.getElementById('cn-rings');
+            const svg = d3.select(area).select('svg');
+            const subset = topN(document.getElementById('cn-rings-n'));
+            const W = area.clientWidth, H = area.clientHeight, cx = W / 2, cy = H / 2;
+            const decades = [...new Set(subset.map(decadeOf))].sort();
+            const R = Math.min(W, H) / 2 - 34;
+            const ringR = d3.scaleLinear().domain([0, Math.max(1, decades.length - 1)]).range([decades.length > 1 ? 70 : R, R]);
+            const ringOf = c => ringR(decades.indexOf(decadeOf(c)));
+            const maxC = d3.max(subset, c => c.collaborationCount);
+            const r = d3.scaleSqrt().domain([1, maxC]).range([3.5, W < 600 ? 13 : 17]);
+            const colour = d3.scaleSequential().domain([d3.min(subset, c => c.lastCollabYear), NOW])
+                .interpolator(d3.interpolate('#9fd8cd', '#00574a'));
+            const pairs = pairLinks(subset);
 
-            if (simulation) simulation.stop();
+            /* Spread each ring by first year, then let collisions settle (computed up front, no animation) */
+            decades.forEach(dec => {
+                const ring = subset.filter(c => decadeOf(c) === dec)
+                    .sort((a, b) => a.firstCollabYear - b.firstCollabYear || b.collaborationCount - a.collaborationCount);
+                ring.forEach((c, i) => {
+                    const a = -Math.PI / 2 + (i / ring.length) * 2 * Math.PI + dec / 7;
+                    c.x = cx + Math.cos(a) * ringOf(c); c.y = cy + Math.sin(a) * ringOf(c);
+                });
+            });
+            d3.forceSimulation(subset)
+                .force('radial', d3.forceRadial(ringOf, cx, cy).strength(1))
+                .force('collide', d3.forceCollide(c => r(c.collaborationCount) + 1.5).strength(0.9))
+                .stop().tick(200);
 
-            /* Remove old zoom handlers before re-attaching */
-            const svgSel = d3.select(svgEl);
-            svgSel.on('.zoom', null);
-            svgSel.selectAll('*').remove();
+            svg.selectAll('*').remove();
+            const g = svg.append('g');
+            decades.forEach((dec, i) => {
+                g.append('circle').attr('cx', cx).attr('cy', cy).attr('r', ringR(i)).attr('fill', 'none')
+                    .attr('stroke', '#007D69').attr('stroke-opacity', 0.18).attr('stroke-dasharray', '3 4');
+                g.append('text').attr('x', cx).attr('y', cy - ringR(i) - 6).attr('text-anchor', 'middle')
+                    .attr('font-size', 11).attr('fill', '#007D69')
+                    .attr('paint-order', 'stroke').attr('stroke', '#fff').attr('stroke-width', 4).text(`${dec}s`);
+            });
+            const spokes = g.append('g').selectAll('line').data(subset).join('line')
+                .attr('x1', cx).attr('y1', cy).attr('x2', d => d.x).attr('y2', d => d.y)
+                .attr('stroke', '#007D69').attr('stroke-opacity', 0.07);
+            const links = g.append('g').selectAll('path').data(pairs).join('path')
+                .attr('d', d => `M${d.source.x},${d.source.y} Q${(d.source.x + d.target.x) * 0.3 + cx * 0.4},${(d.source.y + d.target.y) * 0.3 + cy * 0.4} ${d.target.x},${d.target.y}`)
+                .attr('fill', 'none').attr('stroke', '#F0884A').attr('stroke-width', d => 0.8 + d.weight * 0.4).attr('stroke-opacity', 0);
+            const nodes = g.append('g').selectAll('circle').data(subset).join('circle')
+                .attr('cx', d => d.x).attr('cy', d => d.y).attr('r', d => r(d.collaborationCount))
+                .attr('fill', d => colour(d.lastCollabYear)).attr('stroke', '#fff').attr('stroke-width', 1).attr('cursor', 'pointer');
+            g.append('g').selectAll('text').data(subset.filter(c => r(c.collaborationCount) >= 10)).join('text')
+                .attr('x', d => d.x + (d.x >= cx ? 1 : -1) * (r(d.collaborationCount) + 4)).attr('y', d => d.y).attr('dy', '0.35em')
+                .attr('text-anchor', d => d.x >= cx ? 'start' : 'end').attr('font-size', 10).attr('font-weight', 300).attr('fill', '#333')
+                .attr('paint-order', 'stroke').attr('stroke', '#fff').attr('stroke-width', 3).attr('pointer-events', 'none')
+                .text(d => surname(d.name));
+            g.append('circle').attr('cx', cx).attr('cy', cy).attr('r', 20).attr('fill', '#F0884A').attr('stroke', '#C86820').attr('stroke-width', 2);
+            g.append('text').attr('x', cx).attr('y', cy).attr('dy', '0.35em').attr('text-anchor', 'middle')
+                .attr('font-size', 11).attr('fill', '#fff').attr('font-weight', 500).attr('pointer-events', 'none').text('RM');
 
-            const { nodes, links } = buildGraphData(collaborators);
-            const maxCount = d3.max(collaborators, d => d.collaborationCount) || 1;
+            nodes.on('mouseenter', (e, d) => {
+                const mine = pairs.filter(l => l.source === d || l.target === d);
+                const linked = new Set(mine.flatMap(l => [l.source, l.target]));
+                links.attr('stroke-opacity', l => mine.includes(l) ? 0.75 : 0);
+                nodes.attr('opacity', c => linked.has(c) || c === d ? 1 : 0.25);
+                spokes.attr('stroke-opacity', c => c === d ? 0.6 : 0.04);
+                const n = linked.size ? linked.size - 1 : 0;
+                showTip(e, d, `<div class="tt-row">Also wrote with <span class="tt-accent">${n}</span> other${n !== 1 ? 's' : ''} shown</div>`);
+            }).on('mousemove', moveTip).on('mouseleave', () => {
+                links.attr('stroke-opacity', 0); nodes.attr('opacity', 1); spokes.attr('stroke-opacity', 0.07); hideTip();
+            }).on('click', (e, d) => showPapers(d));
 
-            /* Recency scale for node colour (lastCollabYear → dark=old, light=recent) */
-            const currentYear = new Date().getFullYear();
-            const years       = collaborators.map(c => c.lastCollabYear).filter(y => y != null);
-            const minYear     = years.length ? Math.min(...years) : currentYear - 20;
-            const colorByRecency = d3.scaleSequential()
-                .domain([minYear, currentYear])
-                .interpolator(d3.interpolate('#7dd4c4', '#004a3f'));
+            setStats(decades.map(dec => [subset.filter(c => decadeOf(c) === dec).length, `Began in the ${dec}s`]));
+        }
 
-            /* Text colour: use perceived luminance of the actual node fill to pick black/white */
-            const textFill = d => {
-                const c = d3.color(colorByRecency(d.lastCollabYear || minYear)).rgb();
-                const L = 0.2126 * (c.r / 255) + 0.7152 * (c.g / 255) + 0.0722 * (c.b / 255);
-                return L < 0.35 ? '#ffffff' : '#003d35';
-            };
+        /* ── View 2: timeline, one row per collaborator ─ */
+        function drawLanes() {
+            const area = document.getElementById('cn-lanes');
+            const svg = d3.select(area).select('svg');
+            const rows = topN(document.getElementById('cn-lanes-n')).slice();
+            const key = document.getElementById('cn-lanes-sort').value;
+            if (key === 'first') rows.sort((a, b) => a.firstCollabYear - b.firstCollabYear || b.collaborationCount - a.collaborationCount);
+            if (key === 'last') rows.sort((a, b) => b.lastCollabYear - a.lastCollabYear || b.collaborationCount - a.collaborationCount);
 
-            /* Visual scales */
-            const radius = d3.scaleSqrt()
-                .domain([1, maxCount])
-                .range([5, 22]);
+            const narrow = area.clientWidth < 600;
+            const W = Math.max(area.clientWidth, 520), ROW = 24, top = 34, left = narrow ? 135 : 170, right = 40;
+            const H = top + rows.length * ROW + 12;
+            svg.attr('viewBox', `0 0 ${W} ${H}`).attr('width', W).attr('height', H);
+            svg.selectAll('*').remove();
 
-            const EDGE_WIDTH = 1.2; /* uniform thickness for all edges */
+            const minY = d3.min(rows, c => c.firstCollabYear);
+            const x = d3.scaleLinear().domain([minY - 0.5, NOW + 0.5]).range([left, W - right]);
+            const perYear = c => d3.rollups(c.sharedPapers || [], v => v.length, p => p.year).filter(([y]) => y);
+            const maxPer = d3.max(rows, c => d3.max(perYear(c), d => d[1])) || 1;
+            const rDot = d3.scaleSqrt().domain([1, maxPer]).range([3, 8]);
 
-            /* Main group (zoom target) */
-            const g = svgSel.append('g');
-
-            /* Zoom */
-            svgSel.call(
-                d3.zoom()
-                    .scaleExtent([0.15, 6])
-                    .on('zoom', e => g.attr('transform', e.transform))
-            );
-
-            /* Force simulation */
-            simulation = d3.forceSimulation(nodes)
-                .force('link',
-                    d3.forceLink(links)
-                        .id(d => d.id)
-                        .distance(d => {
-                            if (d.isEgo) {
-                                /* Stronger collaborators pulled closer */
-                                const t = (d.weight - 1) / Math.max(1, maxCount - 1);
-                                return clamp(120 - t * 55, 55, 120);
-                            }
-                            return 55; /* c2c edges stay short */
-                        })
-                        .strength(d => d.isEgo ? 0.6 : 0.25)
-                )
-                .force('charge',    d3.forceManyBody().strength(-250))
-                .force('center',    d3.forceCenter(W / 2, H / 2))
-                .force('collision', d3.forceCollide()
-                    .radius(d => (d.isCenter ? 28 : radius(d.collaborationCount)) + 5)
-                );
-
-            /* Links — ego green, c2c black, same thickness */
-            const link = g.append('g')
-                .selectAll('line')
-                .data(links)
-                .join('line')
-                .attr('stroke',       d => d.isEgo ? 'rgba(0,125,105,0.50)' : 'rgba(0,0,0,0.18)')
-                .attr('stroke-width', EDGE_WIDTH);
-
-            /* Node groups (drag + tooltip) */
-            const node = g.append('g')
-                .selectAll('g')
-                .data(nodes)
-                .join('g')
-                .attr('cursor', 'pointer')
-                .call(
-                    d3.drag()
-                        .on('start', (e, d) => {
-                            if (!e.active) simulation.alphaTarget(0.3).restart();
-                            d.fx = d.x; d.fy = d.y;
-                        })
-                        .on('drag',  (e, d) => { d.fx = e.x; d.fy = e.y; })
-                        .on('end',   (e, d) => {
-                            if (!e.active) simulation.alphaTarget(0);
-                            d.fx = null; d.fy = null;
-                        })
-                );
-
-            /* Circles */
-            node.append('circle')
-                .attr('r',            d => d.isCenter ? 26 : radius(d.collaborationCount))
-                .attr('fill',         d => d.isCenter ? '#F0884A' : colorByRecency(d.lastCollabYear || minYear))
-                .attr('stroke',       d => d.isCenter ? '#C86820' : 'rgba(0,0,0,0.15)')
-                .attr('stroke-width', d => d.isCenter ? 2 : 1);
-
-            /* Dashed ring around centre node */
-            node.filter(d => d.isCenter)
-                .append('circle')
-                .attr('r',                34)
-                .attr('fill',             'none')
-                .attr('stroke',           '#F0884A')
-                .attr('stroke-width',     1)
-                .attr('stroke-opacity',   0.35)
-                .attr('stroke-dasharray', '5 4');
-
-            /* Initials inside collaborator nodes that are large enough — not on centre */
-            node.filter(d => !d.isCenter && radius(d.collaborationCount) >= 9)
-                .append('text')
-                .text(d => initials(d.name))
-                .attr('text-anchor', 'middle')
-                .attr('dy',          '0.35em')
-                .attr('fill',        textFill)
-                .attr('font-size',   d => d.isCenter ? '11px' : '8px')
-                .attr('font-weight', '500')
-                .attr('font-family', "'Helvetica Neue', Helvetica, Arial, sans-serif")
-                .attr('pointer-events', 'none');
-
-            /* Names shown on hover via tooltip only — no persistent labels */
-
-            /* Tooltip */
-            node
-                .on('mouseenter', (e, d) => {
-                    if (d.isCenter) return;
-                    const yrs = (d.firstCollabYear && d.lastCollabYear)
-                        ? (d.firstCollabYear === d.lastCollabYear
-                            ? `${d.firstCollabYear}`
-                            : `${d.firstCollabYear}–${d.lastCollabYear}`)
-                        : '—';
-                    tooltip.innerHTML =
-                        `<div class="tt-name">${d.name}</div>` +
-                        `<div class="tt-row"><span class="tt-accent">${d.collaborationCount}</span> shared paper${d.collaborationCount !== 1 ? 's' : ''}</div>` +
-                        `<div class="tt-row">Active: ${yrs}</div>`;
-                    tooltip.style.display = 'block';
-                    tooltip.style.left    = (e.clientX + 14) + 'px';
-                    tooltip.style.top     = (e.clientY - 10) + 'px';
-                })
-                .on('mousemove', e => {
-                    tooltip.style.left = (e.clientX + 14) + 'px';
-                    tooltip.style.top  = (e.clientY - 10) + 'px';
-                })
-                .on('mouseleave', () => { tooltip.style.display = 'none'; });
-
-            /* Simulation tick */
-            simulation.on('tick', () => {
-                link
-                    .attr('x1', d => d.source.x).attr('y1', d => d.source.y)
-                    .attr('x2', d => d.target.x).attr('y2', d => d.target.y);
-                node.attr('transform', d => `translate(${d.x},${d.y})`);
+            const step = W < 700 ? 5 : 2;
+            const grid = svg.append('g');
+            d3.range(Math.ceil(minY / step) * step, NOW + 1, step).forEach(t => {
+                grid.append('line').attr('x1', x(t)).attr('x2', x(t)).attr('y1', top - 8).attr('y2', H - 8).attr('stroke', '#eee');
+                grid.append('text').attr('x', x(t)).attr('y', top - 14).attr('text-anchor', 'middle').attr('font-size', 10).attr('fill', '#707070').text(t);
             });
 
-            /* Reduce motion: settle the layout up front and show it already in place */
-            if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                simulation.stop();
-                simulation.tick(300);
-                simulation.on('tick')();
-            }
+            const shade = i => i % 2 ? '#fafafa' : '#fff';
+            const row = svg.append('g').selectAll('g').data(rows).join('g')
+                .attr('transform', (d, i) => `translate(0,${top + i * ROW + ROW / 2})`).attr('cursor', 'pointer');
+            row.append('rect').attr('y', -ROW / 2).attr('width', W).attr('height', ROW).attr('fill', (d, i) => shade(i));
+            row.append('text').attr('x', left - 12).attr('dy', '0.35em').attr('text-anchor', 'end')
+                .attr('font-size', 11.5).attr('font-weight', 300).attr('fill', '#111')
+                .text(d => narrow && d.name.length > 21 ? d.name.slice(0, 20) + '…' : d.name);
+            row.append('line').attr('x1', d => x(d.firstCollabYear)).attr('x2', d => x(d.lastCollabYear))
+                .attr('stroke', '#007D69').attr('stroke-opacity', 0.3).attr('stroke-width', 2);
+            row.selectAll('circle').data(d => perYear(d)).join('circle')
+                .attr('cx', d => x(d[0])).attr('r', d => rDot(d[1])).attr('fill', '#007D69').attr('fill-opacity', 0.85);
+            row.append('text').attr('x', d => x(d.lastCollabYear) + 10).attr('dy', '0.35em').attr('font-size', 10)
+                .attr('fill', '#707070').text(d => d.collaborationCount);
+
+            row.on('mouseenter', function (e, d) { d3.select(this).select('rect').attr('fill', '#f0f7f5'); showTip(e, d); })
+                .on('mousemove', moveTip)
+                .on('mouseleave', function (e, d) { d3.select(this).select('rect').attr('fill', shade(rows.indexOf(d))); hideTip(); })
+                .on('click', (e, d) => showPapers(d));
+
+            const longest = rows.reduce((a, b) => (b.lastCollabYear - b.firstCollabYear > a.lastCollabYear - a.firstCollabYear ? b : a));
+            setStats([
+                [rows.length, 'Collaborators'],
+                [rows.filter(c => c.lastCollabYear >= NOW - 2).length, `Active since ${NOW - 2}`],
+                [`${longest.lastCollabYear - longest.firstCollabYear + 1} years`, `Longest: ${longest.name}`]
+            ]);
         }
 
-        /* ── Stats bar ──────────────────────────────── */
+        /* ── View switching ─────────────────────────── */
+        function draw() { hideTip(); if (all.length) (view === 'rings' ? drawRings : drawLanes)(); }
 
-        function updateStats(subset) {
-            const uniquePapers = new Set(
-                subset.flatMap(c => (c.sharedPapers || []).map(p => p.paperId))
-            ).size;
+        section.querySelectorAll('.cn-tabs button').forEach(btn => btn.addEventListener('click', () => {
+            view = btn.dataset.view;
+            section.querySelectorAll('.cn-tabs button').forEach(b => b.setAttribute('aria-pressed', b === btn));
+            section.querySelectorAll('[data-for], .cn-area').forEach(el => {
+                el.hidden = (el.dataset.for || el.dataset.view) !== view;
+            });
+            draw();
+        }));
+        ['cn-rings-n', 'cn-lanes-n', 'cn-lanes-sort'].forEach(id => document.getElementById(id).addEventListener('change', draw));
+        let resizeTimer, lastW = window.innerWidth;
+        window.addEventListener('resize', () => {
+            if (window.innerWidth === lastW) return;   /* ignore mobile address-bar height changes */
+            lastW = window.innerWidth;
+            clearTimeout(resizeTimer); resizeTimer = setTimeout(draw, 200);
+        });
 
-            const sets = subset.map(c =>
-                new Set((c.sharedPapers || []).map(p => p.paperId))
-            );
-            let c2c = 0;
-            for (let i = 0; i < subset.length; i++) {
-                for (let j = i + 1; j < subset.length; j++) {
-                    let n = 0;
-                    sets[j].forEach(pid => { if (sets[i].has(pid)) n++; });
-                    if (n >= 2) c2c++;
-                }
-            }
-
-            document.getElementById('network-stats').innerHTML =
-                `<div><span class="net-stat-value">${subset.length}</span><span class="net-stat-label">Collaborators</span></div>` +
-                `<div><span class="net-stat-value">${uniquePapers}</span><span class="net-stat-label">Shared Papers</span></div>` +
-                `<div><span class="net-stat-value">${subset.length + c2c}</span><span class="net-stat-label">Connections</span></div>`;
-        }
-
-        /* ── Load data and initialise ───────────────── */
-
-        async function initNetwork() {
-            const loadingEl = document.getElementById('graph-loading');
-            const noDataEl  = document.getElementById('graph-no-data');
-            const svgEl     = document.getElementById('network-svg');
-            const legendEl  = document.getElementById('network-legend');
-            const updatedEl = document.getElementById('lg-updated');
-            const topNSel   = document.getElementById('top-n-select');
-
-            try {
-                const res = await fetch('data/auto/collaborators.json');
-                if (!res.ok) throw new Error('not found');
-                const data = await res.json();
-
-                allCollabs = data.collaborators || [];
-                if (allCollabs.length === 0) throw new Error('empty');
-
-                /* Show graph, hide loading overlay */
-                loadingEl.style.display = 'none';
-                svgEl.style.display     = 'block';
-                legendEl.style.display  = 'flex';
-
+        fetch('data/auto/collaborators.json')
+            .then(res => { if (!res.ok) throw new Error(); return res.json(); })
+            .then(data => {
+                all = (data.collaborators || []).filter(c => c.firstCollabYear);
+                if (!all.length) throw new Error();
+                all.forEach(c => { c.papers = new Set((c.sharedPapers || []).map(p => p.paperId)); });
+                document.getElementById('cn-msg').remove();
                 if (data.updated) {
-                    const d = new Date(data.updated);
-                    updatedEl.textContent = 'Updated ' +
-                        d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }) +
+                    document.getElementById('cn-updated').textContent = 'Updated ' +
+                        new Date(data.updated).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }) +
                         ' · Data from Semantic Scholar';
                 }
-
-                function draw() {
-                    const n      = parseInt(topNSel.value);
-                    const subset = n === 0 ? allCollabs : allCollabs.slice(0, n);
-                    updateStats(subset);
-                    renderNetwork(subset);
-                }
-
                 draw();
-                topNSel.addEventListener('change', draw);
-
-            } catch (_) {
-                loadingEl.style.display = 'none';
-                noDataEl.style.display  = 'flex';
-            }
-        }
-
-        initNetwork();
+            })
+            .catch(() => {
+                document.getElementById('cn-msg').textContent = 'Collaboration data is not available at the moment. Please check back soon.';
+            });
+    })();
     </script>
     <script src="js/hero-runner.js"></script>
     <script src="js/hero-network.js"></script>

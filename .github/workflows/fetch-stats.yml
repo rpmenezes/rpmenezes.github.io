@@ -48,6 +48,38 @@ jobs:
             sleep 30
           done
 
+      - name: Fetch collaborators' full names
+        # Semantic Scholar often stores names as "G. Ghoshal"; its link to DBLP
+        # usually carries the full name ("Gourab Ghoshal"). Optional: if this
+        # fails, the network keeps the names as Semantic Scholar has them.
+        continue-on-error: true
+        run: |
+          python3 << 'EOF'
+          import json, time, urllib.request
+
+          papers = json.load(open('/tmp/s2_papers.json')).get('data', [])
+          ids = sorted({a['authorId'] for p in papers for a in p.get('authors', []) if a.get('authorId')})
+          names = {}
+          for start in range(0, len(ids), 500):
+              chunk = ids[start:start + 500]
+              for attempt in range(5):
+                  try:
+                      req = urllib.request.Request(
+                          'https://api.semanticscholar.org/graph/v1/author/batch?fields=name,externalIds',
+                          data=json.dumps({'ids': chunk}).encode(),
+                          headers={'Content-Type': 'application/json'})
+                      for a in json.load(urllib.request.urlopen(req, timeout=60)):
+                          dblp = ((a or {}).get('externalIds') or {}).get('DBLP') or []
+                          if dblp:
+                              names[a['authorId']] = dblp[0]
+                      break
+                  except Exception as e:
+                      print(f'Attempt {attempt + 1} failed: {e}')
+                      time.sleep(30)
+          json.dump(names, open('/tmp/s2_names.json', 'w'))
+          print(f'Full names found for {len(names)} of {len(ids)} authors')
+          EOF
+
       - name: Fetch ORCID publications
         run: |
           # Retry until the response is valid JSON with a works list; a failed
@@ -281,55 +313,84 @@ jobs:
                       'year': year
                   })
 
-          # Deduplicate by first-initial + last-name key, but ONLY when at least
-          # one entry uses an abbreviated first name (e.g. "N. Iyer" or "M. Macedo").
-          # This prevents "Mahdi X" from being incorrectly merged with "Marcus X".
-          def is_initial(word):
-              """Single letter, optionally followed by a period — e.g. 'M' or 'M.'"""
-              return len(word.rstrip('.')) == 1
+          # Display names: "First Last". Use the full name from DBLP when it is
+          # clearly the same person, then data/manual/collaborator-names.json
+          # (keyed by authorId or by the name as Semantic Scholar has it) for
+          # anything automatic matching can't fix, e.g. "M. Oliveira-Junior".
+          import re, unicodedata
 
-          def dedup_key(name):
-              parts = name.strip().split()
-              if not parts:
-                  return ''
-              last  = parts[-1].lower().rstrip('.')
-              first = parts[0][0].lower() if parts[0] else ''
-              return f"{first}_{last}"
+          def norm(word):
+              word = unicodedata.normalize('NFKD', word).encode('ascii', 'ignore').decode()
+              return ''.join(ch for ch in word.lower() if ch.isalpha())
 
-          key_to_primary = {}
-          to_delete = []
-          for aid, info in list(collab_map.items()):
-              key = dedup_key(info['name'])
-              if not key:
+          def name_parts(name):
+              parts = [p for p in name.strip().split() if norm(p)]
+              return (norm(parts[0]), norm(parts[-1])) if parts else ('', '')
+
+          def first_last(name):
+              parts = re.sub(r'\s+\d{4}$', '', name).split()   # DBLP adds " 0001" to tell namesakes apart
+              if len(parts) < 2:
+                  return name.strip()
+              particles = {'de', 'da', 'do', 'dos', 'das', 'di', 'del', 'della', 'van', 'von', 'der', 'la', 'le', 'e'}
+              first = next((p for p in parts[:-1] if len(p.rstrip('.')) > 1 and p.lower() not in particles), parts[0])
+              return f'{first} {parts[-1]}'
+
+          try:
+              full_names = json.load(open('/tmp/s2_names.json'))
+          except Exception:
+              full_names = {}
+          try:
+              overrides = {k: v for k, v in json.load(open('data/manual/collaborator-names.json')).items()
+                           if not k.startswith('_')}
+          except Exception:
+              overrides = {}
+
+          for aid, c in collab_map.items():
+              s2_name = c['name']
+              best = s2_name
+              dblp = re.sub(r'\s+\d{4}$', '', full_names.get(aid, ''))
+              if dblp:
+                  fs, ls = name_parts(s2_name)
+                  fd, ld = name_parts(dblp)
+                  if fs and fd and ls == ld and fs[0] == fd[0]:
+                      best = dblp
+              c['name'] = overrides.get(aid) or overrides.get(s2_name) or first_last(best)
+
+          # Semantic Scholar often splits one person across several author IDs
+          # ("Mariana Macedo" x3, "Marcos A. C. Oliveira" / "Marcos Oliveira").
+          # Merge entries with the same first initial + surname when the first
+          # names match (ignoring accents, case, hyphens) or one is just an
+          # initial. Different first names stay apart ("Xiao-Dong" vs "Xiao-Long").
+          def same_person(a, b):
+              fa, la = name_parts(a)
+              fb, lb = name_parts(b)
+              if not fa or not fb or la != lb or fa[0] != fb[0]:
+                  return False
+              return fa == fb or len(fa) == 1 or len(fb) == 1
+
+          # Biggest entry first, so it becomes the one that others merge into
+          order = sorted(collab_map, key=lambda a: -len(collab_map[a]['sharedPapers']))
+          to_delete = set()
+          for i, primary in enumerate(order):
+              if primary in to_delete:
                   continue
-              if key in key_to_primary:
-                  primary = key_to_primary[key]
-                  pri = collab_map[primary]
-                  # Safety check: only merge when at least one side has an abbreviated
-                  # first name — prevents collapsing two different people who share
-                  # an initial and a last name (e.g. "Mahdi X" vs "Marcos X")
-                  info_first = info['name'].strip().split()[0]
-                  pri_first  = pri['name'].strip().split()[0]
-                  if not (is_initial(info_first) or is_initial(pri_first)):
-                      continue  # both full names, different people — leave separate
-                  # Prefer the longer (more complete) name
-                  if len(info['name']) > len(pri['name']):
-                      pri['name'] = info['name']
-                  pri['collaborationCount'] += info['collaborationCount']
-                  if info['firstCollabYear'] and (pri['firstCollabYear'] is None or info['firstCollabYear'] < pri['firstCollabYear']):
-                      pri['firstCollabYear'] = info['firstCollabYear']
-                  if info['lastCollabYear'] and (pri['lastCollabYear'] is None or info['lastCollabYear'] > pri['lastCollabYear']):
-                      pri['lastCollabYear'] = info['lastCollabYear']
+              pri = collab_map[primary]
+              for other in order[i + 1:]:
+                  if other in to_delete or not same_person(pri['name'], collab_map[other]['name']):
+                      continue
+                  info = collab_map[other]
+                  if len(name_parts(pri['name'])[0]) == 1 and len(name_parts(info['name'])[0]) > 1:
+                      pri['name'] = info['name']             # prefer a spelled-out first name
                   seen = {p['paperId'] for p in pri['sharedPapers']}
-                  for paper in info['sharedPapers']:
-                      if paper['paperId'] not in seen:
-                          pri['sharedPapers'].append(paper)
-                          seen.add(paper['paperId'])
-                  to_delete.append(aid)
-              else:
-                  key_to_primary[key] = aid
+                  pri['sharedPapers'] += [p for p in info['sharedPapers'] if p['paperId'] not in seen]
+                  to_delete.add(other)
           for aid in to_delete:
               del collab_map[aid]
+          for c in collab_map.values():
+              years = [p['year'] for p in c['sharedPapers'] if p.get('year')]
+              c['collaborationCount'] = len({p['paperId'] for p in c['sharedPapers']})
+              c['firstCollabYear'] = min(years) if years else None
+              c['lastCollabYear'] = max(years) if years else None
           if to_delete:
               print(f"Merged {len(to_delete)} duplicate author entries")
 
