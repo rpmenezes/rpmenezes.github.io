@@ -49,6 +49,17 @@
 
             <div class="post-item fade-in">
                 <div class="post-meta">
+                    <span class="post-date">19 Nov 2026</span>
+                    <img src="posts/2026-11-19.png" alt="Post icon" class="post-icon">
+                </div>
+                <div class="post-body">
+                    <a href="posts/2026-11-19.html" class="post-title-link">Are You a Scientist?</a>
+                    <div class="post-excerpt">On rankings, metrics, and the gap between what we measure in academia and what we are actually there to do.</div>
+                </div>
+            </div>
+
+            <div class="post-item fade-in">
+                <div class="post-meta">
                     <span class="post-date">28 Out 2026</span>
                     <img src="posts/2026-10-28.png" alt="Post icon" class="post-icon">
                 </div>
@@ -176,25 +187,6 @@
         <p>&copy; <span class="copy-year">2026</span> Ronaldo Menezes | University of Exeter | Department of Computer Science</p>
     </footer>
 
-    <script>
-        const navToggle = document.querySelector('.nav-toggle');
-        const navMenu = document.querySelector('.nav-menu');
-        navToggle.addEventListener('click', () => {
-            const expanded = navToggle.getAttribute('aria-expanded') === 'true';
-            navToggle.setAttribute('aria-expanded', !expanded);
-            navMenu.classList.toggle('nav-open');
-        });
-
-        const fadeEls = document.querySelectorAll('.fade-in');
-        setTimeout(() => {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(e => {
-                    if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
-                });
-            }, { threshold: 0, rootMargin: '200px 0px 0px 0px' });
-            fadeEls.forEach(el => observer.observe(el));
-        }, 50);
-    </script>
 
 </body>
 </html>

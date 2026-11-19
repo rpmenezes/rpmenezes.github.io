@@ -127,6 +127,8 @@
                 <a href="2026-10-11.html">Tuas Mãos</a>
             </div>
             <div class="post-nav-item right">
+                <span class="post-nav-label">Next →</span>
+                <a href="2026-11-19.html">Are You a Scientist?</a>
             </div>
         </nav>
 
@@ -136,25 +138,6 @@
         <p>&copy; <span class="copy-year">2026</span> Ronaldo Menezes | University of Exeter | Department of Computer Science</p>
     </footer>
 
-    <script>
-        const navToggle = document.querySelector('.nav-toggle');
-        const navMenu = document.querySelector('.nav-menu');
-        navToggle.addEventListener('click', () => {
-            const expanded = navToggle.getAttribute('aria-expanded') === 'true';
-            navToggle.setAttribute('aria-expanded', !expanded);
-            navMenu.classList.toggle('nav-open');
-        });
-
-        const fadeEls = document.querySelectorAll('.fade-in');
-        setTimeout(() => {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(e => {
-                    if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
-                });
-            }, { threshold: 0, rootMargin: '200px 0px 0px 0px' });
-            fadeEls.forEach(el => observer.observe(el));
-        }, 50);
-    </script>
 
 </body>
 </html>
