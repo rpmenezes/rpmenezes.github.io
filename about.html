@@ -155,9 +155,9 @@
             <div class="contact-grid">
                 <!-- Row 1: Email, ORCID, Google Scholar -->
                 <a class="contact-item" data-eu="r.menezes" data-ed="exeter.ac.uk"
-                   href="#" onclick="this.href='mailto:'+this.dataset.eu+'@'+this.dataset.ed">
+                   href="#" onclick="const a=this.dataset.eu+'@'+this.dataset.ed;this.href='mailto:'+a;this.querySelector('.contact-value').textContent=a">
                     <img src="icons/envelope-regular.png" alt="Email" class="contact-icon">
-                    <span class="contact-value">r.menezes[at]exeter.ac.uk</span>
+                    <span class="contact-value">Show email address</span>
                 </a>
                 <a href="https://orcid.org/0000-0002-6479-6429" target="_blank" class="contact-item">
                     <img src="icons/orcid-brands-solid.png" alt="ORCID" class="contact-icon">
