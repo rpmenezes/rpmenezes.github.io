@@ -7,7 +7,7 @@
     <title>Page Not Found - Ronaldo Menezes</title>
     <!-- Served for any missing URL, so every path here is root-absolute. -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-    <link rel="stylesheet" href="/styles.css?v=12">
+    <link rel="stylesheet" href="/styles.css?v=13">
 </head>
 <body>
     <!-- Navigation -->
@@ -15,7 +15,7 @@
         <nav class="navbar">
             <div class="nav-container">
                 <div class="nav-brand">
-                    <h1><a href="/index.html" style="text-decoration:none;color:inherit;">Ronaldo Menezes</a></h1>
+                    <h1><a href="/index.html">Ronaldo Menezes</a></h1>
                     <p class="nav-subtitle">Professor of Data and Network Science</p>
                 </div>
                 <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
@@ -42,9 +42,9 @@
 
         <section class="content-section">
             <p>The page you were looking for doesn't exist or may have moved.</p>
-            <p style="margin-top:1.5rem;">
+            <p class="notfound-actions">
                 <a class="btn-primary" href="/index.html">Go to the home page</a>
-                <a class="btn-outline" href="/research.html" style="margin-left:0.6rem;">Explore my research</a>
+                <a class="btn-outline" href="/research.html">Explore my research</a>
             </p>
         </section>
     </main>
@@ -53,20 +53,6 @@
         <p>&copy; <span class="copy-year">2026</span> Ronaldo Menezes | University of Exeter | Department of Computer Science</p>
     </footer>
 
-    <script>
-        const toggle = document.querySelector('.nav-toggle');
-        const menu = document.querySelector('.nav-menu');
-        toggle.addEventListener('click', () => {
-            const open = menu.classList.toggle('nav-open');
-            toggle.setAttribute('aria-expanded', open);
-        });
-        menu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                menu.classList.remove('nav-open');
-                toggle.setAttribute('aria-expanded', false);
-            });
-        });
-    </script>
     <script src="/js/hero-runner.js"></script>
     <script src="/js/hero-network.js"></script>
 </body>

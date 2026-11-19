@@ -12,7 +12,7 @@
         [151.21, -33.87], [103.82, 1.35]
     ];
     let land = null;
-    const landReady = fetch('https://cdn.jsdelivr.net/npm/world-atlas@2/land-110m.json')
+    const landReady = fetch('https://cdn.jsdelivr.net/npm/world-atlas@2.0.2/land-110m.json')
         .then(r => r.json())
         .then(t => { land = topojson.feature(t, t.objects.land); })
         .catch(() => {});

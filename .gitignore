@@ -12,3 +12,6 @@
 
 # Local env
 .env
+
+# Local Claude Code / preview settings (not part of the site)
+.claude/

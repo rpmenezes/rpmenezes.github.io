@@ -2,8 +2,9 @@
 //   <ul class="nav-menu" data-site-nav></ul>
 //   <script src="js/site.js"></script>   (../js/ or ../../js/ in subfolders)
 // It fills the menu (the single source of truth for navigation, so editing
-// MENU below updates every page) and keeps the footer year current via
-// <span class="copy-year">2026</span>.
+// MENU below updates every page), runs the phone menu button and the
+// scroll fade-in, and keeps the footer year current via
+// <span class="copy-year">2026</span>. Pages need no other copied script.
 (function () {
     const MENU = [
         { label: 'Home', href: 'index.html' },
@@ -47,6 +48,29 @@
             return `<li class="nav-item-dropdown">${link}<ul class="dropdown-menu">${sub}</ul></li>`;
         }).join('');
     }
+
+    // Pages with the shared menu also get the phone menu button and the
+    // fade-in of sections as they scroll into view (paper highlight pages have their own).
+    const ready = fn => document.readyState === 'loading' ? document.addEventListener('DOMContentLoaded', fn) : fn();
+    if (ul) ready(() => {
+        const toggle = document.querySelector('.nav-toggle');
+        if (toggle) {
+            const setOpen = open => { ul.classList.toggle('nav-open', open); toggle.setAttribute('aria-expanded', open); };
+            toggle.addEventListener('click', () => setOpen(!ul.classList.contains('nav-open')));
+            ul.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setOpen(false)));
+        }
+
+        const fadeEls = document.querySelectorAll('.content-section, .hero, .highlights, .intro, .fade-in');
+        fadeEls.forEach(el => el.classList.add('fade-in'));
+        setTimeout(() => {
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(e => {
+                    if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+                });
+            }, { threshold: 0, rootMargin: '200px 0px 0px 0px' });
+            fadeEls.forEach(el => observer.observe(el));
+        }, 50);
+    });
 
     const year = String(new Date().getFullYear());
     const setYear = () => document.querySelectorAll('.copy-year').forEach(el => { el.textContent = year; });
