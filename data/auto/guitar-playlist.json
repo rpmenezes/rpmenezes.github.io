@@ -5,7 +5,7 @@
       "videoId": "ngQvQ7EpOfw",
       "url": "https://www.youtube.com/watch?v=ngQvQ7EpOfw",
       "publishedAt": "2024-01-11T21:58:54Z",
-      "viewCount": 16257
+      "viewCount": 16268
     },
     {
       "rawTitle": "289. Jo\u00e3o Gomes. Lembrei de No\u0301s. 25/12/25. Viol\u00e3o. Nylon Guitar. #jo\u00e3ogomes",
@@ -19,7 +19,7 @@
       "videoId": "C1JUigydrVA",
       "url": "https://www.youtube.com/watch?v=C1JUigydrVA",
       "publishedAt": "2022-11-16T08:56:07Z",
-      "viewCount": 1254
+      "viewCount": 1259
     },
     {
       "rawTitle": "68. Belchior. Velha Roupa Colorida. 29/12/2022. Viol\u00e3o. Guitar.",
@@ -38,11 +38,18 @@
   ],
   "mostRecent": [
     {
+      "rawTitle": "336. Roberto Carlos. Por Isso Eu Corro Demais. 19/11/26. Viol\u00e3o. Guitar (Classical/Nylon).",
+      "videoId": "9FXG7IyrZZY",
+      "url": "https://www.youtube.com/watch?v=9FXG7IyrZZY",
+      "publishedAt": "2026-11-20T14:05:04Z",
+      "viewCount": 0
+    },
+    {
       "rawTitle": "335. Cassiano. Primavera. 17/11/26. Viol\u00e3o. Guitar (Classical/Nylon). #mpb",
       "videoId": "Jkpxb5q006o",
       "url": "https://www.youtube.com/watch?v=Jkpxb5q006o",
       "publishedAt": "2026-11-17T13:00:43Z",
-      "viewCount": 24
+      "viewCount": 26
     },
     {
       "rawTitle": "334. Los Hermanos. Anna Julia. 17/11/26. Viol\u00e3o. Guitar (Classical/Nylon) #rocknacional",
@@ -64,14 +71,7 @@
       "url": "https://www.youtube.com/watch?v=09LuOtx1SSw",
       "publishedAt": "2026-09-29T15:22:45Z",
       "viewCount": 504
-    },
-    {
-      "rawTitle": "331. Caetano Veloso. Como 2 e 2. Viol\u00e3o. Guitar (Nylon/Classical)",
-      "videoId": "BNFIXRciZU8",
-      "url": "https://www.youtube.com/watch?v=BNFIXRciZU8",
-      "publishedAt": "2026-09-17T12:52:55Z",
-      "viewCount": 167
     }
   ],
-  "updated": "2026-11-19T15:22:26.978343"
+  "updated": "2026-11-20T14:59:33.876761"
 }
