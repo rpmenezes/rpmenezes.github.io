@@ -1,10 +1,10 @@
 {
-  "updated": "2026-11-16T14:59:54.948308+00:00",
+  "updated": "2026-11-23T17:32:52.913168+00:00",
   "stats": {
-    "paperCount": 247,
+    "paperCount": 246,
     "hIndex": 23,
-    "citationCount": 3274,
-    "influentialCitationCount": 127
+    "citationCount": 3281,
+    "influentialCitationCount": 129
   },
   "publications": [
     {
@@ -181,7 +181,7 @@
       "venue": "People and Nature",
       "doiValue": "10.1002/pan3.70081",
       "doiUrl": "https://doi.org/10.1002/pan3.70081",
-      "citationCount": 6
+      "citationCount": 7
     },
     {
       "year": "2025",
@@ -329,7 +329,7 @@
       "venue": "EPJ Data Science",
       "doiValue": "10.1140/epjds/s13688-023-00411-8",
       "doiUrl": "https://doi.org/10.1140/epjds/s13688-023-00411-8",
-      "citationCount": 6
+      "citationCount": 7
     },
     {
       "year": "2023",
@@ -345,7 +345,7 @@
       "venue": "Nature Human Behaviour",
       "doiValue": "10.1038/s41562-023-01660-3",
       "doiUrl": "https://doi.org/10.1038/s41562-023-01660-3",
-      "citationCount": 71
+      "citationCount": 72
     },
     {
       "year": "2023",

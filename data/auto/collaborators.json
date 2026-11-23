@@ -1,10 +1,10 @@
 {
-  "updated": "2026-11-16T15:00:18.743691+00:00",
+  "updated": "2026-11-23T17:33:18.904425+00:00",
   "collaborators": [
     {
       "authorId": "2110648641",
       "name": "Marcos Oliveira",
-      "collaborationCount": 29,
+      "collaborationCount": 28,
       "firstCollabYear": 2012,
       "lastCollabYear": 2026,
       "sharedPapers": [
@@ -147,132 +147,13 @@
           "paperId": "c1280da1a3c06b933df97f1c4e4d71ad3433a494",
           "title": "Political Social Networks Reveal Strong Party Loyalty in Brazil and Weak Regionalism",
           "year": 2015
-        },
-        {
-          "paperId": "ae37bef92f89075806c25a7df01174ce07e9c6f0",
-          "title": "Assessing Particle Swarm Optimizers Using Network Science Metrics",
-          "year": 2013
-        }
-      ]
-    },
-    {
-      "authorId": "1402370114",
-      "name": "Carmelo Bastos-Filho",
-      "collaborationCount": 21,
-      "firstCollabYear": 2012,
-      "lastCollabYear": 2022,
-      "sharedPapers": [
-        {
-          "paperId": "46c92ab82eeeea206d64d453f8c0ecac777cd384",
-          "title": "Fishing for interactions: a network science approach to modeling fish school search",
-          "year": 2021
-        },
-        {
-          "paperId": "6dd16c7c8c3297ebb3c1dd1dafbfc9e55e6af9f1",
-          "title": "Modelling the Social Interactions in Grey Wolf Optimizer",
-          "year": 2021
-        },
-        {
-          "paperId": "3e460237cc828b5c7f3142d6d081de6093ca1b05",
-          "title": "Uncovering the social interaction network in swarm intelligence algorithms",
-          "year": 2020
-        },
-        {
-          "paperId": "b484b7ff1f5e33e98fa064429707c728603ac17f",
-          "title": "Characterizing the Social Interactions in the Artificial Bee Colony Algorithm",
-          "year": 2019
-        },
-        {
-          "paperId": "feb436931fcd475a764b03592247c91739c8982e",
-          "title": "Modelling the Social Interactions in Ant Colony Optimization",
-          "year": 2019
-        },
-        {
-          "paperId": "0c30921ede73d0c6612c5e7af78ef04783eac4e5",
-          "title": "Uncovering the Social Interaction in Swarm Intelligence with Network Science",
-          "year": 2018
-        },
-        {
-          "paperId": "cf3566e3b2de5f4f9fd86a2191eef9f96242ffc0",
-          "title": "Spatio-temporal variations in the urban rhythm: the travelling waves of crime",
-          "year": 2018
-        },
-        {
-          "paperId": "06187b695f7758cd9324de2f59280f53107836c0",
-          "title": "The scaling of crime concentration in cities",
-          "year": 2017
-        },
-        {
-          "paperId": "70e1d348dc858f3197445e98318cbc272e70ce5d",
-          "title": "Better exploration-exploitation pace, better swarm: Examining the social interactions",
-          "year": 2017
-        },
-        {
-          "paperId": "4a4bf82f6152d81a83a695fd7e063248f8d42e83",
-          "title": "Communication Diversity in Particle Swarm Optimizers",
-          "year": 2016
-        },
-        {
-          "paperId": "84c919514d4749d53e46f12e4881bf1a9aa260ad",
-          "title": "Using network science to assess particle swarm optimizers",
-          "year": 2015
-        },
-        {
-          "paperId": "bfc9d254b549710c3a338ee0caaf96dc43515697",
-          "title": "Using network science to assess particle swarm optimizers",
-          "year": 2015
-        },
-        {
-          "paperId": "c1280da1a3c06b933df97f1c4e4d71ad3433a494",
-          "title": "Political Social Networks Reveal Strong Party Loyalty in Brazil and Weak Regionalism",
-          "year": 2015
-        },
-        {
-          "paperId": "32e512f792d1fc0547cc0e3f2144a6ccc8d047a6",
-          "title": "Towards a network-based approach to analyze particle swarm optimizers",
-          "year": 2014
-        },
-        {
-          "paperId": "ae37bef92f89075806c25a7df01174ce07e9c6f0",
-          "title": "Assessing Particle Swarm Optimizers Using Network Science Metrics",
-          "year": 2013
-        },
-        {
-          "paperId": "ec3afe317d6f773dcc5b9393e8e3397ab35a9ff4",
-          "title": "Beyond exploitation: Measuring the impact of local search in swarm-based memetic algorithms through the interactions of individuals in the population",
-          "year": 2022
-        },
-        {
-          "paperId": "eed73ca6be04f99e772df9d2db81f8a091ad5594",
-          "title": "Breast cancer diagnosis using thermal image analysis: A data-driven approach based on swarm intelligence and supervised learning for optimized feature selection",
-          "year": 2021
-        },
-        {
-          "paperId": "17384b4d3eb3df0eabe7ce0b3433b31c19fd13fa",
-          "title": "Unveiling Swarm Intelligence with Network Science - the Metaphor Explained",
-          "year": 2018
-        },
-        {
-          "paperId": "661de606324379e3c596bf51414743528263a758",
-          "title": "Characterization of Users by Using Hourly and Daily Spatio-Temporal Patterns Extracted from GPS Trajectories",
-          "year": 2018
-        },
-        {
-          "paperId": "fa4b6ab08bee2cb950ac19516e7a5c50c234e4cb",
-          "title": "Improved Multi-Objective Binary Fish School for Feature Selection",
-          "year": 2018
-        },
-        {
-          "paperId": "8c5b933c3170ea055ea41a1830895d63051d7004",
-          "title": "Using Network Science to Define a Dynamic Communication Topology for Particle Swarm Optimizers",
-          "year": 2012
         }
       ]
     },
     {
       "authorId": "144447784",
       "name": "Hugo Barbosa",
-      "collaborationCount": 20,
+      "collaborationCount": 21,
       "firstCollabYear": 2013,
       "lastCollabYear": 2024,
       "sharedPapers": [
@@ -369,6 +250,11 @@
         {
           "paperId": "7fe4a0e3112fe77139ab076bb16bb40de3affed2",
           "title": "The effect of recency to human mobility",
+          "year": 2015
+        },
+        {
+          "paperId": "96de7fca6f5d66382e8df457680bb282881917dc",
+          "title": "From Criminal Spheres of Familiarity to Crime Networks",
           "year": 2015
         },
         {
@@ -577,6 +463,90 @@
       ]
     },
     {
+      "authorId": "1402370114",
+      "name": "Carmelo Bastos-Filho",
+      "collaborationCount": 15,
+      "firstCollabYear": 2013,
+      "lastCollabYear": 2021,
+      "sharedPapers": [
+        {
+          "paperId": "46c92ab82eeeea206d64d453f8c0ecac777cd384",
+          "title": "Fishing for interactions: a network science approach to modeling fish school search",
+          "year": 2021
+        },
+        {
+          "paperId": "6dd16c7c8c3297ebb3c1dd1dafbfc9e55e6af9f1",
+          "title": "Modelling the Social Interactions in Grey Wolf Optimizer",
+          "year": 2021
+        },
+        {
+          "paperId": "3e460237cc828b5c7f3142d6d081de6093ca1b05",
+          "title": "Uncovering the social interaction network in swarm intelligence algorithms",
+          "year": 2020
+        },
+        {
+          "paperId": "b484b7ff1f5e33e98fa064429707c728603ac17f",
+          "title": "Characterizing the Social Interactions in the Artificial Bee Colony Algorithm",
+          "year": 2019
+        },
+        {
+          "paperId": "feb436931fcd475a764b03592247c91739c8982e",
+          "title": "Modelling the Social Interactions in Ant Colony Optimization",
+          "year": 2019
+        },
+        {
+          "paperId": "0c30921ede73d0c6612c5e7af78ef04783eac4e5",
+          "title": "Uncovering the Social Interaction in Swarm Intelligence with Network Science",
+          "year": 2018
+        },
+        {
+          "paperId": "cf3566e3b2de5f4f9fd86a2191eef9f96242ffc0",
+          "title": "Spatio-temporal variations in the urban rhythm: the travelling waves of crime",
+          "year": 2018
+        },
+        {
+          "paperId": "06187b695f7758cd9324de2f59280f53107836c0",
+          "title": "The scaling of crime concentration in cities",
+          "year": 2017
+        },
+        {
+          "paperId": "70e1d348dc858f3197445e98318cbc272e70ce5d",
+          "title": "Better exploration-exploitation pace, better swarm: Examining the social interactions",
+          "year": 2017
+        },
+        {
+          "paperId": "4a4bf82f6152d81a83a695fd7e063248f8d42e83",
+          "title": "Communication Diversity in Particle Swarm Optimizers",
+          "year": 2016
+        },
+        {
+          "paperId": "84c919514d4749d53e46f12e4881bf1a9aa260ad",
+          "title": "Using network science to assess particle swarm optimizers",
+          "year": 2015
+        },
+        {
+          "paperId": "bfc9d254b549710c3a338ee0caaf96dc43515697",
+          "title": "Using network science to assess particle swarm optimizers",
+          "year": 2015
+        },
+        {
+          "paperId": "32e512f792d1fc0547cc0e3f2144a6ccc8d047a6",
+          "title": "Towards a network-based approach to analyze particle swarm optimizers",
+          "year": 2014
+        },
+        {
+          "paperId": "ae37bef92f89075806c25a7df01174ce07e9c6f0",
+          "title": "Assessing Particle Swarm Optimizers Using Network Science Metrics",
+          "year": 2013
+        },
+        {
+          "paperId": "c1280da1a3c06b933df97f1c4e4d71ad3433a494",
+          "title": "Political Social Networks Reveal Strong Party Loyalty in Brazil and Weak Regionalism",
+          "year": 2015
+        }
+      ]
+    },
+    {
       "authorId": "1802808",
       "name": "Robert Tolksdorf",
       "collaborationCount": 14,
@@ -657,11 +627,21 @@
     },
     {
       "authorId": "2305598",
-      "name": "Martin Cadeiras",
+      "name": "M. Cadeiras",
       "collaborationCount": 13,
       "firstCollabYear": 2012,
       "lastCollabYear": 2026,
       "sharedPapers": [
+        {
+          "paperId": "4ccd5b15e43cd72584706270710ce99372602212",
+          "title": "Natural language processing of biomedical text to map and prioritize protein\u2013disease associations in HFpEF",
+          "year": 2026
+        },
+        {
+          "paperId": "2943dfb1b85a2c80a0f968268ca3abb6624c4786",
+          "title": "The impact of the Social Exposome in Cardiovascular Health and Disease",
+          "year": 2025
+        },
         {
           "paperId": "0dc5fdfe25b57d57f5f9af71e2bc5b58efafac93",
           "title": "Network-Based Delineation of Health Service Areas: A Comparative Analysis of Community Detection Algorithms",
@@ -716,16 +696,6 @@
           "paperId": "e9f6ee9331bd39d327e7d9d1b7ea28e800a6d953",
           "title": "The Social Structure of Organ Transplantation in the United States",
           "year": 2012
-        },
-        {
-          "paperId": "4ccd5b15e43cd72584706270710ce99372602212",
-          "title": "Natural language processing of biomedical text to map and prioritize protein\u2013disease associations in HFpEF",
-          "year": 2026
-        },
-        {
-          "paperId": "2943dfb1b85a2c80a0f968268ca3abb6624c4786",
-          "title": "The impact of the Social Exposome in Cardiovascular Health and Disease",
-          "year": 2025
         }
       ]
     },
@@ -1217,6 +1187,50 @@
       ]
     },
     {
+      "authorId": "9438370",
+      "name": "Josemar Faustino",
+      "collaborationCount": 7,
+      "firstCollabYear": 2013,
+      "lastCollabYear": 2026,
+      "sharedPapers": [
+        {
+          "paperId": "1ac1bd3833fc074cf1dd3c2af66119e9016c1430",
+          "title": "Network analysis of cultural funding in Brazil: uncovering regional differences and signatures",
+          "year": 2026
+        },
+        {
+          "paperId": "6d129c35f032cc6480a8f774a1f3dd45a96c4724",
+          "title": "Characterizing the Dynamics of Academic Affiliations: A Network Science Approach",
+          "year": 2020
+        },
+        {
+          "paperId": "61b5b463f27821bda9053276dab11fa64ae036da",
+          "title": "Unveiling the Interplay between the TLR4/MD2 Complex and HSP70 in the Human Cardiovascular System: A Computational Approach",
+          "year": 2019
+        },
+        {
+          "paperId": "f1be9ac5f0e36b40464b0643d5d8b718b30e7149",
+          "title": "A data-driven network approach for characterization of political parties\u2019 ideology dynamics",
+          "year": 2019
+        },
+        {
+          "paperId": "9ee83a3d325bcd08f53aac55e8e8e50dacb68bb6",
+          "title": "Entropy in Network Community as an Indicator of Language Structure in Emoji Usage: A Twitter Study Across Various Thematic Datasets",
+          "year": 2018
+        },
+        {
+          "paperId": "c7ef88072105cf1eb67370e2aaa4e743469eaef4",
+          "title": "Assessing the suitability of network community detection to available meta-data using rank stability",
+          "year": 2017
+        },
+        {
+          "paperId": "83d74481432c26db1b72426b4ca8a6d37b134a76",
+          "title": "Strategies, Political Position, and Electoral Performance of Brazilian Political Parties",
+          "year": 2013
+        }
+      ]
+    },
+    {
       "authorId": "2061208618",
       "name": "Clodomir Santana",
       "collaborationCount": 7,
@@ -1257,50 +1271,6 @@
           "paperId": "8b6c44a7eb649e0c551ab1962d8ec9f001257af7",
           "title": "An approach to assess swarm intelligence algorithms based on complex networks",
           "year": 2020
-        }
-      ]
-    },
-    {
-      "authorId": "9438370",
-      "name": "Josemar Faustino",
-      "collaborationCount": 7,
-      "firstCollabYear": 2013,
-      "lastCollabYear": 2026,
-      "sharedPapers": [
-        {
-          "paperId": "6d129c35f032cc6480a8f774a1f3dd45a96c4724",
-          "title": "Characterizing the Dynamics of Academic Affiliations: A Network Science Approach",
-          "year": 2020
-        },
-        {
-          "paperId": "61b5b463f27821bda9053276dab11fa64ae036da",
-          "title": "Unveiling the Interplay between the TLR4/MD2 Complex and HSP70 in the Human Cardiovascular System: A Computational Approach",
-          "year": 2019
-        },
-        {
-          "paperId": "f1be9ac5f0e36b40464b0643d5d8b718b30e7149",
-          "title": "A data-driven network approach for characterization of political parties\u2019 ideology dynamics",
-          "year": 2019
-        },
-        {
-          "paperId": "9ee83a3d325bcd08f53aac55e8e8e50dacb68bb6",
-          "title": "Entropy in Network Community as an Indicator of Language Structure in Emoji Usage: A Twitter Study Across Various Thematic Datasets",
-          "year": 2018
-        },
-        {
-          "paperId": "c7ef88072105cf1eb67370e2aaa4e743469eaef4",
-          "title": "Assessing the suitability of network community detection to available meta-data using rank stability",
-          "year": 2017
-        },
-        {
-          "paperId": "83d74481432c26db1b72426b4ca8a6d37b134a76",
-          "title": "Strategies, Political Position, and Electoral Performance of Brazilian Political Parties",
-          "year": 2013
-        },
-        {
-          "paperId": "1ac1bd3833fc074cf1dd3c2af66119e9016c1430",
-          "title": "Network analysis of cultural funding in Brazil: uncovering regional differences and signatures",
-          "year": 2026
         }
       ]
     },
@@ -1393,7 +1363,7 @@
       ]
     },
     {
-      "authorId": "2168755958",
+      "authorId": "2054053697",
       "name": "Nandini Iyer",
       "collaborationCount": 6,
       "firstCollabYear": 2020,
@@ -1428,6 +1398,45 @@
           "paperId": "6d129c35f032cc6480a8f774a1f3dd45a96c4724",
           "title": "Characterizing the Dynamics of Academic Affiliations: A Network Science Approach",
           "year": 2020
+        }
+      ]
+    },
+    {
+      "authorId": "2461153783",
+      "name": "C. Bastos",
+      "collaborationCount": 6,
+      "firstCollabYear": 2012,
+      "lastCollabYear": 2022,
+      "sharedPapers": [
+        {
+          "paperId": "ec3afe317d6f773dcc5b9393e8e3397ab35a9ff4",
+          "title": "Beyond exploitation: Measuring the impact of local search in swarm-based memetic algorithms through the interactions of individuals in the population",
+          "year": 2022
+        },
+        {
+          "paperId": "eed73ca6be04f99e772df9d2db81f8a091ad5594",
+          "title": "Breast cancer diagnosis using thermal image analysis: A data-driven approach based on swarm intelligence and supervised learning for optimized feature selection",
+          "year": 2021
+        },
+        {
+          "paperId": "17384b4d3eb3df0eabe7ce0b3433b31c19fd13fa",
+          "title": "Unveiling Swarm Intelligence with Network Science - the Metaphor Explained",
+          "year": 2018
+        },
+        {
+          "paperId": "661de606324379e3c596bf51414743528263a758",
+          "title": "Characterization of Users by Using Hourly and Daily Spatio-Temporal Patterns Extracted from GPS Trajectories",
+          "year": 2018
+        },
+        {
+          "paperId": "fa4b6ab08bee2cb950ac19516e7a5c50c234e4cb",
+          "title": "Improved Multi-Objective Binary Fish School for Feature Selection",
+          "year": 2018
+        },
+        {
+          "paperId": "8c5b933c3170ea055ea41a1830895d63051d7004",
+          "title": "Using Network Science to Define a Dynamic Communication Topology for Particle Swarm Optimizers",
+          "year": 2012
         }
       ]
     },
@@ -1889,6 +1898,35 @@
       ]
     },
     {
+      "authorId": "120744827",
+      "name": "Ana Jaramillo",
+      "collaborationCount": 4,
+      "firstCollabYear": 2021,
+      "lastCollabYear": 2025,
+      "sharedPapers": [
+        {
+          "paperId": "7255c3f687365536aced17cb978cf82d5f1d7699",
+          "title": "Systematic comparison of gender inequality in scientific rankings across disciplines",
+          "year": 2025
+        },
+        {
+          "paperId": "09819c16e47dbda8eaeaa42daf004d72265de1a6",
+          "title": "The structure of segregation in co-authorship networks and its impact on scientific production",
+          "year": 2022
+        },
+        {
+          "paperId": "73a5211098e99e836610e427fb742f07e3255d20",
+          "title": "The community structure of collaboration networks in computer science and its impact on scientific production and consumption",
+          "year": 2022
+        },
+        {
+          "paperId": "b676b14bf3eb1ea17c669f7f0ec2e1deedf760f7",
+          "title": "Reaching to the Top: the Gender effect in Highly-Ranked academics in Computer Science",
+          "year": 2021
+        }
+      ]
+    },
+    {
       "authorId": "2257348298",
       "name": "Zexun Chen",
       "collaborationCount": 4,
@@ -1913,35 +1951,6 @@
         {
           "paperId": "e21df088c702fbe45c5a04f444cf5866d81bc30a",
           "title": "Contrasting social and non-social sources of predictability in human mobility",
-          "year": 2021
-        }
-      ]
-    },
-    {
-      "authorId": "120744827",
-      "name": "Ana Jaramillo",
-      "collaborationCount": 4,
-      "firstCollabYear": 2021,
-      "lastCollabYear": 2025,
-      "sharedPapers": [
-        {
-          "paperId": "09819c16e47dbda8eaeaa42daf004d72265de1a6",
-          "title": "The structure of segregation in co-authorship networks and its impact on scientific production",
-          "year": 2022
-        },
-        {
-          "paperId": "73a5211098e99e836610e427fb742f07e3255d20",
-          "title": "The community structure of collaboration networks in computer science and its impact on scientific production and consumption",
-          "year": 2022
-        },
-        {
-          "paperId": "7255c3f687365536aced17cb978cf82d5f1d7699",
-          "title": "Systematic comparison of gender inequality in scientific rankings across disciplines",
-          "year": 2025
-        },
-        {
-          "paperId": "b676b14bf3eb1ea17c669f7f0ec2e1deedf760f7",
-          "title": "Reaching to the Top: the Gender effect in Highly-Ranked academics in Computer Science",
           "year": 2021
         }
       ]
@@ -2167,14 +2176,14 @@
           "year": 2013
         },
         {
-          "paperId": "4ab74b9a0bd8baeedb841909b199ba9b1180fa36",
-          "title": "Case studies for self-organization in computer science",
-          "year": 2006
-        },
-        {
           "paperId": "9631b8932094c338c77c1cfb807a260c184db31d",
           "title": "Session details: Self-organizing complex systems track",
           "year": 2010
+        },
+        {
+          "paperId": "4ab74b9a0bd8baeedb841909b199ba9b1180fa36",
+          "title": "Case studies for self-organization in computer science",
+          "year": 2006
         }
       ]
     },
@@ -2501,6 +2510,30 @@
       ]
     },
     {
+      "authorId": "2433207",
+      "name": "Tobin Yehle",
+      "collaborationCount": 3,
+      "firstCollabYear": 2014,
+      "lastCollabYear": 2015,
+      "sharedPapers": [
+        {
+          "paperId": "96de7fca6f5d66382e8df457680bb282881917dc",
+          "title": "From Criminal Spheres of Familiarity to Crime Networks",
+          "year": 2015
+        },
+        {
+          "paperId": "d44d6c476c28aea48f90dec575e90b3ad4e0437a",
+          "title": "The Spatial Structure of Crime in Urban Environments",
+          "year": 2014
+        },
+        {
+          "paperId": "f64054e85fa80052d1528f503d8f581c6b0262eb",
+          "title": "Uncovering Criminal Networks From Crime Locations",
+          "year": 2014
+        }
+      ]
+    },
+    {
       "authorId": "2113329215",
       "name": "Sarah White",
       "collaborationCount": 3,
@@ -2774,7 +2807,7 @@
       ]
     },
     {
-      "authorId": "69965473",
+      "authorId": "3179220",
       "name": "Vladimir Filkov",
       "collaborationCount": 2,
       "firstCollabYear": 2025,
@@ -2850,7 +2883,7 @@
       ]
     },
     {
-      "authorId": "2163814643",
+      "authorId": "72861332",
       "name": "David Liem",
       "collaborationCount": 2,
       "firstCollabYear": 2025,
@@ -2946,7 +2979,7 @@
     },
     {
       "authorId": "2186095280",
-      "name": "Rafael Prieto-Curiel",
+      "name": "R. Prieto-Curiel",
       "collaborationCount": 2,
       "firstCollabYear": 2024,
       "lastCollabYear": 2025,
@@ -3287,6 +3320,25 @@
       ]
     },
     {
+      "authorId": "2203580554",
+      "name": "Julia Poncela-Casanovas",
+      "collaborationCount": 2,
+      "firstCollabYear": 2014,
+      "lastCollabYear": 2014,
+      "sharedPapers": [
+        {
+          "paperId": "51274b4cdc51ed9dc557634a50e4aae77e70d0ef",
+          "title": "Social system as complex networks",
+          "year": 2014
+        },
+        {
+          "paperId": "a43b9134ba5d4517bdb2222f2492943a162cbf87",
+          "title": "Social system as complex networks",
+          "year": 2014
+        }
+      ]
+    },
+    {
       "authorId": "46819524",
       "name": "Song Qin",
       "collaborationCount": 2,
@@ -3302,25 +3354,6 @@
           "paperId": "5277adef1bb921ec92583803ed0477088ea180a1",
           "title": "A Recommender System for Youtube Based on its Network of Reviewers",
           "year": 2010
-        }
-      ]
-    },
-    {
-      "authorId": "2433207",
-      "name": "Tobin Yehle",
-      "collaborationCount": 2,
-      "firstCollabYear": 2014,
-      "lastCollabYear": 2014,
-      "sharedPapers": [
-        {
-          "paperId": "d44d6c476c28aea48f90dec575e90b3ad4e0437a",
-          "title": "The Spatial Structure of Crime in Urban Environments",
-          "year": 2014
-        },
-        {
-          "paperId": "f64054e85fa80052d1528f503d8f581c6b0262eb",
-          "title": "Uncovering Criminal Networks From Crime Locations",
-          "year": 2014
         }
       ]
     },
@@ -3401,8 +3434,8 @@
       ]
     },
     {
-      "authorId": "2072101740",
-      "name": "A. Gadomski",
+      "authorId": "36619648",
+      "name": "Adam Gadomski",
       "collaborationCount": 2,
       "firstCollabYear": 2006,
       "lastCollabYear": 2011,
@@ -3439,7 +3472,7 @@
       ]
     },
     {
-      "authorId": "9386004",
+      "authorId": "1728878",
       "name": "Ioan Letia",
       "collaborationCount": 2,
       "firstCollabYear": 2006,
@@ -3983,7 +4016,7 @@
       ]
     },
     {
-      "authorId": "2326886159",
+      "authorId": "5436764",
       "name": "B. Roshanravan",
       "collaborationCount": 1,
       "firstCollabYear": 2026,
@@ -4011,8 +4044,8 @@
       ]
     },
     {
-      "authorId": "2282463369",
-      "name": "Colleen Clancy",
+      "authorId": "2132546",
+      "name": "C. Clancy",
       "collaborationCount": 1,
       "firstCollabYear": 2026,
       "lastCollabYear": 2026,
@@ -4025,8 +4058,8 @@
       ]
     },
     {
-      "authorId": "2198590905",
-      "name": "Din Iskakov",
+      "authorId": "2500073159",
+      "name": "\u0414. \u0418\u0441\u043a\u0430\u043a\u043e\u0432",
       "collaborationCount": 1,
       "firstCollabYear": 2026,
       "lastCollabYear": 2026,
@@ -4263,7 +4296,7 @@
       ]
     },
     {
-      "authorId": "2250594098",
+      "authorId": "6453270",
       "name": "E. Amsterdam",
       "collaborationCount": 1,
       "firstCollabYear": 2025,
@@ -4291,8 +4324,8 @@
       ]
     },
     {
-      "authorId": "121010563",
-      "name": "F. Richardson",
+      "authorId": "2545236203",
+      "name": "Frederico Richardson",
       "collaborationCount": 1,
       "firstCollabYear": 2025,
       "lastCollabYear": 2025,
@@ -4445,8 +4478,8 @@
       ]
     },
     {
-      "authorId": "2328184945",
-      "name": "R\u00f4ney Reis",
+      "authorId": "2053096037",
+      "name": "R. Reis",
       "collaborationCount": 1,
       "firstCollabYear": 2024,
       "lastCollabYear": 2024,
@@ -4459,7 +4492,7 @@
       ]
     },
     {
-      "authorId": "2209419819",
+      "authorId": "2485006805",
       "name": "M. \u00c2ngelo",
       "collaborationCount": 1,
       "firstCollabYear": 2024,
@@ -4516,7 +4549,7 @@
     },
     {
       "authorId": "2482582027",
-      "name": "Boaventura Cunha",
+      "name": "Bruno Cunha",
       "collaborationCount": 1,
       "firstCollabYear": 2024,
       "lastCollabYear": 2024,
@@ -4585,7 +4618,7 @@
       ]
     },
     {
-      "authorId": "144900299",
+      "authorId": "2339446737",
       "name": "Ma\u00edra Santana",
       "collaborationCount": 1,
       "firstCollabYear": 2021,
@@ -4599,7 +4632,7 @@
       ]
     },
     {
-      "authorId": "145635512",
+      "authorId": "1988062",
       "name": "Wellington Santos",
       "collaborationCount": 1,
       "firstCollabYear": 2021,
@@ -4628,7 +4661,7 @@
     },
     {
       "authorId": "40216454",
-      "name": "Erick Romero",
+      "name": "E. Romero",
       "collaborationCount": 1,
       "firstCollabYear": 2019,
       "lastCollabYear": 2019,
@@ -4712,7 +4745,7 @@
     },
     {
       "authorId": "51048298",
-      "name": "A. Oliveira",
+      "name": "Amanda Oliveira",
       "collaborationCount": 1,
       "firstCollabYear": 2019,
       "lastCollabYear": 2019,
@@ -4781,7 +4814,7 @@
       ]
     },
     {
-      "authorId": "151192851",
+      "authorId": "144193464",
       "name": "Rodrigo Rodrigues",
       "collaborationCount": 1,
       "firstCollabYear": 2019,
@@ -4837,7 +4870,7 @@
       ]
     },
     {
-      "authorId": "2432113",
+      "authorId": "2277548705",
       "name": "Richard Allmendinger",
       "collaborationCount": 1,
       "firstCollabYear": 2019,
@@ -4865,7 +4898,7 @@
       ]
     },
     {
-      "authorId": "2052392099",
+      "authorId": "143857598",
       "name": "Adam Frank",
       "collaborationCount": 1,
       "firstCollabYear": 2019,
@@ -4950,7 +4983,7 @@
     },
     {
       "authorId": "2601302",
-      "name": "Mark Bush",
+      "name": "M. Bush",
       "collaborationCount": 1,
       "firstCollabYear": 2017,
       "lastCollabYear": 2017,
@@ -4963,7 +4996,7 @@
       ]
     },
     {
-      "authorId": "51050116",
+      "authorId": "2559777707",
       "name": "Sage Jenson",
       "collaborationCount": 1,
       "firstCollabYear": 2017,
@@ -4977,7 +5010,7 @@
       ]
     },
     {
-      "authorId": "51049630",
+      "authorId": "2542263139",
       "name": "Majerle Reeves",
       "collaborationCount": 1,
       "firstCollabYear": 2017,
@@ -5020,7 +5053,7 @@
     },
     {
       "authorId": "6219484",
-      "name": "Andrew Leone",
+      "name": "A. Leone",
       "collaborationCount": 1,
       "firstCollabYear": 2017,
       "lastCollabYear": 2017,
@@ -5173,7 +5206,7 @@
       ]
     },
     {
-      "authorId": "2536066",
+      "authorId": "51905607",
       "name": "Victor Albuquerque",
       "collaborationCount": 1,
       "firstCollabYear": 2016,
@@ -5271,7 +5304,7 @@
       ]
     },
     {
-      "authorId": "3313647",
+      "authorId": "48188939",
       "name": "Luis Moyano",
       "collaborationCount": 1,
       "firstCollabYear": 2015,
@@ -5411,20 +5444,6 @@
       ]
     },
     {
-      "authorId": "2203580554",
-      "name": "Julia Poncela-Casanovas",
-      "collaborationCount": 1,
-      "firstCollabYear": 2014,
-      "lastCollabYear": 2014,
-      "sharedPapers": [
-        {
-          "paperId": "a43b9134ba5d4517bdb2222f2492943a162cbf87",
-          "title": "Social system as complex networks",
-          "year": 2014
-        }
-      ]
-    },
-    {
       "authorId": "145340216",
       "name": "William Cheung",
       "collaborationCount": 1,
@@ -5462,6 +5481,20 @@
         {
           "paperId": "83d74481432c26db1b72426b4ca8a6d37b134a76",
           "title": "Strategies, Political Position, and Electoral Performance of Brazilian Political Parties",
+          "year": 2013
+        }
+      ]
+    },
+    {
+      "authorId": "2240660210",
+      "name": "Marcos Oliveira-J\u00fanior",
+      "collaborationCount": 1,
+      "firstCollabYear": 2013,
+      "lastCollabYear": 2013,
+      "sharedPapers": [
+        {
+          "paperId": "ae37bef92f89075806c25a7df01174ce07e9c6f0",
+          "title": "Assessing Particle Swarm Optimizers Using Network Science Metrics",
           "year": 2013
         }
       ]
@@ -5523,7 +5556,7 @@
       ]
     },
     {
-      "authorId": "2065264769",
+      "authorId": "1725870",
       "name": "Michel Beigbeder",
       "collaborationCount": 1,
       "firstCollabYear": 2011,
@@ -5551,7 +5584,7 @@
       ]
     },
     {
-      "authorId": "2514706484",
+      "authorId": "2815219",
       "name": "Magnus Boman",
       "collaborationCount": 1,
       "firstCollabYear": 2011,
@@ -5691,8 +5724,8 @@
       ]
     },
     {
-      "authorId": "46778930",
-      "name": "Matja\u017e Gams",
+      "authorId": "10269507",
+      "name": "Matjaz Gams",
       "collaborationCount": 1,
       "firstCollabYear": 2011,
       "lastCollabYear": 2011,
@@ -5719,7 +5752,7 @@
       ]
     },
     {
-      "authorId": "47033143",
+      "authorId": "1781951",
       "name": "Serge Garlatti",
       "collaborationCount": 1,
       "firstCollabYear": 2011,
@@ -5733,7 +5766,7 @@
       ]
     },
     {
-      "authorId": "2072490676",
+      "authorId": "1847220",
       "name": "Joseph Giampapa",
       "collaborationCount": 1,
       "firstCollabYear": 2011,
@@ -5747,8 +5780,8 @@
       ]
     },
     {
-      "authorId": "2520021394",
-      "name": "A. Howe",
+      "authorId": "2136919",
+      "name": "Adele Howe",
       "collaborationCount": 1,
       "firstCollabYear": 2011,
       "lastCollabYear": 2011,
@@ -5789,8 +5822,8 @@
       ]
     },
     {
-      "authorId": "34791094",
-      "name": "Satoshi Kurihara",
+      "authorId": "1717740",
+      "name": "S. Kurihara",
       "collaborationCount": 1,
       "firstCollabYear": 2011,
       "lastCollabYear": 2011,
@@ -5831,7 +5864,7 @@
       ]
     },
     {
-      "authorId": "2137365699",
+      "authorId": "47147137",
       "name": "S. Mendoza",
       "collaborationCount": 1,
       "firstCollabYear": 2011,
@@ -6195,7 +6228,7 @@
       ]
     },
     {
-      "authorId": "2556101",
+      "authorId": "2578622752",
       "name": "Mehdy Bohlool",
       "collaborationCount": 1,
       "firstCollabYear": 2010,
@@ -6209,8 +6242,22 @@
       ]
     },
     {
+      "authorId": "2537834933",
+      "name": "Marcos Lvares",
+      "collaborationCount": 1,
+      "firstCollabYear": 2010,
+      "lastCollabYear": 2010,
+      "sharedPapers": [
+        {
+          "paperId": "45fa843265bc42eb3ca74a646b1c27b2658f60cf",
+          "title": "Hybrid and evolutionary Agent-Based Social Simulations using L\u00e9vy flight as randomization method",
+          "year": 2010
+        }
+      ]
+    },
+    {
       "authorId": "144813437",
-      "name": "Ricardo Perrone",
+      "name": "R. Perrone",
       "collaborationCount": 1,
       "firstCollabYear": 2009,
       "lastCollabYear": 2009,
@@ -6224,7 +6271,7 @@
     },
     {
       "authorId": "104962527",
-      "name": "Robert Treverton",
+      "name": "R. Treverton",
       "collaborationCount": 1,
       "firstCollabYear": 2009,
       "lastCollabYear": 2009,
@@ -6363,6 +6410,20 @@
       ]
     },
     {
+      "authorId": "2574663475",
+      "name": "\u0424\u0438\u043b\u0438\u043f\u043f\u043e \u0420\u043e\u0434\u0440\u0438\u0433\u0435\u0441",
+      "collaborationCount": 1,
+      "firstCollabYear": 2007,
+      "lastCollabYear": 2007,
+      "sharedPapers": [
+        {
+          "paperId": "59affe698851c6d3482bb9745df100346b362702",
+          "title": "THE 2007 ACM SIGAPP SYMPOSIUM ON APPLIED COMPUTING",
+          "year": 2007
+        }
+      ]
+    },
+    {
       "authorId": "2053161205",
       "name": "Philip Chan",
       "collaborationCount": 1,
@@ -6419,8 +6480,8 @@
       ]
     },
     {
-      "authorId": "134358848",
-      "name": "M. Barley",
+      "authorId": "1850626",
+      "name": "Michael Barley",
       "collaborationCount": 1,
       "firstCollabYear": 2006,
       "lastCollabYear": 2006,
@@ -6433,7 +6494,7 @@
       ]
     },
     {
-      "authorId": "2058760071",
+      "authorId": "1683347",
       "name": "Olivier Boissier",
       "collaborationCount": 1,
       "firstCollabYear": 2006,
@@ -6447,8 +6508,8 @@
       ]
     },
     {
-      "authorId": "2523340609",
-      "name": "Hans-Dieter Burkhard",
+      "authorId": "145850334",
+      "name": "Hans Burkhard",
       "collaborationCount": 1,
       "firstCollabYear": 2006,
       "lastCollabYear": 2006,
@@ -6461,7 +6522,7 @@
       ]
     },
     {
-      "authorId": "2361230668",
+      "authorId": "9268480",
       "name": "Cory Butz",
       "collaborationCount": 1,
       "firstCollabYear": 2006,
@@ -6531,7 +6592,7 @@
       ]
     },
     {
-      "authorId": "2078581309",
+      "authorId": "1721632",
       "name": "Alexis Drogoul",
       "collaborationCount": 1,
       "firstCollabYear": 2006,
@@ -6545,7 +6606,7 @@
       ]
     },
     {
-      "authorId": "2064584345",
+      "authorId": "1726491",
       "name": "Edmund Durfee",
       "collaborationCount": 1,
       "firstCollabYear": 2006,
@@ -6559,7 +6620,7 @@
       ]
     },
     {
-      "authorId": "2064941599",
+      "authorId": "1684745",
       "name": "Georg Gottlob",
       "collaborationCount": 1,
       "firstCollabYear": 2006,
@@ -6601,7 +6662,7 @@
       ]
     },
     {
-      "authorId": "1706100",
+      "authorId": "148367745",
       "name": "Wiebe Hoek",
       "collaborationCount": 1,
       "firstCollabYear": 2006,
@@ -6629,8 +6690,8 @@
       ]
     },
     {
-      "authorId": "1944586",
-      "name": "Jan Humble",
+      "authorId": "78888149",
+      "name": "J. Humble",
       "collaborationCount": 1,
       "firstCollabYear": 2006,
       "lastCollabYear": 2006,
@@ -6727,8 +6788,8 @@
       ]
     },
     {
-      "authorId": "2522953972",
-      "name": "R. Lau",
+      "authorId": "144031692",
+      "name": "Ray Lau",
       "collaborationCount": 1,
       "firstCollabYear": 2006,
       "lastCollabYear": 2006,
@@ -6797,7 +6858,7 @@
       ]
     },
     {
-      "authorId": "2486703702",
+      "authorId": "1736000",
       "name": "Pawan Lingras",
       "collaborationCount": 1,
       "firstCollabYear": 2006,
@@ -6839,7 +6900,7 @@
       ]
     },
     {
-      "authorId": "40863117",
+      "authorId": "144807743",
       "name": "Nicol\u00e1s Mar\u00edn",
       "collaborationCount": 1,
       "firstCollabYear": 2006,
@@ -6853,8 +6914,8 @@
       ]
     },
     {
-      "authorId": "2499443583",
-      "name": "E. Mill\u00e1n",
+      "authorId": "144604082",
+      "name": "Eva Mill\u00e1n",
       "collaborationCount": 1,
       "firstCollabYear": 2006,
       "lastCollabYear": 2006,
@@ -6881,7 +6942,7 @@
       ]
     },
     {
-      "authorId": "1793768",
+      "authorId": "2561465100",
       "name": "I. Osawa",
       "collaborationCount": 1,
       "firstCollabYear": 2006,
@@ -6923,7 +6984,7 @@
       ]
     },
     {
-      "authorId": "2237781074",
+      "authorId": "1742597",
       "name": "Zbigniew Ras",
       "collaborationCount": 1,
       "firstCollabYear": 2006,
@@ -6937,8 +6998,8 @@
       ]
     },
     {
-      "authorId": "48907835",
-      "name": "Javier Segovia",
+      "authorId": "145130058",
+      "name": "J. Segovia",
       "collaborationCount": 1,
       "firstCollabYear": 2006,
       "lastCollabYear": 2006,
@@ -7035,7 +7096,7 @@
       ]
     },
     {
-      "authorId": "2523189708",
+      "authorId": "39622647",
       "name": "R. Wallace",
       "collaborationCount": 1,
       "firstCollabYear": 2006,
@@ -7231,7 +7292,7 @@
       ]
     },
     {
-      "authorId": "2869599",
+      "authorId": "2578031430",
       "name": "Paresh Dhakan",
       "collaborationCount": 1,
       "firstCollabYear": 2005,
@@ -7287,7 +7348,7 @@
       ]
     },
     {
-      "authorId": "2056755693",
+      "authorId": "47573760",
       "name": "Hector Gutierrez",
       "collaborationCount": 1,
       "firstCollabYear": 2002,
@@ -7311,6 +7372,20 @@
           "paperId": "d4fe6883db23d08a09bb702b72c51ce01cf3ccb0",
           "title": "Coordination in a Content-Addressable Web",
           "year": 1999
+        }
+      ]
+    },
+    {
+      "authorId": "2574486166",
+      "name": "Sum Ario",
+      "collaborationCount": 1,
+      "firstCollabYear": 1997,
+      "lastCollabYear": 1997,
+      "sharedPapers": [
+        {
+          "paperId": "2d054f042d5a270d0346038665447982e8e77edc",
+          "title": "Garbage Collection in Open Distributed Tuple",
+          "year": 1997
         }
       ]
     }
